@@ -1,4 +1,4 @@
-<div class="flex justify-between 2xl:justify-center items-center overflow-hidden">
+<div class="flex justify-between items-center overflow-hidden">
     <div class="space-y-6 max-w-7xl lg:px-4 xl:px-40 px-4 -mt-6 2xl:mt-64 lg:mt-40">
         <h1 class="text-3xl md:text-7xl font-bold" style="
                 background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
