@@ -1,0 +1,227 @@
+<div id="real-project" class="bg-[#f2f3f5] w-full h-auto pt-8">
+    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-16">Real Estate Projects</h1>
+    {{-- Card of all project --}}
+    <div class="max-w-8xl mx-auto space-x-4 py-6">
+        <div class="max-w-8xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:px-24 lg:px-16 md:px-10">
+                <!-- CARD 1-->
+                <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-2 flex flex-col space-y-4">
+                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
+                    </div>
+
+                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                        Pov Bopheak Kulen Home Project
+                    </h3>
+
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                        <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                            Housing Project
+                        </h3>
+                    </div>
+
+                    <div class="mt-auto space-y-2 pt-4 py-4">
+                        <button
+                            class="w-full text-xs border border-[#03254B] rounded-full py-2 text-[#03254B] hover:bg-[#03254B] hover:text-white transition">
+                            Check Price & Availability
+                        </button>
+                        <button
+                            class="w-full text-xs bg-linear-to-r from-[#F2A93F] to-[#FFFBA6] rounded-full py-2 font-medium">
+                            Book Free Consultation
+                        </button>
+                    </div>
+                </div>
+                <!-- CARD 1-->
+                <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-2 flex flex-col space-y-4">
+                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
+                    </div>
+
+                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                        Pov Bopheak Kulen Home Project
+                    </h3>
+
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                            Housing Project
+                        </h3>
+                    </div>
+
+                    <div class="mt-auto space-y-2 pt-4 py-4">
+                        <button
+                            class="w-full text-xs border border-[#03254B] rounded-full py-2 text-[#03254B] hover:bg-[#03254B] hover:text-white transition">
+                            Check Price & Availability
+                        </button>
+                        <button
+                            class="w-full text-xs bg-linear-to-r from-[#F2A93F] to-[#FFFBA6] rounded-full py-2 font-medium">
+                            Book Free Consultation
+                        </button>
+                    </div>
+                </div>
+                <!-- CARD 1-->
+                <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-2 flex flex-col space-y-4">
+                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
+                    </div>
+
+                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                        Pov Bopheak Kulen Home Project
+                    </h3>
+
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                        <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                            Housing Project
+                        </h3>
+                    </div>
+
+                    <div class="mt-auto space-y-2 pt-4 py-4">
+                        <button
+                            class="w-full text-xs border border-[#03254B] rounded-full py-2 text-[#03254B] hover:bg-[#03254B] hover:text-white transition">
+                            Check Price & Availability
+                        </button>
+                        <button
+                            class="w-full text-xs bg-linear-to-r from-[#F2A93F] to-[#FFFBA6] rounded-full py-2 font-medium">
+                            Book Free Consultation
+                        </button>
+                    </div>
+                </div>
+                <!-- CARD 1-->
+                <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-2 flex flex-col space-y-4">
+                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
+                    </div>
+
+                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                        Pov Bopheak Kulen Home Project
+                    </h3>
+
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                            Housing Project
+                        </h3>
+                    </div>
+
+                    <div class="mt-auto space-y-2 pt-4 py-4">
+                        <button
+                            class="w-full text-xs border border-[#03254B] rounded-full py-2 text-[#03254B] hover:bg-[#03254B] hover:text-white transition">
+                            Check Price & Availability
+                        </button>
+                        <button
+                            class="w-full text-xs bg-linear-to-r from-[#F2A93F] to-[#FFFBA6] rounded-full py-2 font-medium">
+                            Book Free Consultation
+                        </button>
+                    </div>
+                </div>
+                <!-- CARD 1-->
+                <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-2 flex flex-col space-y-4">
+                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
+                    </div>
+
+                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                        Pov Bopheak Kulen Home Project
+                    </h3>
+
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                        <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                            Housing Project
+                        </h3>
+                    </div>
+
+                    <div class="mt-auto space-y-2 pt-4 py-4">
+                        <button
+                            class="w-full text-xs border border-[#03254B] rounded-full py-2 text-[#03254B] hover:bg-[#03254B] hover:text-white transition">
+                            Check Price & Availability
+                        </button>
+                        <button
+                            class="w-full text-xs bg-linear-to-r from-[#F2A93F] to-[#FFFBA6] rounded-full py-2 font-medium">
+                            Book Free Consultation
+                        </button>
+                    </div>
+                </div>
+                <!-- CARD 1-->
+                <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-2 flex flex-col space-y-4">
+                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
+                    </div>
+
+                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                        Pov Bopheak Kulen Home Project
+                    </h3>
+
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                        <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                            Housing Project
+                        </h3>
+                    </div>
+
+                    <div class="mt-auto space-y-2 pt-4 py-4">
+                        <button
+                            class="w-full text-xs border border-[#03254B] rounded-full py-2 text-[#03254B] hover:bg-[#03254B] hover:text-white transition">
+                            Check Price & Availability
+                        </button>
+                        <button
+                            class="w-full text-xs bg-linear-to-r from-[#F2A93F] to-[#FFFBA6] rounded-full py-2 font-medium">
+                            Book Free Consultation
+                        </button>
+                    </div>
+                </div>
+                <!-- CARD 1-->
+                <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-2 flex flex-col space-y-4">
+                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
+                    </div>
+
+                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                        Pov Bopheak Kulen Home Project
+                    </h3>
+
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                            Housing Project
+                        </h3>
+                    </div>
+
+                    <div class="mt-auto space-y-2 pt-4 py-4">
+                        <button
+                            class="w-full text-xs border border-[#03254B] rounded-full py-2 text-[#03254B] hover:bg-[#03254B] hover:text-white transition">
+                            Check Price & Availability
+                        </button>
+                        <button
+                            class="w-full text-xs bg-linear-to-r from-[#F2A93F] to-[#FFFBA6] rounded-full py-2 font-medium">
+                            Book Free Consultation
+                        </button>
+                    </div>
+                </div>
+                <!-- CARD 1-->
+                <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-2 flex flex-col space-y-4">
+                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
+                    </div>
+
+                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                        Pov Bopheak Kulen Home Project
+                    </h3>
+
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                        <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                            Housing Project
+                        </h3>
+                    </div>
+
+                    <div class="mt-auto space-y-2 pt-4 py-4">
+                        <button
+                            class="w-full text-xs border border-[#03254B] rounded-full py-2 text-[#03254B] hover:bg-[#03254B] hover:text-white transition">
+                            Check Price & Availability
+                        </button>
+                        <button
+                            class="w-full text-xs bg-linear-to-r from-[#F2A93F] to-[#FFFBA6] rounded-full py-2 font-medium">
+                            Book Free Consultation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
