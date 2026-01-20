@@ -4,8 +4,8 @@
     <img src="{{ asset('assets/background/bg-freelan.png') }}" alt="Background"
         class="absolute inset-0 w-full h-auto md:h-full md:object-cover -z-30">
 
-    <div class="flex justify-between items-center mt-2 md:mt-24 py-2 md:py-12">
-        <div class="space-y-6 max-w-6xl lg:px-4 xl:px-40 px-4 -mt-6">
+    <div class="flex justify-between items-center -mt-6 md:mt-24 py-2 md:py-12">
+        <div class="space-y-4 md:space-y-6 max-w-6xl lg:px-4 xl:px-40 px-4 -mt-6">
             <h1 class="text-3xl md:text-7xl font-bold" style="
                 background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                 -webkit-background-clip: text;
@@ -28,15 +28,16 @@
                 ">
                 Sales stand together
             </h1>
-            <h3 class="text-2xl md:text-4xl text-[#03254b] max-w-80 md:max-w-150">Build Your Career in Real Estate with
+            <h3 class="text-xl font-semibold md:text-4xl text-[#03254b] max-w-80 md:max-w-150 md:-mt-0 -mt-4">
+                Build Your Career in Real Estate with
                 Pov Bopheak
             </h3>
-            <p class="text-md md:text-xl max-w-64 md:max-w-xl font-medium text-[#03254b]">
+            <p class="text-md md:text-xl max-w-64 md:max-w-xl font-medium text-[#03254b] py-4">
                 Flexible income • Strong brand • Real projects • Full sales support
             </p>
             <div
-                class="bg-[#f2b34e] w-64 h-12 md:w-72 md:h-20 flex justify-center items-center rounded-full md:mt-16 md:ml-8">
-                <a href="#application-form" class="text-lg md:text-xl text-[#03254b] font-bold">Apply as Sales Agent</a>
+                class="bg-[#f2b34e] w-52 h-10 md:w-72 md:h-20 flex justify-center items-center rounded-full md:mt-16 md:ml-8">
+                <a href="#application-form" class="text-sm md:text-xl text-[#03254b] font-bold">Apply as Sales Agent</a>
             </div>
         </div>
     </div>
@@ -45,7 +46,7 @@
 
 {{-- Your Role as a Sales Partner --}}
 <div class="relative w-full">
-    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-4 md:py-16">
+    <h1 class="text-xl md:text-5xl font-semibold text-center text-[#03254B] py-6 md:py-16">
         Your Role as a Sales Partner
     </h1>
 

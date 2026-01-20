@@ -30,7 +30,7 @@
         <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4">
 
             <!-- Card 01 -->
-            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-65">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-62">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
@@ -38,10 +38,10 @@
                 </div>
 
                 <div class="">
-                    <h3 class="text-[#F2A93F] font-semibold mb-3">
+                    <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
                         Quality You Can Trust
                     </h3>
-                    <p class="text-[#03254B] text-sm leading-relaxed">
+                    <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
                         We sell only qualified projects and develop well-planned
                         housing built to lasting standards.
                     </p>
@@ -49,7 +49,7 @@
             </div>
 
             <!-- Card 02 -->
-            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-65">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-62">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
@@ -57,10 +57,10 @@
                 </div>
 
                 <div>
-                    <h3 class="text-[#F2A93F] font-semibold mb-3">
+                    <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
                         Affordable Housing with Quality
                     </h3>
-                    <p class="text-[#03254B] text-sm leading-relaxed">
+                    <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
                         Our developments deliver high-quality housing at accessible price points, 
                         starting from USD 29,000, ensuring value, durability, and long-term ownership confidence.
                     </p>
@@ -68,7 +68,7 @@
             </div>
 
              <!-- Card 03 -->
-            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-65">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-62">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
@@ -76,17 +76,17 @@
                 </div>
 
                 <div>
-                    <h3 class="text-[#F2A93F] font-semibold mb-3">
+                    <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
                         Legal Security Guaranteed
                     </h3>
-                    <p class="text-[#03254B] text-sm leading-relaxed">
+                    <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
                         We sell only qualified projects and develop well-planned
                         housing built to lasting standards.
                     </p>
                 </div>
             </div>
              <!-- Card 04 -->
-            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-65">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-62">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
@@ -94,17 +94,17 @@
                 </div>
 
                 <div>
-                    <h3 class="text-[#F2A93F] font-semibold mb-3">
+                    <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
                         Quality You Can Trust
                     </h3>
-                    <p class="text-[#03254B] text-sm leading-relaxed">
+                    <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
                         We sell only qualified projects and develop well-planned
                         housing built to lasting standards.
                     </p>
                 </div>
             </div>
              <!-- Card 05 -->
-            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-65">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-62">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
@@ -112,17 +112,17 @@
                 </div>
 
                 <div>
-                    <h3 class="text-[#F2A93F] font-semibold mb-3">
+                    <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
                         Quality You Can Trust
                     </h3>
-                    <p class="text-[#03254B] text-sm leading-relaxed">
+                    <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
                         We sell only qualified projects and develop well-planned
                         housing built to lasting standards.
                     </p>
                 </div>
             </div>
              <!-- Card 06 -->
-            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-65">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col lg:h-52 h-62">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
@@ -130,10 +130,10 @@
                 </div>
 
                 <div>
-                    <h3 class="text-[#F2A93F] font-semibold mb-3">
+                    <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
                         Quality You Can Trust
                     </h3>
-                    <p class="text-[#03254B] text-sm leading-relaxed">
+                    <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
                         We sell only qualified projects and develop well-planned
                         housing built to lasting standards.
                     </p>
