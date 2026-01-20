@@ -36,7 +36,7 @@
         <span class="font-medium">Land & Home Co., Ltd</span>
       </span>
     </div>
-    <div class="lg:hidden px-4">
+    <div class="lg:hidden px-8">
       <!-- Open menu -->
       <button id="openMenu" class="w-8 h-8">
         <img src="{{ asset('assets/icon/menu-mobile.png') }}" class="w-full h-full object-cover">
