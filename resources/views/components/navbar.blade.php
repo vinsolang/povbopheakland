@@ -117,7 +117,7 @@
       <li><a href="{{ route('home') }}#real-project" class="mobile-link">Real Estate Projects</a></li>
       <li><a href="{{ route('home') }}#our-customer" class="mobile-link">Our Customers</a></li>
       <li><a href="{{ route('home') }}#freelancer" class="mobile-link">Freelancers</a></li>
-      <li><a href="{{ route('home') }}#contact-us" class="mobile-link">Contact Us</a></li>
+      <li><a href="{{ route('home') }}#contact-form" class="mobile-link">Contact Us</a></li>
     </ul>
   </div>
 

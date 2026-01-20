@@ -19,7 +19,7 @@
 
                         <div
                             class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1 space-y-2">
-                            <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                            <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm uppercase">
                                  {{ $item->type_en }}
                             </h3>
                             <p

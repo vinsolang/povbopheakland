@@ -31,13 +31,13 @@
 
         <!-- Header -->
         <div class="flex justify-between items-center px-8 md:px-14 py-4">
-            <div class="flex items-center gap-3">
+            <a href="{{ route('home') }}" class="flex items-center gap-3">
                 <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-14 h-auto">
                 <div class="hidden xl:flex items-center text-[#03254B] text-lg leading-none">
                     <span class="font-semibold">Pov&nbsp;Bopheak</span>
                     <span class="font-normal ml-1"> Land & Home Co., Ltd</span>
                 </div>
-            </div>
+            </a>
             <div class="flex items-center gap-3 text-[#03254B] text-lg">
                 <p>Real Estate Projects</p>
             </div>
@@ -51,10 +51,10 @@
                 <!-- Title -->
                 <h1 class="max-w-sm text-[#03254B] text-2xl md:text-4xl font-medium">
                     {{ app()->getLocale() === 'en'
-    ? $projects->name_en
-    : (app()->getLocale() === 'kh'
-        ? $projects->name_kh
-        : $projects->name_ch) }}
+                        ? $projects->name_en
+                        : (app()->getLocale() === 'kh'
+                            ? $projects->name_kh
+                            : $projects->name_ch) }}
                 </h1>
 
                 <!-- Category Filter -->
