@@ -36,7 +36,7 @@
                 Flexible income • Strong brand • Real projects • Full sales support
             </p>
             <div
-                class="bg-[#f2b34e] w-52 h-10 md:w-72 md:h-20 flex justify-center items-center rounded-full md:mt-16 md:ml-8">
+                class="bg-[#f2b34e] w-52 h-10 md:w-64 md:h-20 flex justify-center items-center rounded-full md:mt-16 md:ml-8">
                 <a href="#application-form" class="text-sm md:text-xl text-[#03254b] font-bold">Apply as Sales Agent</a>
             </div>
         </div>
@@ -50,12 +50,12 @@
         Your Role as a Sales Partner
     </h1>
 
-    <div class="space-y-12">
+    <div class="space-y-12 flex justify-center items-center px-2">
         <div
-            class="max-w-7xl mx-auto flex md:flex-row flex-col justify-center items-center md:space-x-12 md:space-y-0 space-y-6">
+            class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 space-y-4 space-x-4 gap-1 md:gap-x-8 lg:gap-2">
 
             <!-- CARD -->
-            <div class="group w-72 h-40 rounded-2xl
+            <div class="group w-40 h-36 md:w-64 md:h-40 rounded-2xl
             flex justify-center items-center
             bg-[#03254B]
             transition-all duration-200 ease-in-out
@@ -64,7 +64,7 @@
                 <div class="max-w-sm mx-auto
                 text-white
                 transition-colors ease-in-out
-                group-hover:text-[#03254B]">
+                group-hover:text-[#03254B] text-xs md:text-sm">
                     <p>Introduce (potential)</p>
                     <p>buyers to Pov Bopheak</p>
                     <p>projects</p>
@@ -72,7 +72,7 @@
             </div>
 
             <!-- CARD -->
-            <div class="group w-72 h-40 rounded-2xl
+            <div class="group w-40 h-36 md:w-64 md:h-40 rounded-2xl
             flex justify-center items-center
             bg-[#03254B]
             transition-all duration-700 ease-in-out
@@ -81,14 +81,14 @@
                 <div class="max-w-sm mx-auto
                 text-white
                 transition-colors duration-700 ease-in-out
-                group-hover:text-[#03254B]">
+                group-hover:text-[#03254B] text-xs md:text-sm">
                     <p>Promote projects</p>
                     <p>online or offline</p>
                 </div>
             </div>
 
             <!-- CARD -->
-            <div class="group w-72 h-40 rounded-2xl
+            <div class="group w-40 h-36 md:w-64 md:h-40 rounded-2xl
             flex justify-center items-center
             bg-[#03254B]
             transition-all duration-700 ease-in-out
@@ -97,19 +97,14 @@
                 <div class="max-w-sm mx-auto
                 text-white
                 transition-colors duration-700 ease-in-out
-                group-hover:text-[#03254B]">
+                group-hover:text-[#03254B] text-xs md:text-sm">
                     <p>Arrange site visits</p>
                     <p>(with company support)</p>
                 </div>
             </div>
 
-        </div>
-
-        <div
-            class="max-w-7xl mx-auto flex md:flex-row flex-col justify-center items-center md:space-x-12 md:space-y-0 space-y-6">
-
-            <!-- CARD -->
-            <div class="group w-72 h-40 rounded-2xl
+             <!-- CARD -->
+            <div class="group w-40 h-36 md:w-64 md:h-40 rounded-2xl
             flex justify-center items-center
             bg-[#03254B]
             transition-all duration-700 ease-in-out
@@ -118,14 +113,14 @@
                 <div class="max-w-sm mx-auto
                 text-white
                 transition-colors duration-700 ease-in-out
-                group-hover:text-[#03254B]">
+                group-hover:text-[#03254B] text-xs md:text-sm px-4">
                     <p>Assist buyers through </p>
                     <p>booking and documentation</p>
                 </div>
             </div>
 
             <!-- CARD -->
-            <div class="group w-72 h-40 rounded-2xl
+            <div class="group w-40 h-36 md:w-64 md:h-40 rounded-2xl
             flex justify-center items-center
             bg-[#03254B]
             transition-all duration-700 ease-in-out
@@ -134,14 +129,14 @@
                 <div class="max-w-sm mx-auto
                 text-white
                 transition-colors duration-700 ease-in-out
-                group-hover:text-[#03254B]">
+                group-hover:text-[#03254B] text-xs md:text-sm">
                     <p>Earn commission upon</p>
                     <p>successful sales</p>
                 </div>
             </div>
 
             <!-- CARD -->
-            <div class="group w-72 h-40 rounded-2xl
+            <div class="group w-40 h-36 md:w-64 md:h-40 rounded-2xl
             flex justify-center items-center
             bg-[#03254B]
             transition-all duration-700 ease-in-out
@@ -150,14 +145,14 @@
                 <div class="max-w-sm mx-auto
                 text-white
                 transition-colors duration-700 ease-in-out
-                group-hover:text-[#03254B]">
+                group-hover:text-[#03254B] text-xs md:text-sm">
                     <p>No office commitment </p>
                     <p>required. Performance-</p>
                     <p>based income.</p>
                 </div>
             </div>
-
         </div>
+
     </div>
 </div>
 

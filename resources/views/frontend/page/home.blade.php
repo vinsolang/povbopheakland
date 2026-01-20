@@ -6,7 +6,7 @@
 
         <!-- LEFT CONTENT -->
         <div class="space-y-6 flex-1 text-left">
-            <h1 class="text-2xl md:text-7xl font-bold" style="
+            <h1 class="text-3xl md:text-7xl font-bold md:mt-0 -mt-2" style="
                     background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
@@ -17,7 +17,7 @@
                 Pov Bopheak Land
             </h1>
 
-            <h3 class="text-xl md:text-4xl text-[#03254b] font-bold">
+            <h3 class="text-md md:text-3xl lg:text-4xl text-[#03254b] font-bold">
                 {{ app()->getLocale() === 'en'
                     ? 'Modern Living, Smart Investment.'
                     : 'Modern Living, Smart Investment.' }}
@@ -28,7 +28,7 @@
                 comfortable living and long-term value in prime locations.”
             </p>
 
-            <div class="flex justify-center lg:justify-start">
+            <div class="flex justify-center lg:justify-start md:mt-0 mt-40">
                 <div class="bg-[#f2b34e] w-64 h-12 md:w-72 md:h-20
                             flex justify-center items-center
                             rounded-full md:mt-16">
@@ -50,14 +50,14 @@
                     </span>
                 </button>
 
-                <div id="langDropdown" class="absolute top-14 hidden flex-col gap-2
+                <div id="langDropdown" class="absolute top-14 hidden flex-col gap-2 space-y-2
                            bg-white shadow-lg rounded-full p-2 z-50">
                 </div>
             </div>
 
             <!-- Social Icons -->
             <div class="w-16 h-96 rounded-full
-                        flex flex-col justify-between items-center py-2">
+                        flex flex-col justify-between items-center py-2 md:mt-0 -mt-8">
                 
                 {{-- Icon Link Social Media --}}
                 <div class="w-16 h-96 rounded-full flex flex-col justify-between items-center py-2">
@@ -101,7 +101,7 @@
     let currentLang = "{{ strtoupper(app()->getLocale()) }}";
 </script>
 <script>
-    const languages = ['En', 'Kh', 'Cn']; // all languages
+    const languages = ['EN', 'KH', 'CN']; // all languages
     // let currentLang = 'En';
 
     const langBtn = document.getElementById('langBtn');

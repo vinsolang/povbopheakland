@@ -49,7 +49,7 @@
         </div>
 
         <div class="py-4" id="get-in-touch">
-            <h1 class="text-sm md:text-lg font-semibold text-white">
+            <h1 class="text-sm md:text-lg font-semibold text-white py-4">
                 Get in Touch
             </h1>
             {{-- Icon Link Social Media --}}
@@ -85,7 +85,7 @@
         </div>
 
         {{-- Section bottom full width --}}
-        <div class="flex lg:flex-row flex-col text-white py-8 -mt-10">
+        <div class="flex lg:flex-row flex-col text-white py-8 -mt-4 md:-mt-10">
             {{-- Contact us --}}
             <div class="lg:w-[45%]">
                 <div>
@@ -109,8 +109,8 @@
     </div>
 
     {{-- Map of Location --}}
-    <div class="lg:w-[55%] h-auto flex xl:flex-row flex-col justify-between px-2 lg:px-10 space-x-6 space-y-4 text-white md:mt-8 mt-0 py-4 md:py-8">
-        <div class="space-y-2">
+    <div class="h-auto flex xl:flex-row flex-col justify-between px-2 lg:px-10 space-y-4 text-white -mt-6 md:mt-8 py-4 md:py-8">
+        <div class="space-y-2 lg:px-2 lg:mt-0 mt-6">
             <h1 class="text-sm md:text-lg font-semibold" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
@@ -123,10 +123,10 @@
                 Sangkat Chrang Chamres, Khan Russey Keo, Phnom Penh, Cambodia
             </p>
             {{-- Map --}}
-            <div class="w-full xl:w-72 h-32 rounded-xl">
+            <div class="w-full xl:w-72 h-32 rounded-lg flex justify-center items-center">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.070016297376!2d104.88439477480213!3d11.623954042990075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310953002172e7a9%3A0x1c5e614ac11878b6!2sPov%20Bopheak%20Land%20%26%20Home!5e1!3m2!1skm!2skh!4v1768798033272!5m2!1skm!2skh"
-                    class="rounded-lg" style="border:0;" allowfullscreen="" loading="lazy"
+                    class="rounded-lg w-full" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
@@ -143,10 +143,10 @@
                 Sna Techo Village, Balang Commune, Prasat Bakong District, Siem Reap Province, Cambodia.
             </p>
             {{-- Map --}}
-            <div class="w-full xl:w-72 h-32 rounded-lg">
+            <div class="w-full xl:w-72 h-32 rounded-lg flex justify-center items-center md:mt-0 mt-4">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14792.75472708665!2d104.09799600000001!3d13.469979!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3110390043ac3b81%3A0xda10418112d97440!2sPov%20Bopheak%20Kulen%20Home!5e1!3m2!1sen!2skh!4v1768809798264!5m2!1sen!2skh"
-                    class="rounded-2xl" style="border:0;" allowfullscreen="" loading="lazy"
+                    class="rounded-lg w-full" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>

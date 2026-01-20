@@ -44,7 +44,7 @@
 
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="{{ asset('vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
-
+  <script src="//unpkg.com/alpinejs" defer></script>
   {{--
   <script src="{{ asset('js/') }}"></script> --}}
   <script src="{{ asset('js/config.js') }}"></script>
@@ -193,6 +193,25 @@
             </ul>
           </li>
 
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-user-voice"></i>
+              <div data-i18n="Layouts">Project</div>
+            </a>
+
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="{{ route('project.index') }}" class="menu-link">
+                  <div data-i18n="Without menu">View project</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="{{ route('project.create') }}" class="menu-link">
+                  <div data-i18n="Without menu">Add project</div>
+                </a>
+              </li>
+            </ul>
+          </li>
           <!-- Profile -->
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">

@@ -6,10 +6,12 @@ use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\LocaleController;
 use App\Http\Controllers\backend\OurTeamController;
+use App\Http\Controllers\backend\ProjectController;
 use App\Http\Controllers\frontend\FreelancersController;
 use App\Http\Controllers\Send\ApplicationController;
 use App\Http\Controllers\Send\ContactController;
 use App\Models\Customer;
+use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -17,15 +19,29 @@ Route::get('/', function () {
     $showAboutUs = DB::table('about_us')->get();
     $showOurTeam = DB::table('our_team')->get();
     $showCustomer = Customer::all();
+    $projects = Project::all();
     return view('frontend.layout.index', compact(
     'showAboutUs',
 'showOurTeam',
-'showCustomer'
+'showCustomer',
+'projects'
     ));
 })->name('home');
 
-Route::get('/show', function () {
-    return view('frontend.page.show.index');
+
+
+// Route::get('/show', function () {
+//     return view('frontend.page.show.index');
+// })->name('show');
+Route::get('/show/{slug}', function ($slug) {
+    $projects = Project::where('slug', $slug)->firstOrFail();
+
+    // ✅ Decode category ONCE
+    $categories = is_array($projects->category)
+        ? $projects->category
+        : json_decode($projects->category ?? '[]', true);
+
+    return view('frontend.page.show.index', compact('projects', 'categories'));
 })->name('show');
 
 // Route for switch Langage
@@ -77,4 +93,8 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('customer', CustomerController::class);
     Route::delete('customer/{id}/image/{index}', [CustomerController::class, 'deleteImage'])
     ->name('customer.image.delete');
+
+    Route::resource('project', ProjectController::class)->except(['show', 'destroy']);
+    Route::delete('/project/{id}', [ProjectController::class, 'destroy'])->name('project.destroy');
+
 });

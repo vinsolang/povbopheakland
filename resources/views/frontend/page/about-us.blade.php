@@ -26,7 +26,7 @@
         </div>
 
         <!-- Button wrapper (background) -->
-        <div class="mt-6 w-36 h-12 rounded-full bg-[#03244a] flex items-center justify-center">
+        <div class="-mt-2 md:mt-6 w-36 h-12 rounded-full bg-[#03244a] flex items-center justify-center">
 
             <button @click="showModal = true"
                     class="bg-linear-to-r from-[#f2ad46] via-[#f7ca68] to-[#fce88d]

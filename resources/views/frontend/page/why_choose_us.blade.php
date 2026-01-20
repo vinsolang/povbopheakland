@@ -60,7 +60,7 @@
                     <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
                         Affordable Housing with Quality
                     </h3>
-                    <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
+                    <p class="text-[#03254B] text-xs md:text-sm leading-relaxed md:mt-0 -mt-4">
                         Our developments deliver high-quality housing at accessible price points, 
                         starting from USD 29,000, ensuring value, durability, and long-term ownership confidence.
                     </p>

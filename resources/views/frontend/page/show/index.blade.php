@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth overflow-x-hidden">
 
 <head>
     <meta charset="utf-8">
@@ -11,247 +11,284 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
     <link rel="icon" href="{{ asset('assets/logo/logo-fina.png') }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
 <body class="">
-    {{-- Scroll To Top Button --}}
-    <button
-        id="scrollTopBtn"
-        onclick="scrollToTop()"
-        class="fixed bottom-6 right-6 z-50 hidden cursor-pointer transition-opacity duration-300"
-    >
-        <img 
-            src="{{ asset('assets/icon/button-scroll.png') }}" 
-            alt="Scroll to top"
-            class="w-12 h-12 object-cover"
-        >
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollTopBtn" class="fixed bottom-6 right-6 z-50 hidden cursor-pointer transition-opacity duration-300">
+        <img src="{{ asset('assets/icon/button-scroll.png') }}" alt="Scroll to top" class="w-12 h-12 object-cover">
     </button>
-    <div class="relative w-full min-h-screen">
+
+    <div class="relative w-full min-h-screen" x-data='projectData(@json($categories), "{{ app()->getLocale() }}")'>
 
         <!-- BACKGROUND IMAGE -->
         <img src="{{ asset('assets/background/bg-show.png') }}" alt="Background"
             class="absolute inset-0 w-full h-full object-cover -z-10">
 
-        <div class="flex justify-between items-center px-8 md:px-14">
-            <div class="flex items-center gap-3 mt-8">
-                <!-- Logo -->
+        <!-- Header -->
+        <div class="flex justify-between items-center px-8 md:px-14 py-4">
+            <div class="flex items-center gap-3">
                 <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-14 h-auto">
-
-                <!-- Text -->
                 <div class="hidden xl:flex items-center text-[#03254B] text-lg leading-none">
                     <span class="font-semibold">Pov&nbsp;Bopheak</span>
                     <span class="font-normal ml-1"> Land & Home Co., Ltd</span>
                 </div>
             </div>
-            <div class="flex items-center gap-3 mt-8 text-[#03254B] text-lg">
+            <div class="flex items-center gap-3 text-[#03254B] text-lg">
                 <p>Real Estate Projects</p>
             </div>
         </div>
 
-        {{-- Show About information project --}}
-
+        <!-- Main Content -->
         <div class="max-w-7xl mx-auto flex lg:flex-row flex-col justify-between px-12 mt-12">
 
-            <div class="w-full md:w-1/2 mx-auto flex flex-col space-y-8 mt-4">
-                {{-- Title --}}
-                <h1 class="max-w-sm text-[#03254B] text-2xl md:text-4xl font-medium">Pov Bopheak Kulen Home Project</h1>
-                {{-- Filtter --}}
-                <div class="flex space-x-3">
-                    <div class="flex justify-center items-center" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
-                        border-radius: 24.5px;
-                        ">
-                        <button class="cursor-pointer w-40 h-10">Vacation Home</button>
+            <!-- Left Column -->
+            <div class="w-full md:w-1/2 flex flex-col space-y-8 mt-4">
+                <!-- Title -->
+                <h1 class="max-w-sm text-[#03254B] text-2xl md:text-4xl font-medium">
+                    {{ app()->getLocale() === 'en'
+    ? $projects->name_en
+    : (app()->getLocale() === 'kh'
+        ? $projects->name_kh
+        : $projects->name_ch) }}
+                </h1>
+
+                <!-- Category Filter -->
+                @php
+                    $categories = is_array($projects->category)
+                        ? $projects->category
+                        : json_decode($projects->category ?? '[]', true);
+                @endphp
+
+                <div class="space-y-6">
+                    <!-- Category Buttons -->
+                    <div class="flex md:flex-row flex-wrap space-x-3 md:space-y-0 space-y-3">
+                        <template x-for="(cat, index) in categories" :key="index">
+                            <div class="flex justify-center items-center" :class="activeCategory === index ?
+                                    'bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-full px-4 py-2' :
+                                    ''">
+                                <button class="cursor-pointer w-40 h-10" @click="setActiveCategory(index)"
+                                    x-text="cat?.name?.[lang] ?? ''"></button>
+                            </div>
+                        </template>
                     </div>
-                    <div class="flex justify-center items-center">
-                        <button class="cursor-pointer w-40 h-10">Vacation Home</button>
+
+                    <!-- Category Type Buttons -->
+                    <div class="flex md:flex-row flex-wrap md:space-y-0 space-y-3 space-x-3 mt-2" x-show="categories[activeCategory]
+                            && Array.isArray(categories[activeCategory].cat_type)
+                            && categories[activeCategory].cat_type.length">
+                        <template x-for="(type, tIndex) in categories[activeCategory].cat_type" :key="tIndex">
+                            <div x-show="type?.title?.[lang]" class="flex justify-center items-center rounded-full"
+                                :class="activeType === tIndex ? 'bg-[#03254B] py-2 text-white' : ''">
+                                <button class="cursor-pointer w-32 h-8" @click="setActiveType(tIndex)" :style="activeType === tIndex ?
+                                        'background: linear-gradient(90deg,#F2A93F,#FFFBA6); -
+                                    webkit - background - clip: text; -
+                                    webkit - text - fill - color: transparent;
+                                    ': '
+                                    '" x-text="type.title[lang]"></button>
+                            </div>
+                        </template>
+
                     </div>
-                    <div class="flex justify-center items-center">
-                        <button class="cursor-pointer w-40 h-10">Vacation Home</button>
+
+
+                    <div class="text-[#03254B] text-lg mt-6">
+                        <p x-text="currentDes()"></p>
                     </div>
-                </div>
-                {{-- type room --}}
-                <div class="flex space-x-3">
-                    <div class="flex justify-center items-center bg-[#03254B] rounded-full">
-                        <button class="cursor-pointer w-32 h-8" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
-                            -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;
-                            background-clip: text;
-                            text-fill-color: transparent;">1 Bedroom</button>
-                    </div>
-                    <div class="flex justify-center items-center bg-white rounded-full">
-                        <button class="cursor-pointer w-32 h-8">2 Bedrooms</button>
-                    </div>
-                    <div class="flex justify-center items-center bg-white rounded-full">
-                        <button class="cursor-pointer w-32 h-8">3 Bedrooms</button>
-                    </div>
+
                 </div>
 
-                <div>
-                    {{-- Price of project --}}
-                    {{-- <span>Price: </span> --}}
-                    {{-- Cagory of room --}}
-                    <div class="text-[#03254B] text-lg">
-                        <p> Land Size : 7m x 15m </p>
-                        <p>House Size: 5m x 7m </p>
-                        <p class="linear-gradient">1 Bedroom  1 Kitchen  1 Bathroom  1 Roof Terrace</p>
-                        <p>Many Extra’s</p>
-                    </div>
-                </div>
-
-                {{-- Button Dowload PDF --}}
+                <!-- Download PDF Button -->
                 <div class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12">
-                    <button class="cursor-pointer w-full h-14" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                        text-fill-color: transparent;">
+                    {{-- <button
+                        class="w-full h-full cursor-pointer bg-gradient-to-r from-yellow-400 to-yellow-200 text-transparent bg-clip-text font-medium">
                         Download PDF
-                    </button>
+                    </button> --}}
+                    {{-- @if ($projects->pdf) --}}
+                    <a href="{{ asset('storage/' . $projects->pdf) }}" download
+                        class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12">
+                        <span class="bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                            Download PDF
+                        </span>
+                    </a>
+                    {{-- @endif --}}
+
                 </div>
             </div>
 
-            <div class="md:w-1/2 w-full mx-auto flex flex-col items-center space-y-4 mt-4">
-                {{-- Map --}}
-                <div class="w-full">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.070016297376!2d104.88439477480213!3d11.623954042990075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310953002172e7a9%3A0x1c5e614ac11878b6!2sPov%20Bopheak%20Land%20%26%20Home!5e1!3m2!1skm!2skh!4v1768798033272!5m2!1skm!2skh"
-                        class="rounded-lg w-[90%] h-80"
-                        style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <!-- Right Column -->
+            <div class="md:w-1/2 w-full flex flex-col items-center space-y-4 mt-4">
+                <!-- Map -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.9916007958345!2d104.8869697!3d11.623948799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310953002172e7a9%3A0x1c5e614ac11878b6!2sPov%20Bopheak%20Land%20%26%20Home!5e0!3m2!1sen!2skh!4v1768547106090!5m2!1sen!2skh"
+                    class="w-full h-72 rounded-xl" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <p class="text-[#03254B] text-lg px-2 md:px-8 text-left">
+                    Located on Sna Techo, Balang Commune, Prasat Bakong District, Siem Reap Province
+                </p>
+
+                <!-- Social Icons -->
+
+                <div class="flex md:flex-row flex-wrap gap-4">
+                    @php
+                        $socialLinks = [
+                            'fb' => 'https://www.facebook.com/profile.php?id=100065170836537',
+                            'te' => 'https://t.me/+85516222809',
+                            'whatsapp' => 'https://wa.me/087446277',
+                            'youtube' => 'https://www.youtube.com/@povbopheaklandhome3948',
+                            'tiktok' => 'https://www.tiktok.com/@povbopheaklandandhome?_r=1&_t=ZS-92yM8DJyKCW',
+                            'wechat' => 'https://www.wechat.com/',
+                            'in' => 'https://www.linkedin.com/company/pov-bopheak-land-home-co-ltd/?viewAsMember=tru',
+                        ];
+                    @endphp
+
+                    @foreach ($socialLinks as $icon => $link)
+                        <a href="{{ $link }}" target="_blank" rel="noopener noreferrer"
+                            class="w-12 h-12 rounded-full cursor-pointer hover:scale-110 transition">
+                            <img src="{{ asset('assets/icon/' . $icon . '.png') }}" alt="{{ $icon }}"
+                                class="w-full h-full object-cover">
+                        </a>
+                    @endforeach
                 </div>
-                <div>
-                    <p class="text-[#03254B] text-lg px-8">
-                        Located on
-                        Sna Techo, Balang Commune, Prasat Bakong District, Siem Reap Province
-                    </p>
-                </div>
-                {{-- Icon Link Social Media --}}
-                <div class="flex space-x-4">
-                    <a href="" class="w-12 h-12 rounded-full cursor-pointer">
-                        <img src="{{ asset('assets/icon/fb.png') }}" alt="" class="w-full h-full object-cover">
-                    </a>
-                    <a href="" class="w-12 h-12 rounded-full cursor-pointer">
-                        <img src="{{ asset('assets/icon/te.png') }}" alt="" class="w-full h-full object-cover">
-                    </a>
-                    <a href="" class="w-12 h-12 rounded-full cursor-pointer">
-                        <img src="{{ asset('assets/icon/whatsapp.png') }}" alt="" class="w-full h-full object-cover">
-                    </a>
-                    <a href="" class="w-12 h-12 rounded-full cursor-pointer">
-                        <img src="{{ asset('assets/icon/youtube.png') }}" alt="" class="w-full h-full object-cover">
-                    </a>
-                    <a href="" class="w-12 h-12 rounded-full cursor-pointer">
-                        <img src="{{ asset('assets/icon/tiktok.png') }}" alt="" class="w-full h-full object-cover">
-                    </a>
-                    <a href="" class="w-12 h-12 rounded-full cursor-pointer">
-                        <img src="{{ asset('assets/icon/wechat.png') }}" alt="" class="w-full h-full object-cover">
-                    </a>
-                    <a href="" class="w-12 h-12 rounded-full cursor-pointer">
-                        <img src="{{ asset('assets/icon/in.png') }}" alt="" class="w-full h-full object-cover">
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        {{-- Show slide image --}}
-
-        <div class="max-w-[99%] mx-auto mt-24 py-6">
-
-            <!-- MAIN ROW -->
-            <div class="flex items-center gap-6">
-
-                <!-- LEFT BUTTON SPACE -->
-                <button id="prevBtn" class="shrink-0">
-                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="21" cy="21" r="21" transform="rotate(-180 21 21)" fill="#1E1E1E" />
-                        <path
-                            d="M10 22.7321C8.66667 21.9623 8.66667 20.0378 10 19.268L25 10.6077C26.3333 9.8379 28 10.8002 28 12.3398L28 29.6603C28 31.1999 26.3333 32.1621 25 31.3923L10 22.7321Z"
-                            fill="white" />
-                    </svg>
-                </button>
-
-                <!-- IMAGE VIEWPORT -->
-                <div class="overflow-hidden w-full">
-                    <div id="slider" class="flex justify-center transition-transform duration-500 ease-in-out space-x-1 space-y-2">
-
-                        <img src="https://picsum.photos/600/350?1"
-                            class="w-[240px] h-[150px] object-cover shrink-0">
-                        <img src="https://picsum.photos/600/350?2"
-                            class="w-[240px] h-[150px] object-cover shrink-0">
-                        <img src="https://picsum.photos/600/350?3"
-                            class="w-[240px] h-[150px] object-cover shrink-0">
-                        <img src="https://picsum.photos/600/350?4"
-                            class="w-[240px] h-[150px] object-cover shrink-0">
-                        <img src="https://picsum.photos/600/350?5"
-                            class="w-[240px] h-[150px] object-cover shrink-0">
-                        <img src="https://picsum.photos/600/350?5"
-                            class="w-[240px] h-[150px] object-cover shrink-0">
-
-                    </div>
-                </div>
-
-                <!-- RIGHT BUTTON SPACE -->
-                <button id="nextBtn" class="shrink-0">
-                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="21" cy="21" r="21" fill="#1E1E1E" />
-                        <path
-                            d="M32 19.2679C33.3333 20.0377 33.3333 21.9623 32 22.7321L17 31.3923C15.6667 32.1621 14 31.1999 14 29.6603L14 12.3397C14 10.8001 15.6667 9.83789 17 10.6077L32 19.2679Z"
-                            fill="white" />
-                    </svg>
-                </button>
 
             </div>
         </div>
+
+        <!-- Image Slider -->
+        <div class="max-w-7xl mx-auto mt-24 flex items-center gap-6">
+
+            <!-- PREV -->
+            <button id="prevBtn" class="shrink-0">
+                <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
+                    <circle cx="21" cy="21" r="21" transform="rotate(-180 21 21)" fill="#1E1E1E" />
+                    <path
+                        d="M10 22.7321C8.66667 21.9623 8.66667 20.0378 10 19.268L25 10.6077C26.3333 9.8379 28 10.8002 28 12.3398L28 29.6603C28 31.1999 26.3333 32.1621 25 31.3923L10 22.7321Z"
+                        fill="white" />
+                </svg>
+            </button>
+
+            <!-- SLIDER -->
+            <div class="overflow-hidden w-full">
+                <div id="slider" class="flex gap-4 transition-transform duration-500 ease-in-out">
+                    <!-- 🔁 Dynamic Images -->
+                    <template x-for="(img, index) in currentImages()" :key="index">
+                        <img :src="'{{ asset('storage') }}/' + img"
+                            class="w-[300px] h-[200px] rounded-lg shrink-0 object-cover" />
+                    </template>
+                </div>
+            </div>
+
+            <!-- NEXT -->
+            <button id="nextBtn" class="shrink-0">
+                <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
+                    <circle cx="21" cy="21" r="21" fill="#1E1E1E" />
+                    <path
+                        d="M32 19.2679C33.3333 20.0377 33.3333 21.9623 32 22.7321L17 31.3923C15.6667 32.1621 14 31.1999 14 29.6603L14 12.3397C14 10.8001 15.6667 9.83789 17 10.6077L32 19.2679Z"
+                        fill="white" />
+                </svg>
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Scroll to top
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            scrollBtn.classList.toggle('hidden', window.scrollY < 300);
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.getElementById('slider');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let index = 0;
+            const visible = 3; // how many images visible
+            const imageWidth = 316; // 300px + gap
+
+            function updateSlider() {
+                slider.style.transform = `translateX(-${index * imageWidth}px)`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (index < slider.children.length - visible) {
+                    index++;
+                    updateSlider();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (index > 0) {
+                    index--;
+                    updateSlider();
+                }
+            });
+        });
+    </script>
+
+
+    <script>
+        function projectData(categoriesData = [], defaultLang = 'en') {
+            return {
+                categories: Array.isArray(categoriesData) ? categoriesData : [],
+                activeCategory: 0,
+                activeType: 0,
+                lang: defaultLang,
+
+                setActiveCategory(index) {
+                    this.activeCategory = index;
+                    this.activeType = 0;
+                },
+
+                setActiveType(index) {
+                    this.activeType = index;
+                },
+
+                currentDes() {
+                    const cat = this.categories[this.activeCategory];
+                    if (!cat) return '';
+
+                    if (Array.isArray(cat.cat_type) && cat.cat_type.length) {
+                        const type = cat.cat_type[this.activeType] || {};
+                        return type.des?.[this.lang] || type.title?.[this.lang] || '';
+                    }
+
+                    return cat.name?.[this.lang] || '';
+                },
+
+                currentImages() {
+                    const cat = this.categories[this.activeCategory];
+                    if (!cat) return [];
+
+                    if (Array.isArray(cat.cat_type) && cat.cat_type.length) {
+                        const type = cat.cat_type[this.activeType] || {};
+                        return Array.isArray(type.img) ? type.img : [];
+                    }
+
+                    return [];
+                }
+            }
+        }
+    </script>
+
 
 </body>
 
 </html>
-<script>
-    const slider = document.getElementById('slider');
-    const images = slider.children;
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    let index = 0;
-    const visible = 3;               // change to 2 or 3
-    const imageWidth = 316;          // 300 + gap
-
-    function update() {
-        slider.style.transform = `translateX(-${index * imageWidth}px)`;
-    }
-
-    nextBtn.onclick = () => {
-        if (index < images.length - visible) {
-            index++;
-            update();
-        }
-    };
-
-    prevBtn.onclick = () => {
-        if (index > 0) {
-            index--;
-            update();
-        }
-    };
-
-    update();
-</script>
-<script>
-    const scrollBtn = document.getElementById('scrollTopBtn');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            scrollBtn.classList.remove('hidden');
-        } else {
-            scrollBtn.classList.add('hidden');
-        }
-    });
-
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-</script>

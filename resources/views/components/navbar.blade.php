@@ -29,16 +29,16 @@
 <div class="w-full mx-auto xl:px-6 lg:px-4">
   <div class="lg:hidden flex justify-between items-center px-2">
     {{-- Logo of version mobile --}}
-    <div class="px-4 flex items-center space-x-1 py-4">
-      <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-12 h-auto">
-      <span class="text-[#03254B] font-semibold text-[12px] flex gap-1">
+    <div class="px-3 flex items-center space-x-0 py-2">
+      <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-10 h-auto">
+      <span class="text-[#03254B] font-semibold text-[9px] flex">
         <span>Pov Bopheak</span>
         <span class="font-medium">Land & Home Co., Ltd</span>
       </span>
     </div>
     <div class="lg:hidden px-8">
       <!-- Open menu -->
-      <button id="openMenu" class="w-8 h-8">
+      <button id="openMenu" class="w-6 h-6">
         <img src="{{ asset('assets/icon/menu-mobile.png') }}" class="w-full h-full object-cover">
       </button>
 
