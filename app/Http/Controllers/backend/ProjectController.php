@@ -54,6 +54,15 @@ class ProjectController extends Controller
             $pdfPath = $request->file('pdf')->store('projects/pdf', 'public');
         }
 
+        $mainImagePath = null;
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240', // max 10MB
+            ]);
+
+            $mainImagePath = $request->file('image')->store('projects/images', 'public');
+        }
+
         Project::create([
             'name_en' => $request->name_en,
             'name_kh' => $request->name_kh,
@@ -68,6 +77,7 @@ class ProjectController extends Controller
             'locate_text_ch' => $request->locate_text_ch,
             'locate_link' => $request->locate_link,
             'pdf' => $pdfPath,
+            'image' => $mainImagePath, // <-- new field
 
         ]);
 
@@ -122,6 +132,20 @@ class ProjectController extends Controller
             $pdfPath = $request->file('pdf')->store('projects/pdf', 'public');
         }
 
+        $mainImagePath = $project->image ?? null;
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            ]);
+
+            // Delete old image
+            if ($mainImagePath && Storage::disk('public')->exists($mainImagePath)) {
+                Storage::disk('public')->delete($mainImagePath);
+            }
+
+            $mainImagePath = $request->file('image')->store('projects/images', 'public');
+        }
+
         $project->update([
             'name_en' => $request->name_en,
             'name_kh' => $request->name_kh,
@@ -136,6 +160,7 @@ class ProjectController extends Controller
             'locate_text_ch' => $request->locate_text_ch,
             'locate_link' => $request->locate_link,
             'pdf' => $pdfPath,
+            'image' => $mainImagePath,
         ]);
 
         return redirect()->route('project.index')->with('success', 'Project updated successfully');

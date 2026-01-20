@@ -49,6 +49,7 @@
                 <input name="type_kh" placeholder="Project Type KH" class="input" value="{{ $project->type_kh }}">
                 <input name="type_ch" placeholder="Project Type CH" class="input" value="{{ $project->type_ch }}">
             </div>
+            <input type="file" name="image"  class="input mt-4"/>
         </div>
 
         <!-- LOCATION -->

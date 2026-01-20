@@ -50,6 +50,7 @@
                 <input name="type_kh" placeholder="Project Type KH" class="input">
                 <input name="type_ch" placeholder="Project Type CH" class="input">
             </div>
+            <input type="file" name="image" class="input mt-4" />
         </div>
 
         <!-- LOCATION -->

@@ -10,7 +10,7 @@
                     <!-- CARD 1-->
                     <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
                         <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
-                            <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
+                            <img src="{{ asset('storage/'. $item->image) }}" class="w-full h-full object-cover" alt="">
                         </div>
 
                         <h3 class="max-w-56 mx-auto text-center font-semibold text-[#03254B] text-sm">

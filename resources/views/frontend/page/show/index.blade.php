@@ -97,7 +97,7 @@
 
 
                     <div class="text-[#03254B] text-lg mt-6">
-                        <p x-text="currentDes()"></p>
+                        <p x-html="currentDes().replace(/\n/g, '<br>')"></p>
                     </div>
 
                 </div>
