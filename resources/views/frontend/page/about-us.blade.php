@@ -1,4 +1,4 @@
-<div id="about-us" class="max-w-6xl mx-auto flex lg:flex-row flex-col justify-between items-center
+<div id="about-us" class="max-w-7xl mx-auto flex lg:flex-row flex-col justify-between items-center
            lg:space-x-12 space-y-6 lg:space-y-0 pt-24 px-4" x-data="{ showModal: false }">
 
     <!-- Image -->

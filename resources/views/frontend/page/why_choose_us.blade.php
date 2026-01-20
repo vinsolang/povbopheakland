@@ -1,4 +1,4 @@
-<div class="relative w-full h-auto lg:h-[90vh] mt-24 lg:py-0 py-12">
+<div class="relative w-full h-auto lg:h-[90vh] xl:h-auto mt-24 lg:py-6 py-12">
     
     <!-- BACKGROUND IMAGE -->
     <img 
@@ -26,18 +26,18 @@
        </div>
        
        <!-- Content -->
-    <div class="relative max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+    <div class="relative max-w-7xl mx-auto px-2">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4">
 
             <!-- Card 01 -->
-            <div class="bg-white rounded-2xl p-12 shadow-lg relative flex flex-col">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
                     <span class="text-[#03254B] font-semibold">01</span>
                 </div>
 
-                <div>
+                <div class="">
                     <h3 class="text-[#F2A93F] font-semibold mb-3">
                         Quality You Can Trust
                     </h3>
@@ -49,7 +49,7 @@
             </div>
 
             <!-- Card 02 -->
-            <div class="bg-white rounded-2xl p-12 shadow-lg relative flex flex-col">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
@@ -68,7 +68,7 @@
             </div>
 
              <!-- Card 03 -->
-            <div class="bg-white rounded-2xl p-12 shadow-lg relative flex flex-col">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
@@ -86,7 +86,7 @@
                 </div>
             </div>
              <!-- Card 04 -->
-            <div class="bg-white rounded-2xl p-12 shadow-lg relative flex flex-col">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
@@ -104,7 +104,7 @@
                 </div>
             </div>
              <!-- Card 05 -->
-            <div class="bg-white rounded-2xl p-12 shadow-lg relative flex flex-col">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
@@ -122,7 +122,7 @@
                 </div>
             </div>
              <!-- Card 06 -->
-            <div class="bg-white rounded-2xl p-12 shadow-lg relative flex flex-col">
+            <div class="bg-white rounded-2xl pt-12 px-2 md:p-12 py-4 shadow-lg relative flex flex-col">
                 <div
                     class="absolute -top-0.5 mt-4 right-4 w-10 h-10 rounded-full flex items-center justify-center px-4"
                     style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">

@@ -31,12 +31,12 @@
     {{-- Logo of version mobile --}}
     <div class="px-4 flex items-center space-x-1">
       <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-12 h-auto">
-      <span class="text-[#03254B] font-semibold text-sm flex gap-1">
+      <span class="text-[#03254B] font-semibold text-[12px] flex gap-1">
         <span>Pov Bopheak</span>
         <span class="font-medium">Land & Home Co., Ltd</span>
       </span>
     </div>
-    <div class="lg:hidden">
+    <div class="lg:hidden px-4">
       <!-- Open menu -->
       <button id="openMenu" class="w-8 h-8">
         <img src="{{ asset('assets/icon/menu-mobile.png') }}" class="w-full h-full object-cover">
@@ -70,7 +70,7 @@
         <li><a href="{{ route('home') }}#real-project" class="nav-item">Real Estate Projects</a></li>
         <li><a href="{{ route('home') }}#our-customer" class="nav-item">Our Customers</a></li>
         <li><a href="{{ route('home') }}#freelancer" class="nav-item">Freelancers</a></li>
-        <li><a href="{{ route('home') }}#application-form" class="nav-item">Contact Us</a></li>
+        <li><a href="{{ route('home') }}#contact-form" class="nav-item">Contact Us</a></li>
 
 
         <!-- STATIC LINE UNDER MENU TEXT -->
@@ -78,6 +78,7 @@
         </span>
 
       </ul>
+
       <div class="flex xl:flex-row lg:flex-col items-center gap-3 mt-8">
         <!-- Logo -->
         <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-14 h-auto">

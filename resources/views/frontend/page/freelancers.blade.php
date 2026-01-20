@@ -45,7 +45,7 @@
 
 {{-- Your Role as a Sales Partner --}}
 <div class="relative w-full">
-    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-16">
+    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-4 md:py-16">
         Your Role as a Sales Partner
     </h1>
 
@@ -165,17 +165,19 @@
     <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-16">
         We Support You With ...
     </h1>
-    <section class="bg-[#f5f5f5]">
-        <div class="max-w-6xl mx-auto px-6 place-items-center">
 
-            <!-- GRID -->
-            <div
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-10 text-center max-w-7xl mx-auto space-x-28">
+    <section class="bg-[#f5f5f5]">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="grid grid-cols-2 lg:grid-cols-3
+                        gap-y-16 gap-x-10
+                        place-items-center
+                        max-w-6xl mx-auto">
 
                 <!-- ITEM 1 -->
-                <div class="flex flex-col justify-center">
+                <div class="flex flex-col justify-center relative lg:left-6">
                     <img src="{{ asset('assets/icon/icon-freelan/1.png') }}" class="w-8 h-8 mb-4" alt="">
-                    <p class="text-[#0a2a5e] text-lg font-medium leading-snug text-left">
+                    <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
                         Project brochures <br> & price lists
                     </p>
                 </div>
@@ -183,7 +185,7 @@
                 <!-- ITEM 2 -->
                 <div class="flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/2.png') }}" class="w-12 h-12 mb-4" alt="">
-                    <p class="text-[#0a2a5e] text-lg font-medium leading-snug text-left">
+                    <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
                         Legal ownership <br> information
                     </p>
                 </div>
@@ -191,7 +193,7 @@
                 <!-- ITEM 3 -->
                 <div class="flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/3.png') }}" class="w-12 h-12 mb-4" alt="">
-                    <p class="text-[#0a2a5e] text-lg font-medium leading-snug text-left">
+                    <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
                         On-site sales team <br> assistance
                     </p>
                 </div>
@@ -199,7 +201,7 @@
                 <!-- ITEM 4 -->
                 <div class="flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/4.png') }}" class="w-12 h-12 mb-4" alt="">
-                    <p class="text-[#0a2a5e] text-lg font-medium leading-snug text-left">
+                    <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
                         Sales scripts <br> & training
                     </p>
                 </div>
@@ -207,7 +209,7 @@
                 <!-- ITEM 5 -->
                 <div class="flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/5.png') }}" class="w-12 h-12 mb-4" alt="">
-                    <p class="text-[#0a2a5e] text-lg font-medium leading-snug text-left">
+                    <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
                         Marketing photos <br> & videos
                     </p>
                 </div>
@@ -215,7 +217,7 @@
                 <!-- ITEM 6 -->
                 <div class="flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/6.png') }}" class="w-12 h-12 mb-4" alt="">
-                    <p class="text-[#0a2a5e] text-lg font-medium leading-snug text-left">
+                    <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
                         Customer service & <br> document handling
                     </p>
                 </div>
@@ -229,7 +231,7 @@
 {{-- Commission & Rewards --}}
 
 <div class="max-w-7xl mx-auto px-6 py-20">
-    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-16">
+    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-10 -mt-8">
         Commission & Rewards
     </h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -309,7 +311,7 @@
 {{-- Application form --}}
 <div class="w-full bg-white" id="application-form">
     <!-- Title -->
-    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-16">
+    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] -mt-6">
         Application Form
     </h1>
 
@@ -321,7 +323,7 @@
     @endif
 
     <!-- Form -->
-    <div class="max-w-4xl mx-auto px-4">
+    <div class="max-w-4xl mx-auto px-4 mt-10">
         @if ($errors->any())
             <div class="mb-6 rounded-xl bg-red-50 border border-red-200 p-4 text-red-600">
                 <ul class="list-disc pl-5 space-y-1">
@@ -468,8 +470,8 @@
             </div>
 
             <!-- Button -->
-            <div class="flex justify-center mt-14 py-6 w-full md:col-span-2">
-                <button type="submit" class="px-32 py-4 rounded-full bg-[#03254B] font-medium text-lg cursor-pointer">
+            <div class="flex justify-center py-6 w-full md:col-span-2">
+                <button type="submit" class="px-24 py-2 md:px-32 md:py-4 rounded-full bg-[#03254B] font-medium text-lg cursor-pointer">
                     <span class="inline-block" style="
                             background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                             -webkit-background-clip: text;

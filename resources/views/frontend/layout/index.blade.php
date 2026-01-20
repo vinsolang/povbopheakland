@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth overflow-x-hidden">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@
             <img 
                 src="{{ asset('assets/icon/button-scroll.png') }}" 
                 alt="Scroll to top"
-                class="w-12 h-12 object-cover animate-bounce"
+                class="w-12 h-12 object-contain md:object-cover animate-bounce"
             >
         </button>
         <div class="relative w-full min-h-screen">
@@ -38,7 +38,7 @@
             <img 
                 src="{{ asset('assets/background/bg-home-2.png') }}" 
                 alt="Background"
-                class="absolute inset-0 w-full h-full object-cover -z-10"
+                class="absolute inset-0 h-[60%] w-full md:h-full object-cover -z-10"
             >
 
             <!-- CONTENT ON SAME IMAGE -->
@@ -47,9 +47,8 @@
             @include('frontend.page.about-us')
 
         </div>
-
         <!-- Real Estate Projects -->
-        <div class="relative w-full py-24">
+        <div class="relative w-full py-0 md:py-24">
             @include('frontend.page.real-estate-projects')
         </div>
         {{-- Our Team --}}

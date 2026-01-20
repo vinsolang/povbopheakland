@@ -18,7 +18,7 @@
   }
 </style>
 
-<div class="w-full mx-auto xl:px-6 lg:px-4 py-6">
+<div class="w-full mx-auto items-center xl:px-6 lg:px-4 py-6">
     <div class="lg:hidden flex justify-between items-center px-4">
       {{-- Logo of version mobile --}}
       <div class="px-4 flex items-center space-x-2">

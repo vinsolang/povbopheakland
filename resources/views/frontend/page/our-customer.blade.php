@@ -1,34 +1,60 @@
-<div class="relative w-full pt-8 overflow-hidden" id="our-customer">
-    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-16">
+<div class="relative w-full pt-8 overflow-hidden" id="our-customer"
+     x-data="{
+        index: 0,
+        total: {{ $showCustomer->sum(fn($c) => is_array($c->images) ? count($c->images) : 0) }}
+     }">
+
+    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-4 md:py-16">
         Our Customers
-        <p class="text-md md:text-lg text-center font-normal text-[#03254B] py-2">
+        <p class="text-sm md:text-lg font-normal text-[#03254B] py-2">
             local and international customers.
         </p>
     </h1>
-    {{-- Pictute of Customers --}}
-    <div class="w-full flex flex-col md:flex-row gap-2 px-4 md:px-6">
-    
+
+    <!-- MOBILE SLIDER -->
+    <div class="relative md:hidden overflow-hidden">
+        <div class="flex transition-transform duration-300"
+             :style="`transform: translateX(-${index * 100}%)`">
+
+            @foreach ($showCustomer as $customer)
+                @if(is_array($customer->images))
+                    @foreach($customer->images as $img)
+                        <div class="min-w-full">
+                            <img src="{{ asset($img) }}"
+                                 class="w-full h-64 object-cover rounded-xl"
+                                 alt="Customer Image">
+                        </div>
+                    @endforeach
+                @endif
+            @endforeach
+        </div>
+
+        <!-- LEFT BUTTON -->
+        <button
+            @click="index = index > 0 ? index - 1 : total - 1"
+            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow flex items-center justify-center">
+            ◀
+        </button>
+
+        <!-- RIGHT BUTTON -->
+        <button
+            @click="index = index < total - 1 ? index + 1 : 0"
+            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow flex items-center justify-center">
+            ▶
+        </button>
+    </div>
+
+    <!-- DESKTOP GRID -->
+    <div class="hidden md:flex gap-2 px-6">
         @foreach ($showCustomer as $customer)
-            @if(is_array($customer->images) && count($customer->images))
+            @if(is_array($customer->images))
                 @foreach($customer->images as $img)
                     <img src="{{ asset($img) }}"
-                       class="w-full md:w-1/5 h-64 object-cover"
-                        alt="Customer Image">
+                         class="w-1/5 h-64 object-cover"
+                         alt="Customer Image">
                 @endforeach
             @endif
         @endforeach
-
-        {{-- <img src="{{ asset('assets/our-customer/3.png') }}"
-            class="w-full md:w-1/5 h-64 object-cover" alt="">
-
-        <img src="{{ asset('assets/our-customer/2.png') }}"
-            class="w-full md:w-1/5 h-64 object-cover" alt="">
-
-        <img src="{{ asset('assets/our-customer/1.png') }}"
-            class="w-full md:w-1/5 h-64 object-cover" alt="">
-
-        <img src="{{ asset('assets/our-customer/5.png') }}"
-            class="w-full md:w-1/5 h-64 object-cover" alt=""> --}}
     </div>
 
 </div>

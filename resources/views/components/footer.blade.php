@@ -1,8 +1,7 @@
 <div class="relative w-full mt-14">
     <img src="{{ asset('assets/background/bg-footer.png') }}" alt="" class="w-full h-full object-cover">
     <div class="absolute inset-0 flex flex-col justify-center items-center">
-        <h1 class="text-4xl md:text-6xl font-bold py-4"
-            style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
+        <h1 class="text-4xl md:text-6xl font-bold py-4" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -26,128 +25,130 @@
     </svg>
 </div>
 
-<div class="relative w-full h-auto bg-[#03254B] md:px-14 md:py-8 px-4 py-4 space-y-4">
-    {{-- Logo --}}
-    <div class="flex items-center gap-3">
-        <!-- Logo -->
-        <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-14 h-auto">
+<div class="mx-auto flex md:flex-row flex-col justify-center items-start md:items-center relative w-full h-auto bg-[#03254B] md:px-14 md:py-8 px-4 py-4 space-y-0 md:space-y-4">
+    <div class="lg:px-6 px-2">
+        {{-- Logo --}}
+        <div class="flex items-center gap-3">
+            <!-- Logo -->
+            <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-14 h-auto">
 
-        <!-- Text -->
-        <div class="flex items-center text-[#ffffff] text-lg">
-            <span class="font-semibold">Pov&nbsp;Bopheak</span>
-            <span class="font-normal ml-1"> Land & Home Co., Ltd</span>
+            <!-- Text -->
+            <div class="flex items-center text-[#ffffff] text-sm md:text-lg">
+                <span class="font-semibold">Pov&nbsp;Bopheak</span>
+                <span class="font-normal ml-1"> Land & Home Co., Ltd</span>
+            </div>
         </div>
-    </div>
-    {{-- Buuton Back  --}}
-    <div class="absolute top-6 right-6 z-50 hidden" id="btn-back">
-        <button onclick="closePrivacy()" class="text-[#ffffff] font-medium hover:underline cursor-pointer">
-            <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14 18L22.4194 27L32 18" stroke="white" stroke-width="5" stroke-linecap="round" />
-                <circle cx="23" cy="23" r="22" stroke="white" stroke-width="2" />
-            </svg>
-        </button>
-    </div>
-
-    <div class="py-4" id="get-in-touch">
-        <h1 class="text-lg font-semibold text-white">
-            Get in Touch
-        </h1>
-        {{-- Icon Link Social Media --}}
-        <div class="flex justify-start items-center space-x-4">
-            <a href="https://www.facebook.com/profile.php?id=100065170836537" class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
-                <img src="{{ asset('assets/icon/fb.png') }}" alt="" class="w-full h-full object-cover">
-            </a>
-            <a href="https://t.me/+85516222809" class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
-                <img src="{{ asset('assets/icon/te.png') }}" alt="" class="w-full h-full object-cover">
-            </a>
-            <a href="https://wa.me/087446277" class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
-                <img src="{{ asset('assets/icon/whatsapp.png') }}" alt="" class="w-full h-full object-cover">
-            </a>
-            <a href="https://www.youtube.com/@povbopheaklandhome3948" class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
-                <img src="{{ asset('assets/icon/youtube.png') }}" alt="" class="w-full h-full object-cover">
-            </a>
-            <a href="https://www.tiktok.com/@povbopheaklandandhome?_r=1&_t=ZS-92yM8DJyKCW" class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
-                <img src="{{ asset('assets/icon/tiktok.png') }}" alt="" class="w-full h-full object-cover">
-            </a>
-            <a href="" class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
-                <img src="{{ asset('assets/icon/wechat.png') }}" alt="" class="w-full h-full object-cover">
-            </a>
-            <a href="https://www.linkedin.com/company/pov-bopheak-land-home-co-ltd/?viewAsMember=true" class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
-                <img src="{{ asset('assets/icon/in.png') }}" alt="" class="w-full h-full object-cover">
-            </a>
+        {{-- Buuton Back --}}
+        <div class="absolute top-6 right-6 z-50 hidden" id="btn-back">
+            <button onclick="closePrivacy()" class="text-[#ffffff] font-medium hover:underline cursor-pointer">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 18L22.4194 27L32 18" stroke="white" stroke-width="5" stroke-linecap="round" />
+                    <circle cx="23" cy="23" r="22" stroke="white" stroke-width="2" />
+                </svg>
+            </button>
         </div>
-    </div>
 
-    {{-- Section bottom full width --}}
-    <div class="flex lg:flex-row flex-col text-white py-8 -mt-10">
-        {{-- Contact us --}}
-        <div class="lg:w-[45%]">
-            <div>
-                <h1 class="text-lg font-semibold"
-                    style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
+        <div class="py-4" id="get-in-touch">
+            <h1 class="text-sm md:text-lg font-semibold text-white">
+                Get in Touch
+            </h1>
+            {{-- Icon Link Social Media --}}
+            <div class="flex justify-start items-center space-x-0 md:space-x-4">
+                <a href="https://www.facebook.com/profile.php?id=100065170836537"
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
+                    <img src="{{ asset('assets/icon/fb.png') }}" alt="" class="w-full h-full object-cover">
+                </a>
+                <a href="https://t.me/+85516222809"
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
+                    <img src="{{ asset('assets/icon/te.png') }}" alt="" class="w-full h-full object-cover">
+                </a>
+                <a href="https://wa.me/087446277"
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
+                    <img src="{{ asset('assets/icon/whatsapp.png') }}" alt="" class="w-full h-full object-cover">
+                </a>
+                <a href="https://www.youtube.com/@povbopheaklandhome3948"
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
+                    <img src="{{ asset('assets/icon/youtube.png') }}" alt="" class="w-full h-full object-cover">
+                </a>
+                <a href="https://www.tiktok.com/@povbopheaklandandhome?_r=1&_t=ZS-92yM8DJyKCW"
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
+                    <img src="{{ asset('assets/icon/tiktok.png') }}" alt="" class="w-full h-full object-cover">
+                </a>
+                <a href="" class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
+                    <img src="{{ asset('assets/icon/wechat.png') }}" alt="" class="w-full h-full object-cover">
+                </a>
+                <a href="https://www.linkedin.com/company/pov-bopheak-land-home-co-ltd/?viewAsMember=true"
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
+                    <img src="{{ asset('assets/icon/in.png') }}" alt="" class="w-full h-full object-cover">
+                </a>
+            </div>
+        </div>
+
+        {{-- Section bottom full width --}}
+        <div class="flex lg:flex-row flex-col text-white py-8 -mt-10">
+            {{-- Contact us --}}
+            <div class="lg:w-[45%]">
+                <div>
+                    <h1 class="text-sm md:text-lg font-semibold" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
                     text-fill-color: transparent;">
-                    Contact Us
-                </h1>
-            </div>
-            <div class="space-y-2">
-                <p class="py-4">Pov Bopheak Land & Home Co., Ltd.</p>
-                <p>info@povbopheak.com</p>
-                <p>www.pblandandhome.com.kh</p>
-                <p>www.povbopheak.com</p>
-            </div>
+                        Contact Us
+                    </h1>
+                </div>
+                <div class="space-y-2 md:text-md text-sm">
+                    <p class="py-4">Pov Bopheak Land & Home Co., Ltd.</p>
+                    <p>info@povbopheak.com</p>
+                    <p>www.pblandandhome.com.kh</p>
+                    <p>www.povbopheak.com</p>
+                </div>
 
+            </div>
+        </div>
+    </div>
+
+    {{-- Map of Location --}}
+    <div class="lg:w-[55%] h-auto flex xl:flex-row flex-col justify-between px-2 lg:px-10 space-x-6 space-y-4 text-white md:mt-8 mt-0 py-4 md:py-8">
+        <div class="space-y-2">
+            <h1 class="text-sm md:text-lg font-semibold" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        text-fill-color: transparent;">
+                Phnom Penh Office
+            </h1>
+            <p class="xl:h-24 max-w-lg md:text-md text-sm">
+                #67D, St. 777, Borey Vimean Phnom Penh 598, Village 4,
+                Sangkat Chrang Chamres, Khan Russey Keo, Phnom Penh, Cambodia
+            </p>
+            {{-- Map --}}
+            <div class="w-full xl:w-72 h-32 rounded-xl">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.070016297376!2d104.88439477480213!3d11.623954042990075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310953002172e7a9%3A0x1c5e614ac11878b6!2sPov%20Bopheak%20Land%20%26%20Home!5e1!3m2!1skm!2skh!4v1768798033272!5m2!1skm!2skh"
+                    class="rounded-lg" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
 
-        {{-- Map of Location --}}
-        <div class="lg:w-[55%] flex xl:flex-row flex-col justify-between px-2 lg:px-10 space-x-6">
-            <div class="space-y-2">
-                <h1 class="text-lg font-semibold"
-                    style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
+        <div class="space-y-2 lg:px-2 lg:mt-0 mt-6">
+            <h1 class="text-sm md:text-lg font-semibold" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
                         text-fill-color: transparent;">
-                    Phnom Penh Office
-                </h1>
-                <p class="lg:h-24">
-                    #67D, St. 777, Borey Vimean Phnom Penh 598, Village 4,
-                    Sangkat Chrang Chamres, Khan Russey Keo, Phnom Penh, Cambodia
-                </p>
-                {{-- Map --}}
-                <div class="w-full xl:w-72 h-32 rounded-xl">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.070016297376!2d104.88439477480213!3d11.623954042990075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310953002172e7a9%3A0x1c5e614ac11878b6!2sPov%20Bopheak%20Land%20%26%20Home!5e1!3m2!1skm!2skh!4v1768798033272!5m2!1skm!2skh"
-                        class="rounded-lg"
-                        style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-
-            <div class="space-y-2 lg:px-2 lg:mt-0 mt-6">
-                <h1 class="text-lg font-semibold"
-                    style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                        text-fill-color: transparent;">
-                    Siem Reap Office
-                </h1>
-                <p class="lg:h-24">
-                    Sna Techo Village, Balang Commune, Prasat Bakong District, Siem Reap Province, Cambodia.
-                </p>
-                {{-- Map --}}
-                <div class="w-full xl:w-72 h-32 rounded-lg">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14792.75472708665!2d104.09799600000001!3d13.469979!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3110390043ac3b81%3A0xda10418112d97440!2sPov%20Bopheak%20Kulen%20Home!5e1!3m2!1sen!2skh!4v1768809798264!5m2!1sen!2skh"
-                    class="rounded-2xl"
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
+                Siem Reap Office
+            </h1>
+            <p class="xl:h-24 max-w-lg md:text-md text-sm">
+                Sna Techo Village, Balang Commune, Prasat Bakong District, Siem Reap Province, Cambodia.
+            </p>
+            {{-- Map --}}
+            <div class="w-full xl:w-72 h-32 rounded-lg">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14792.75472708665!2d104.09799600000001!3d13.469979!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3110390043ac3b81%3A0xda10418112d97440!2sPov%20Bopheak%20Kulen%20Home!5e1!3m2!1sen!2skh!4v1768809798264!5m2!1sen!2skh"
+                    class="rounded-2xl" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+                </iframe>
             </div>
         </div>
     </div>
@@ -476,7 +477,8 @@
 </div>
 
 
-{{-- <script>
+{{--
+<script>
     function showPrivacy() {
         const privacy = document.getElementById('show-privacy-policy');
         const contact = document.getElementById('get-in-touch');
@@ -514,4 +516,3 @@
         });
     }
 </script> --}}
-

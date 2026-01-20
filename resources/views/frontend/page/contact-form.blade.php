@@ -1,7 +1,7 @@
 
-<div class="w-full" id="contact-form">
+<div class="w-full py-6" id="contact-form">
     <!-- Title -->
-    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-16">
+    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-4 md:py-16">
         Contact Form
     </h1>
     @if(session('success'))
@@ -340,9 +340,9 @@
             </div>
 
             <!-- Button -->
-            <div class="flex justify-center mt-14 py-6">
+            <div class="flex justify-center py-6">
                 <button type="submit"
-                    class="px-32 py-4 rounded-full bg-[#03254B] font-medium text-lg cursor-pointer">
+                    class="px-24 py-2 md:px-32 md:py-4 rounded-full bg-[#03254B] font-medium text-lg cursor-pointer">
                     <span class="inline-block"
                         style="
                         background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);

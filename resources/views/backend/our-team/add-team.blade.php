@@ -24,33 +24,33 @@
               <div class="row">
                 <!-- Row 1 -->
                 <div class="col-md-6 mb-3">
-                  <label class="form-label text-[#0F4634]">Name English</label>
+                  <label class="form-label text-[#0F4634]">Name</label>
                   <input class="form-control" type="text" name="name_en" />
                 </div>
 
                 <div class="col-md-6 mb-3">
-                  <label class="form-label text-[#0F4634]">Position English</label>
+                  <label class="form-label text-[#0F4634]">Position</label>
                   <input class="form-control" type="text" name="position_en" />
                 </div>
 
                 <!-- Row 2 -->
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 d-none">
                   <label class="form-label text-[#0F4634]">Name Khmer</label>
                   <input class="form-control" type="text" name="name_kh" />
                 </div>
 
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 d-none">
                   <label class="form-label text-[#0F4634]">Position Khmer</label>
                   <input class="form-control" type="text" name="position_kh" />
                 </div>
 
                 <!-- Row 3 -->
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 d-none">
                   <label class="form-label text-[#0F4634]">Name Chinese</label>
                   <input class="form-control" type="text" name="name_cn" />
                 </div>
 
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 d-none">
                   <label class="form-label text-[#0F4634]">Position Chinese</label>
                   <input class="form-control" type="text" name="position_cn" />
                 </div>
