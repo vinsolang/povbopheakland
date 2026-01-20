@@ -168,7 +168,7 @@
 
         <!-- Navigation -->
         <ul
-            class="flex lg:flex-row flex-wrap space-y-2 px-6 py-3 lg:space-x-6 text-[#03254b] lg:text-lg text-sm space-x-4 font-normal">
+            class="flex lg:flex-row flex-wrap space-y-2 px-4 py-3 lg:space-x-6 text-[#03254b] lg:text-lg text-[12px] space-x-3 font-normal">
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('home') }}#about-us">About Us</a></li>
             <li><a href="{{ route('home') }}#real-project">Real Estate Projects</a></li>

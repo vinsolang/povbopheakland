@@ -6,18 +6,19 @@
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 xl:px-24 lg:px-16 md:px-10 py-4">
                 <!-- CARD 1-->
                 <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
-                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
                         <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
                     </div>
 
-                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                    <h3 class="max-w-56 mx-auto text-center font-semibold text-[#03254B] text-sm">
                         Pov Bopheak Kulen Home Project
                     </h3>
 
-                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1 space-y-2">
                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
                             Housing Project
                         </h3>
+                        <p class="flex justify-center items-center text-center text-xs md:text-sm font-normal max-w-48 mx-auto text-[#03254B]">Prasat Bakong District, Siem Reap Province</p>
                     </div>
 
                     <div class="mt-auto space-y-2 pt-4 py-4">
@@ -31,20 +32,21 @@
                         </button>
                     </div>
                 </div>
-               <!-- CARD 1-->
+                 <!-- CARD 1-->
                 <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
-                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
                         <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
                     </div>
 
-                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                    <h3 class="max-w-56 mx-auto text-center font-semibold text-[#03254B] text-sm">
                         Pov Bopheak Kulen Home Project
                     </h3>
 
-                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1 space-y-2">
                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
                             Housing Project
                         </h3>
+                        <p class="flex justify-center items-center text-center text-xs md:text-sm font-normal max-w-48 mx-auto text-[#03254B]">Prasat Bakong District, Siem Reap Province</p>
                     </div>
 
                     <div class="mt-auto space-y-2 pt-4 py-4">
@@ -58,20 +60,21 @@
                         </button>
                     </div>
                 </div>
-                <!-- CARD 1-->
+                 <!-- CARD 1-->
                 <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
-                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
                         <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
                     </div>
 
-                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                    <h3 class="max-w-56 mx-auto text-center font-semibold text-[#03254B] text-sm">
                         Pov Bopheak Kulen Home Project
                     </h3>
 
-                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1 space-y-2">
                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
                             Housing Project
                         </h3>
+                        <p class="flex justify-center items-center text-center text-xs md:text-sm font-normal max-w-48 mx-auto text-[#03254B]">Prasat Bakong District, Siem Reap Province</p>
                     </div>
 
                     <div class="mt-auto space-y-2 pt-4 py-4">
@@ -85,20 +88,21 @@
                         </button>
                     </div>
                 </div>
-                <!-- CARD 1-->
+                 <!-- CARD 1-->
                 <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
-                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
                         <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
                     </div>
 
-                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                    <h3 class="max-w-56 mx-auto text-center font-semibold text-[#03254B] text-sm">
                         Pov Bopheak Kulen Home Project
                     </h3>
 
-                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1 space-y-2">
                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
                             Housing Project
                         </h3>
+                        <p class="flex justify-center items-center text-center text-xs md:text-sm font-normal max-w-48 mx-auto text-[#03254B]">Prasat Bakong District, Siem Reap Province</p>
                     </div>
 
                     <div class="mt-auto space-y-2 pt-4 py-4">
@@ -112,20 +116,21 @@
                         </button>
                     </div>
                 </div>
-                <!-- CARD 1-->
+                 <!-- CARD 1-->
                 <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
-                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
                         <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
                     </div>
 
-                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                    <h3 class="max-w-56 mx-auto text-center font-semibold text-[#03254B] text-sm">
                         Pov Bopheak Kulen Home Project
                     </h3>
 
-                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1 space-y-2">
                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
                             Housing Project
                         </h3>
+                        <p class="flex justify-center items-center text-center text-xs md:text-sm font-normal max-w-48 mx-auto text-[#03254B]">Prasat Bakong District, Siem Reap Province</p>
                     </div>
 
                     <div class="mt-auto space-y-2 pt-4 py-4">
@@ -139,20 +144,21 @@
                         </button>
                     </div>
                 </div>
-                <!-- CARD 1-->
+                 <!-- CARD 1-->
                 <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
-                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
                         <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
                     </div>
 
-                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                    <h3 class="max-w-56 mx-auto text-center font-semibold text-[#03254B] text-sm">
                         Pov Bopheak Kulen Home Project
                     </h3>
 
-                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1 space-y-2">
                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
                             Housing Project
                         </h3>
+                        <p class="flex justify-center items-center text-center text-xs md:text-sm font-normal max-w-48 mx-auto text-[#03254B]">Prasat Bakong District, Siem Reap Province</p>
                     </div>
 
                     <div class="mt-auto space-y-2 pt-4 py-4">
@@ -166,20 +172,21 @@
                         </button>
                     </div>
                 </div>
-                <!-- CARD 1-->
+                 <!-- CARD 1-->
                 <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
-                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
                         <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
                     </div>
 
-                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                    <h3 class="max-w-56 mx-auto text-center font-semibold text-[#03254B] text-sm">
                         Pov Bopheak Kulen Home Project
                     </h3>
 
-                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1 space-y-2">
                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
                             Housing Project
                         </h3>
+                        <p class="flex justify-center items-center text-center text-xs md:text-sm font-normal max-w-48 mx-auto text-[#03254B]">Prasat Bakong District, Siem Reap Province</p>
                     </div>
 
                     <div class="mt-auto space-y-2 pt-4 py-4">
@@ -193,20 +200,21 @@
                         </button>
                     </div>
                 </div>
-                <!-- CARD 1-->
+                 <!-- CARD 1-->
                 <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
-                    <div class="h-64 bg-gray-200 rounded-xl overflow-hidden">
+                    <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
                         <img src="{{ asset('assets/project/pro1.png') }}" class="w-full h-full object-cover" alt="">
                     </div>
 
-                    <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
+                    <h3 class="max-w-56 mx-auto text-center font-semibold text-[#03254B] text-sm">
                         Pov Bopheak Kulen Home Project
                     </h3>
 
-                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1">
+                    <div class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1 space-y-2">
                         <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm">
                             Housing Project
                         </h3>
+                        <p class="flex justify-center items-center text-center text-xs md:text-sm font-normal max-w-48 mx-auto text-[#03254B]">Prasat Bakong District, Siem Reap Province</p>
                     </div>
 
                     <div class="mt-auto space-y-2 pt-4 py-4">

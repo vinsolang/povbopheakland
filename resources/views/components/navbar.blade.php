@@ -29,7 +29,7 @@
 <div class="w-full mx-auto xl:px-6 lg:px-4">
   <div class="lg:hidden flex justify-between items-center px-2">
     {{-- Logo of version mobile --}}
-    <div class="px-4 flex items-center space-x-1">
+    <div class="px-4 flex items-center space-x-1 py-4">
       <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-12 h-auto">
       <span class="text-[#03254B] font-semibold text-[12px] flex gap-1">
         <span>Pov Bopheak</span>
