@@ -6,7 +6,7 @@
 @endphp
 
 <div class="w-full h-auto bg-[#ffffff] py-10">
-    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] mb-10">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] mb-10">
         Our Team
     </h1>
 

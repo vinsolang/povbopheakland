@@ -19,9 +19,10 @@
 <body class="">
 
     <!-- Scroll To Top Button -->
-    <button id="scrollTopBtn" class="fixed bottom-6 right-6 z-50 hidden cursor-pointer transition-opacity duration-300">
+    {{-- <button id="scrollTopBtn"
+        class="fixed bottom-6 right-6 z-50 hidden cursor-pointer transition-opacity duration-300">
         <img src="{{ asset('assets/icon/button-scroll.png') }}" alt="Scroll to top" class="w-12 h-12 object-cover">
-    </button>
+    </button> --}}
 
     <div class="relative w-full min-h-screen" x-data='projectData(@json($categories), "{{ app()->getLocale() }}")'>
 
@@ -31,30 +32,31 @@
 
         <!-- Header -->
         <div class="flex justify-between items-center px-8 md:px-14 py-4">
-            <a href="{{ route('home') }}" class="flex items-center gap-3">
+            <a href="{{ route('home') }}#real-project" class="flex items-center gap-3">
                 <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-14 h-auto">
                 <div class="hidden xl:flex items-center text-[#03254B] text-lg leading-none">
                     <span class="font-semibold">Pov&nbsp;Bopheak</span>
                     <span class="font-normal ml-1"> Land & Home Co., Ltd</span>
                 </div>
             </a>
-            <div class="flex items-center gap-3 text-[#03254B] text-lg">
+            <div class="flex items-center gap-3 text-[#03254B] text-md md:text-lg">
                 <p>Real Estate Projects</p>
             </div>
         </div>
 
         <!-- Main Content -->
-        <div class="max-w-7xl mx-auto flex lg:flex-row flex-col justify-between px-12 mt-12">
+        <div
+            class="xl:max-w-7xl lg:max-w-8xl md:max-w-7xl mx-auto flex lg:flex-row flex-col justify-between xl:px-12 px-2 lg:px-4 md:px-12 mt-12">
 
             <!-- Left Column -->
             <div class="w-full md:w-1/2 flex flex-col space-y-8 mt-4">
                 <!-- Title -->
                 <h1 class="max-w-sm text-[#03254B] text-2xl md:text-4xl font-medium">
                     {{ app()->getLocale() === 'en'
-                        ? $projects->name_en
-                        : (app()->getLocale() === 'kh'
-                            ? $projects->name_kh
-                            : $projects->name_ch) }}
+    ? $projects->name_en
+    : (app()->getLocale() === 'kh'
+        ? $projects->name_kh
+        : $projects->name_ch) }}
                 </h1>
 
                 <!-- Category Filter -->
@@ -66,25 +68,32 @@
 
                 <div class="space-y-6">
                     <!-- Category Buttons -->
-                    <div class="flex md:flex-row flex-wrap space-x-3 md:space-y-0 space-y-3">
+                    <div class="flex justify-center items-center gap-2 w-full">
                         <template x-for="(cat, index) in categories" :key="index">
-                            <div class="flex justify-center items-center" :class="activeCategory === index ?
-                                    'bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-full px-4 py-2' :
-                                    ''">
-                                <button class="cursor-pointer w-40 h-10" @click="setActiveCategory(index)"
-                                    x-text="cat?.name?.[lang] ?? ''"></button>
+                            <div class="flex-1 flex justify-center items-center rounded-full
+                                    lg:text-lg md:text-md text-xs" :class="activeCategory === index
+                                    ? 'bg-gradient-to-r from-yellow-400 to-yellow-200'
+                                    : 'bg-transparent'">
+
+                                <button class="w-full h-8 md:h-12 
+                                        flex justify-center items-center
+                                        text-center whitespace-nowrap truncate" @click="setActiveCategory(index)"
+                                    x-text="cat?.name?.[lang] ?? ''">
+                                </button>
+
                             </div>
                         </template>
                     </div>
 
                     <!-- Category Type Buttons -->
-                    <div class="flex md:flex-row flex-wrap md:space-y-0 space-y-3 space-x-3 mt-2" x-show="categories[activeCategory]
+                    <div class="flex md:space-y-0 space-y-3 space-x-1 md:space-x-3 mt-2" x-show="categories[activeCategory]
                             && Array.isArray(categories[activeCategory].cat_type)
                             && categories[activeCategory].cat_type.length">
                         <template x-for="(type, tIndex) in categories[activeCategory].cat_type" :key="tIndex">
-                            <div x-show="type?.title?.[lang]" class="flex justify-center items-center rounded-full"
+                            <div x-show="type?.title?.[lang]" class="flex justify-center md:items-center rounded-full"
                                 :class="activeType === tIndex ? 'bg-[#03254B] py-2 text-white' : ''">
-                                <button class="cursor-pointer w-32 h-8" @click="setActiveType(tIndex)" :style="activeType === tIndex ?
+                                <button class="cursor-pointer w-[100px] h-6 md:w-32 md:h-8 text-xs md:text-md"
+                                    @click="setActiveType(tIndex)" :style="activeType === tIndex ?
                                         'background: linear-gradient(90deg,#F2A93F,#FFFBA6); -
                                     webkit - background - clip: text; -
                                     webkit - text - fill - color: transparent;
@@ -96,7 +105,7 @@
                     </div>
 
 
-                    <div class="text-[#03254B] text-lg mt-6">
+                    <div class="text-[#03254B] text-sm md:text-lg mt-6">
                         <p x-html="currentDes().replace(/\n/g, '<br>')"></p>
                     </div>
 
@@ -121,12 +130,12 @@
             </div>
 
             <!-- Right Column -->
-            <div class="md:w-1/2 w-full flex flex-col items-center space-y-4 mt-4">
+            <div class="md:w-1/2 w-full flex flex-col items-center space-y-4 mt-4 md:ml-0 lg:ml-6 xl:ml-0">
                 <!-- Map -->
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.9916007958345!2d104.8869697!3d11.623948799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310953002172e7a9%3A0x1c5e614ac11878b6!2sPov%20Bopheak%20Land%20%26%20Home!5e0!3m2!1sen!2skh!4v1768547106090!5m2!1sen!2skh"
-                    class="w-full h-72 rounded-xl" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    class="lg:[75%] xl:w-full md:w-full h-72 rounded-xl" style="border:0;" allowfullscreen=""
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                 <p class="text-[#03254B] text-lg px-2 md:px-8 text-left">
                     Located on Sna Techo, Balang Commune, Prasat Bakong District, Siem Reap Province
@@ -214,34 +223,66 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const slider = document.getElementById('slider');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('slider');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
 
-            let index = 0;
-            const visible = 3; // how many images visible
-            const imageWidth = 316; // 300px + gap
+    const visible = 3;
+    const imageWidth = 316; // image + gap
 
-            function updateSlider() {
-                slider.style.transform = `translateX(-${index * imageWidth}px)`;
-            }
+    let index = visible;
+    let isAnimating = false;
 
-            nextBtn.addEventListener('click', () => {
-                if (index < slider.children.length - visible) {
-                    index++;
-                    updateSlider();
-                }
-            });
+    // Clone slides
+    const slides = Array.from(slider.children);
+    const total = slides.length;
 
-            prevBtn.addEventListener('click', () => {
-                if (index > 0) {
-                    index--;
-                    updateSlider();
-                }
-            });
-        });
-    </script>
+    const firstClones = slides.slice(0, visible).map(slide => slide.cloneNode(true));
+    const lastClones = slides.slice(-visible).map(slide => slide.cloneNode(true));
+
+    firstClones.forEach(clone => slider.appendChild(clone));
+    lastClones.reverse().forEach(clone => slider.prepend(clone));
+
+    // Initial position
+    slider.style.transform = `translateX(-${index * imageWidth}px)`;
+
+    function moveSlider() {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        slider.style.transition = 'transform 0.5s ease';
+        slider.style.transform = `translateX(-${index * imageWidth}px)`;
+    }
+
+    slider.addEventListener('transitionend', () => {
+        isAnimating = false;
+
+        if (index >= total + visible) {
+            slider.style.transition = 'none';
+            index = visible;
+            slider.style.transform = `translateX(-${index * imageWidth}px)`;
+        }
+
+        if (index <= 0) {
+            slider.style.transition = 'none';
+            index = total;
+            slider.style.transform = `translateX(-${index * imageWidth}px)`;
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        index++;
+        moveSlider();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        index--;
+        moveSlider();
+    });
+});
+</script>
+
 
 
     <script>

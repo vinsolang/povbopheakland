@@ -9,7 +9,7 @@
     <!-- Text -->
     <div class="w-full lg:w-1/2 flex flex-col space-y-6 text-[#03244a]">
 
-        <h1 class="text-3xl md:text-5xl font-semibold">
+        <h1 class="text-2xl md:text-5xl font-semibold">
             {{ $showAboutUs[0]->title_en }}
         </h1>
 

@@ -1,8 +1,8 @@
-<div class="relative w-full h-auto md:h-screen pt-12 z-10" id="freelancer">
+<div class="relative w-full h-[80vh] md:h-screen pt-12 z-10" id="freelancer">
 
     <!-- BACKGROUND IMAGE -->
     <img src="{{ asset('assets/background/bg-freelan.png') }}" alt="Background"
-        class="absolute inset-0 w-full h-auto md:h-full md:object-cover -z-30">
+        class="absolute inset-0 w-full h-[70%] md:h-full md:object-cover -z-30">
 
     <div class="flex justify-between items-center -mt-6 md:mt-24 py-2 md:py-12">
         <div class="space-y-4 md:space-y-6 max-w-6xl lg:px-4 xl:px-40 px-4 -mt-6">
@@ -32,7 +32,9 @@
                 Build Your Career in Real Estate with
                 Pov Bopheak
             </h3>
-            <p class="text-md md:text-xl max-w-64 md:max-w-xl font-medium text-[#03254b] py-4">
+            <p class="text-md md:text-xl max-w-64 md:max-w-xl font-medium text-[#03254b] py-4
+                md:[text-shadow:none]"
+                style="text-shadow: 0px 4px 6px rgba(0,0,0,0.25);">
                 Flexible income • Strong brand • Real projects • Full sales support
             </p>
             <div
@@ -45,8 +47,8 @@
 </div>
 
 {{-- Your Role as a Sales Partner --}}
-<div class="relative w-full">
-    <h1 class="text-xl md:text-5xl font-semibold text-center text-[#03254B] py-6 md:py-16">
+<div class="relative w-full md:top-0 -top-36">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-6 md:py-16">
         Your Role as a Sales Partner
     </h1>
 
@@ -157,8 +159,8 @@
 </div>
 
 {{-- We Support You With --}}
-<div class="relative w-full bg-[#F2F3F5] h-auto md:h-125 mt-12">
-    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-16">
+<div class="relative w-full bg-[#F2F3F5] h-auto md:h-125 mt-12 md:top-0 -top-36">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-16">
         We Support You With ...
     </h1>
 
@@ -226,8 +228,8 @@
 
 {{-- Commission & Rewards --}}
 
-<div class="max-w-7xl mx-auto px-6 py-20">
-    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] py-10 -mt-8">
+<div class="relative md:top-0 -top-36 max-w-7xl mx-auto px-6 lg:py-20 py-20 md:py-36">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-4 md:py-10 -mt-12 md:-mt-8">
         Commission & Rewards
     </h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -305,9 +307,9 @@
 
 
 {{-- Application form --}}
-<div class="w-full bg-white" id="application-form">
+<div class="relative md:top-0 -top-36 w-full bg-white" id="application-form">
     <!-- Title -->
-    <h1 class="text-3xl md:text-5xl font-semibold text-center text-[#03254B] -mt-6">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] -mt-6">
         Application Form
     </h1>
 

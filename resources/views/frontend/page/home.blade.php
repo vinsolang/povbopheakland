@@ -5,8 +5,8 @@
                 justify-between gap-10">
 
         <!-- LEFT CONTENT -->
-        <div class="space-y-6 flex-1 text-left">
-            <h1 class="text-3xl md:text-7xl font-bold md:mt-0 -mt-2" style="
+        <div class="space-y-6 flex-1 text-left md:h-auto h-96 flex flex-col justify-between">
+            <h1 class="text-2xl md:text-7xl font-bold md:mt-0 -mt-2" style="
                     background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
@@ -28,7 +28,7 @@
                 comfortable living and long-term value in prime locations.”
             </p>
 
-            <div class="flex justify-center lg:justify-start md:mt-0 mt-40">
+            <div class="flex justify-center lg:justify-start md:mt-0">
                 <div class="bg-[#f2b34e] w-64 h-12 md:w-72 md:h-20
                             flex justify-center items-center
                             rounded-full md:mt-16">

@@ -27,7 +27,7 @@
 
 
 <div class="w-full mx-auto xl:px-6 lg:px-4">
-  <div class="lg:hidden flex justify-between items-center px-2">
+  <div class="lg:hidden flex justify-between items-center">
     {{-- Logo of version mobile --}}
     <div class="px-3 flex items-center space-x-0 py-2">
       <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-10 h-auto">
@@ -36,7 +36,7 @@
         <span class="font-medium">Land & Home Co., Ltd</span>
       </span>
     </div>
-    <div class="lg:hidden px-8">
+    <div class="lg:hidden px-6">
       <!-- Open menu -->
       <button id="openMenu" class="w-6 h-6">
         <img src="{{ asset('assets/icon/menu-mobile.png') }}" class="w-full h-full object-cover">

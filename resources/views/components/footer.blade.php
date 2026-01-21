@@ -110,7 +110,7 @@
 
     {{-- Map of Location --}}
     <div class="h-auto flex xl:flex-row flex-col justify-between px-2 lg:px-10 space-y-4 text-white -mt-6 md:mt-8 py-4 md:py-8">
-        <div class="space-y-2 lg:px-2 lg:mt-0 mt-6">
+        <div class="space-y-2 lg:px-2 lg:mt-0 mt-0 md:mt-6">
             <h1 class="text-sm md:text-lg font-semibold" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
@@ -118,7 +118,7 @@
                         text-fill-color: transparent;">
                 Phnom Penh Office
             </h1>
-            <p class="xl:h-24 max-w-lg md:text-md text-sm">
+            <p class="xl:h-24 max-w-lg md:text-md text-sm py-2">
                 #67D, St. 777, Borey Vimean Phnom Penh 598, Village 4,
                 Sangkat Chrang Chamres, Khan Russey Keo, Phnom Penh, Cambodia
             </p>
@@ -168,7 +168,7 @@
 
         <!-- Navigation -->
         <ul
-            class="flex lg:flex-row flex-wrap space-y-2 px-4 py-3 lg:space-x-6 text-[#03254b] lg:text-lg text-[12px] space-x-3 font-normal">
+            class="flex lg:flex-row flex-wrap justify-center space-y-2 px-4 py-3 lg:space-x-6 text-[#03254b] lg:text-lg text-[12px] space-x-3 font-normal">
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('home') }}#about-us">About Us</a></li>
             <li><a href="{{ route('home') }}#real-project">Real Estate Projects</a></li>

@@ -36,7 +36,7 @@
     
             <!-- BACKGROUND IMAGE -->
             <img 
-                src="{{ asset('assets/background/bg-home-2.png') }}" 
+                src="{{ asset('assets/background/bg-home-3.png') }}" 
                 alt="Background"
                 class="absolute inset-0 h-[60%] w-full md:h-full object-cover -z-10"
             >
@@ -72,7 +72,7 @@
             @include('frontend.page.freelancers')
         </div>
         {{-- Background Footer --}}
-        <div class="relative w-full">
+        <div class="relative w-full md:mt-0 -mt-36">
             @include('components.footer')
         </div>
     </body>
