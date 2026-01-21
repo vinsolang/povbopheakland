@@ -19,7 +19,7 @@
     @php
     $staticItems = [
         ['id' => 10, 'des' => '
-            
+            Welcome to a world where residential and shop house properties seamlessly blend with the breathtaking landscapes of Phnom Kulen. We invite you to embark on a journey with us, where you not only find a place to call home or establish your business but also become a part of a vibrant, thriving community.
         ', 'img' => []],
         ['id' => 11, 'des' => '
             <p>
