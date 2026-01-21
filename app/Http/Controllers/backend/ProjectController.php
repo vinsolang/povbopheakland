@@ -48,7 +48,7 @@ class ProjectController extends Controller
         $pdfPath = null;
         if ($request->hasFile('pdf')) {
             $request->validate([
-                'pdf' => 'mimes:pdf|max:20480',
+                'pdf' => 'mimes:pdf|max:204800',
             ]);
 
             $pdfPath = $request->file('pdf')->store('projects/pdf', 'public');
@@ -121,7 +121,7 @@ class ProjectController extends Controller
         if ($request->hasFile('pdf')) {
 
             $request->validate([
-                'pdf' => 'mimes:pdf|max:20480',
+                'pdf' => 'mimes:pdf|max:204800',
             ]);
 
             // Delete old PDF

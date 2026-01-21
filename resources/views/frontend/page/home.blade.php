@@ -61,7 +61,7 @@
                 
                 {{-- Icon Link Social Media --}}
                 <div class="w-16 h-96 rounded-full flex flex-col justify-between items-center py-2">
-                    <a href="https://www.facebook.com/profile.php?id=100065170836537"
+                    <a href="https://www.facebook.com/PovBopheakGroup"
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/fb.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
