@@ -12,7 +12,7 @@
     </h1>
 
     <!-- MOBILE SLIDER -->
-    <div class="relative md:hidden overflow-hidden">
+    <div class="relative md:hidden overflow-hidden px-4">
         <div class="flex transition-transform duration-300"
              :style="`transform: translateX(-${index * 100}%)`">
 

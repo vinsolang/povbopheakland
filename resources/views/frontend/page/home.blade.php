@@ -42,7 +42,7 @@
         <!-- RIGHT SOCIAL / LANGUAGE -->
         <div class="flex flex-col items-center gap-6">
             <!-- Language -->
-            <div class="relative flex justify-center items-center w-16 h-16 rounded-full">
+            {{-- <div class="relative flex justify-center items-center w-16 h-16 rounded-full">
                 <button id="langBtn" class="flex justify-center items-center bg-[#03244a]
                            w-10 h-10 rounded-full cursor-pointer">
                     <span class="text-white text-lg font-semibold">
@@ -53,7 +53,7 @@
                 <div id="langDropdown" class="absolute top-14 hidden flex-col gap-2 space-y-2
                            bg-white shadow-lg rounded-full p-2 z-50">
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Social Icons -->
             <div class="w-16 h-96 rounded-full

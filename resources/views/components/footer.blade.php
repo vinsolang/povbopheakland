@@ -25,7 +25,7 @@
     </svg>
 </div>
 
-<div class="mx-auto flex md:flex-row flex-col justify-center items-start md:items-center relative w-full h-auto bg-[#03254B] md:px-14 md:py-8 px-4 py-4 space-y-0 md:space-y-4">
+<div id="contact-us" class="mx-auto flex md:flex-row flex-col justify-center items-start md:items-center relative w-full h-auto bg-[#03254B] md:px-14 md:py-8 px-4 py-4 space-y-0 md:space-y-4">
     <div class="lg:px-6 px-2">
         {{-- Logo --}}
         <div class="flex items-center gap-3">

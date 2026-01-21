@@ -29,14 +29,13 @@
 <div class="w-full mx-auto xl:px-6 lg:px-4">
   <div class="lg:hidden flex justify-between items-center">
     {{-- Logo of version mobile --}}
-    <div class="px-3 flex items-center space-x-0 py-2">
+    <div class="w-[83%] px-3 flex items-center space-x-0 py-2">
       <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-10 h-auto">
-      <span class="text-[#03254B] font-semibold text-[9px] flex">
-        <span>Pov Bopheak</span>
-        <span class="font-medium">Land & Home Co., Ltd</span>
+      <span class="w-full text-[#03254B] font-normal text-[12px] flex">
+        <span class="font-semibold">Pov Bopheak</span> Land & Home Co., Ltd
       </span>
     </div>
-    <div class="lg:hidden px-6">
+    <div class="w-[15%] lg:hidden px-6">
       <!-- Open menu -->
       <button id="openMenu" class="w-6 h-6">
         <img src="{{ asset('assets/icon/menu-mobile.png') }}" class="w-full h-full object-cover">
@@ -70,7 +69,7 @@
         <li><a href="{{ route('home') }}#real-project" class="nav-item">Real Estate Projects</a></li>
         <li><a href="{{ route('home') }}#our-customer" class="nav-item">Our Customers</a></li>
         <li><a href="{{ route('home') }}#freelancer" class="nav-item">Freelancers</a></li>
-        <li><a href="{{ route('home') }}#contact-form" class="nav-item">Contact Us</a></li>
+        <li><a href="{{ route('home') }}#contact-us" class="nav-item">Contact Us</a></li>
 
 
         <!-- STATIC LINE UNDER MENU TEXT -->
@@ -117,7 +116,7 @@
       <li><a href="{{ route('home') }}#real-project" class="mobile-link">Real Estate Projects</a></li>
       <li><a href="{{ route('home') }}#our-customer" class="mobile-link">Our Customers</a></li>
       <li><a href="{{ route('home') }}#freelancer" class="mobile-link">Freelancers</a></li>
-      <li><a href="{{ route('home') }}#contact-form" class="mobile-link">Contact Us</a></li>
+      <li><a href="{{ route('home') }}#contact-us" class="mobile-link">Contact Us</a></li>
     </ul>
   </div>
 

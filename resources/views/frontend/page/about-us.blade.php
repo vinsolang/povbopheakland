@@ -43,7 +43,7 @@
          style="display: none;">
 
         <div @click.away="showModal = false"
-             class="bg-white max-w-3xl w-full p-8 relative overflow-y-auto max-h-[80vh] px-2">
+             class="bg-white max-w-3xl w-full p-8 relative overflow-y-auto max-h-[80vh] px-6">
 
             <!-- Close Button -->
             <button @click="showModal = false"

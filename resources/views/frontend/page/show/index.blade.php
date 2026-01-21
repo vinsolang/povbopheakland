@@ -204,23 +204,51 @@
 
         <!-- Main Content -->
         <div
-            class="xl:max-w-7xl lg:max-w-8xl md:max-w-7xl mx-auto flex lg:flex-row flex-col justify-between xl:px-12 px-2 lg:px-4 md:px-12 mt-12">
+             x-data="{
+                ...projectData(...),
+                showImage: false,
+                activeImage: null
+            }"
+            class="max-w-7xl mx-auto w-full
+            flex lg:flex-row flex-col
+            justify-between
+            px-2 md:px-12 lg:px-4 xl:px-12
+            mt-12">
 
             <!-- Left Column -->
             <div class="w-full md:w-1/2 flex flex-col space-y-8 mt-4">
                 <!-- Title -->
-                <h1 class="max-w-sm text-[#03254B] text-2xl md:text-4xl font-medium">
+                <h1 class="max-w-sm text-[#03254B] text-2xl md:text-4xl font-medium lg:px-0 px-4">
                     {{ app()->getLocale() === 'en' ? $projects->name_en : (app()->getLocale() === 'kh' ? $projects->name_kh : $projects->name_ch) }}
                 </h1>
 
                 <!-- Category Buttons -->
-                <div class="flex flex-wrap justify-start items-center gap-2 w-full px-2">
+                {{-- <div class="flex flex-wrap justify-start items-center gap-2 w-full px-2">
                     <template x-for="(cat, index) in categories" :key="index">
                         <div
                             class="inline-flex rounded-full"
                             :class="activeCategory === index 
                                 ? 'bg-gradient-to-r from-yellow-400 to-yellow-200' 
                                 : 'bg-transparent'"
+                        >
+                            <button
+                                class="px-4 py-1 md:px-6 md:py-4
+                                    text-md md:text-lg 
+                                    text-center whitespace-nowrap rounded-full"
+                                @click="setActiveCategory(index)"
+                                x-text="cat?.name?.[lang] ?? ''">
+                            </button>
+                        </div>
+                    </template>
+                </div> --}}
+                <div class="flex flex-wrap justify-start items-center gap-2 w-full px-2">
+                    <template x-for="(cat, index) in categories" :key="index">
+                        <div
+                            class="inline-flex rounded-full transition-all duration-200"
+                            :class="{
+                                'bg-gradient-to-r from-yellow-400 to-yellow-200': activeCategory === index,
+                                'border border-[#03254B]': activeCategory === null && index === 0
+                            }"
                         >
                             <button
                                 class="px-4 py-1 md:px-6 md:py-4
@@ -247,7 +275,7 @@
                 </div>
 
                 <!-- Description -->
-                <div class="text-[#03254B] text-sm md:text-md mt-2">
+                <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
                     <template x-for="item in displayedItems()" :key="item.slug">
                         <p x-html="item.des.replace(/\n/g, '<br>')" class="mb-4 leading-5"></p>
                         
@@ -256,7 +284,7 @@
 
                 <!-- Download PDF -->
                 @if ($projects->pdf)
-                <div class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12">
+                <div class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12 lg:ml-0 ml-4">
                     <a href="{{ asset('storage/' . $projects->pdf) }}" download
                         class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12">
                         <span
@@ -265,22 +293,79 @@
                     </a>
                 </div>
 
+        <!-- Slider version mobile -->
+<div 
+    class="md:hidden max-w-7xl mx-auto mt-2 px-3"
+    x-show="currentImages().length > 0"
+    x-transition
+    x-data="projectData(@json($categories), '{{ app()->getLocale() }}', @json($staticItems))"
+>
+    <!-- IMAGE AREA -->
+    <div class="relative w-full overflow-hidden rounded-xl">
+
+        <!-- SLIDER -->
+        <div 
+            id="slider"
+            class="flex transition-transform duration-500 ease-in-out"
+        >
+            <template x-for="img in currentImages()" :key="img">
+                <img
+                    :src="'{{ asset('storage') }}/' + img"
+                    class="w-full h-56 object-cover flex-shrink-0"
+                    @click="activeImage = img; showImage = true"
+                />
+            </template>
+        </div>
+
+        <!-- PREV BUTTON -->
+        <button 
+            @click="prev()"
+            class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2"
+        >
+            <svg width="36" height="36" viewBox="0 0 42 42" fill="none">
+                <circle cx="21" cy="21" r="21" fill="#1E1E1E"/>
+                <path
+                    d="M10 22.7321C8.66667 21.9623 8.66667 20.0378 10 19.268L25 10.6077C26.3333 9.8379 28 10.8002 28 12.3398L28 29.6603C28 31.1999 26.3333 32.1621 25 31.3923L10 22.7321Z"
+                    fill="white"
+                />
+            </svg>
+        </button>
+
+        <!-- NEXT BUTTON -->
+        <button 
+            @click="next()"
+            class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2"
+        >
+            <svg width="36" height="36" viewBox="0 0 42 42" fill="none">
+                <circle cx="21" cy="21" r="21" fill="#1E1E1E"/>
+                <path
+                    d="M32 19.2679C33.3333 20.0377 33.3333 21.9623 32 22.7321L17 31.3923C15.6667 32.1621 14 31.1999 14 29.6603L14 12.3397C14 10.8001 15.6667 9.83789 17 10.6077L32 19.2679Z"
+                    fill="white"
+                />
+            </svg>
+        </button>
+
+    </div>
+</div>
+
             @endif
             </div>
 
             <!-- Right Column -->
-            <div class="md:w-1/2 w-full flex flex-col items-center space-y-4 mt-4 md:ml-0 lg:ml-6 xl:ml-0">
+            <div class="md:w-1/2 w-full flex flex-col items-center space-y-4 mt-4 md:ml-0 lg:ml-6 xl:ml-0 px-3">
                 <iframe
                     src="{{ $projects->locate_link }}"
-                    class="lg:[75%] xl:w-full md:w-full h-72 rounded-xl" style="border:0;" allowfullscreen=""
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    class="w-full max-w-full h-72 rounded-xl"
+                    style="border:0;"
+                    loading="lazy">
+                </iframe>
 
                 {{-- <p class="text-[#03254B] text-lg px-2 md:px-8 text-left">
                     Located on Sna Techo, Balang Commune, Prasat Bakong District, Siem Reap Province
                 </p> --}}
 
                 <!-- Social Icons -->
-                <div class="flex md:flex-row flex-wrap gap-4">
+                <div class="flex md:flex-row flex-wrap md:gap-4 gap-">
                     @php
                         $socialLinks = [
                             'fb' => 'https://www.facebook.com/PovBopheakGroup',
@@ -295,7 +380,7 @@
 
                     @foreach ($socialLinks as $icon => $link)
                         <a href="{{ $link }}" target="_blank" rel="noopener noreferrer"
-                            class="w-12 h-12 rounded-full cursor-pointer hover:scale-110 transition">
+                            class="w-10 h-10 md:w-12 md:h-12 rounded-full cursor-pointer hover:scale-110 transition">
                             <img src="{{ asset('assets/icon/' . $icon . '.png') }}" alt="{{ $icon }}"
                                 class="w-full h-full object-cover">
                         </a>
@@ -304,8 +389,8 @@
             </div>
         </div>
 
-        <!-- Slider -->
-        <div class="max-w-7xl mx-auto mt-24 flex items-center gap-6"  
+        <!-- Slider version dasktop-->
+        <div class="hidden max-w-7xl mx-auto mt-24 md:flex items-center gap-6"  
          x-show="currentImages().length > 0"
         x-transition
         x-data="projectData(@json($categories), '{{ app()->getLocale() }}', @json($staticItems))">

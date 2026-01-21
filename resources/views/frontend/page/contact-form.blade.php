@@ -1,3 +1,17 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<style>
+    /* Remove the arrow for Chrome, Safari, and Edge */
+input::-webkit-calendar-picker-indicator {
+    display: none !important;
+    -webkit-appearance: none;
+}
+
+/* For older versions of Edge */
+input::-ms-expand {
+    display: none;
+}
+</style>
 
 <div class="w-full py-6" id="contact-form">
     <!-- Title -->
@@ -59,8 +73,10 @@
                 </div>
 
                 <!-- Country -->
-                <div class="relative">
-                    <select name="country" required
+                <div class="relative custom-select-container">
+                    <input list="country-list" name="country" placeholder="Search Country..." required
+                            class="w-full h-14 px-6 pr-12 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none">
+                   <datalist id="country-list" name="country" required
                         class="w-full h-14 px-6 pr-12 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none appearance-none">
                         <option>Country of Origin</option>
                         <option value="Afghanistan">Afghanistan</option>
@@ -251,7 +267,7 @@
                         <option value="Yemen">Yemen</option>
                         <option value="Zambia">Zambia</option>
                         <option value="Zimbabwe">Zimbabwe</option>
-                    </select>
+                    </datalist>
                     <span class="absolute right-6 top-1/2 -translate-y-1/2">
                         <svg width="12" height="13" viewBox="0 0 12 13" fill="none">
                             <path
@@ -353,7 +369,7 @@
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
                         color: transparent;">
-                    Find Out More
+                    Submit
                 </span>
             </button>
         </div>
@@ -363,3 +379,11 @@
     </div>
 </div>
 
+<script>
+    const countrySelect = new Choices('#country-select', {
+    searchEnabled: true,      // Allows user to input text
+    itemSelectText: '',       // Removes the "Press to select" text
+    shouldSort: true,         // Automatically sorts A to Z
+    searchPlaceholderValue: "Type a country...",
+});
+</script>
