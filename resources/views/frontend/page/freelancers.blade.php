@@ -2,7 +2,7 @@
 
     <!-- BACKGROUND IMAGE -->
     <img src="{{ asset('assets/background/bg-freelan.png') }}" alt="Background"
-        class="absolute inset-0 w-full h-full object-cover object-[80%_center] md:object-center -z-30">
+        class="absolute inset-0 w-full h-full object-cover object-[85%_center] md:object-center -z-30">
 
     <div class="flex justify-between items-center -mt-6 md:mt-24 py-2 md:py-12">
         <div class="space-y-4 md:space-y-6 max-w-6xl lg:px-4 xl:px-40 px-4">
