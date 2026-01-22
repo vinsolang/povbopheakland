@@ -365,7 +365,7 @@
                 </p> --}}
 
                 <!-- Social Icons -->
-                <div class="flex md:flex-row flex-wrap md:gap-4 gap-">
+                <div class="flex md:flex-row flex-wrap md:gap-4 py-5">
                     @php
                         $socialLinks = [
                             'fb' => 'https://www.facebook.com/PovBopheakGroup',
