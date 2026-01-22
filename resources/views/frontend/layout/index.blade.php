@@ -72,7 +72,7 @@
             @include('frontend.page.freelancers')
         </div>
         {{-- Background Footer --}}
-        <div class="relative w-full md:mt-0 -mt-36">
+        <div class="relative w-full md:mt-0 -mt-6">
             @include('components.footer')
         </div>
     </body>

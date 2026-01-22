@@ -356,22 +356,19 @@ input::-ms-expand {
             </div>
 
             <!-- Button -->
-           <div class="flex justify-center py-6 px-24">
-            <button type="submit"
-                class="px-6 py-2 md:px-32 md:py-4
-                    rounded-full bg-[#03254B]
-                    font-medium text-md md:text-lg
-                    cursor-pointer whitespace-nowrap">
-                <span class="inline-block"
-                    style="
-                        background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                        color: transparent;">
-                    Submit
-                </span>
-            </button>
+           <div class="flex justify-center py-6 w-full md:col-span-2">
+                <button type="submit" class="px-24 py-2 md:px-32 md:py-4 rounded-full bg-[#03254B] font-medium text-lg cursor-pointer">
+                    <span class="inline-block" style="
+                            background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                            color: transparent;
+                        ">
+                        Submit
+                    </span>
+                </button>
+            </div>
         </div>
 
         </form>

@@ -2,7 +2,7 @@
 
     <!-- BACKGROUND IMAGE -->
     <img src="{{ asset('assets/background/bg-freelan.png') }}" alt="Background"
-        class="absolute inset-0 w-full h-full object-cover object-[85%_center] md:object-center -z-30">
+        class="absolute inset-0 w-full h-[90%] md:h-full object-cover object-[88%_center] md:object-center -z-30 bg-white/70">
 
     <div class="flex justify-between items-center -mt-6 md:mt-24 py-2 md:py-12">
         <div class="space-y-4 md:space-y-6 max-w-6xl lg:px-4 xl:px-40 px-4">
@@ -32,11 +32,21 @@
                 Build Your Career in Real Estate
                 with Pov Bopheak Land
             </h3>
-            <p class="text-md md:text-xl max-w-64 md:max-w-xl font-medium text-[#03254b] py-4
-                md:[text-shadow:none]"
+            <div class="relative inline-block">
+                <!-- Smoke background -->
+                <div class="absolute inset-y-0 right-0 w-4/5
+                            bg-gradient-to-l from-white/70 via-white/40 to-transparent
+                            blur-xl rounded-lg"></div>
+
+                <!-- Text -->
+                <p class="relative z-10 text-md md:text-xl max-w-64 md:max-w-xl
+                        font-medium text-[#03254b] py-4 px-2
+                        md:[text-shadow:none]"
                 style="text-shadow: 0px 4px 6px rgba(0,0,0,0.25);">
-                Flexible income • Strong brand • Real projects • Full sales support
-            </p>
+                    Flexible income • Strong brand • Real projects • Full sales support
+                </p>
+            </div>
+
             <div
                 class="bg-[#f2b34e] w-52 h-10 md:w-64 md:h-20 flex justify-center items-center rounded-full md:mt-16 md:ml-8">
                 <a href="#application-form" class="text-sm md:text-xl text-[#03254b] font-bold">Apply as Sales Agent</a>
