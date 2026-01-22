@@ -126,7 +126,7 @@
 
                             <!-- IMAGES -->
                             <div class="space-y-2">
-                                {{-- <template x-for="(preview, iIndex) in type.imgPreview" :key="iIndex">
+                                <template x-for="(preview, iIndex) in type.imgPreview" :key="iIndex">
                                     <div class="d-flex align-items-center mb-2">
                                         <input type="file" :name="'category[' + cIndex + '][cat_type][' + tIndex + '][img][]'" @change="previewImage($event, cIndex, tIndex, iIndex)" class="form-control me-2">
                                         <template x-if="type.imgPreview[iIndex]">
@@ -134,26 +134,7 @@
                                         </template>
                                         <button type="button" @click="removeImage(cIndex, tIndex, iIndex)" class="btn btn-sm btn-danger">✕</button>
                                     </div>
-                                </template> --}}
-                                <template x-for="(preview, iIndex) in type.imgPreview" :key="iIndex">
-                                    <div class="d-flex align-items-center mb-2">
-                                        <input type="file"
-                                            :name="'category[' + cIndex + '][cat_type][' + tIndex + '][img][]'"
-                                            @change="previewImage($event, cIndex, tIndex, iIndex)"
-                                            class="form-control me-2">
-
-                                        <template x-if="preview">
-                                            <img :src="preview"
-                                                class="img-thumbnail"
-                                                style="width:80px; height:80px; object-fit:cover;">
-                                        </template>
-
-                                        <button type="button"
-                                            @click="removeImage(cIndex, tIndex, iIndex)"
-                                            class="btn btn-sm btn-danger">✕</button>
-                                    </div>
                                 </template>
-
 
                                 <button type="button" @click="addImage(cIndex, tIndex)" class="btn btn-sm btn-primary">+ Add Image</button>
                             </div>
@@ -188,25 +169,11 @@ function slugify(text) {
 
 function projectForm(initialCategories = []) {
     return {
-        // categories: initialCategories.map(cat => ({
-        //     ...cat,
-        //     cat_type: cat.cat_type.map(type => ({
-        //         ...type,
-        //         imgPreview: type.img || [] // use existing images
-        //     }))
-        // })),
         categories: initialCategories.map(cat => ({
             ...cat,
             cat_type: cat.cat_type.map(type => ({
                 ...type,
-                imgPreview: Array.isArray(type.img)
-                    ? type.img.map(img => {
-                        // already blob preview?
-                        if (img.startsWith('blob:')) return img
-                        // convert DB image to full URL
-                        return '{{ asset('storage') }}/' + img
-                    })
-                    : []
+                imgPreview: type.img || [] // use existing images
             }))
         })),
 
@@ -240,20 +207,12 @@ function projectForm(initialCategories = []) {
                 this.categories[c].cat_type[t].imgPreview.splice(i, 1)
         },
 
-        // previewImage(event, c, t, i) {
-        //     const file = event.target.files[0]
-        //     if (!file) return
-        //     this.categories[c].cat_type[t].imgPreview = this.categories[c].cat_type[t].imgPreview || []
-        //     this.categories[c].cat_type[t].imgPreview[i] = URL.createObjectURL(file)
-        // },
         previewImage(event, c, t, i) {
             const file = event.target.files[0]
             if (!file) return
-
-            this.categories[c].cat_type[t].imgPreview[i] =
-                URL.createObjectURL(file)
+            this.categories[c].cat_type[t].imgPreview = this.categories[c].cat_type[t].imgPreview || []
+            this.categories[c].cat_type[t].imgPreview[i] = URL.createObjectURL(file)
         },
-
 
         newType() {
             return {

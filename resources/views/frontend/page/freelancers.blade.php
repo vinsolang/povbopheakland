@@ -1,8 +1,16 @@
 <div class="relative w-full h-screen pt-12 z-10" id="freelancer">
 
     <!-- BACKGROUND IMAGE -->
-    <img src="{{ asset('assets/background/bg-freelan.png') }}" alt="Background"
-        class="absolute inset-0 w-full h-[90%] md:h-full object-cover object-[88%_center] md:object-center -z-30 bg-white/70">
+    {{-- <img src="{{ asset('assets/background/bg-freelan.png') }}" alt="Background"
+        class="absolute inset-0 w-full h-[90%] md:h-full object-cover object-[88%_center] md:object-center -z-30 bg-white/70"> --}}
+        <img
+            src="{{ asset('assets/background/bg-freelan.png') }}"
+            alt="Background"
+            class="absolute inset-0 w-full min-h-screen md:h-full
+                    object-cover md:object-center object-[85%_center]
+                    -z-30"
+            />
+
 
     <div class="flex justify-between items-center -mt-6 md:mt-24 py-2 md:py-12">
         <div class="space-y-4 md:space-y-6 max-w-6xl lg:px-4 xl:px-40 px-4">
@@ -57,7 +65,7 @@
 </div>
 
 {{-- Your Role as a Sales Partner --}}
-<div class="relative w-full md:top-0">
+<div class="relative w-full md:mt-0 -mt-24 z-50">
     <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-6 md:py-16">
         Your Role as a Sales Partner
     </h1>
@@ -169,8 +177,8 @@
 </div>
 
 {{-- We Support You With --}}
-<div class="relative w-full bg-[#F2F3F5] h-auto md:h-125 mt-12 md:top-0">
-    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-16">
+<div class="relative w-full bg-[#F2F3F5] h-auto md:h-125 md:mt-12 md:top-0">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-8 md:py-16">
         We Support You With ...
     </h1>
 

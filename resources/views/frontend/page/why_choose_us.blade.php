@@ -1,4 +1,4 @@
-<div class="relative w-full h-auto lg:h-[97vh] xl:h-auto mt-24 lg:py-6 py-12">
+<div class="relative w-full h-auto lg:h-[97vh] xl:h-auto md:mt-24 lg:py-6 md:py-12 py-6">
     
     <!-- BACKGROUND IMAGE -->
     <img 
