@@ -3,13 +3,23 @@
     <!-- BACKGROUND IMAGE -->
     {{-- <img src="{{ asset('assets/background/bg-freelan.png') }}" alt="Background"
         class="absolute inset-0 w-full h-[90%] md:h-full object-cover object-[88%_center] md:object-center -z-30 bg-white/70"> --}}
-        <img
+        {{-- <img
             src="{{ asset('assets/background/bg-freelan.png') }}"
             alt="Background"
             class="absolute inset-0 w-full min-h-screen md:h-full
                     object-cover md:object-center object-[85%_center]
                     -z-30"
-            />
+            /> --}}
+    <img src="{{ asset('assets/background/bg-freelan.png') }}" 
+         srcset="{{ asset('assets/background/bg-freelan.png') }} 640w,
+        {{ asset('assets/background/bg-freelan.png') }} 1280w,
+        {{ asset('assets/background/bg-freelan.png') }} 2560w
+    "
+    sizes="(max-width: 768px) 100vw, 100vw"
+    alt="Background"
+    class="absolute inset-0 w-full h-[85vh] md:h-full object-cover md:object-center object-[88%_center] -z-30"
+/>
+
 
 
     <div class="flex justify-between items-center -mt-6 md:mt-24 py-2 md:py-12">
@@ -65,7 +75,7 @@
 </div>
 
 {{-- Your Role as a Sales Partner --}}
-<div class="relative w-full md:mt-0 -mt-24 z-50">
+<div class="relative w-full md:mt-0 -mt-32 z-50">
     <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-6 md:py-16">
         Your Role as a Sales Partner
     </h1>
