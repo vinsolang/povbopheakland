@@ -18,7 +18,7 @@
             <form id="formAuthentication" class="mb-3" action="{{ route('submit.register') }}" method="POST" enctype="multipart/form-data">
               @csrf
                <div class="mb-3 items-center">
-                <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="" width="200px" height="150px" class="items-center block m-auto">
+                <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="" width="150px" height="120px" class="items-center block m-auto">
               </div>
               <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
