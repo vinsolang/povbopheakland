@@ -10,10 +10,10 @@
                     object-cover md:object-center object-[85%_center]
                     -z-30"
             /> --}}
-    <img src="{{ asset('assets/background/bg-freelan.png') }}" 
-         srcset="{{ asset('assets/background/bg-freelan.png') }} 640w,
-        {{ asset('assets/background/bg-freelan.png') }} 1280w,
-        {{ asset('assets/background/bg-freelan.png') }} 2560w
+    <img src="{{ asset('assets/background/bg-freelanfinal.png') }}" 
+         srcset="{{ asset('assets/background/bg-freelanfinal.png') }} 640w,
+        {{ asset('assets/background/bg-freelanfinal.png') }} 1280w,
+        {{ asset('assets/background/bg-freelanfinal.png') }} 2560w
     "
     sizes="(max-width: 768px) 100vw, 100vw"
     alt="Background"
@@ -46,7 +46,7 @@
                 ">
                 Sales stand together
             </h1> --}}
-            <h3 class="text-xl font-semibold md:text-4xl text-[#03254b] max-w-80 md:max-w-150">
+            <h3 class="text-2xl md:text-5xl font-semibold text-[#03254b] max-w-96 md:max-w-200">
                 Build Your Career in Real Estate
                 with Pov Bopheak Land
             </h3>
