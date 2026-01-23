@@ -13,180 +13,66 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        .ck-content table {
+    width: 100%;          /* make table visible */
+    border-collapse: collapse;
+}
+
+.ck-content table, 
+.ck-content th, 
+.ck-content td {
+    border: 1px solid #ccc; /* visible borders */
+}
+
+.ck-content th, 
+.ck-content td {
+    padding: 6px 12px;
+}
+
+.ck-content figure.table {
+    margin: 1rem 0;
+    overflow-x: auto;  /* allow horizontal scroll if wide */
+}
+
+    </style>
 </head>
 
 <body>
-    @php
-    $staticItems = [
-        ['id' => 10, 'des' => '
-            Welcome to a world where residential and shop house properties seamlessly blend with the breathtaking landscapes of Phnom Kulen. We invite you to embark on a journey with us, where you not only find a place to call home or establish your business but also become a part of a vibrant, thriving community.
-        ', 'img' => []],
-        ['id' => 11, 'des' => '
-            <p>
-                Royal Platinum Condo is a well-established residential condominium located in the prime Toul Kork area of Phnom Penh. The project offers a range of unit types including studio, 1-bedroom, 2-bedroom units, and penthouses, designed to suit both end-users and investors seeking convenience and long-term value in the city.
-            </p>
+ @php
+    // Decode images if stored as JSON
+    $images = is_array($projects->image_default)
+        ? $projects->image_default
+        : json_decode($projects->image_default ?? '[]', true);
 
-            <div class="relative w-full -mt-10 flex justify-start items-center space-x-8">
-               <div>
-                    <strong class="leading-0">Facilities & Amenities include:</strong>
-                    <ul>
-                        <li>Swimming pool</li>
-                        <li>Fitness Center</li>
-                        <li>Parking Area</li>
-                        <li>Security system</li>
-                        <li>Elevator access</li>
-                    </ul>
-                </div>
+    $currentProjectData = [
+        'des_ck' => app()->getLocale() === 'en'
+            ? $projects->description_default_en
+            : (app()->getLocale() === 'kh'
+                ? $projects->description_default_kh
+                : $projects->description_default_ch),
 
-                <div>
-                    <strong>Management Fee:</strong>
-                    <ul style="color:red;">
-                        <li>Management fee: 0.77$ / sqm</li>
-                        <li>Membership: 40$ / month</li>
-                        <li>Parking fee: 50$</li>
-                        <li>Electricity: 0.25$</li>
-                        <li>Water: 0.70$</li>
-                    </ul>    
-                </div>
-            </div>
-        ', 'img' => []],
-        ['id' => 12, 'des' => '
-            <p>
-                Time Square 10 is a modern high-rise condominium project located in Sihanoukville, a fast-growing coastal city known for tourism and investment potential. The project features well-designed units suitable for holiday living, rental income, and long-term investment.
-            </p>
-
-            <div class="relative w-full -mt-10 flex justify-start items-center space-x-8">
-               <div>
-                    <strong class="leading-0">Facilities & Amenities include:</strong>
-                    <ul>
-                        <li>Swimming pool</li>
-                        <li>Parking</li>
-                        <li>24-hour security</li>
-                        <li>Sky swimming pool</li>
-                        <li>Fully equipped fitness gym</li>
-                        <li>Yoga & meditation area</li>
-                        <li>Indoor lounge</li>
-                        <li>Outdoor lounge</li>
-                        <li>Bar lounge</li>
-                        <li>Clubhouse</li>
-                        <li>Kids’ pool</li>
-                        <li>Kids’ club</li>
-                        <li>500 sqm green park</li>
-                    </ul>
-                </div>
-            </div>
-        ', 'img' => []],
-        ['id' => 13, 'des' => '
-            <p>
-                7 Residence Condo is a contemporary condominium development designed for urban living. The project construction is finished and ready to move in. There are 26 levels, offering practical layouts with studio and multi-bedroom units, suitable for young professionals, small families, and property investors. The location is surrounded by Aeon Mall Sensok, Sovannaphum School and easy access to other places. 
-            </p>
-
-            <div class="relative w-full -mt-10 flex justify-start items-center space-x-8">
-               <div>
-                    <strong class="leading-0">Facilities & Amenities include:</strong>
-                    <ul>
-                        <li>6 levels secured for Parking</li>
-                        <li>Security services</li>
-                        <li>Elevator</li>
-                        <li>Fitness facilities</li>
-                        <li>Common Residential Areas</li>
-                    </ul>
-                </div>
-            </div>
-        ', 'img' => []],
-        ['id' => 14, 'des' => '
-            <p>
-               Wealth Mansion is a residential condominium project focused on comfort and privacy. With thoughtfully planned unit designs, the project caters to buyers seeking a balanced lifestyle between city access and peaceful living.
-            </p>
-
-            <div class="relative w-full -mt-10 flex justify-start items-center space-x-8">
-               <div>
-                    <strong class="leading-0">Facilities & Amenities include:</strong>
-                    <ul>
-                        <li>Swimming pool</li>
-                        <li>Fitness center</li>
-                        <li>Parking</li>
-                        <li>Security system</li>
-                        <li>Resident-only facilities</li>
-                    </ul>
-                </div>
-            </div>
-        ', 'img' => []],
-        ['id' => 15, 'des' => '
-            <p>
-              Romdoul City is a mixed-use development combining residential, commercial, and lifestyle components. Designed as a self-contained community, the project is suitable for residents looking for convenience and integrated urban living.
-            </p>
-
-            <div class="relative w-full -mt-10 flex justify-start items-center space-x-8">
-               <div>
-                    <strong class="leading-0">Facilities & Amenities include:</strong>
-                    <ul>
-                        <li>Commercial spaces</li>
-                        <li>Residential towers</li>
-                        <li>Parking area</li>
-                        <li>Security Services</li>
-                        <li>Green Spaces</li>
-                        <li>Community Facilities</li>
-                    </ul>
-                </div>
-            </div>
-        ', 'img' => []],
-        ['id' => 16, 'des' => '
-            <p>
-              Morgan EnMaison is a large-scale waterfront condominium development known for its iconic design and premium positioning. The project offers various unit types with a focus on lifestyle, investment value, and scenic views.
-            </p>
-
-            <div class="relative w-full -mt-10 flex justify-start items-center space-x-8">
-               <div>
-                    <strong class="leading-0">Facilities & Amenities include:</strong>
-                    <ul>
-                        <li>Swimming pools</li>
-                        <li>Fitness center</li>
-                        <li>Retail spaces</li>
-                        <li>Landscaped areas</li>
-                        <li>Parking</li>
-                        <li>24-hour security</li>
-                    </ul>
-                </div>
-            </div>
-        ', 'img' => []],
-        ['id' => 17, 'des' => '
-            <p>
-              Le Condé BKK is a high-end condominium project located in the prestigious BKK area of Phnom Penh. The project targets buyers seeking premium urban living in one of the city’s most desirable neighborhoods.
-            </p>
-
-            <div class="relative w-full -mt-10 flex justify-start items-center space-x-8">
-               <div>
-                    <strong class="leading-0">Facilities & Amenities include:</strong>
-                    <ul>
-                        <li>Sky Pool</li>
-                        <li>Gym</li>
-                        <li>Lounge Areas</li>
-                        <li>Parking</li>
-                        <li>Security system</li>
-                        <li>Modern shared facilities.</li>
-                    </ul>
-                </div>
-            </div>
-        ', 'img' => []],
+        // MUST be array for slider
+        'img' => is_array($images) ? $images : [],
     ];
-
-    // This finds the specific array that matches the current project ID
-    $currentProjectData = collect($staticItems)->firstWhere('id', $projects->id);
-    
-    // Fallback in case no match is found to prevent "undefined"
-    if (!$currentProjectData) {
-        $currentProjectData = ['des' => 'No description available', 'img' => []];
-    }
 @endphp
+
 
 
     <div x-data='projectData(@json($categories), "{{ app()->getLocale() }}", @json($currentProjectData))'
      class="relative w-full min-h-screen">
 
         <!-- Background -->
-        <img src="{{ asset('assets/background/bg-show.png') }}"
-            class="absolute inset-0 w-full h-full object-cover -z-10">
+        <div class="absolute inset-0 -z-10">
+        <img
+            src="{{ asset('assets/banner/b-pov-bopeak-land.png') }}"
+            class="w-full h-full object-cover"
+        >
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-white/70"></div>
+    </div>
+
 
         <!-- Header -->
         <div class="flex justify-between items-center px-8 md:px-14 py-4">
@@ -275,10 +161,26 @@
                 </div>
 
                 <!-- Description -->
-                <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
+                {{-- <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
                     <template x-for="item in displayedItems()" :key="item.slug">
                         <p x-html="item.des.replace(/\n/g, '<br>')" class="mb-4 leading-5"></p>
                         
+                    </template>
+                </div> --}}
+                <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
+                    <template x-for="item in displayedItems()" :key="item.slug">
+                        <div class="mb-4 leading-5">
+                            <!-- If CKEditor content exists, render HTML directly -->
+                            <template x-for="item in displayedItems()" :key="item.slug">
+                                <div class="mb-4 leading-5">
+                                    <div x-html="item.des_ck" class="ck-content"></div>
+                                </div>
+                            </template>
+                            <!-- Fallback to plain textarea content if CKEditor is empty -->
+                            <template x-if="!item.des_ck || item.des_ck.trim() === ''">
+                                <div x-html="item.des.replace(/\n/g, '<br>')"></div>
+                            </template>
+                        </div>
                     </template>
                 </div>
 
@@ -298,7 +200,7 @@
     class="md:hidden max-w-7xl mx-auto mt-2 px-3"
     x-show="currentImages().length > 0"
     x-transition
-    x-data="projectData(@json($categories), '{{ app()->getLocale() }}', @json($staticItems))"
+    x-data="projectData(@json($categories), '{{ app()->getLocale() }}')"
 >
     <!-- IMAGE AREA -->
     <div class="relative w-full overflow-hidden rounded-xl">
@@ -393,7 +295,7 @@
         <div class="hidden max-w-7xl mx-auto mt-24 md:flex items-center gap-6"  
          x-show="currentImages().length > 0"
         x-transition
-        x-data="projectData(@json($categories), '{{ app()->getLocale() }}', @json($staticItems))">
+        x-data="projectData(@json($categories), '{{ app()->getLocale() }}')">
 
             <!-- PREV -->
             <button @click="prev()" class="shrink-0">
@@ -510,6 +412,4 @@
 </body>
 
 </html>
-
-
 

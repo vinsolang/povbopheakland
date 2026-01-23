@@ -63,6 +63,18 @@ class ProjectController extends Controller
             $mainImagePath = $request->file('image')->store('projects/images', 'public');
         }
 
+        $imagePaths = [];
+
+        if ($request->hasFile('image_default')) {
+            $request->validate([
+                'image_default.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240', // max 10MB
+            ]);
+
+            foreach ($request->file('image_default') as $file) {
+                $imagePaths[] = $file->store('projects/images_default', 'public');
+            }
+        }
+
         Project::create([
             'name_en' => $request->name_en,
             'name_kh' => $request->name_kh,
@@ -78,7 +90,10 @@ class ProjectController extends Controller
             'locate_link' => $request->locate_link,
             'pdf' => $pdfPath,
             'image' => $mainImagePath, // <-- new field
-
+            'image_default' => json_encode($imagePaths),
+            'description_default_en' => $request -> description_default_en,
+            'description_default_kh' => $request -> description_default_kh,
+            'description_default_cn' => $request -> description_default_cn,
         ]);
 
         return redirect()->route('project.index')->with('success', 'Project saved successfully');
@@ -146,6 +161,26 @@ class ProjectController extends Controller
             $mainImagePath = $request->file('image')->store('projects/images', 'public');
         }
 
+
+        
+        $defaultImages = json_decode($project->image_default, true) ?? [];
+
+        // delete removed
+        if ($request->filled('removed_images')) {
+            foreach (json_decode($request->removed_images, true) as $img) {
+                Storage::disk('public')->delete($img);
+                $defaultImages = array_values(array_diff($defaultImages, [$img]));
+            }
+        }
+
+        // add new
+        if ($request->hasFile('image_default')) {
+            foreach ($request->file('image_default') as $file) {
+                $defaultImages[] = $file->store('projects/images_default', 'public');
+            }
+        }
+
+
         $project->update([
             'name_en' => $request->name_en,
             'name_kh' => $request->name_kh,
@@ -161,6 +196,10 @@ class ProjectController extends Controller
             'locate_link' => $request->locate_link,
             'pdf' => $pdfPath,
             'image' => $mainImagePath,
+            'image_default' => json_encode($defaultImages),
+            'description_default_en' => $request -> description_default_en,
+            'description_default_kh' => $request -> description_default_kh,
+            'description_default_cn' => $request -> description_default_cn,
         ]);
 
         return redirect()->route('project.index')->with('success', 'Project updated successfully');

@@ -27,6 +27,34 @@
     object-fit: cover;
     border-radius: 4px;
 }
+.preview-img-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+.preview-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.remove-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 </style>
 
 <div class="container p-6">
@@ -38,6 +66,36 @@
 
         <!-- PROJECT INFO -->
         <div class="section space-y-4">
+            <h2 class="text-xl font-bold">Project Info for show default</h2>
+            <div class="mb-4">
+                <label class="font-medium">Default Images (Multiple)</label>
+                <input type="file" id="image_default_input" multiple accept="image/*" class="form-control mt-2">
+            </div>
+
+
+            @php
+                // Make sure image_default is an array
+                $defaultImages = is_array($project->image_default) 
+                    ? $project->image_default 
+                    : json_decode($project->image_default, true) ?? [];
+            @endphp
+
+            <div id="image_default_preview" class="flex flex-wrap gap-2 mt-2">
+                @foreach($defaultImages as $img)
+                    <div class="preview-img-wrapper">
+                        <img src="{{ asset('storage/' . $img) }}" data-old="{{ $img }}">
+                        <button type="button" class="remove-btn">✕</button>
+                    </div>
+                @endforeach
+            </div>
+
+
+            <div class="desc-content">
+                <textarea name="description_default_en" id="desc_en" class="ckeditor">{{ $project->description_default_en }}</textarea>
+                <textarea name="description_default_kh" id="desc_kh" class="ckeditor hidden">{{ $project->description_default_kh }}</textarea>
+                <textarea name="description_default_cn" id="desc_cn" class="ckeditor hidden">{{ $project->description_default_cn }}</textarea>
+            </div>
+
             <h2 class="text-xl font-bold">Project Info</h2>
             <div class="grid grid-cols-3 gap-4">
                 <input name="name_en" placeholder="Project Name EN" class="input" value="{{ $project->name_en }}">
@@ -49,7 +107,14 @@
                 <input name="type_kh" placeholder="Project Type KH" class="input" value="{{ $project->type_kh }}">
                 <input name="type_ch" placeholder="Project Type CH" class="input" value="{{ $project->type_ch }}">
             </div>
-            <input type="file" name="image"  class="input mt-4"/>
+            <input type="file" name="image" class="input mt-4" accept="image/*" onchange="previewImage(event)">
+
+            <img id="imagePreview"
+                src="{{ $project->image ? asset('storage/' . $project->image) : '' }}"
+                class="mt-4 w-40 h-40 object-cover rounded-lg border"
+                style="display: {{ $project->image ? 'block' : 'none' }};"
+                alt="Preview">
+
         </div>
 
         <!-- LOCATION -->
@@ -160,6 +225,24 @@
 </div>
 
 <script>
+function previewImage(event) {
+    const input = event.target;
+    const preview = document.getElementById('imagePreview');
+
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block'; // show image
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
+
+
+
+<script>
 function slugify(text) {
     return text.toLowerCase().trim()
         .replace(/[^\w\s-]/g, '')
@@ -224,5 +307,98 @@ function projectForm(initialCategories = []) {
         }
     }
 }
+</script>
+
+<script>
+    const input = document.getElementById('image_default_input');
+const previewContainer = document.getElementById('image_default_preview');
+
+let newFiles = []; // newly added files
+let oldImages = Array.from(previewContainer.querySelectorAll('img[data-old]')).map(img => img.dataset.old);
+
+// Remove buttons for existing images
+previewContainer.querySelectorAll('.remove-btn').forEach(btn => {
+    btn.addEventListener('click', function(){
+        const wrapper = this.parentElement;
+        const img = wrapper.querySelector('img');
+        const oldPath = img.dataset.old;
+
+        if(oldPath){
+            // remove from oldImages array
+            oldImages = oldImages.filter(i => i !== oldPath);
+        }
+
+        wrapper.remove();
+    });
+});
+
+// Add new files and preview
+input.addEventListener('change', function(e){
+    const files = Array.from(e.target.files);
+
+    files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(ev){
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('preview-img-wrapper');
+
+            const img = document.createElement('img');
+            img.src = ev.target.result;
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.classList.add('remove-btn');
+            btn.innerText = '✕';
+            btn.addEventListener('click', function(){
+                newFiles = newFiles.filter(f => f !== file);
+                wrapper.remove();
+            });
+
+            wrapper.appendChild(img);
+            wrapper.appendChild(btn);
+            previewContainer.appendChild(wrapper);
+            newFiles.push(file);
+        };
+        reader.readAsDataURL(file);
+    });
+
+    input.value = ''; // reset input
+});
+
+// Before submitting, append hidden fields for old images
+document.querySelector('form').addEventListener('submit', function(){
+    // remove any previous hidden inputs
+    document.querySelectorAll('input[name="old_image_default[]"]').forEach(i => i.remove());
+
+    oldImages.forEach(img => {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = 'old_image_default[]';
+        hidden.value = img;
+        this.appendChild(hidden);
+    });
+});
+
+</script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<script>
+document.querySelectorAll('.ckeditor').forEach(el => ClassicEditor.create(el));
+
+// Simple tab switch
+const tabs = document.querySelectorAll('.desc-tab');
+const editors = { en: document.getElementById('desc_en'), kh: document.getElementById('desc_kh'), cn: document.getElementById('desc_cn') };
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', e => {
+        e.preventDefault();
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        Object.keys(editors).forEach(lang => {
+            editors[lang].parentElement.style.display = lang === tab.dataset.lang ? 'block' : 'none';
+        });
+    });
+});
 </script>
 @endsection

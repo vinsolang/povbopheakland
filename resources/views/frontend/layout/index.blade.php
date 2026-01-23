@@ -24,7 +24,7 @@
         <button
             id="scrollTopBtn"
             onclick="scrollToTop()"
-            class="fixed bottom-6 right-6 z-50 hidden cursor-pointer transition-opacity duration-300"
+            class="fixed bottom-6 right-6 z-[999] hidden cursor-pointer transition-opacity duration-300"
         >
             <img 
                 src="{{ asset('assets/icon/button-scroll.png') }}" 

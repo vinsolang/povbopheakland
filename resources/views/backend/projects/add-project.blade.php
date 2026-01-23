@@ -29,6 +29,34 @@
         object-fit: cover;
         border-radius: 4px;
     }
+    .preview-img-wrapper {
+        position: relative;
+        width: 100px;
+        height: 100px;
+    }
+    .preview-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+    .remove-btn {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        background: rgba(0,0,0,0.6);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 </style>
 
 <div class="container p-6">
@@ -37,8 +65,30 @@
         enctype="multipart/form-data">
         @csrf
 
-        <!-- PROJECT INFO -->
-        <div class="section space-y-4">
+            <!-- PROJECT INFO -->
+            <div class="section space-y-4">
+                {{-- Show infor default --}}
+                <h2 class="text-xl font-bold">Project Info show default</h2>
+                    <!-- MULTIPLE IMAGES -->
+            <div class="mb-4">
+                <label class="font-medium">Show Default Images (Multiple)</label>
+                <input type="file" id="image_default_input" name="image_default[]" multiple accept="image/*" class="form-control mt-2">
+            </div>
+            <div id="image_default_preview" class="flex flex-wrap gap-2 mt-2">
+                <!-- preview images will appear here -->
+            </div>
+            <!-- MULTILINGUAL DESCRIPTION -->
+            <div class="mb-4">
+                <label class="font-bold">Description Show Default</label>
+                <div class="desc-content">
+                    <label class="font-medium">Description English</label>
+                    <textarea name="description_default_en" id="desc_en" class="ckeditor"></textarea>
+                    <label class="font-medium">Description Khmer</label>
+                    <textarea name="description_default_kh" id="desc_kh" class="ckeditor hidden"></textarea>
+                    <label class="font-medium">Description Chinese</label>
+                    <textarea name="description_default_cn" id="desc_cn" class="ckeditor hidden"></textarea>
+                </div>
+            </div>
             <h2 class="text-xl font-bold">Project Info</h2>
             <div class="grid grid-cols-3 gap-4">
                 <input name="name_en" placeholder="Project Name EN" class="input">
@@ -50,9 +100,12 @@
                 <input name="type_kh" placeholder="Project Type KH" class="input">
                 <input name="type_ch" placeholder="Project Type CH" class="input">
             </div>
-            <input type="file" name="image" class="input mt-4" />
-        </div>
+            <input type="file" name="image" class="input mt-4" accept="image/*" onchange="previewImage(event)">
 
+            <img id="imagePreview"
+                class="mt-4 w-40 h-40 object-cover rounded-lg border hidden"
+                alt="Preview">
+                    </div>
         <!-- LOCATION -->
         <div class="section space-y-4">
             <h2 class="text-xl font-bold">Location</h2>
@@ -169,6 +222,23 @@
 
     </form>
 </div>
+<script>
+function previewImage(event) {
+    const input = event.target;
+    const preview = document.getElementById('imagePreview');
+
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.classList.remove('hidden');
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
 
 <script>
 function slugify(text) {
@@ -231,5 +301,80 @@ function projectForm() {
         }
     }
 }
+</script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<script>
+    // Initialize CKEditor for all textareas
+    document.querySelectorAll('.ckeditor').forEach(el => {
+        ClassicEditor.create(el).catch(error => console.error(error));
+    });
+
+    // Simple language tab switch
+    const tabs = document.querySelectorAll('.desc-tab');
+    const editors = { en: document.getElementById('desc_en'), kh: document.getElementById('desc_kh'), cn: document.getElementById('desc_cn') };
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function(e){
+            e.preventDefault();
+            tabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            Object.keys(editors).forEach(lang => {
+                editors[lang].parentElement.style.display = lang === this.dataset.lang ? 'block' : 'none';
+            });
+        });
+    });
+</script>
+<script>
+    const input = document.getElementById('image_default_input');
+const previewContainer = document.getElementById('image_default_preview');
+let imageFiles = []; // array to keep track of files
+
+input.addEventListener('change', function(event) {
+    const files = Array.from(event.target.files);
+
+    files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('preview-img-wrapper');
+
+            const img = document.createElement('img');
+            img.src = e.target.result;
+
+            const btn = document.createElement('button');
+            btn.innerText = '✕';
+            btn.classList.add('remove-btn');
+
+            // Remove image
+            btn.addEventListener('click', function() {
+                const index = imageFiles.indexOf(file);
+                if (index > -1) imageFiles.splice(index, 1);
+                wrapper.remove();
+                updateInputFiles();
+            });
+
+            wrapper.appendChild(img);
+            wrapper.appendChild(btn);
+            previewContainer.appendChild(wrapper);
+
+            imageFiles.push(file);
+            updateInputFiles();
+        };
+        reader.readAsDataURL(file);
+    });
+
+    // Reset input to allow same file again
+    input.value = '';
+});
+
+// Update the actual input's files before submitting
+function updateInputFiles() {
+    const dataTransfer = new DataTransfer();
+    imageFiles.forEach(file => dataTransfer.items.add(file));
+    input.files = dataTransfer.files;
+}
+
 </script>
 @endsection

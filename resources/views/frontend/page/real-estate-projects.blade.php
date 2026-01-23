@@ -31,7 +31,14 @@
                         <div class="mt-auto space-y-2 pt-4 py-4">
                             <button
                                 class="w-full text-xs border border-[#03254B] rounded-full py-2 text-[#03254B] hover:bg-[#03254B] hover:text-white transition">
-                                <a href="{{ route('show', $item->slug) }}">Check Price & Availability</a>
+                                {{-- <a href="{{ route('show', $item->slug) }}">Check Price & Availability</a> --}}
+                                @if($item->slug)
+                                    <a href="{{ route('show', ['slug' => $item->slug]) }}">
+                                        Check Price & Availability
+                                    </a>
+                                @else
+                                    <span class="text-red-500 text-xs">Slug missing</span>
+                                @endif
                             </button>
                             <button
                                 class="w-full text-xs bg-linear-to-r from-[#F2A93F] to-[#FFFBA6] rounded-full py-2 font-medium">

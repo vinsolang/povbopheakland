@@ -1,4 +1,4 @@
-<div class="relative w-full h-screen pt-12 z-10" id="freelancer">
+<div class="relative w-full h-[70vh] md:h-screen pt-12 z-10" id="freelancer">
 
     <!-- BACKGROUND IMAGE -->
     {{-- <img src="{{ asset('assets/background/bg-freelan.png') }}" alt="Background"
@@ -17,7 +17,7 @@
     "
     sizes="(max-width: 768px) 100vw, 100vw"
     alt="Background"
-    class="absolute inset-0 w-full h-[85vh] md:h-full object-cover md:object-center object-[88%_center] -z-30"
+    class="absolute inset-0 w-full h-[50vh] md:h-full object-cover md:object-center object-[88%_center] -z-30"
 />
 
 

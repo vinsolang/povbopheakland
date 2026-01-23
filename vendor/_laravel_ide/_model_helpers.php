@@ -321,6 +321,10 @@ namespace App\Models {
      *
      * @property \Illuminate\Support\Carbon $updated_at
      * @property \Illuminate\Support\Carbon $created_at
+     * @property string $description_default_cn
+     * @property string $description_default_kh
+     * @property string $description_default_en
+     * @property array $image_default
      * @property string|null $image
      * @property string|null $locate_text_ch
      * @property string|null $locate_text_kh
@@ -336,6 +340,8 @@ namespace App\Models {
      * @property string|null $name_kh
      * @property string|null $name_en
      * @property int $id
+     * @property-read mixed $image_url
+     * @property-read mixed $default_images_urls
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereNameEn($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereNameKh($value)
@@ -351,6 +357,10 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereLocateTextKh($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereLocateTextCh($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereImage($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereImageDefault($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereDescriptionDefaultEn($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereDescriptionDefaultKh($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereDescriptionDefaultCn($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project newModelQuery()
