@@ -54,6 +54,15 @@ class ProjectController extends Controller
             $pdfPath = $request->file('pdf')->store('projects/pdf', 'public');
         }
 
+        $mainImageBanner = null;
+        if ($request->hasFile('banner')) {
+            $request->validate([
+                'banner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240', // max 10MB
+            ]);
+
+            $mainImageBanner = $request->file('banner')->store('projects/banners', 'public');
+        }
+
         $mainImagePath = null;
         if ($request->hasFile('image')) {
             $request->validate([
@@ -89,6 +98,7 @@ class ProjectController extends Controller
             'locate_text_ch' => $request->locate_text_ch,
             'locate_link' => $request->locate_link,
             'pdf' => $pdfPath,
+            'banner' => $mainImageBanner,
             'image' => $mainImagePath, // <-- new field
             'image_default' => json_encode($imagePaths),
             'description_default_en' => $request -> description_default_en,
@@ -147,6 +157,21 @@ class ProjectController extends Controller
             $pdfPath = $request->file('pdf')->store('projects/pdf', 'public');
         }
 
+        $bannerPath = $project->banner ?? null;
+        if ($request->hasFile('banner')) {
+            $request->validate([
+                'banner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            ]);
+
+            // Delete old banner if updating
+            if (isset($project) && $project->banner && Storage::disk('public')->exists($project->banner)) {
+                Storage::disk('public')->delete($project->banner);
+            }
+
+            $bannerPath = $request->file('banner')->store('projects/banners', 'public');
+        }
+
+
         $mainImagePath = $project->image ?? null;
         if ($request->hasFile('image')) {
             $request->validate([
@@ -195,6 +220,7 @@ class ProjectController extends Controller
             'locate_text_ch' => $request->locate_text_ch,
             'locate_link' => $request->locate_link,
             'pdf' => $pdfPath,
+            'banner' => $bannerPath,
             'image' => $mainImagePath,
             'image_default' => json_encode($defaultImages),
             'description_default_en' => $request -> description_default_en,

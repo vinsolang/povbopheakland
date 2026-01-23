@@ -68,10 +68,18 @@
             <!-- PROJECT INFO -->
             <div class="section space-y-4">
                 {{-- Show infor default --}}
-                <h2 class="text-xl font-bold">Project Info show default</h2>
-                    <!-- MULTIPLE IMAGES -->
+            <h2 class="text-xl font-bold">Project Info show default</h2>
+            <!-- Banner IMAGE -->
             <div class="mb-4">
-                <label class="font-medium">Show Default Images (Multiple)</label>
+                <label class="font-medium">Banner of Project</label>
+                <input type="file" id="banner" name="banner" accept="image/*" class="form-control mt-2">
+            </div>
+            <div id="image_banner_preview" class="flex flex-wrap gap-2 mt-2">
+                <!-- preview image will appear here -->
+            </div>
+            <!-- MULTIPLE IMAGES -->
+            <div class="mb-4">
+                <label class="font-medium">Show Default Images (Multiple) of Projects</label>
                 <input type="file" id="image_default_input" name="image_default[]" multiple accept="image/*" class="form-control mt-2">
             </div>
             <div id="image_default_preview" class="flex flex-wrap gap-2 mt-2">
@@ -375,6 +383,34 @@ function updateInputFiles() {
     imageFiles.forEach(file => dataTransfer.items.add(file));
     input.files = dataTransfer.files;
 }
+
+</script>
+
+<script>
+    const bannerInput = document.getElementById('banner');
+const bannerPreview = document.getElementById('image_banner_preview');
+
+bannerInput.addEventListener('change', function(event) {
+    const file = event.target.files[0]; // single file only
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        // Clear previous preview
+        bannerPreview.innerHTML = '';
+
+        // Create image element
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.classList.add('preview-banner-img');
+        img.style.width = '200px';   // adjust size
+        img.style.height = 'auto';
+        img.style.borderRadius = '6px';
+
+        bannerPreview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+});
 
 </script>
 @endsection

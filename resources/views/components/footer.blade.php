@@ -189,7 +189,7 @@
 
                 <!-- Close Button -->
                 <button @click="showPrivacyModal = false"
-                    class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold">&times;</button>
+                    class="fixed top-16 right-8 md:top-20 z-50 xl:text-white text-black hover:text-gray-700 md:text-4xl text-2xl font-bold">&times;</button>
 
                 <!-- Modal Content -->
                 <h2 class="text-2xl font-semibold mb-4 text-[#03254b]">Privacy Policy</h2>

@@ -67,6 +67,18 @@
         <!-- PROJECT INFO -->
         <div class="section space-y-4">
             <h2 class="text-xl font-bold">Project Info for show default</h2>
+
+            <!-- Banner IMAGE -->
+            <div class="mb-4">
+                <label class="font-medium">Banner of Project</label>
+                <input type="file" id="banner" name="banner" accept="image/*" class="form-control mt-2">
+            </div>
+            <div id="image_banner_preview" class="flex flex-wrap gap-2 mt-2">
+                @if($project->banner)
+                    <img src="{{ asset('storage/' . $project->banner) }}" style="width:300px; border-radius:6px;" id="current-banner">
+                @endif
+            </div>
+
             <div class="mb-4">
                 <label class="font-medium">Show Default Images (Please kidly forgot close old image if you went update)</label>
                 <input type="file" name="image_default[]" id="image_default_input" multiple accept="image/*" class="form-control">
@@ -112,7 +124,13 @@
                 <input name="type_kh" placeholder="Project Type KH" class="input" value="{{ $project->type_kh }}">
                 <input name="type_ch" placeholder="Project Type CH" class="input" value="{{ $project->type_ch }}">
             </div>
-            <input type="file" name="image"  class="input mt-4"/>
+            <input type="file" name="image" id="image"  class="input mt-4"/>
+            <div id="image_preview" class="flex flex-wrap gap-2 mt-2">
+                @if($project->image)
+                    <img src="{{ asset('storage/' . $project->image) }}"
+                        style="width:300px; border-radius:6px;">
+                @endif
+            </div>
         </div>
 
         <!-- LOCATION -->
@@ -444,4 +462,56 @@ tabs.forEach(tab => {
     });
 });
 </script>
+
+<script>
+    const bannerInput = document.getElementById('banner');
+const bannerPreview = document.getElementById('image_banner_preview');
+
+bannerInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        // Remove current image preview
+        bannerPreview.innerHTML = '';
+
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.style.width = '300px';
+        img.style.height = 'auto';
+        img.style.borderRadius = '6px';
+
+        bannerPreview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+});
+
+</script>
+
+<script>
+const imageInput = document.getElementById('image');
+const imagePreview = document.getElementById('image_preview');
+
+imageInput.addEventListener('change', function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        // Clear old image
+        imagePreview.innerHTML = '';
+
+        // Show new image
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.style.width = '300px';
+        img.style.borderRadius = '6px';
+
+        imagePreview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+});
+</script>
+
 @endsection

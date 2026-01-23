@@ -21,6 +21,7 @@ class Project extends Model
         'locate_text_kh',
         'locate_text_ch',
         'locate_link',
+        'banner',
         'image',
         'image_default',
         'description_default_cn',

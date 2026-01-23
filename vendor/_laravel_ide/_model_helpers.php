@@ -326,6 +326,7 @@ namespace App\Models {
      * @property string $description_default_en
      * @property array $image_default
      * @property string|null $image
+     * @property string $banner
      * @property string|null $locate_text_ch
      * @property string|null $locate_text_kh
      * @property string|null $locate_text_en
@@ -356,6 +357,7 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereLocateTextEn($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereLocateTextKh($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereLocateTextCh($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereBanner($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereImage($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereImageDefault($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Project>|Project whereDescriptionDefaultEn($value)

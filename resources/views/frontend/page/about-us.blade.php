@@ -39,15 +39,15 @@
     <!-- Modal -->
     <div x-show="showModal"
          x-transition.opacity
-         class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+         class="fixed inset-0 bg-black/50 flex items-center justify-center z-30 px-4"
          style="display: none;">
 
         <div @click.away="showModal = false"
-             class="bg-white max-w-3xl w-full p-8 relative overflow-y-auto max-h-[80vh] px-6">
+             class="bg-white max-w-3xl w-full p-8 relative overflow-y-auto max-h-[80vh] px-6 rounded-xl">
 
             <!-- Close Button -->
             <button @click="showModal = false"
-                    class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold">&times;</button>
+                    class="fixed top-16 right-8 md:right-0 md:top-20 z-50 text-black hover:text-gray-700 md:w-4xl text-2xl font-bold">&times;</button>
 
             <!-- Modal Content -->
             <h2 class="text-3xl font-semibold mb-6">{{ $showAboutUs[0]->title_en }}</h2>

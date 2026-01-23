@@ -40,13 +40,16 @@
 
         <!-- Background -->
         <div class="absolute inset-0 -z-10">
-        <img
-            src="{{ asset('assets/banner/b-pov-bopeak-land.png') }}"
-            class="w-full h-full object-cover"
-        >
+            {{-- <img
+                src="{{ asset('assets/banner/b-pov-bopeak-land.png') }}"
+                class="w-full h-full object-cover"
+            > --}}
+            @if($project->banner)
+                <img src="{{ asset('storage/' . $project->banner) }}" class="w-full h-full object-cover">
+            @endif
 
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-white/70"></div>
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-white/70"></div>
     </div>
 
 
