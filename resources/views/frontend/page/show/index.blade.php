@@ -198,9 +198,12 @@
                     </a>
                 </div>
 
-        <!-- Slider version mobile -->
+
+     
+            @endif
+                    <!-- Slider version mobile -->
         <div
-    class="md:hidden max-w-7xl mx-auto mt-2 px-3"
+    class="md:hidden flex max-w-7xl mx-auto mt-2 px-3"
     x-show="currentImages().length > 0"
     x-data="projectDataM(@json($categories), '{{ app()->getLocale() }}', true)"
     @touchstart="touchStart($event)"
@@ -223,8 +226,6 @@
         <button @click="next()" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2 text-white">▶</button>
     </div>
 </div>
-     
-            @endif
             </div>
 
             <!-- Right Column -->
@@ -266,7 +267,7 @@
         </div>
 
         <!-- Slider version dasktop-->
-        <div class="hidden max-w-7xl mx-auto mt-24 md:flex items-center gap-2 px-8"  
+        <div class="hidden max-w-7xl mx-auto mt-24 md:flex items-center gap-6"  
          x-show="currentImages().length > 0"
         x-transition
         x-data="projectData(@json($categories), '{{ app()->getLocale() }}')">
@@ -284,7 +285,7 @@
             <!-- SLIDER -->
             <div class="overflow-hidden w-full">
                 
-                <div id="slider" class="flex justify-center items-center gap-2 transition-transform duration-500 ease-in-out py-4">
+                <div id="slider" class="flex justify-center items-center gap-4 transition-transform duration-500 ease-in-out">
                     <template x-for="img in currentImages()" :key="img">
                         <img :src="'{{ asset('storage') }}/' + img"
                             class="w-[300px] h-[200px] rounded-lg shrink-0 object-cover" />
@@ -356,42 +357,38 @@ function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}
         /* =====================
             SLIDER CONTROLS
         ===================== */
-      next() {
-    const total = this.currentImages().length;
-    // total - 1 allows the slider to move until the very last image is active
-    const maxIndex = Math.max(0, total - 1);
+        next() {
+            const total = this.currentImages().length;
+            this.sliderIndex++;
 
-    if (this.sliderIndex < maxIndex) {
-        this.sliderIndex++;
-        this.updateSlider();
-    } 
-    // No 'else' block means it stays at the final index
-},
+            if (this.sliderIndex > total - this.visibleCount) {
+                this.sliderIndex = 0; // LOOP
+            }
+            this.updateSlider();
+        },
 
-prev() {
-    if (this.sliderIndex > 0) {
-        this.sliderIndex--;
-        this.updateSlider();
-    }
-    // No 'else' block means it stays at index 0
-},
+        prev() {
+            const total = this.currentImages().length;
+            this.sliderIndex--;
 
+            if (this.sliderIndex < 0) {
+                this.sliderIndex = total - this.visibleCount; // LOOP
+            }
+            this.updateSlider();
+        },
 
         updateSlider() {
-    // Desktop Calculation
-    const container = document.getElementById('slider');
-    if (container) {
-        // 316 represents the width of the image + the gap
-        const step = 300 + 16; 
-        container.style.transform = `translateX(-${step * this.sliderIndex}px)`;
-    }
-    
-    // Mobile Calculation (Correctly using percentage)
-    const containerMobile = document.getElementById('sliderMobile');
-    if (containerMobile) {
-        containerMobile.style.transform = `translateX(-${100 * this.sliderIndex}%)`;
-    }
-},
+            const container = document.getElementById('slider');
+            if (container) {
+                container.style.transform =
+                    `translateX(-${(300 + this.gap) * this.sliderIndex}px)`;
+            }
+            const containerMobile = document.getElementById('sliderMobile');
+            if (containerMobile) {
+                containerMobile.style.transform =
+                    `translateX(-${(100) * this.sliderIndex}%)`;
+            }
+        },
 
         resetSlider() {
             const container = document.getElementById('slider');

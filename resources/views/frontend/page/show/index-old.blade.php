@@ -13,26 +13,50 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        .ck-content table {
+    width: 100%;          /* make table visible */
+    border-collapse: collapse;
+}
+
+.ck-content table, 
+.ck-content th, 
+.ck-content td {
+    border: 1px solid #ccc; /* visible borders */
+}
+
+.ck-content th, 
+.ck-content td {
+    padding: 6px 12px;
+}
+
+.ck-content figure.table {
+    margin: 1rem 0;
+    overflow-x: auto;  /* allow horizontal scroll if wide */
+}
+
+    </style>
 </head>
 
 <body>
-    @php
-    $staticItems = [
-        ['id' => 10, 
-        'des' => '
-            
-        ', 
-        'img' => []],
-    ];
+ @php
+    // Decode images if stored as JSON
+    $images = is_array($projects->image_default)
+        ? $projects->image_default
+        : json_decode($projects->image_default ?? '[]', true);
 
-    // This finds the specific array that matches the current project ID
-    $currentProjectData = collect($staticItems)->firstWhere('id', $projects->id);
-    
-    // Fallback in case no match is found to prevent "undefined"
-    if (!$currentProjectData) {
-        $currentProjectData = ['des' => 'No description available', 'img' => []];
-    }
+    $currentProjectData = [
+        'des' => app()->getLocale() === 'en'
+            ? $projects->description_default_en
+            : (app()->getLocale() === 'kh'
+                ? $projects->description_default_kh
+                : $projects->description_default_ch),
+
+        // MUST be array for slider
+        'img' => is_array($images) ? $images : [],
+    ];
 @endphp
+
 
 
     <div x-data='projectData(@json($categories), "{{ app()->getLocale() }}", @json($currentProjectData))'
@@ -40,16 +64,15 @@
 
         <!-- Background -->
         <div class="absolute inset-0 -z-10">
-            {{-- <img
-                src="{{ asset('assets/banner/b-pov-bopeak-land.png') }}"
-                class="w-full h-full object-cover"
-            > --}}
-            @if($project->banner)
-                <img src="{{ asset('storage/' . $project->banner) }}" class="w-full h-full object-cover">
-            @endif
-
-            <!-- Overlay -->
-            <div class="absolute inset-0 bg-white/70"></div>
+        {{-- <img
+            src="{{ asset('assets/banner/b-pov-bopeak-land.png') }}"
+            class="w-full h-full object-cover"
+        > --}}
+        @if($projects->banner)
+            <img src="{{ asset('storage/' . $projects->banner) }}" class="w-full h-full object-cover">
+        @endif
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-white/70"></div>
     </div>
 
 
@@ -140,10 +163,27 @@
                 </div>
 
                 <!-- Description -->
-                <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
+                {{-- <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
                     <template x-for="item in displayedItems()" :key="item.slug">
                         <p x-html="item.des.replace(/\n/g, '<br>')" class="mb-4 leading-5"></p>
                         
+                    </template>
+                </div> --}}
+                <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
+                    <template x-for="item in displayedItems()" :key="item.slug">
+                        <div class="mb-4 leading-5">
+                            {{-- <!-- If CKEditor content exists, render HTML directly -->
+                            <template x-for="item in displayedItems()" :key="item.slug">
+                                <div class="mb-4 leading-5">
+                                    <div x-html="item.des_ck" class="ck-content"></div>
+                                </div>
+                            </template> --}}
+                            <!-- Fallback to plain textarea content if CKEditor is empty -->
+                            <template x-for="item in displayedItems()" :key="item.slug">
+                                <p x-html="item.des.replace(/\n/g, '<br>')" class="mb-4 leading-5 ck-content"></p>
+                                
+                            </template>
+                        </div>
                     </template>
                 </div>
 
@@ -159,60 +199,31 @@
                 </div>
 
         <!-- Slider version mobile -->
-<div 
+        <div
     class="md:hidden max-w-7xl mx-auto mt-2 px-3"
     x-show="currentImages().length > 0"
-    x-transition
-    x-data="projectData(@json($categories), '{{ app()->getLocale() }}', @json($staticItems))"
+    x-data="projectDataM(@json($categories), '{{ app()->getLocale() }}', true)"
+    @touchstart="touchStart($event)"
+    @touchend="touchEnd($event)"
 >
-    <!-- IMAGE AREA -->
     <div class="relative w-full overflow-hidden rounded-xl">
-
-        <!-- SLIDER -->
-        <div 
-            id="slider"
+        <div
+            id="sliderMobile" 
             class="flex transition-transform duration-500 ease-in-out"
         >
             <template x-for="img in currentImages()" :key="img">
                 <img
                     :src="'{{ asset('storage') }}/' + img"
-                    class="w-full h-56 object-cover flex-shrink-0"
-                    @click="activeImage = img; showImage = true"
+                    class="w-full h-56 object-cover"
                 />
             </template>
         </div>
 
-        <!-- PREV BUTTON -->
-        <button 
-            @click="prev()"
-            class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2"
-        >
-            <svg width="36" height="36" viewBox="0 0 42 42" fill="none">
-                <circle cx="21" cy="21" r="21" fill="#1E1E1E"/>
-                <path
-                    d="M10 22.7321C8.66667 21.9623 8.66667 20.0378 10 19.268L25 10.6077C26.3333 9.8379 28 10.8002 28 12.3398L28 29.6603C28 31.1999 26.3333 32.1621 25 31.3923L10 22.7321Z"
-                    fill="white"
-                />
-            </svg>
-        </button>
-
-        <!-- NEXT BUTTON -->
-        <button 
-            @click="next()"
-            class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2"
-        >
-            <svg width="36" height="36" viewBox="0 0 42 42" fill="none">
-                <circle cx="21" cy="21" r="21" fill="#1E1E1E"/>
-                <path
-                    d="M32 19.2679C33.3333 20.0377 33.3333 21.9623 32 22.7321L17 31.3923C15.6667 32.1621 14 31.1999 14 29.6603L14 12.3397C14 10.8001 15.6667 9.83789 17 10.6077L32 19.2679Z"
-                    fill="white"
-                />
-            </svg>
-        </button>
-
+        <button @click="prev()" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2 text-white">◀</button>
+        <button @click="next()" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2 text-white">▶</button>
     </div>
 </div>
-
+     
             @endif
             </div>
 
@@ -258,7 +269,7 @@
         <div class="hidden max-w-7xl mx-auto mt-24 md:flex items-center gap-6"  
          x-show="currentImages().length > 0"
         x-transition
-        x-data="projectData(@json($categories), '{{ app()->getLocale() }}', @json($staticItems))">
+        x-data="projectData(@json($categories), '{{ app()->getLocale() }}')">
 
             <!-- PREV -->
             <button @click="prev()" class="shrink-0">
@@ -272,7 +283,8 @@
 
             <!-- SLIDER -->
             <div class="overflow-hidden w-full">
-                <div id="slider" class="flex gap-4 transition-transform duration-500 ease-in-out">
+                
+                <div id="slider" class="flex justify-center items-center gap-4 transition-transform duration-500 ease-in-out">
                     <template x-for="img in currentImages()" :key="img">
                         <img :src="'{{ asset('storage') }}/' + img"
                             class="w-[300px] h-[200px] rounded-lg shrink-0 object-cover" />
@@ -292,21 +304,22 @@
             </button>
         </div>
 
-    </div>
+    </div>  
 
-    <script>
-        function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}) {
+  <script>
+function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}) {
     return {
         categories: Array.isArray(categoriesData) ? categoriesData : [],
         activeCategory: null,
         activeType: null,
         lang: defaultLang,
-        // This is the specific data for the clicked project
         initialStatic: initialStatic,
 
         sliderIndex: 0,
         visibleCount: 3,
         gap: 16,
+        startX: 0,
+        endX: 0,
 
         setActiveCategory(index) {
             this.activeCategory = index;
@@ -322,10 +335,9 @@
         },
 
         displayedItems() {
-            // 1. If user clicked a category/button, show that dynamic data
             if (this.activeCategory !== null) {
                 const cat = this.categories[this.activeCategory];
-                if (cat && Array.isArray(cat.cat_type) && cat.cat_type.length) {
+                if (cat?.cat_type?.length) {
                     const type = cat.cat_type[this.activeType] || {};
                     return [{
                         des: type.des?.[this.lang] || '',
@@ -333,43 +345,79 @@
                     }];
                 }
             }
-
-            // 2. Default load: Show the static data we passed from PHP
             return [this.initialStatic];
         },
 
         currentImages() {
             const items = this.displayedItems();
-            return (items.length > 0 && Array.isArray(items[0].img)) ? items[0].img : [];
+            return items[0]?.img ?? [];
         },
 
-        // Slider functions
+        /* =====================
+            SLIDER CONTROLS
+        ===================== */
         next() {
-            const maxIndex = this.currentImages().length - this.visibleCount;
-            if (this.sliderIndex < maxIndex) {
-                this.sliderIndex++;
-                this.updateSlider();
+            const total = this.currentImages().length;
+            this.sliderIndex++;
+
+            if (this.sliderIndex > total - this.visibleCount) {
+                this.sliderIndex = 0; // LOOP
             }
+            this.updateSlider();
         },
+
         prev() {
-            if (this.sliderIndex > 0) {
-                this.sliderIndex--;
-                this.updateSlider();
+            const total = this.currentImages().length;
+            this.sliderIndex--;
+
+            if (this.sliderIndex < 0) {
+                this.sliderIndex = total - this.visibleCount; // LOOP
             }
+            this.updateSlider();
         },
+
         updateSlider() {
             const container = document.getElementById('slider');
             if (container) {
-                container.style.transform = `translateX(-${(300 + this.gap) * this.sliderIndex}px)`;
+                container.style.transform =
+                    `translateX(-${(300 + this.gap) * this.sliderIndex}px)`;
+            }
+            const containerMobile = document.getElementById('sliderMobile');
+            if (containerMobile) {
+                containerMobile.style.transform =
+                    `translateX(-${(100) * this.sliderIndex}%)`;
             }
         },
+
         resetSlider() {
             const container = document.getElementById('slider');
             if (container) container.style.transform = `translateX(0px)`;
+        },
+
+        /* =====================
+            SWIPE (MOBILE)
+        ===================== */
+        touchStart(e) {
+            this.startX = e.touches[0].clientX;
+        },
+
+        touchEnd(e) {
+            this.endX = e.changedTouches[0].clientX;
+            this.handleSwipe();
+        },
+
+        handleSwipe() {
+            if (this.startX - this.endX > 50) {
+                this.next(); // swipe left
+            } else if (this.endX - this.startX > 50) {
+                this.prev(); // swipe right
+            }
         }
     }
 }
-    </script>
+
+</script>
+
 
 
 </body>
