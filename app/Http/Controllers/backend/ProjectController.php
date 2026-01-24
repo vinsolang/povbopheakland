@@ -121,24 +121,34 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $categories = $request->category_json ? json_decode($request->category_json, true) : [];
+    foreach ($categories as $cIndex => &$cat) {
+        foreach ($cat['cat_type'] as $tIndex => &$type) {
 
-        foreach ($categories as $cIndex => &$cat) {
-            foreach ($cat['cat_type'] as $tIndex => &$type) {
-                $newImages = $type['img'] ?? [];
+            // ONLY when new images are uploaded
+            if ($request->hasFile("category.$cIndex.cat_type.$tIndex.img")) {
 
-                if ($request->has("category.$cIndex.cat_type.$tIndex.img")) {
-                    $files = $request->file("category.$cIndex.cat_type.$tIndex.img");
-
-                    if (is_array($files)) {
-                        foreach ($files as $file) {
-                            $newImages[] = $file->store('projects', 'public');
+                // delete old images
+                if (!empty($type['img'])) {
+                    foreach ($type['img'] as $oldImg) {
+                        if (Storage::disk('public')->exists($oldImg)) {
+                            Storage::disk('public')->delete($oldImg);
                         }
                     }
                 }
 
-                $type['img'] = $newImages; // store actual paths
+                // save new images
+                $newImages = [];
+                foreach ($request->file("category.$cIndex.cat_type.$tIndex.img") as $file) {
+                    $newImages[] = $file->store('projects', 'public');
+                }
+
+                $type['img'] = $newImages;
             }
+            // ELSE → keep old images automatically
         }
+    }
+
+
 
         // Handle PDF update
         $pdfPath = $project->pdf;

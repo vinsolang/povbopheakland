@@ -80,8 +80,7 @@
                         Legal Security Guaranteed
                     </h3>
                     <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
-                        We sell only qualified projects and develop well-planned
-                        housing built to lasting standards.
+                        Every unit comes with full land title and complete ownership documentation, ensuring peace of mind.
                     </p>
                 </div>
             </div>
@@ -95,11 +94,10 @@
 
                 <div>
                     <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
-                        Quality You Can Trust
+                        Proven Brand & Track Record
                     </h3>
                     <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
-                        We sell only qualified projects and develop well-planned
-                        housing built to lasting standards.
+                        Backed by Pov Bopheak Land & Home Co., Ltd., a trusted name with multiple successful projects and over 10,200 units sold.
                     </p>
                 </div>
             </div>
@@ -113,11 +111,10 @@
 
                 <div>
                     <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
-                        Quality You Can Trust
+                        Customer-Centered Support
                     </h3>
                     <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
-                        We sell only qualified projects and develop well-planned
-                        housing built to lasting standards.
+                        Our Khmer/English/Chinese-speaking advisors guide buyers step by step—from inquiry to handover.
                     </p>
                 </div>
             </div>
@@ -131,11 +128,10 @@
 
                 <div>
                     <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
-                        Quality You Can Trust
+                        Strong Investment Potential
                     </h3>
                     <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
-                        We sell only qualified projects and develop well-planned
-                        housing built to lasting standards.
+                        Strategically located projects offer high rental demand and long-term return potential.
                     </p>
                 </div>
             </div>

@@ -267,13 +267,13 @@
         </div>
 
         <!-- Slider version dasktop-->
-        <div class="hidden max-w-7xl mx-auto mt-24 md:flex items-center gap-6"  
+        <div class="hidden max-w-8xl mx-auto mt-24 md:flex items-center gap-6 py-6"  
          x-show="currentImages().length > 0"
         x-transition
         x-data="projectData(@json($categories), '{{ app()->getLocale() }}')">
 
             <!-- PREV -->
-            <button @click="prev()" class="shrink-0">
+            <button @click="prev()" class="shrink-0 cursor-pointer">
                 <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
                     <circle cx="21" cy="21" r="21" transform="rotate(-180 21 21)" fill="#1E1E1E" />
                     <path
@@ -285,7 +285,7 @@
             <!-- SLIDER -->
             <div class="overflow-hidden w-full">
                 
-                <div id="slider" class="flex justify-center items-center gap-4 transition-transform duration-500 ease-in-out">
+                <div id="slider" class="flex justify-center items-center gap-2 transition-transform duration-500 ease-in-out">
                     <template x-for="img in currentImages()" :key="img">
                         <img :src="'{{ asset('storage') }}/' + img"
                             class="w-[300px] h-[200px] rounded-lg shrink-0 object-cover" />
@@ -295,7 +295,7 @@
             </div>
 
             <!-- NEXT -->
-            <button @click="next()" class="shrink-0">
+            <button @click="next()" class="shrink-0 cursor-pointer">
                 <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
                     <circle cx="21" cy="21" r="21" fill="#1E1E1E" />
                     <path
@@ -359,21 +359,15 @@ function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}
         ===================== */
         next() {
             const total = this.currentImages().length;
-            this.sliderIndex++;
-
-            if (this.sliderIndex > total - this.visibleCount) {
-                this.sliderIndex = 0; // LOOP
-            }
+              if (this.sliderIndex < total - 1) {
+                    this.sliderIndex++;
+                }
             this.updateSlider();
         },
 
         prev() {
             const total = this.currentImages().length;
             this.sliderIndex--;
-
-            if (this.sliderIndex < 0) {
-                this.sliderIndex = total - this.visibleCount; // LOOP
-            }
             this.updateSlider();
         },
 
@@ -390,10 +384,10 @@ function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}
             }
         },
 
-        resetSlider() {
-            const container = document.getElementById('slider');
-            if (container) container.style.transform = `translateX(0px)`;
-        },
+        // resetSlider() {
+        //     const container = document.getElementById('slider');
+        //     if (container) container.style.transform = `translateX(0px)`;
+        // },
 
         /* =====================
             SWIPE (MOBILE)

@@ -7,7 +7,7 @@
     <h1 class="text-2xl md:text-5xl f2nt-semibold text-center text-[#03254B] py-4 md:py-16">
         Our Customers
         <p class="text-sm md:text-lg font-normal text-[#03254B] py-2 md:px-0 px-10">
-            All our projects are well-trusted by all local and national customers.
+            All our projects are well trusted by all local and international customers.
         </p>
     </h1>
 

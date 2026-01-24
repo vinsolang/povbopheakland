@@ -72,8 +72,15 @@
                                             <form action="{{ route('project.destroy', $project->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item"><i
-                                                        class="bx bx-trash me-1"></i> Delete</button>
+                                                <button
+                                                    type="button"
+                                                    class="dropdown-item text-danger"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#deleteProjectModal"
+                                                    data-id="{{ $project->id }}"
+                                                >
+                                                    <i class="bx bx-trash me-1"></i> Delete
+                                                </button>
                                             </form>
 
 
@@ -129,15 +136,20 @@
             </div>
         </div>
     </div>
-@endsection
+
 
 <script>
     const deleteModal = document.getElementById('deleteProjectModal');
     const deleteForm = document.getElementById('deleteProjectForm');
 
     deleteModal.addEventListener('show.bs.modal', event => {
-        const button = event.relatedTarget; // Button that triggered the modal
+        const button = event.relatedTarget;
         const projectId = button.getAttribute('data-id');
-        deleteForm.action = `/project/${projectId}`; // Laravel route
+
+        deleteForm.action = `{{ url('project') }}/${projectId}`;
     });
 </script>
+
+@endsection
+
+

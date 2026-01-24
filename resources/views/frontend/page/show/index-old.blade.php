@@ -198,9 +198,12 @@
                     </a>
                 </div>
 
-        <!-- Slider version mobile -->
+
+     
+            @endif
+                    <!-- Slider version mobile -->
         <div
-    class="md:hidden max-w-7xl mx-auto mt-2 px-3"
+    class="md:hidden flex max-w-7xl mx-auto mt-2 px-3"
     x-show="currentImages().length > 0"
     x-data="projectDataM(@json($categories), '{{ app()->getLocale() }}', true)"
     @touchstart="touchStart($event)"
@@ -214,7 +217,7 @@
             <template x-for="img in currentImages()" :key="img">
                 <img
                     :src="'{{ asset('storage') }}/' + img"
-                    class="w-full h-56 object-cover"
+                    class="w-full h-56 object-cover flex-shrink-0"
                 />
             </template>
         </div>
@@ -223,8 +226,6 @@
         <button @click="next()" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2 text-white">▶</button>
     </div>
 </div>
-     
-            @endif
             </div>
 
             <!-- Right Column -->
@@ -266,7 +267,7 @@
         </div>
 
         <!-- Slider version dasktop-->
-        <div class="hidden max-w-7xl mx-auto mt-24 md:flex items-center gap-6"  
+        <div class="hidden max-w-7xl mx-auto mt-24 md:flex items-center gap-6 py-6"  
          x-show="currentImages().length > 0"
         x-transition
         x-data="projectData(@json($categories), '{{ app()->getLocale() }}')">
