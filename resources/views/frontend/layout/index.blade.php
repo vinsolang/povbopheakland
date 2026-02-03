@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:title" content="Pov Bopheak Land">
         <meta property="og:description" content="Official website of Pov Bopheak Land">
-        <meta property="og:image" content="{{ asset('assets/logo/logo-fina.png') }}">
+        <meta property="og:image" content="{{ asset('assets/logo/logo-fina-social.png') }}">
         <meta property="og:url" content="{{ url('/') }}">
         <meta property="og:type" content="website">
 
