@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta property="og:image" content="{{ asset('assets/logo/logo-fina.png') }}">
+        
         <title>Pov Bopheak Land</title>
 
         <!-- Fonts -->
