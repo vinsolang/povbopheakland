@@ -5,9 +5,20 @@
      }">
 
     <h1 class="text-2xl md:text-5xl f2nt-semibold text-center text-[#03254B] py-4 md:py-16">
-        Our Customers
+        {{ app()->getLocale() === 'en'
+            ? 'Our Customers'
+            : (app()->getLocale() === 'kh'
+                ? 'អតិថិជនរបស់យើងខ្ញុំ'
+                : 'Our Customers')
+        }}
         <p class="text-sm md:text-lg font-normal text-[#03254B] py-2 md:px-0 px-10">
-            All our projects are well trusted by all local and international customers.
+            
+            {{ app()->getLocale() === 'en'
+                ? 'All our projects are well trusted by all local and international customers.'
+                : (app()->getLocale() === 'kh'
+                    ? 'គម្រោងទាំងអស់របស់យើងត្រូវទទួលបានការជឿទុកចិត្តយ៉ាងខ្លាំងពីអតិថិជនក្នុងស្រុក និងអន្តរជាតិទាំងអស់។'
+                    : 'All our projects are well trusted by all local and international customers.')
+            }}
         </p>
     </h1>
 

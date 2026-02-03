@@ -6,26 +6,39 @@
 
         <!-- LEFT CONTENT -->
         <div class="space-y-6 flex-1 text-left md:h-auto h-96 flex flex-col justify-between">
-            <h1 class="text-2xl md:text-7xl font-bold md:mt-0 -mt-2" style="
+            <h1 class="text-2xl lg:text-[68px] md:text-5xl font-bold md:mt-0 -mt-2 md:max-w-[90%] z-20 py-5" 
+                style="
                     background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
                     text-fill-color: transparent;
-                    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    
                 ">
-                Pov Bopheak Land
+            {{ app()->getLocale() === 'en'
+                ? 'Pov Bopheak Land & Home'
+                : (app()->getLocale() === 'kh'
+                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូម'
+                    : 'Pov Bopheak Land & Home')
+            }}
             </h1>
 
             <h3 class="text-md md:text-3xl lg:text-4xl text-[#03254b] font-bold">
-                {{ app()->getLocale() === 'en'
-                    ? 'Modern Living, Smart Investment.'
-                    : 'Modern Living, Smart Investment.' }}
+            {{ app()->getLocale() === 'en'
+                ? 'Modern Living, Smart Investment.'
+                : (app()->getLocale() === 'kh'
+                    ? 'ការរស់នៅទាន់សម័យ ការវិនិយោគឆ្លាតវៃ'
+                    : 'Modern Living, Smart Investment.')
+            }}
             </h3>
 
             <p class="text-md md:text-xl max-w-xl font-semibold text-[#03254b] mx-auto lg:mx-0 text-left">
-                “Mid-range villas, condos, and shophouses designed for
-                comfortable living and long-term value in prime locations.”
+                “ {{ app()->getLocale() === 'en'
+                ? 'Mid-range villas, condos, and shophouses designed for comfortable living and long-term value in prime locations.'
+                : (app()->getLocale() === 'kh'
+                    ? 'គម្រោងយើងខ្ញ៉ំមានផ្ទះវីឡា ស្សបហោសន៍ ដីឡូត៍ ខុនដូ រចនាឡើងសម្រាប់ការរស់នៅប្រកបដោយផាសុកភាព និងទទួលបានគុណតម្លៃរយៈពេលវែងក្នុងទីតាំងល្អៗ'
+                    : 'Mid-range villas, condos, and shophouses designed for comfortable living and long-term value in prime locations.')
+            }}”
             </p>
 
             <div class="flex justify-center lg:justify-start md:mt-0">
@@ -33,7 +46,12 @@
                             flex justify-center items-center
                             rounded-full md:mt-16">
                     <a href="#contact-form" class="text-lg md:text-xl text-[#03254b] font-bold">
-                        Book a Site Visit
+                         {{ app()->getLocale() === 'en'
+                                ? 'Book a Site Visit'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ទស្សនាគម្រោងផ្ទាល់'
+                                    : 'Book a Site Visit')
+                            }}
                     </a>
                 </div>
             </div>
@@ -42,7 +60,7 @@
         <!-- RIGHT SOCIAL / LANGUAGE -->
         <div class="flex flex-col items-center gap-6">
             <!-- Language -->
-            {{-- <div class="relative flex justify-center items-center w-16 h-16 rounded-full">
+            <div class="relative flex justify-center items-center w-16 h-16 rounded-full">
                 <button id="langBtn" class="flex justify-center items-center bg-[#03244a]
                            w-10 h-10 rounded-full cursor-pointer">
                     <span class="text-white text-lg font-semibold">
@@ -53,7 +71,7 @@
                 <div id="langDropdown" class="absolute top-14 hidden flex-col gap-2 space-y-2
                            bg-white shadow-lg rounded-full p-2 z-50">
                 </div>
-            </div> --}}
+            </div>
 
             <!-- Social Icons -->
             <div class="w-16 h-96 rounded-full
@@ -149,3 +167,5 @@
     // Initialize dropdown on page load
     renderDropdown();
 </script>
+
+

@@ -34,23 +34,23 @@
                                         value="{{ $row[0]->position_en }}" />
                                 </div>
 
-                                <div class="mb-3 col-12 d-none">
+                                <div class="mb-3 col-12">
                                     <label for="formFile" class="form-label text-[#0F4634]">Name Khmer</label>
                                     <input class="form-control" type="text" name="update_name_kh"
                                         value="{{ $row[0]->name_kh }}" />
                                 </div>
-                                <div class="mb-3 col-12 d-none">
+                                <div class="mb-3 col-12">
                                     <label for="formFile" class="form-label text-[#0F4634]">Position_kh</label>
                                     <input class="form-control" type="text" name="update_position_kh"
                                         value="{{ $row[0]->position_kh }}" />
                                 </div>
 
-                                <div class="mb-3 col-12 d-none">
+                                <div class="mb-3 col-12">
                                     <label for="formFile" class="form-label text-[#0F4634]">Name Chinese</label>
                                     <input class="form-control" type="text" name="update_name_cn"
                                         value="{{ $row[0]->name_cn }}" />
                                 </div>
-                                <div class="mb-3 col-12 d-none">
+                                <div class="mb-3 col-12">
                                     <label for="formFile" class="form-label text-[#0F4634]">Position Chinese</label>
                                     <input class="form-control" type="text" name="update_position_cn"
                                         value="{{ $row[0]->position_cn }}" />

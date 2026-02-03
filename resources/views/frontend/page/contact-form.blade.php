@@ -16,7 +16,13 @@ input::-ms-expand {
 <div class="w-full py-6" id="contact-form">
     <!-- Title -->
     <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-4 md:py-16">
-        Contact Form
+        
+         {{ app()->getLocale() === 'en'
+            ? 'Contact Form'
+            : (app()->getLocale() === 'kh'
+                ? 'ទម្រង់ទំនាក់ទំនង'
+                : 'Contact Form')
+        }}
     </h1>
     @if(session('success'))
         <div
@@ -48,16 +54,41 @@ input::-ms-expand {
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                 <!-- Full Name -->
-                <input type="text" placeholder="Full Name" name="full_name" required
+                <input type="text" placeholder="{{ app()->getLocale() === 'en'
+                            ? 'Full Name'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ឈ្មោះពេញ '
+                                : 'Full Name')
+                        }}" name="full_name" required
                     class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] placeholder-[#03254B] outline-none" />
 
                 <!-- Buyer Type -->
                 <div class="relative">
                     <select name="buyer_type" required
                         class="w-full h-14 px-6 pr-12 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none appearance-none">
-                        <option>Buyer Type</option>
-                        <option value="End-user(Living)">End-user (Living)</option>
-                        <option value="Investor(Rental/Resale)">Investor (Rental / Resale)</option>
+                        <option>
+                            {{ app()->getLocale() === 'en'
+                                ? 'Buyer Type'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ប្រភេទអ្នកទិញ'
+                                    : 'Buyer Type')
+                            }}
+                        </option>
+                        <option value="End-user(Living)">
+                            {{ app()->getLocale() === 'en'
+                                ? 'End-user (Living)'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'អ្នកទិញរស់នៅផ្ទាល់'
+                                    : 'End-user (Living)')
+                            }}
+                        </option>
+                        <option value="Investor(Rental/Resale)">
+                        {{ app()->getLocale() === 'en'
+                                ? 'Investor (Rental / Resale)'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'អ្នកទិញដើម្បីវិនិយោគ'
+                                    : 'Investor (Rental / Resale)')
+                            }}</option>
                     </select>
                     <span class="absolute right-6 top-1/2 -translate-y-1/2">
                         <!-- SVG -->
@@ -74,11 +105,16 @@ input::-ms-expand {
 
                 <!-- Country -->
                 <div class="relative custom-select-container">
-                    <input list="country-list" name="country" placeholder="Search Country..." required
+                    <input list="country-list" name="country" placeholder="{{ app()->getLocale() === 'en'
+                                                    ? 'Country of Origin'
+                                                    : (app()->getLocale() === 'kh'
+                                                        ? 'ជ្រើសរើសប្រទេស'
+                                                        : 'Country of Origin')
+                                                }}" required
                             class="w-full h-14 px-6 pr-12 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none">
                    <datalist id="country-list" name="country" required
                         class="w-full h-14 px-6 pr-12 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none appearance-none">
-                        <option>Country of Origin</option>
+                        {{-- <option>Country of Origin</option> --}}
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -284,9 +320,30 @@ input::-ms-expand {
                 <div class="relative">
                     <select name="budget_range" required
                         class="w-full h-14 px-6 pr-12 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none appearance-none">
-                        <option>Budget Range</option>
-                        <option value="Under $30,000">Under $30,000</option>
-                        <option value="$30,000–$50,000">$30,000 – $50,000</option>
+                        <option>
+                            {{ app()->getLocale() === 'en'
+                                ? 'Budget Range'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'កញ្ចប់ថវិកា'
+                                    : 'Budget Range')
+                            }}
+                        </option>
+                        <option value="Under $30,000">
+                            {{ app()->getLocale() === 'en'
+                                ? 'Under $30,000'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ក្រោម 30,000 ដុល្លារ'
+                                    : 'Under $30,000')
+                            }}
+                        </option>
+                        <option value="$30,000–$50,000">
+                            {{ app()->getLocale() === 'en'
+                                ? '$30,000 – $50,000'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ចន្លោះ 30,000 ដុល្លារ  ដល់ 50,000 ដុល្លារ'
+                                    : '$30,000 – $50,000')
+                            }}
+                        </option>
                         <option value="Above $50,000">Above $50,000</option>
                     </select>
                     <span class="absolute right-6 top-1/2 -translate-y-1/2">
@@ -309,12 +366,47 @@ input::-ms-expand {
                 <div class="relative">
                     <select name="prefre_locate" required
                         class="w-full h-14 px-6 pr-12 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none appearance-none">
-                        <option>Preferred Location</option>
-                        <option value="SiemReap">Siem Reap</option>
-                        <option value="PhnomPenh">Phnom Penh</option>
-                        <option value="SihanoukVille">Sihanouk Ville</option>
-                        <option value="PoiPet">Poi Pet</option>
-                        <option value="KompongCham">Kompong Cham</option>
+                        <option>
+                            {{ app()->getLocale() === 'en'
+                                ? 'Preferred Location'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ទីតាំង'
+                                    : 'Preferred Location')
+                            }}
+                        </option>
+                        <option value="SiemReap">
+                            {{ app()->getLocale() === 'en'
+                                ? 'Siem Reap'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ខេត្តសៀមរាប'
+                                    : 'Siem Reap')
+                            }}
+                        </option>
+                        <option value="PhnomPenh">
+                            {{ app()->getLocale() === 'en'
+                                ? 'Phnom Penh'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ក្រុងភ្នំពេញ'
+                                    : 'Phnom Penh')
+                            }}
+                        </option>
+                        <option value="SihanoukVille">
+                            {{ app()->getLocale() === 'en'
+                                ? 'Sihanouk Ville'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ក្រុងព្រះសីហនុ'
+                                    : 'Sihanouk Ville')
+                            }}
+                        </option>
+                        <option value="PoiPet">
+                            {{ app()->getLocale() === 'en'
+                                ? 'Poi Pet'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ក្រុងប៉ោយប៉ែត'
+                                    : 'Poi Pet')
+                            }}
+                        </option>
+                        {{-- <option value="KompongCham">Kompong Cham</option> --}}
                     </select>
                     <span class="absolute right-6 top-1/2 -translate-y-1/2">
                         <svg width="12" height="13" viewBox="0 0 12 13" fill="none">
@@ -329,17 +421,50 @@ input::-ms-expand {
                 </div>
 
                 <!-- Email -->
-                <input type="email" placeholder="Email" name="email" required
+                <input type="email" placeholder="{{ app()->getLocale() === 'en'
+            ? 'Email'
+            : (app()->getLocale() === 'kh'
+                ? 'អ៉ីម៉ែល'
+                : 'Email')
+        }}" name="email" required
                     class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none" />
 
                 <!-- Planning -->
                 <div class="relative">
                     <select name="plannig_buy" required
                         class="w-full h-14 px-6 pr-12 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none appearance-none">
-                        <option>When are you planning to buy?</option>
-                        <option value="1–3months">1–3 months</option>
-                        <option value="3–6months">3–6 months</option>
-                        <option value="Just exploring">Just exploring</option>
+                        <option>
+                            {{ app()->getLocale() === 'en'
+                                ? 'When are you planning to buy?'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'តើអ្នកសម្រេចចិត្តទិញនៅពេលណា'
+                                    : 'When are you planning to buy?')
+                            }}
+                        </option>
+                        <option value="1–3months">
+                            {{ app()->getLocale() === 'en'
+                                ? '1–3 months'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ក្នុងរយៈពេល 1 ទៅ 3 ខែ'
+                                    : '1–3 months')
+                            }}
+                        </option>
+                        <option value="3–6months">
+                            {{ app()->getLocale() === 'en'
+                                ? '3–6 months'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ក្នុងរយៈពេល 3 ទៅ 6 ខែ'
+                                    : '3–6 months')
+                            }}
+                        </option>
+                        <option value="Just exploring">
+                            {{ app()->getLocale() === 'en'
+                                ? 'Just exploring'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'គ្រាន់តែសាកសួរពត៌មាន'
+                                    : 'Just exploring')
+                            }}
+                        </option>
                     </select>
                     <span class="absolute right-6 top-1/2 -translate-y-1/2">
                         <svg width="12" height="13" viewBox="0 0 12 13" fill="none">
@@ -365,7 +490,12 @@ input::-ms-expand {
                             background-clip: text;
                             color: transparent;
                         ">
-                        Submit
+                        {{ app()->getLocale() === 'en'
+                                ? 'Submit'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ដាក់បញ្ជូន'
+                                    : 'Submit')
+                            }}
                     </span>
                 </button>
             </div>

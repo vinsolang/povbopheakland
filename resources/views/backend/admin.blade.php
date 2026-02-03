@@ -49,6 +49,7 @@
   <script src="{{ asset('js/') }}"></script> --}}
   <script src="{{ asset('js/config.js') }}"></script>
 
+  
 </head>
 
 <body>
@@ -175,7 +176,7 @@
           <!-- Layouts -->
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <i class="menu-icon tf-icons bx bx-user-voice"></i>
+               <i class="menu-icon tf-icons bx bx-group text-2xl"></i>
               <div data-i18n="Layouts">Customer</div>
             </a>
 
@@ -195,7 +196,7 @@
 
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <i class="menu-icon tf-icons bx bx-user-voice"></i>
+              <i class="menu-icon tf-icons bx bx-package"></i>
               <div data-i18n="Layouts">Project</div>
             </a>
 

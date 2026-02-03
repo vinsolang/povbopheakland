@@ -13,7 +13,19 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+          {{-- Like icon --}}
+    <link rel="stylesheet" href="{{asset('vendor/fonts/boxicons.css')}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
     <style>
+        body {
+            font-family: "Kantumruy Pro", sans-serif;
+            font-optical-sizing: auto;
+        }
+
         .ck-content table {
     width: 100%;          /* make table visible */
     border-collapse: collapse;
@@ -38,7 +50,7 @@
     </style>
 </head>
 
-<body>
+<body class="font-kantumruy">
  @php
     // Decode images if stored as JSON
     $images = is_array($projects->image_default)
@@ -106,9 +118,17 @@
             <!-- Left Column -->
             <div class="w-full md:w-1/2 flex flex-col space-y-8 mt-4">
                 <!-- Title -->
-                <h1 class="max-w-sm text-[#03254B] text-2xl md:text-4xl font-medium lg:px-0 px-4">
-                    {{ app()->getLocale() === 'en' ? $projects->name_en : (app()->getLocale() === 'kh' ? $projects->name_kh : $projects->name_ch) }}
-                </h1>
+                <a href="{{ route('home') }}#project-{{ $projects->id }}">
+                    <h1 class="max-w-sm text-[#03254B] text-2xl md:text-4xl font-medium lg:px-0 px-4">
+                        {{ app()->getLocale() === 'en'
+                            ? $projects->name_en
+                            : (app()->getLocale() === 'kh'
+                                ? $projects->name_kh
+                                : $projects->name_ch)
+                        }}
+                    </h1>
+                </a>
+
 
                 <!-- Category Buttons -->
                 {{-- <div class="flex flex-wrap justify-start items-center gap-2 w-full px-2">
@@ -162,22 +182,68 @@
                     </template>
                 </div>
 
+                <section class="max-w-xl text-[#1f3b7a]" x-for="item in displayedItems()" :key="item.slug">
+
+                    <!-- Top Grid -->
+                   <div class="divide-y divide-[#1f3b7a] border border-[#1f3b7a]">
+
+                    @foreach ($categories as $category)
+                        @foreach ($category['cat_type'] ?? [] as $type)
+
+                            @foreach ($type['about'] ?? [] as $about)
+
+                                <div class="grid grid-cols-2 text-center divide-x divide-[#1f3b7a]">
+
+                                    <!-- Left -->
+                                    <div class="flex items-center justify-center py-6">
+                                        <p class="text-xl">
+                                            {{ $about['text']['en'] ?? '' }}
+                                        </p>
+                                    </div>
+
+                                    <!-- Right -->
+                                    <div class="flex items-center justify-center py-6 space-x-2">
+                                        <img src="{{ asset('assets/icon-project/icons8-bedroom-100.png') }}"
+                                            class="w-10 h-8" alt="">
+                                        <span class="text-xl">
+                                            {{ $type['count'] ?? 1 }}
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                            @endforeach
+
+                        @endforeach
+                    @endforeach
+
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="border-t border-[#1f3b7a] my-6"></div>
+
+                    <!-- Area Info -->
+                    <div class="text-center space-y-3 pb-6">
+                        <p class="text-lg">
+                            Gross Area: 351.70 m<sup>2</sup>
+                        </p>
+                        <p class="text-lg">
+                            Net Area : 422.90 m<sup>2</sup>
+                        </p>
+                    </div>
+
+                    <!-- Bottom Divider -->
+                    <div class="border-t border-[#1f3b7a]"></div>
+
+                </section>
+
+
                 <!-- Description -->
-                {{-- <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
-                    <template x-for="item in displayedItems()" :key="item.slug">
-                        <p x-html="item.des.replace(/\n/g, '<br>')" class="mb-4 leading-5"></p>
-                        
-                    </template>
-                </div> --}}
+              
                 <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
                     <template x-for="item in displayedItems()" :key="item.slug">
                         <div class="mb-4 leading-5">
-                            {{-- <!-- If CKEditor content exists, render HTML directly -->
-                            <template x-for="item in displayedItems()" :key="item.slug">
-                                <div class="mb-4 leading-5">
-                                    <div x-html="item.des_ck" class="ck-content"></div>
-                                </div>
-                            </template> --}}
+                            
                             <!-- Fallback to plain textarea content if CKEditor is empty -->
                             <template x-for="item in displayedItems()" :key="item.slug">
                                 <p x-html="item.des.replace(/\n/g, '<br>')" class="mb-4 leading-5 ck-content"></p>
@@ -188,7 +254,8 @@
                 </div>
 
                 <!-- Download PDF -->
-                @if ($projects->pdf)
+            @if ($projects->pdf)
+                <h1 class="text-[#03254B] md:text-md text-sm">Download to check its price and availability now</h1>
                 <div class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12 lg:ml-0 ml-4">
                     <a href="{{ asset('storage/' . $projects->pdf) }}" download
                         class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12">
@@ -197,17 +264,14 @@
                             PDF</span>
                     </a>
                 </div>
-
-
-     
             @endif
                     <!-- Slider version mobile -->
         <div
-    class="md:hidden flex max-w-7xl mx-auto mt-2 px-3"
+   class="md:hidden flex max-w-7xl mx-auto mt-2 px-3"
     x-show="currentImages().length > 0"
     x-data="projectDataM(@json($categories), '{{ app()->getLocale() }}', true)"
-    @touchstart="touchStart($event)"
-    @touchend="touchEnd($event)"
+    @touchstart="pauseAutoPlay(); touchStart($event)"
+    @touchend="resumeAutoPlay(); touchEnd($event)"
 >
     <div class="relative w-full overflow-hidden rounded-xl">
         <div
@@ -267,13 +331,20 @@
         </div>
 
         <!-- Slider version dasktop-->
-        <div class="hidden max-w-7xl mx-auto mt-24 md:flex items-center gap-6 py-6"  
-         x-show="currentImages().length > 0"
-        x-transition
-        x-data="projectData(@json($categories), '{{ app()->getLocale() }}')">
+        <div 
+            class="hidden max-w-7xl mx-auto md:flex items-center gap-6 py-6"
+            x-show="currentImages().length > 0"
+            x-data="projectData(@json($categories), '{{ app()->getLocale() }}')"
+            @mouseenter="pauseAutoPlay"
+            @mouseleave="resumeAutoPlay"
+        >
 
             <!-- PREV -->
-            <button @click="prev()" class="shrink-0">
+            <button
+                @click="prev()"
+                :disabled="sliderIndex === 0"
+                class="px-3 py-2"
+                :class="sliderIndex === 0 ? 'opacity-40 cursor-not-allowed' : ''">
                 <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
                     <circle cx="21" cy="21" r="21" transform="rotate(-180 21 21)" fill="#1E1E1E" />
                     <path
@@ -283,19 +354,23 @@
             </button>
 
             <!-- SLIDER -->
-            <div class="overflow-hidden w-full">
+            <div class="overflow-hidden">
                 
-                <div id="slider" class="flex justify-center items-center gap-4 transition-transform duration-500 ease-in-out">
+                <div id="slider" class="flex items-center gap-2 transition-transform duration-500 ease-in-out">
                     <template x-for="img in currentImages()" :key="img">
                         <img :src="'{{ asset('storage') }}/' + img"
-                            class="w-[300px] h-[200px] rounded-lg shrink-0 object-cover" />
+                            class="w-[300px] h-[200px] mx-auto rounded-lg flex-shrink-0 object-cover" />
                         
                     </template>
                 </div>
             </div>
 
             <!-- NEXT -->
-            <button @click="next()" class="shrink-0">
+            <button
+                @click="next()"
+                :disabled="sliderIndex === currentImages().length - 1"
+                class="px-3 py-2"
+                :class="sliderIndex === currentImages().length - 1 ? 'opacity-40 cursor-not-allowed' : ''">
                 <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
                     <circle cx="21" cy="21" r="21" fill="#1E1E1E" />
                     <path
@@ -309,6 +384,7 @@
 
   <script>
 function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}) {
+    
     return {
         categories: Array.isArray(categoriesData) ? categoriesData : [],
         activeCategory: null,
@@ -316,24 +392,31 @@ function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}
         lang: defaultLang,
         initialStatic: initialStatic,
 
+        autoPlayInterval: null,
+        autoPlayDelay: 3500, // 3.5 seconds
+        isPaused: false,
+
+
         sliderIndex: 0,
-        visibleCount: 3,
+        visibleCount: 1,
         gap: 16,
         startX: 0,
         endX: 0,
 
         setActiveCategory(index) {
-            this.activeCategory = index;
-            this.activeType = 0;
-            this.sliderIndex = 0;
-            this.resetSlider();
-        },
+    this.activeCategory = index;
+    this.activeType = 0;
+    this.sliderIndex = 0;
+    this.resetSlider();
+    this.startAutoPlay();
+},
 
-        setActiveType(index) {
-            this.activeType = index;
-            this.sliderIndex = 0;
-            this.resetSlider();
-        },
+setActiveType(index) {
+    this.activeType = index;
+    this.sliderIndex = 0;
+    this.resetSlider();
+    this.startAutoPlay();
+},
 
         displayedItems() {
             if (this.activeCategory !== null) {
@@ -357,38 +440,55 @@ function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}
         /* =====================
             SLIDER CONTROLS
         ===================== */
-        next() {
-            const total = this.currentImages().length;
-            this.sliderIndex++;
+next() {
+    const total = this.currentImages().length;
+    const maxIndex = Math.max(0, total - this.visibleCount);
 
-            if (this.sliderIndex > total - this.visibleCount) {
-                this.sliderIndex = 0; // LOOP
-            }
-            this.updateSlider();
-        },
+    if (this.sliderIndex < maxIndex) {
+        this.sliderIndex++;
+    }
 
-        prev() {
-            const total = this.currentImages().length;
-            this.sliderIndex--;
+    this.updateSlider();
+},
 
-            if (this.sliderIndex < 0) {
-                this.sliderIndex = total - this.visibleCount; // LOOP
-            }
-            this.updateSlider();
-        },
+prev() {
+    if (this.sliderIndex > 0) {
+        this.sliderIndex--;
+    }
+
+    this.updateSlider();
+},
+
+
+
+
 
         updateSlider() {
-            const container = document.getElementById('slider');
-            if (container) {
-                container.style.transform =
-                    `translateX(-${(300 + this.gap) * this.sliderIndex}px)`;
-            }
-            const containerMobile = document.getElementById('sliderMobile');
-            if (containerMobile) {
-                containerMobile.style.transform =
-                    `translateX(-${(100) * this.sliderIndex}%)`;
-            }
-        },
+     const container = document.getElementById('slider');
+    if (!container) return;
+
+    const slide = container.children[0];
+    if (!slide) return;
+
+    const slideWidth = slide.offsetWidth;
+    const step = slideWidth + this.gap;
+
+    const total = this.currentImages().length;
+    const maxIndex = Math.max(0, total - this.visibleCount);
+
+    this.sliderIndex = Math.min(this.sliderIndex, maxIndex);
+
+    container.style.transform =
+        `translateX(-${200 * this.sliderIndex}px)`;
+
+    const containerMobile = document.getElementById('sliderMobile');
+    if (containerMobile) {
+        containerMobile.style.willChange = 'transform';
+        containerMobile.style.transform =
+            `translateX(-${100 * this.sliderIndex}%)`;
+    }
+},
+
 
         resetSlider() {
             const container = document.getElementById('slider');
@@ -413,7 +513,46 @@ function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}
             } else if (this.endX - this.startX > 50) {
                 this.prev(); // swipe right
             }
+        },
+
+        startAutoPlay() {
+    this.stopAutoPlay();
+
+    this.autoPlayInterval = setInterval(() => {
+        if (this.isPaused) return;
+
+        const total = this.currentImages().length;
+        if (total <= 1) return;
+
+        if (this.sliderIndex < total - 1) {
+            this.sliderIndex++;
+        } else {
+            this.sliderIndex = 0; // loop back
         }
+
+        this.updateSlider();
+    }, this.autoPlayDelay);
+},
+
+stopAutoPlay() {
+    if (this.autoPlayInterval) {
+        clearInterval(this.autoPlayInterval);
+        this.autoPlayInterval = null;
+    }
+},
+
+pauseAutoPlay() {
+    this.isPaused = true;
+},
+
+resumeAutoPlay() {
+    this.isPaused = false;
+},
+init() {
+    this.startAutoPlay();
+},
+
+
     }
 }
 

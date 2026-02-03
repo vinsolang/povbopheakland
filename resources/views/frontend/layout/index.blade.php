@@ -14,12 +14,30 @@
 
         <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
+        {{-- Like icon --}}
+    <link rel="stylesheet" href="{{asset('vendor/fonts/boxicons.css')}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: "Kantumruy Pro", sans-serif;
+            font-optical-sizing: auto;
+        }
 
-        <style>
-            [x-cloak] { display: none !important; }
-        </style>
+        .line-clamp-4-fallback {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        [x-cloak] { display: none !important; }
+    </style>
     </head>
-    <body class="overflow-x-hidden">
+    <body class="font-kantumruy overflow-x-hidden">
         {{-- Scroll To Top Button --}}
         <button
             id="scrollTopBtn"

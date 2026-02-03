@@ -12,6 +12,30 @@
     <link rel="icon" href="{{ asset('assets/logo/logo-fina.png') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        {{-- Like icon --}}
+    <link rel="stylesheet" href="{{asset('vendor/fonts/boxicons.css')}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: "Kantumruy Pro", sans-serif;
+            font-optical-sizing: auto;
+        }
+
+        .line-clamp-4-fallback {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        [x-cloak] { display: none !important; }
+    </style>
+
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <style>
         .ck-content table {
@@ -106,10 +130,16 @@
             <!-- Left Column -->
             <div class="w-full md:w-1/2 flex flex-col space-y-8 mt-4">
                 <!-- Title -->
-                <h1 class="max-w-sm text-[#03254B] text-2xl md:text-4xl font-medium lg:px-0 px-4">
-                    {{ app()->getLocale() === 'en' ? $projects->name_en : (app()->getLocale() === 'kh' ? $projects->name_kh : $projects->name_ch) }}
-                </h1>
-
+                <a href="{{ route('home') }}#project-{{ $projects->id }}">
+                    <h1 class="font-kantumruy max-w-md text-[#03254B] text-2xl md:text-4xl font-medium lg:px-0 px-4">
+                        {{ app()->getLocale() === 'en'
+                            ? $projects->name_en
+                            : (app()->getLocale() === 'kh'
+                                ? $projects->name_kh
+                                : $projects->name_ch)
+                        }}
+                    </h1>
+                </a>
                 <!-- Category Buttons -->
                 {{-- <div class="flex flex-wrap justify-start items-center gap-2 w-full px-2">
                     <template x-for="(cat, index) in categories" :key="index">
@@ -163,22 +193,11 @@
                 </div>
 
                 <!-- Description -->
-                {{-- <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
-                    <template x-for="item in displayedItems()" :key="item.slug">
-                        <p x-html="item.des.replace(/\n/g, '<br>')" class="mb-4 leading-5"></p>
-                        
-                    </template>
-                </div> --}}
-                <div class="text-[#03254B] text-sm md:text-md mt-2 lg:px-0 px-4">
+                
+                <div class="text-[#03254B] text-sm md:text-lg mt-2 lg:px-0 px-4 leading-20">
                     <template x-for="item in displayedItems()" :key="item.slug">
                         <div class="mb-4 leading-5">
-                            {{-- <!-- If CKEditor content exists, render HTML directly -->
-                            <template x-for="item in displayedItems()" :key="item.slug">
-                                <div class="mb-4 leading-5">
-                                    <div x-html="item.des_ck" class="ck-content"></div>
-                                </div>
-                            </template> --}}
-                            <!-- Fallback to plain textarea content if CKEditor is empty -->
+                    
                             <template x-for="item in displayedItems()" :key="item.slug">
                                 <p x-html="item.des.replace(/\n/g, '<br>')" class="mb-4 leading-5 ck-content"></p>
                                 
@@ -189,12 +208,26 @@
 
                 <!-- Download PDF -->
                 @if ($projects->pdf)
+                <h1 class="font-kantumruy text-[#03254B] md:text-lg text-sm">
+                    {{ app()->getLocale() === 'en'
+                ? 'Download to check its price and availability now'
+                : (app()->getLocale() === 'kh'
+                    ? 'ទាញយកឯកសារខាងក្រោមដើម្បីពិនិត្យតម្លៃនិងលំនៅដ្ឋានដែលនៅទំនេរ'
+                    : 'Download to check its price and availability now')
+            }}
+                </h1>
                 <div class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12 lg:ml-0 ml-4">
                     <a href="{{ asset('storage/' . $projects->pdf) }}" download
                         class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12">
                         <span
-                            class="bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">Download
-                            PDF</span>
+                            class="bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                            {{ app()->getLocale() === 'en'
+                ? 'Download PDF'
+                : (app()->getLocale() === 'kh'
+                    ? 'ទាញយកឥឡូវនេះ'
+                    : 'Download PDF')
+            }}
+                        </span>
                     </a>
                 </div>
 
@@ -267,13 +300,17 @@
         </div>
 
         <!-- Slider version dasktop-->
-        <div class="hidden max-w-8xl mx-auto mt-24 md:flex items-center gap-6 py-6"  
-         x-show="currentImages().length > 0"
-        x-transition
-        x-data="projectData(@json($categories), '{{ app()->getLocale() }}')">
+        <div 
+            class="hidden max-w-[92%] mx-auto md:flex items-center gap-6 py-6"
+            x-show="currentImages().length > 0"
+            x-data="projectData(@json($categories), '{{ app()->getLocale() }}')"
+            @mouseenter="pauseAutoPlay"
+            @mouseleave="resumeAutoPlay"
+        >
 
             <!-- PREV -->
-            <button @click="prev()" class="shrink-0 cursor-pointer">
+            <button
+                @click="prev()" class="px-3 py-2">
                 <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
                     <circle cx="21" cy="21" r="21" transform="rotate(-180 21 21)" fill="#1E1E1E" />
                     <path
@@ -283,19 +320,20 @@
             </button>
 
             <!-- SLIDER -->
-            <div class="overflow-hidden w-full">
+            <div class="overflow-hidden">
                 
-                <div id="slider" class="flex justify-center items-center gap-2 transition-transform duration-500 ease-in-out">
+                <div id="slider" class="flex items-center gap-2 transition-transform duration-500 ease-in-out">
                     <template x-for="img in currentImages()" :key="img">
                         <img :src="'{{ asset('storage') }}/' + img"
-                            class="w-[300px] h-[200px] rounded-lg shrink-0 object-cover" />
+                            class="w-[300px] h-[200px] rounded-lg flex-shrink-0 object-cover" />
                         
                     </template>
                 </div>
             </div>
 
             <!-- NEXT -->
-            <button @click="next()" class="shrink-0 cursor-pointer">
+            <button
+                @click="next()" class="px-3 py-2">
                 <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
                     <circle cx="21" cy="21" r="21" fill="#1E1E1E" />
                     <path
@@ -309,6 +347,7 @@
 
   <script>
 function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}) {
+    
     return {
         categories: Array.isArray(categoriesData) ? categoriesData : [],
         activeCategory: null,
@@ -316,24 +355,31 @@ function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}
         lang: defaultLang,
         initialStatic: initialStatic,
 
+        autoPlayInterval: null,
+        autoPlayDelay: 3500, // 3.5 seconds
+        isPaused: false,
+
+
         sliderIndex: 0,
-        visibleCount: 3,
+        visibleCount: 1,
         gap: 16,
         startX: 0,
         endX: 0,
 
         setActiveCategory(index) {
-            this.activeCategory = index;
-            this.activeType = 0;
-            this.sliderIndex = 0;
-            this.resetSlider();
-        },
+    this.activeCategory = index;
+    this.activeType = 0;
+    this.sliderIndex = 0;
+    this.resetSlider();
+    this.startAutoPlay();
+},
 
-        setActiveType(index) {
-            this.activeType = index;
-            this.sliderIndex = 0;
-            this.resetSlider();
-        },
+setActiveType(index) {
+    this.activeType = index;
+    this.sliderIndex = 0;
+    this.resetSlider();
+    this.startAutoPlay();
+},
 
         displayedItems() {
             if (this.activeCategory !== null) {
@@ -357,37 +403,66 @@ function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}
         /* =====================
             SLIDER CONTROLS
         ===================== */
-        next() {
-            const total = this.currentImages().length;
-              if (this.sliderIndex < total - 1) {
-                    this.sliderIndex++;
-                }
-            this.updateSlider();
-        },
+next() {
+    const total = this.currentImages().length;
+    if (total <= 1) return;
 
-        prev() {
-            const total = this.currentImages().length;
-            this.sliderIndex--;
-            this.updateSlider();
-        },
+    this.sliderIndex = (this.sliderIndex + 1) % total;
+    this.updateSlider();
+},
 
-        updateSlider() {
-            const container = document.getElementById('slider');
-            if (container) {
-                container.style.transform =
-                    `translateX(-${(300 + this.gap) * this.sliderIndex}px)`;
-            }
-            const containerMobile = document.getElementById('sliderMobile');
-            if (containerMobile) {
-                containerMobile.style.transform =
-                    `translateX(-${(100) * this.sliderIndex}%)`;
-            }
-        },
+prev() {
+    const total = this.currentImages().length;
+    if (total <= 1) return;
 
-        // resetSlider() {
-        //     const container = document.getElementById('slider');
-        //     if (container) container.style.transform = `translateX(0px)`;
-        // },
+    this.sliderIndex =
+        (this.sliderIndex - 1 + total) % total;
+    this.updateSlider();
+},
+
+
+
+
+
+
+
+ updateSlider() {
+    const container = document.getElementById('slider');
+    if (!container || !container.children.length) return;
+
+    const slide = container.children[0];
+    const slideWidth = slide.offsetWidth;
+    const step = slideWidth + this.gap;
+
+    container.style.willChange = 'transform';
+    container.style.transform =
+        `translateX(-${220 * this.sliderIndex}px)`;
+
+    // Mobile slider
+    const containerMobile = document.getElementById('sliderMobile');
+    if (containerMobile) {
+        containerMobile.style.willChange = 'transform';
+        containerMobile.style.transform =
+            `translateX(-${100 * this.sliderIndex}%)`;
+    }
+},
+
+
+
+
+        resetSlider() {
+    this.sliderIndex = 0;
+
+    const container = document.getElementById('slider');
+    if (container) {
+        container.style.transition = 'none';
+        container.style.transform = 'translateX(0)';
+        requestAnimationFrame(() => {
+            container.style.transition = '';
+        });
+    }
+},
+
 
         /* =====================
             SWIPE (MOBILE)
@@ -407,10 +482,39 @@ function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}
             } else if (this.endX - this.startX > 50) {
                 this.prev(); // swipe right
             }
-        }
+        },
+
+   startAutoPlay() {
+    this.stopAutoPlay();
+
+    this.autoPlayInterval = setInterval(() => {
+        if (this.isPaused) return;
+        this.next(); // infinite loop handled here
+    }, this.autoPlayDelay);
+},
+
+
+stopAutoPlay() {
+    if (this.autoPlayInterval) {
+        clearInterval(this.autoPlayInterval);
+        this.autoPlayInterval = null;
+    }
+},
+
+pauseAutoPlay() {
+    this.isPaused = true;
+},
+
+resumeAutoPlay() {
+    this.isPaused = false;
+},
+init() {
+    this.startAutoPlay();
+},
+
+
     }
 }
-
 </script>
 
 

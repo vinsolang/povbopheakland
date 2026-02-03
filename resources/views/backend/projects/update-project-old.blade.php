@@ -67,9 +67,23 @@
         <!-- PROJECT INFO -->
         <div class="section space-y-4">
             <h2 class="text-xl font-bold">Project Info for show default</h2>
+
+            <!-- Banner IMAGE -->
             <div class="mb-4">
-                <label class="font-medium">Default Images (Multiple)</label>
-                <input type="file" id="image_default_input" multiple accept="image/*" class="form-control mt-2">
+                <label class="font-medium">Banner of Project</label>
+                <input type="file" id="banner" name="banner" accept="image/*" class="form-control mt-2">
+            </div>
+            <div id="image_banner_preview" class="flex flex-wrap gap-2 mt-2">
+                @if($project->banner)
+                    <img src="{{ asset('storage/' . $project->banner) }}" style="width:300px; border-radius:6px;" id="current-banner">
+                @endif
+            </div>
+
+            <div class="mb-4">
+                <label class="font-medium">Show Default Images (Please kidly forgot close old image if you went update)</label>
+                <input type="file" name="image_default[]" id="image_default_input" multiple accept="image/*" class="form-control">
+                <input type="hidden" name="removed_images" id="removed_images">
+
             </div>
 
 
@@ -89,13 +103,16 @@
                 @endforeach
             </div>
 
-
+            <label class="font-bold">Description show default</label>
             <div class="desc-content">
+                
+                <label class="font-medium">Description English</label>
                 <textarea name="description_default_en" id="desc_en" class="ckeditor">{{ $project->description_default_en }}</textarea>
+                <label class="font-medium">Description Khmer</label>
                 <textarea name="description_default_kh" id="desc_kh" class="ckeditor hidden">{{ $project->description_default_kh }}</textarea>
+                <label class="font-medium">Description Chinese</label>
                 <textarea name="description_default_cn" id="desc_cn" class="ckeditor hidden">{{ $project->description_default_cn }}</textarea>
             </div>
-
             <h2 class="text-xl font-bold">Project Info</h2>
             <div class="grid grid-cols-3 gap-4">
                 <input name="name_en" placeholder="Project Name EN" class="input" value="{{ $project->name_en }}">
@@ -107,14 +124,13 @@
                 <input name="type_kh" placeholder="Project Type KH" class="input" value="{{ $project->type_kh }}">
                 <input name="type_ch" placeholder="Project Type CH" class="input" value="{{ $project->type_ch }}">
             </div>
-            <input type="file" name="image" class="input mt-4" accept="image/*" onchange="previewImage(event)">
-
-            <img id="imagePreview"
-                src="{{ $project->image ? asset('storage/' . $project->image) : '' }}"
-                class="mt-4 w-40 h-40 object-cover rounded-lg border"
-                style="display: {{ $project->image ? 'block' : 'none' }};"
-                alt="Preview">
-
+            <input type="file" name="image" id="image"  class="input mt-4"/>
+            <div id="image_preview" class="flex flex-wrap gap-2 mt-2">
+                @if($project->image)
+                    <img src="{{ asset('storage/' . $project->image) }}"
+                        style="width:300px; border-radius:6px;">
+                @endif
+            </div>
         </div>
 
         <!-- LOCATION -->
@@ -191,7 +207,7 @@
 
                             <!-- IMAGES -->
                             <div class="space-y-2">
-                                <template x-for="(preview, iIndex) in type.imgPreview" :key="iIndex">
+                                {{-- <template x-for="(preview, iIndex) in type.imgPreview" :key="iIndex">
                                     <div class="d-flex align-items-center mb-2">
                                         <input type="file" :name="'category[' + cIndex + '][cat_type][' + tIndex + '][img][]'" @change="previewImage($event, cIndex, tIndex, iIndex)" class="form-control me-2">
                                         <template x-if="type.imgPreview[iIndex]">
@@ -199,7 +215,26 @@
                                         </template>
                                         <button type="button" @click="removeImage(cIndex, tIndex, iIndex)" class="btn btn-sm btn-danger">✕</button>
                                     </div>
+                                </template> --}}
+                                <template x-for="(preview, iIndex) in type.imgPreview" :key="iIndex">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <input type="file"
+                                            :name="'category[' + cIndex + '][cat_type][' + tIndex + '][img][]'"
+                                            @change="previewImage($event, cIndex, tIndex, iIndex)"
+                                            class="form-control me-2">
+
+                                        <template x-if="preview">
+                                            <img :src="preview"
+                                                class="img-thumbnail"
+                                                style="width:80px; height:80px; object-fit:cover;">
+                                        </template>
+
+                                        <button type="button"
+                                            @click="removeImage(cIndex, tIndex, iIndex)"
+                                            class="btn btn-sm btn-danger">✕</button>
+                                    </div>
                                 </template>
+
 
                                 <button type="button" @click="addImage(cIndex, tIndex)" class="btn btn-sm btn-primary">+ Add Image</button>
                             </div>
@@ -225,24 +260,6 @@
 </div>
 
 <script>
-function previewImage(event) {
-    const input = event.target;
-    const preview = document.getElementById('imagePreview');
-
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-            preview.style.display = 'block'; // show image
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-</script>
-
-
-
-<script>
 function slugify(text) {
     return text.toLowerCase().trim()
         .replace(/[^\w\s-]/g, '')
@@ -252,11 +269,25 @@ function slugify(text) {
 
 function projectForm(initialCategories = []) {
     return {
+        // categories: initialCategories.map(cat => ({
+        //     ...cat,
+        //     cat_type: cat.cat_type.map(type => ({
+        //         ...type,
+        //         imgPreview: type.img || [] // use existing images
+        //     }))
+        // })),
         categories: initialCategories.map(cat => ({
             ...cat,
             cat_type: cat.cat_type.map(type => ({
                 ...type,
-                imgPreview: type.img || [] // use existing images
+                imgPreview: Array.isArray(type.img)
+                    ? type.img.map(img => {
+                        // already blob preview?
+                        if (img.startsWith('blob:')) return img
+                        // convert DB image to full URL
+                        return '{{ asset('storage') }}/' + img
+                    })
+                    : []
             }))
         })),
 
@@ -290,12 +321,20 @@ function projectForm(initialCategories = []) {
                 this.categories[c].cat_type[t].imgPreview.splice(i, 1)
         },
 
+        // previewImage(event, c, t, i) {
+        //     const file = event.target.files[0]
+        //     if (!file) return
+        //     this.categories[c].cat_type[t].imgPreview = this.categories[c].cat_type[t].imgPreview || []
+        //     this.categories[c].cat_type[t].imgPreview[i] = URL.createObjectURL(file)
+        // },
         previewImage(event, c, t, i) {
             const file = event.target.files[0]
             if (!file) return
-            this.categories[c].cat_type[t].imgPreview = this.categories[c].cat_type[t].imgPreview || []
-            this.categories[c].cat_type[t].imgPreview[i] = URL.createObjectURL(file)
+
+            this.categories[c].cat_type[t].imgPreview[i] =
+                URL.createObjectURL(file)
         },
+
 
         newType() {
             return {
@@ -309,11 +348,12 @@ function projectForm(initialCategories = []) {
 }
 </script>
 
+
 <script>
     const input = document.getElementById('image_default_input');
 const previewContainer = document.getElementById('image_default_preview');
 
-let newFiles = []; // newly added files
+// let newFiles = []; // newly added files
 let oldImages = Array.from(previewContainer.querySelectorAll('img[data-old]')).map(img => img.dataset.old);
 
 // Remove buttons for existing images
@@ -362,24 +402,45 @@ input.addEventListener('change', function(e){
         reader.readAsDataURL(file);
     });
 
-    input.value = ''; // reset input
+    // input.value = ''; // reset input
 });
 
 // Before submitting, append hidden fields for old images
-document.querySelector('form').addEventListener('submit', function(){
-    // remove any previous hidden inputs
-    document.querySelectorAll('input[name="old_image_default[]"]').forEach(i => i.remove());
+// document.querySelector('form').addEventListener('submit', function(){
+//     // remove any previous hidden inputs
+//     document.querySelectorAll('input[name="old_image_default[]"]').forEach(i => i.remove());
 
-    oldImages.forEach(img => {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.name = 'old_image_default[]';
-        hidden.value = img;
-        this.appendChild(hidden);
-    });
+//     oldImages.forEach(img => {
+//         const hidden = document.createElement('input');
+//         hidden.type = 'hidden';
+//         hidden.name = 'old_image_default[]';
+//         hidden.value = img;
+//         this.appendChild(hidden);
+//     });
+// });
+
+</script>
+
+<script>
+let removedImages = [];
+
+document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('remove-btn')) {
+        const wrapper = e.target.closest('.preview-img-wrapper');
+        const img = wrapper.querySelector('img');
+        const oldPath = img?.dataset.old;
+
+        if (oldPath) {
+            removedImages.push(oldPath);
+            document.getElementById('removed_images').value = JSON.stringify(removedImages);
+        }
+
+        wrapper.remove();
+    }
 });
 
 </script>
+
 
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 <script>
@@ -401,4 +462,56 @@ tabs.forEach(tab => {
     });
 });
 </script>
+
+<script>
+    const bannerInput = document.getElementById('banner');
+const bannerPreview = document.getElementById('image_banner_preview');
+
+bannerInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        // Remove current image preview
+        bannerPreview.innerHTML = '';
+
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.style.width = '300px';
+        img.style.height = 'auto';
+        img.style.borderRadius = '6px';
+
+        bannerPreview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+});
+
+</script>
+
+<script>
+const imageInput = document.getElementById('image');
+const imagePreview = document.getElementById('image_preview');
+
+imageInput.addEventListener('change', function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        // Clear old image
+        imagePreview.innerHTML = '';
+
+        // Show new image
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.style.width = '300px';
+        img.style.borderRadius = '6px';
+
+        imagePreview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+});
+</script>
+
 @endsection

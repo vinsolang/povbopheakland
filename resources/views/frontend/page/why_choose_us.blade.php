@@ -9,7 +9,14 @@
 
     <div class="">
        <div class="text-white max-w-6xl mx-auto py-8 flex lg:flex-row flex-col justify-center items-center space-x-8">
-            <h1 class="text-xl md:text-3xl lg:text-4xl">Why Choose Us?</h1>
+            <h1 class="text-xl md:text-3xl lg:text-4xl">
+            {{ app()->getLocale() === 'en'
+                ? 'Why Choose Us?'
+                : (app()->getLocale() === 'kh'
+                    ? 'ហេតុផលដែលអតិថិជនជ្រើសរើសយើងខ្ញុំ?'
+                    : 'Why Choose Us?')
+            }}
+            </h1>
             <svg class="w-[90vh] h-2 lg:w-1 lg:h-24" viewBox="0 0 3 47" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect class="flex justify-center items-center lg:w-1 lg:h-47 mx-auto" fill="url(#paint0_linear_85_1276)"/>
             <defs>
@@ -20,8 +27,12 @@
             </defs>
             </svg>
             <p class="max-w-lg md:px-0 px-4">
-                People choose us because we help Cambodians and foreigners achieve homeownership. 
-                It’s proof that you don’t need massive capital, just the right partner and a clear vision.
+                {{ app()->getLocale() === 'en'
+                ? 'People choose us because we help Cambodians and foreigners achieve homeownership. '
+                : (app()->getLocale() === 'kh'
+                    ? 'អតិថិជនជ្រើសរើសសេវាកម្មអចលទ្រព្យពីក្រុមហ៊ុនយើងខ្ញ៉ំពីព្រោះយើងជួយអតិថិជនក្នុងស្រុក និងវិនិយោគិនបរទេសឱ្យសម្រេចបាននូវភាពជាកម្មសិទ្ធលើអចលវត្ថុយ៉ាងពេញលេញដែលនេះចង្អុលបង្ហាញថា អតិថិជនមិនចាំបាច់ត្រូវការដើមទុនច្រើននោះទេ គ្រាន់តែត្រូវការដៃគូត្រឹមត្រូវ និងចក្ខុវិស័យច្បាស់លាស់។'
+                    : 'It’s proof that you don’t need massive capital, just the right partner and a clear vision.')
+            }}
             </p>
        </div>
        
@@ -39,11 +50,20 @@
 
                 <div class="">
                     <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
-                        Quality You Can Trust
+                        {{ app()->getLocale() === 'en'
+                            ? 'Quality You Can Trust'
+                            : (app()->getLocale() === 'kh'
+                                ? 'គុណភាពដែលលោកអ្នកអាចទុកចិត្តបាន'
+                                : 'Quality You Can Trust')
+                        }}
                     </h3>
                     <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
-                        We sell only qualified projects and develop well-planned
-                        housing built to lasting standards.
+                        {{ app()->getLocale() === 'en'
+                            ? 'We sell only qualified projects and develop well-planned'
+                            : (app()->getLocale() === 'kh'
+                                ? 'យើងខ្ញ៉ំលក់តែគម្រោងដែលមានគុណវឌ្ឍន៍គ្រប់គ្រាន់ និងអភិវឌ្ឍលំនៅដ្ឋានផ្អែកលើផែនការរៀបចំបានល្អ និងសាងសង់ឡើងតាមស្តង់ដាគង់វង្សយូរអង្វែង។'
+                                : 'We sell only qualified projects and develop well-planned')
+                        }}
                     </p>
                 </div>
             </div>
@@ -58,11 +78,20 @@
 
                 <div>
                     <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
-                        Affordable Housing with Quality
+                        {{ app()->getLocale() === 'en'
+                            ? 'Affordable Housing with Quality'
+                            : (app()->getLocale() === 'kh'
+                                ? 'គម្រោងមានតម្លៃសមរម្យជាមួយនឹងគុណភាព'
+                                : 'Affordable Housing with Quality')
+                        }}
                     </h3>
                     <p class="text-[#03254B] text-xs md:text-sm leading-relaxed md:mt-0 -mt-4">
-                        Our developments deliver high-quality housing at accessible price points, 
-                        starting from USD 29,000, ensuring value, durability, and long-term ownership confidence.
+                        {{ app()->getLocale() === 'en'
+                            ? 'Our developments deliver high-quality housing at accessible price points, starting from USD 29,000, ensuring value, durability, and long-term ownership confidence.'
+                            : (app()->getLocale() === 'kh'
+                                ? 'យើងខ្ញ៉ំផ្តល់ជូននូវគម្រោងប្រកបដោយគុណភាពខ្ពស់ក្នុងតម្លៃសមរម្យ ចាប់ពី 29,000 ដុល្លារអាមេរិក ដែលធានានូវតម្លៃ ភាពធន់ និងទំនុកចិត្តលើភាពជាម្ចាស់កម្មសិទ្ធិរយៈពេលវែង។'
+                                : 'Our developments deliver high-quality housing at accessible price points, starting from USD 29,000, ensuring value, durability, and long-term ownership confidence.')
+                        }}
                     </p>
                 </div>
             </div>
@@ -77,10 +106,20 @@
 
                 <div>
                     <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
-                        Legal Security Guaranteed
+                        {{ app()->getLocale() === 'en'
+                            ? 'Legal Security Guaranteed'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ធានាសុវត្ថិភាពផ្នែកច្បាប់'
+                                : 'Legal Security Guaranteed')
+                        }}
                     </h3>
                     <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
-                        Every unit comes with full land title and complete ownership documentation, ensuring peace of mind.
+                        {{ app()->getLocale() === 'en'
+                            ? 'Every unit comes with full land title and complete ownership documentation, ensuring peace of mind.'
+                            : (app()->getLocale() === 'kh'
+                                ? 'គ្រប់គម្រោងនិមួយៗភ្ជាប់មកជាមួយនឹងប័ណ្ណកម្មសិទ្ធិដីធ្លីពេញលេញ និងឯកសារកម្មសិទ្ធិដែលធានាបាននូវភាពស្ងប់សុខផ្លូវចិត្តជូនអតិថិជន។'
+                                : 'Every unit comes with full land title and complete ownership documentation, ensuring peace of mind.')
+                        }}
                     </p>
                 </div>
             </div>
@@ -94,10 +133,21 @@
 
                 <div>
                     <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
-                        Proven Brand & Track Record
+                         {{ app()->getLocale() === 'en'
+                            ? 'Proven Brand & Track Record'
+                            : (app()->getLocale() === 'kh'
+                                ? 'កេរ្ត៍ឈ្មោះ និងកំណត់ត្រាដែលបានបង្ហាញឱ្យឃើញ'
+                                : 'Proven Brand & Track Record')
+                        }}
                     </h3>
                     <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
-                        Backed by Pov Bopheak Land & Home Co., Ltd., a trusted name with multiple successful projects and over 10,200 units sold.
+                        
+                        {{ app()->getLocale() === 'en'
+                            ? 'Backed by Pov Bopheak Land & Home Co., Ltd., a trusted name with multiple successful projects and over 10,200 units sold.'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ក្រុមហ៊ុនពៅបូភ័ក្រលែន & ហូមឯ.កគឺជាក្រុមហ៊ុនមានកេរ្ត៍ឈ្មោះ និងទំនុកចិត្ត ជាមួយនឹងគម្រោងលក់ជោគជ័យជាច្រើន និងលក់បានជាង 10,200 យូនីត គិតត្រឹមឆ្នាំ2025។'
+                                : 'Backed by Pov Bopheak Land & Home Co., Ltd., a trusted name with multiple successful projects and over 10,200 units sold.')
+                        }}
                     </p>
                 </div>
             </div>
@@ -111,10 +161,22 @@
 
                 <div>
                     <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
-                        Customer-Centered Support
+                        
+                        {{ app()->getLocale() === 'en'
+                            ? 'Customer-Centered Support'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ការគាំទ្រដោយផ្តោតលើអតិថិជនជាចម្បង'
+                                : 'Customer-Centered Support')
+                        }}
                     </h3>
                     <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
-                        Our Khmer/English/Chinese-speaking advisors guide buyers step by step—from inquiry to handover.
+                        
+                         {{ app()->getLocale() === 'en'
+                            ? 'Our Khmer/English/Chinese-speaking advisors guide buyers step by step—from inquiry to handover.'
+                            : (app()->getLocale() === 'kh'
+                                ? 'យើងខ្ញ៉ំមានអ្នកជំនាញប្រឹក្សាអចលទ្រព្យក្នុងស្រុកដែលអាចនិយាយភាសាខ្មែរ/អង់គ្លេស/ចិន បាន ណែនាំអ្នកទិញមួយជំហានម្តងៗ  ចាប់ពីការសាកសួររហូតដល់ការប្រគល់អចលទ្រព្យជូន។'
+                                : 'Our Khmer/English/Chinese-speaking advisors guide buyers step by step—from inquiry to handover.')
+                        }}
                     </p>
                 </div>
             </div>
@@ -128,10 +190,22 @@
 
                 <div>
                     <h3 class="text-[#F2A93F] font-semibold mb-3 py-2">
-                        Strong Investment Potential
+                        
+                        {{ app()->getLocale() === 'en'
+                            ? 'Strong Investment Potential'
+                            : (app()->getLocale() === 'kh'
+                                ? 'សក្តានុពលក្នុងការវិនិយោគខ្លាំង'
+                                : 'Strong Investment Potential')
+                        }}
                     </h3>
                     <p class="text-[#03254B] text-xs md:text-sm leading-relaxed">
-                        Strategically located projects offer high rental demand and long-term return potential.
+                       
+                        {{ app()->getLocale() === 'en'
+                            ? 'Strategically located projects offer high rental demand and long-term return potential.'
+                            : (app()->getLocale() === 'kh'
+                                ? 'គម្រោងរបស់យើងខ្ញ៉ំមានទីតាំងយុទ្ធសាស្ត្រដោយផ្តល់នូវតម្រូវការជួលខ្ពស់ និងសក្តានុពលផលចំណេញរយៈពេលវែង។'
+                                : 'Strategically located projects offer high rental demand and long-term return potential.')
+                        }}
                     </p>
                 </div>
             </div>

@@ -71,7 +71,10 @@
             <!-- Banner IMAGE -->
             <div class="mb-4">
                 <label class="font-medium">Banner of Project</label>
-                <input type="file" id="banner" name="banner" accept="image/*" class="form-control mt-2">
+                <input type="file" id="banner" name="banner" accept=".jpg,.jpeg,.png,.gif,.svg" class="form-control mt-2">
+                 @error('banner')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
             </div>
             <div id="image_banner_preview" class="flex flex-wrap gap-2 mt-2">
                 @if($project->banner)
@@ -199,10 +202,55 @@
 
                             <input x-model="type.slug" readonly class="input bg-gray-100 d-none">
 
+                            <!-- ABOUT -->
+                            {{-- <div class="border p-3 rounded bg-gray-50 space-y-3">
+                                <h5 class="font-semibold">About Section</h5>
+
+                                <template x-for="(about, aIndex) in (type.about || [])" :key="aIndex">
+
+                                    <div class="border p-3 rounded space-y-2 bg-white">
+
+                                        <!-- About Text -->
+                                        <div class="grid grid-cols-3 gap-2">
+                                            <input x-model="about.text.en" placeholder="About EN" class="input">
+                                            <input x-model="about.text.kh" placeholder="About KH" class="input">
+                                            <input x-model="about.text.ch" placeholder="About CH" class="input">
+                                        </div>
+
+                                        <!-- About Number -->
+                                        <input x-model="about.number" type="number" placeholder="Number" class="input">
+
+                                        <!-- About Image -->
+                                        <input type="file"
+                                            :name="'category['+cIndex+'][cat_type]['+tIndex+'][about]['+aIndex+'][image]'"
+                                            @change="previewAboutImage($event, cIndex, tIndex, aIndex)"
+                                            class="input">
+
+                                        <template x-if="about.preview">
+                                            <img :src="about.preview" class="img-thumb">
+                                        </template>
+
+                                        <button type="button"
+                                            @click="removeAbout(cIndex, tIndex, aIndex)"
+                                            class="text-red-600 text-sm">
+                                            ✕ Remove About
+                                        </button>
+                                    </div>
+
+                                </template>
+
+                                <button type="button"
+                                    @click="addAbout(cIndex, tIndex)"
+                                    class="btn btn-sm btn-secondary">
+                                    + Add About
+                                </button>
+                            </div> --}}
+
+
                             <div class="grid grid-cols-3 gap-2">
-                                <textarea x-model="type.des.en" placeholder="Desc EN" class="input"></textarea>
-                                <textarea x-model="type.des.kh" placeholder="Desc KH" class="input"></textarea>
-                                <textarea x-model="type.des.ch" placeholder="Desc CH" class="input"></textarea>
+                                <textarea x-model="type.des.en" placeholder="Desc EN" class="input" id="descript_en" class="ckeditor"></textarea>
+                                <textarea x-model="type.des.kh" placeholder="Desc KH" class="input" id="descript_kh" class="ckeditor"></textarea>
+                                <textarea x-model="type.des.ch" placeholder="Desc CH" class="input" id="descript_cn" class="ckeditor"></textarea>
                             </div>
 
                             <!-- IMAGES -->
@@ -269,27 +317,43 @@ function slugify(text) {
 
 function projectForm(initialCategories = []) {
     return {
-        // categories: initialCategories.map(cat => ({
-        //     ...cat,
-        //     cat_type: cat.cat_type.map(type => ({
-        //         ...type,
-        //         imgPreview: type.img || [] // use existing images
-        //     }))
-        // })),
         categories: initialCategories.map(cat => ({
             ...cat,
             cat_type: cat.cat_type.map(type => ({
                 ...type,
                 imgPreview: Array.isArray(type.img)
-                    ? type.img.map(img => {
-                        // already blob preview?
-                        if (img.startsWith('blob:')) return img
-                        // convert DB image to full URL
-                        return '{{ asset('storage') }}/' + img
-                    })
-                    : []
+                    ? type.img.map(img => '{{ asset('storage') }}/' + img)
+                    : [],
+                about: (type.about || []).map(a => ({
+                    ...a,
+                    preview: a.image ? '{{ asset('storage') }}/' + a.image : null
+                }))
             }))
         })),
+
+        addAbout(c, t) {
+    this.categories[c].cat_type[t].about =
+        this.categories[c].cat_type[t].about || []
+
+    this.categories[c].cat_type[t].about.push({
+        text: { en:'', kh:'', ch:'' },
+        number: '',
+        image: '',
+        preview: null
+    })
+},
+
+removeAbout(c, t, a) {
+    this.categories[c].cat_type[t].about.splice(a, 1)
+},
+
+previewAboutImage(e, c, t, a) {
+    const file = e.target.files[0]
+    if (!file) return
+    this.categories[c].cat_type[t].about[a].preview =
+        URL.createObjectURL(file)
+},
+
 
         addCategory() {
             this.categories.push({
@@ -341,9 +405,11 @@ function projectForm(initialCategories = []) {
                 title: { en:'', kh:'', ch:'' },
                 slug: '',
                 des: { en:'', kh:'', ch:'' },
-                imgPreview: []
+                imgPreview: [],
+                about: []
             }
         }
+
     }
 }
 </script>
@@ -449,6 +515,26 @@ document.querySelectorAll('.ckeditor').forEach(el => ClassicEditor.create(el));
 // Simple tab switch
 const tabs = document.querySelectorAll('.desc-tab');
 const editors = { en: document.getElementById('desc_en'), kh: document.getElementById('desc_kh'), cn: document.getElementById('desc_cn') };
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', e => {
+        e.preventDefault();
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        Object.keys(editors).forEach(lang => {
+            editors[lang].parentElement.style.display = lang === tab.dataset.lang ? 'block' : 'none';
+        });
+    });
+});
+</script>
+
+<script>
+document.querySelectorAll('.ckeditor').forEach(el => ClassicEditor.create(el));
+
+// Simple tab switch
+const tabs = document.querySelectorAll('.desc-tab');
+const editors = { en: document.getElementById('descript_en'), kh: document.getElementById('descript_kh'), cn: document.getElementById('descript_cn') };
 
 tabs.forEach(tab => {
     tab.addEventListener('click', e => {

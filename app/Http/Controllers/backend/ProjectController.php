@@ -25,25 +25,33 @@ class ProjectController extends Controller
     {
         $categories = $request->category_json ? json_decode($request->category_json, true) : [];
 
+        
         foreach ($categories as $cIndex => &$cat) {
             foreach ($cat['cat_type'] as $tIndex => &$type) {
-                $newImages = [];
 
-                // Check if files exist for this type
-                if ($request->has("category.$cIndex.cat_type.$tIndex.img")) {
-                    $files = $request->file("category.$cIndex.cat_type.$tIndex.img");
+                /* ============ TYPE IMAGES ============ */
+                if ($request->hasFile("category.$cIndex.cat_type.$tIndex.img")) {
 
-                    if (is_array($files)) {
-                        foreach ($files as $file) {
-                            // Store file and get path
-                            $newImages[] = $file->store('projects', 'public');
+                    // delete old images
+                    if (!empty($type['img'])) {
+                        foreach ($type['img'] as $oldImg) {
+                            if (Storage::disk('public')->exists($oldImg)) {
+                                Storage::disk('public')->delete($oldImg);
+                            }
                         }
                     }
-                }
 
-                $type['img'] = $newImages; // store actual paths
+                    $newImages = [];
+                    foreach ($request->file("category.$cIndex.cat_type.$tIndex.img") as $file) {
+                        $newImages[] = $file->store('projects', 'public');
+                    }
+
+                    $type['img'] = $newImages;
+                }
             }
         }
+
+
 
         $pdfPath = null;
         if ($request->hasFile('pdf')) {
@@ -57,7 +65,7 @@ class ProjectController extends Controller
         $mainImageBanner = null;
         if ($request->hasFile('banner')) {
             $request->validate([
-                'banner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240', // max 10MB
+                'banner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480', // max 10MB
             ]);
 
             $mainImageBanner = $request->file('banner')->store('projects/banners', 'public');
@@ -121,32 +129,31 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $categories = $request->category_json ? json_decode($request->category_json, true) : [];
-    foreach ($categories as $cIndex => &$cat) {
-        foreach ($cat['cat_type'] as $tIndex => &$type) {
+        foreach ($categories as $cIndex => &$cat) {
+            foreach ($cat['cat_type'] as $tIndex => &$type) {
 
-            // ONLY when new images are uploaded
-            if ($request->hasFile("category.$cIndex.cat_type.$tIndex.img")) {
+                // ONLY when new images are uploaded
+                if ($request->hasFile("category.$cIndex.cat_type.$tIndex.img")) {
 
-                // delete old images
-                if (!empty($type['img'])) {
-                    foreach ($type['img'] as $oldImg) {
-                        if (Storage::disk('public')->exists($oldImg)) {
-                            Storage::disk('public')->delete($oldImg);
+                    // delete old images
+                    if (!empty($type['img'])) {
+                        foreach ($type['img'] as $oldImg) {
+                            if (Storage::disk('public')->exists($oldImg)) {
+                                Storage::disk('public')->delete($oldImg);
+                            }
                         }
                     }
-                }
 
-                // save new images
-                $newImages = [];
-                foreach ($request->file("category.$cIndex.cat_type.$tIndex.img") as $file) {
-                    $newImages[] = $file->store('projects', 'public');
-                }
+                    // save new images
+                    $newImages = [];
+                    foreach ($request->file("category.$cIndex.cat_type.$tIndex.img") as $file) {
+                        $newImages[] = $file->store('projects', 'public');
+                    }
 
-                $type['img'] = $newImages;
+                    $type['img'] = $newImages;
+                }
             }
-            // ELSE → keep old images automatically
         }
-    }
 
 
 
@@ -167,25 +174,25 @@ class ProjectController extends Controller
             $pdfPath = $request->file('pdf')->store('projects/pdf', 'public');
         }
 
+
         $bannerPath = $project->banner ?? null;
         if ($request->hasFile('banner')) {
             $request->validate([
-                'banner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+                'banner' => 'nullable|mimes:jpeg,png,jpg,gif,svg|max:20480',
             ]);
 
-            // Delete old banner if updating
-            if (isset($project) && $project->banner && Storage::disk('public')->exists($project->banner)) {
-                Storage::disk('public')->delete($project->banner);
+            // Delete old banner
+            if ($bannerPath && Storage::disk('public')->exists($bannerPath)) {
+                Storage::disk('public')->delete($bannerPath);
             }
 
             $bannerPath = $request->file('banner')->store('projects/banners', 'public');
         }
 
-
         $mainImagePath = $project->image ?? null;
         if ($request->hasFile('image')) {
             $request->validate([
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+                'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg|max:20480',
             ]);
 
             // Delete old image
@@ -195,7 +202,7 @@ class ProjectController extends Controller
 
             $mainImagePath = $request->file('image')->store('projects/images', 'public');
         }
-
+        
 
         
         $defaultImages = json_decode($project->image_default, true) ?? [];

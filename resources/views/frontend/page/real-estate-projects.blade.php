@@ -8,23 +8,42 @@
                 @foreach ($projects as $item)
 
                     <!-- CARD 1-->
-                    <div class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
+                    <div id="project-{{ $item->id }}" class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
                         <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
                             <img src="{{ asset('storage/'. $item->image) }}" class="w-full h-full object-cover" alt="">
                         </div>
 
                         <h3 class="max-w-56 mx-auto text-center font-semibold text-[#03254B] text-sm">
-                            {{ $item->name_en }}
+            
+                            {{
+                                app()->getLocale() === 'en'
+                                ?  $item->name_en
+                                : (app()->getLocale() === 'kh'
+                                    ?  $item->name_kh
+                                    :  $item->name_cn)
+                            }}
                         </h3>
 
                         <div
                             class="flex flex-col justify-center items-center text-center text-xs text-gray-500 mt-1 space-y-2">
                             <h3 class="max-w-40 mx-auto text-center font-semibold text-[#03254B] text-sm uppercase">
-                                 {{ $item->type_en }}
+                                  {{
+                                app()->getLocale() === 'en'
+                                ?  $item->type_en
+                                : (app()->getLocale() === 'kh'
+                                    ?  $item->type_kh
+                                    :  $item->type_cn)
+                            }}
                             </h3>
                             <p
                                 class="flex justify-center items-center text-center text-xs md:text-sm font-normal max-w-48 mx-auto text-[#03254B]">
-                                {{ $item->locate_text_en }}
+                                 {{
+                                app()->getLocale() === 'en'
+                                ?  $item->locate_text_en
+                                : (app()->getLocale() === 'kh'
+                                    ?  $item->locate_text_kh
+                                    :  $item->locate_text_cn)
+                            }}
                             </p>
                         </div>
 
@@ -34,7 +53,12 @@
                                 {{-- <a href="{{ route('show', $item->slug) }}">Check Price & Availability</a> --}}
                                 @if($item->slug)
                                     <a href="{{ route('show', ['slug' => $item->slug]) }}">
-                                        Check Price & Availability
+                                         {{ app()->getLocale() === 'en'
+                                            ? 'Check Price & Availability'
+                                            : (app()->getLocale() === 'kh'
+                                                ? 'ពិនិត្យមើលតម្លៃ និងយូនីតដែលនៅទំនេរ'
+                                                : 'Check Price & Availability')
+                                        }}
                                     </a>
                                 @else
                                     <span class="text-red-500 text-xs">Slug missing</span>
@@ -42,7 +66,14 @@
                             </button>
                             <button
                                 class="w-full text-xs bg-linear-to-r from-[#F2A93F] to-[#FFFBA6] rounded-full py-2 font-medium">
-                                <a href="{{ route('home') }}#contact-form">Book Free Consultation</a>
+                                <a href="{{ route('home') }}#contact-form">
+                                     {{ app()->getLocale() === 'en'
+                                        ? 'Book Free Consultation'
+                                        : (app()->getLocale() === 'kh'
+                                            ? 'ទស្សនាគម្រោងផ្ទាល់'
+                                            : 'Book Free Consultation')
+                                    }}
+                                </a>
                             </button>
                         </div>
                     </div>

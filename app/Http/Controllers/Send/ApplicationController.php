@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ApplicationController extends Controller
 {
-     public function send(Request $request)
+    public function send(Request $request)
     {
         $data = $request->validate([
             'full_name' => 'required|string',

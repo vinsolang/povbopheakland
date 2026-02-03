@@ -6,9 +6,21 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;">
-            Pov Bopheak Land
+             {{ app()->getLocale() === 'en'
+                ? 'Pov Bopheak Land & Home'
+                : (app()->getLocale() === 'kh'
+                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន & Home'
+                    : 'Pov Bopheak Land & Home')
+            }}
         </h1>
-        <p class="text-white text-lg md:text-xl">Modern Living, Smart Investment.</p>
+        <p class="text-white text-lg md:text-xl">
+            {{ app()->getLocale() === 'en'
+                ? 'Modern Living, Smart Investment.'
+                : (app()->getLocale() === 'kh'
+                    ? 'ការរស់នៅទាន់សម័យ ការវិនិយោគឆ្លាតវៃ'
+                    : 'Modern Living, Smart Investment.')
+            }}
+        </p>
     </div>
 </div>
 
@@ -34,8 +46,22 @@
 
             <!-- Text -->
             <div class="flex items-center text-[#ffffff] text-sm md:text-lg">
-                <span class="font-semibold">Pov&nbsp;Bopheak</span>
-                <span class="font-normal ml-1"> Land & Home Co., Ltd</span>
+                <span class="font-semibold">
+                     {{ app()->getLocale() === 'en'
+                ? 'Pov Bopheak'
+                : (app()->getLocale() === 'kh'
+                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រ'
+                    : 'Pov Bopheak ')
+            }}
+                </span>
+                <span class="font-normal ml-1">
+                     {{ app()->getLocale() === 'en'
+                ? 'Land & Home Co., Ltd'
+                : (app()->getLocale() === 'kh'
+                    ? 'លែន&ហូមឯ.ក'
+                    : 'Land & Home Co., Ltd')
+            }}
+                </span>
             </div>
         </div>
         {{-- Buuton Back --}}
@@ -50,7 +76,12 @@
 
         <div class="py-4" id="get-in-touch">
             <h1 class="text-sm md:text-lg font-semibold text-white py-4">
-                Get in Touch
+                {{ app()->getLocale() === 'en'
+                ? ' Get in Touch'
+                : (app()->getLocale() === 'kh'
+                    ? 'ទាក់ទងមកយើងខ្ញុំ'
+                    : ' Get in Touch')
+            }}
             </h1>
             {{-- Icon Link Social Media --}}
             <div class="flex justify-start items-center space-x-0 md:space-x-4">
@@ -94,11 +125,23 @@
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
                     text-fill-color: transparent;">
-                        Contact Us
+                         {{ app()->getLocale() === 'en'
+                ? 'Contact Us'
+                : (app()->getLocale() === 'kh'
+                    ? 'ការទំនាក់ទំនង'
+                    : 'Contact Us')
+            }}
                     </h1>
                 </div>
                 <div class="space-y-2 md:text-md text-sm">
-                    <p class="py-4">Pov Bopheak Land & Home Co., Ltd.</p>
+                    <p class="max-w-7xl py-4">
+                         {{ app()->getLocale() === 'en'
+                ? 'Pov Bopheak Land & Home.'
+                : (app()->getLocale() === 'kh'
+                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូម'
+                    : 'Pov Bopheak Land & Home.')
+            }}
+                    </p>
                     <p>info@povbopheak.com</p>
                     <p>www.pblandandhome.com.kh</p>
                     <p>www.povbopheak.com</p>
@@ -116,11 +159,20 @@
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
                         text-fill-color: transparent;">
-                Phnom Penh Office
+                 {{ app()->getLocale() === 'en'
+                ? 'Phnom Penh Office'
+                : (app()->getLocale() === 'kh'
+                    ? 'ការិយាល័យកណ្តាលនៅក្រុងភ្នំពេញ'
+                    : 'Phnom Penh Office')
+            }}
             </h1>
             <p class="xl:h-24 max-w-lg md:text-md text-sm py-2">
-                #67D, St. 777, Borey Vimean Phnom Penh 598, Village 4,
-                Sangkat Chrang Chamres, Khan Russey Keo, Phnom Penh, Cambodia
+                 {{ app()->getLocale() === 'en'
+                ? '#67D, St. 777, Borey Vimean Phnom Penh 598, Village 4, Sangkat Chrang Chamres, Khan Russey Keo, Phnom Penh, Cambodia'
+                : (app()->getLocale() === 'kh'
+                    ? 'ផ្ទះលេខ67D, ផ្លូវ 777, បុរីវិមានភ្នំពេញភ្នំពេញ 598, ភូមិ 4, សង្កាត់ច្រាំងចំរេះ, ខណ្ឌឬស្សីកែវ, ក្រុងភ្នំពេញ, ប្រទេសកម្ពុជា'
+                    : '#67D, St. 777, Borey Vimean Phnom Penh 598, Village 4, Sangkat Chrang Chamres, Khan Russey Keo, Phnom Penh, Cambodia')
+            }}
             </p>
             {{-- Map --}}
             <div class="w-full xl:w-72 h-32 rounded-lg flex justify-center items-center">
@@ -137,10 +189,20 @@
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
                         text-fill-color: transparent;">
-                Siem Reap Office
+                 {{ app()->getLocale() === 'en'
+                ? 'Siem Reap Office'
+                : (app()->getLocale() === 'kh'
+                    ? 'ការិយាល័យនៅខេត្តសៀមរាប'
+                    : 'Siem Reap Office')
+            }}
             </h1>
             <p class="xl:h-24 max-w-lg md:text-md text-sm">
-                Sna Techo Village, Balang Commune, Prasat Bakong District, Siem Reap Province, Cambodia.
+                 {{ app()->getLocale() === 'en'
+                ? 'Sna Techo Village, Balang Commune, Prasat Bakong District, Siem Reap Province, Cambodia.'
+                : (app()->getLocale() === 'kh'
+                    ? 'ភូមិស្នាតេជោ ឃុំបាឡាំង ស្រុកប្រាសាទបាគង ខេត្តសៀមរាប ្របទេសកម្ពុជា'
+                    : 'Sna Techo Village, Balang Commune, Prasat Bakong District, Siem Reap Province, Cambodia.')
+            }}
             </p>
             {{-- Map --}}
             <div class="w-full xl:w-72 h-32 rounded-lg flex justify-center items-center md:mt-0 mt-4">
@@ -159,8 +221,22 @@
 
     <!-- Logo / Title -->
     <div class="flex items-center py-2 text-lg space-x-2">
-        <p class="text-[#03254B] font-semibold">Pov Bopheak</p>
-        <span class="text-[#03254B] font-normal">Land & Home Co., Ltd</span>
+        <p class="text-[#03254B] font-semibold">
+             {{ app()->getLocale() === 'en'
+                ? 'Pov Bopheak'
+                : (app()->getLocale() === 'kh'
+                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រ'
+                    : 'Pov Bopheak')
+            }}
+        </p>
+        <span class="text-[#03254B] font-normal">
+              {{ app()->getLocale() === 'en'
+                ? 'Land & Home Co., Ltd.'
+                : (app()->getLocale() === 'kh'
+                    ? 'លែន&ហូមឯ.ក'
+                    : 'Land & Home Co., Ltd.')
+            }}
+        </span>
     </div>
 
     <!-- Menu -->
@@ -169,14 +245,49 @@
         <!-- Navigation -->
         <ul
             class="flex lg:flex-row flex-wrap justify-center space-y-2 px-4 py-3 lg:space-x-6 text-[#03254b] lg:text-lg text-[12px] space-x-3 font-normal">
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('home') }}#about-us">About Us</a></li>
-            <li><a href="{{ route('home') }}#real-project">Real Estate Projects</a></li>
-            <li><a href="{{ route('home') }}#our-customer">Our Customers</a></li>
-            <li><a href="{{ route('home') }}#freelancer">Freelancers</a></li>
-            <li><a href="{{ route('home') }}#application-form">Contact Us</a></li>
+            <li><a href="{{ route('home') }}">{{ app()->getLocale() === 'en'
+                ? 'Home'
+                : (app()->getLocale() === 'kh'
+                    ? 'ទំព័រដើម'
+                    : 'Home')
+            }}</a></li>
+            <li><a href="{{ route('home') }}#about-us">{{ app()->getLocale() === 'en'
+                ? 'About Us'
+                : (app()->getLocale() === 'kh'
+                    ? 'អំពីក្រុមហ៊ុន'
+                    : 'About Us')
+            }}</a></li>
+            <li><a href="{{ route('home') }}#real-project"> {{ app()->getLocale() === 'en'
+                ? 'Real Estate Projects'
+                : (app()->getLocale() === 'kh'
+                    ? 'គម្រោងអចលទ្រព្យ'
+                    : 'Real Estate Projects')
+            }}</a></li>
+            <li><a href="{{ route('home') }}#our-customer"> {{ app()->getLocale() === 'en'
+                ? 'Our Customers'
+                : (app()->getLocale() === 'kh'
+                    ? 'អតិថិជន'
+                    : 'Our Customers')
+            }}</a></li>
+            <li><a href="{{ route('home') }}#freelancer">{{ app()->getLocale() === 'en'
+                ? 'Freelancers'
+                : (app()->getLocale() === 'kh'
+                    ? 'អ្នកធ្វើការឯករាជ្យ'
+                    : 'Freelancers')
+            }}</a></li>
+            <li><a href="{{ route('home') }}#application-form"> {{ app()->getLocale() === 'en'
+                ? 'Contact Us'
+                : (app()->getLocale() === 'kh'
+                    ? 'ការទំនាក់ទំនង'
+                    : 'Contact Us')
+            }}</a></li>
             <li class="font-medium">
-                <button @click="showPrivacyModal = true" class="cursor-pointer">Privacy Policy</button>
+                <button @click="showPrivacyModal = true" class="cursor-pointer"> {{ app()->getLocale() === 'en'
+                ? 'Privacy Policy'
+                : (app()->getLocale() === 'kh'
+                    ? 'គោលការណ៍ឯកជនភាព'
+                    : 'Privacy Policy')
+            }}</button>
             </li>
         </ul>
 
@@ -192,120 +303,354 @@
                     class="fixed top-16 right-8 md:top-20 z-50 xl:text-white text-black hover:text-gray-700 md:text-4xl text-2xl font-bold">&times;</button>
 
                 <!-- Modal Content -->
-                <h2 class="text-2xl font-semibold mb-4 text-[#03254b]">Privacy Policy</h2>
+                <h2 class="text-2xl font-semibold mb-4 text-[#03254b]">
+                    {{ app()->getLocale() === 'en'
+                ? 'Privacy Policy'
+                : (app()->getLocale() === 'kh'
+                    ? 'គោលការណ៍ឯកជនភាព'
+                    : 'Privacy Policy')
+            }}
+                </h2>
                 <div class="text-[#03254b] grid grid-cols-1 lg:grid-cols-2 gap-6 text-[12px] lg:text-[14px]">
                     {{-- Section left --}}
                     <div class="w-full text-[#03254b] text-md py-2">
 
-                        <h1 class="text-lg font-semibold">Introduction</h1>
-                        <h1 class="text-lg font-semibold mt-4">Pov Bopheak Land & Home Co., Ltd. </h1>
+                        <h1 class="text-lg font-semibold">
+                            {{ app()->getLocale() === 'en'
+                ? 'Introduction'
+                : (app()->getLocale() === 'kh'
+                    ? 'សេចក្តីផ្តើម'
+                    : 'Introduction')
+            }}
+                        </h1>
+                        <h1 class="text-lg font-semibold mt-4">
+                             {{ app()->getLocale() === 'en'
+                ? 'Pov Bopheak Land & Home Co., Ltd.'
+                : (app()->getLocale() === 'kh'
+                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូមឯ.ក'
+                    : 'Pov Bopheak Land & Home Co., Ltd.')
+            }}
+                        </h1>
                         <div class="font-normal space-y-4">
                             <p>
-                                (referred to as “we”, “our” or “us” in this Privacy Policy)
+                                {{ app()->getLocale() === 'en'
+                                    ? '(referred to as “we”, “our” or “us” in this Privacy Policy)
                                 operates the websites located at www.pblandandhome.com.kh and www.povbopheak.com,
                                 including any subdomains, mobile versions, and any related digital platforms
-                                (collectively referred to as the “Websites”).
+                                (collectively referred to as the “Websites”).'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូមឯ.ក  (ហៅកាត់ថា "យើង" "របស់យើង" ឬ "ពួកយើង" នៅក្នុងគោលការណ៍ឯកជនភាពនេះ) ដំណើរការគេហទំព័រដែលមានអាសយដ្ឋានគេហទំព័រ www.pblandandhome.com.kh និង www.povbopheak.com រួមទាំងដែនរងណាមួយ កំណែទូរស័ព្ទ និងវេទិកាឌីជីថលពាក់ព័ន្ធណាមួយ (ហៅរួមគ្នាថា "គេហទំព័រ")។'
+                                        : '(referred to as “we”, “our” or “us” in this Privacy Policy)
+                                operates the websites located at www.pblandandhome.com.kh and www.povbopheak.com,
+                                including any subdomains, mobile versions, and any related digital platforms
+                                (collectively referred to as the “Websites”).')
+                                }}
                             </p>
                             <p>
-                                This Privacy Policy sets out how we collect, use, disclose,
+                                {{ app()->getLocale() === 'en'
+                                    ? 'This Privacy Policy sets out how we collect, use, disclose,
                                 store, and protect personal information obtained through our Websites and related
-                                services.
+                                services.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'គោលការណ៍ឯកជនភាពនេះកំណត់ពីរបៀបដែលយើងខ្ញ៉ំប្រមូល ប្រើប្រាស់ បង្ហាញ រក្សាទុក និងការពារព័ត៌មានផ្ទាល់ខ្លួនដែលទទួលបានតាមរយៈគេហទំព័រ និងសេវាកម្មពាក់ព័ន្ធ។'
+                                        : 'This Privacy Policy sets out how we collect, use, disclose,
+                                store, and protect personal information obtained through our Websites and related
+                                services.')
+                                }}
                             </p>
                             <p>
-                                By accessing or using our Websites, or by engaging with us through our online services,
+                                {{ app()->getLocale() === 'en'
+                                    ? 'By accessing or using our Websites, or by engaging with us through our online services,
                                 you acknowledge that you have read, understood, and agreed to the collection and
                                 handling of
-                                your personal information in accordance with this Privacy Policy.
+                                your personal information in accordance with this Privacy Policy.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ដោយការចូលប្រើ ឬប្រើប្រាស់គេហទំព័ររបស់យើង ខ្ញំ​ឬដោយការចូលរួមជាមួយយើងខ្ញ៉ំតាមរយៈសេវាកម្មអនឡាញ អ្នកទទួលស្គាល់ថាអ្នកបានអាន យល់ និងយល់ព្រមចំពោះការប្រមូល និងដោះស្រាយព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកស្របតាមគោលការណ៍ឯកជនភាពនេះ។'
+                                        : 'By accessing or using our Websites, or by engaging with us through our online services,
+                                you acknowledge that you have read, understood, and agreed to the collection and
+                                handling of
+                                your personal information in accordance with this Privacy Policy.')
+                                }}
                             </p>
                             <p>
-                                We reserve the right to update or amend this Privacy Policy at any time at our
+                               {{ app()->getLocale() === 'en'
+                                    ? ' We reserve the right to update or amend this Privacy Policy at any time at our
                                 discretion. Any
                                 changes will be effective
                                 immediately upon publication on our Websites. We encourage you to review this Privacy
                                 Policy
-                                periodically.
+                                periodically.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'យើងខ្ញ៉ំរក្សាសិទ្ធិក្នុងការធ្វើបច្ចុប្បន្នភាពឬកែប្រែគោលការណ៍ឯកជនភាពនេះនៅពេលណាក៏បានតាមការសំរេចចិត្តរបស់ក្រុមហ៊ុន។ ការផ្លាស់ប្តូរណាមួយនឹងមានប្រសិទ្ធភាពភ្លាមៗនៅពេលបោះពុម្ពផ្សាយនៅលើគេហទំព័រ។ យើងខ្ញ៉ំសូមលើកទឹកចិត្តអ្នកឱ្យពិនិត្យមើលគោលការណ៍ឯកជនភាពនេះជាប្រចាំ។'
+                                        : ' We reserve the right to update or amend this Privacy Policy at any time at our
+                                discretion. Any
+                                changes will be effective
+                                immediately upon publication on our Websites. We encourage you to review this Privacy
+                                Policy
+                                periodically.')
+                                }}
                             </p>
-                            <p>If you have questions, feedback, or concerns, you may contact us at:</p>
-                            <p>Email: info@povbopheak.com</p>
-                            <p>Company: Pov Bopheak Land & Home Co., Ltd.</p>
-                            <p>Jurisdiction: Kingdom of Cambodia</p>
+                            <p>
+                                {{ app()->getLocale() === 'en'
+                                    ? 'If you have questions, feedback, or concerns, you may contact us at:'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ប្រសិនបើអ្នកមានសំណួរ មតិកែលម្អ ឬកង្វល់ អ្នកអាចទាក់ទងមកយើងខ្ញុំតាមរយៈ៖'
+                                        : 'If you have questions, feedback, or concerns, you may contact us at:')
+                                }}
+                            </p>
+                            <p>
+                                {{ app()->getLocale() === 'en'
+                                    ? 'Email: info@povbopheak.com'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'អ៊ីមែល៖ info@povbopheak.com'
+                                        : 'Email: info@povbopheak.com')
+                                }}
+                            </p>
+                            <p>
+                                 {{ app()->getLocale() === 'en'
+                                    ? 'Company: Pov Bopheak Land & Home Co., Ltd.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូមឯ.ក'
+                                        : 'Company: Pov Bopheak Land & Home Co., Ltd.')
+                                }}
+                            </p>
+                            <p>
+                                 {{ app()->getLocale() === 'en'
+                                    ? 'Jurisdiction: Kingdom of Cambodia'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ដែនសមត្ថកិច្ច៖ ព្រះរាជាណាចក្រកម្ពុជា'
+                                        : 'Jurisdiction: Kingdom of Cambodia')
+                                }}
+                            </p>
                         </div>
 
-                        <h1 class="text-lg font-semibold py-4">Respecting Information Privacy</h1>
+                        <h1 class="text-lg font-semibold py-4">
+                             {{ app()->getLocale() === 'en'
+                                    ? 'Respecting Information Privacy'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ការគោរពភាពឯកជននៃព័ត៌មាន'
+                                        : 'Respecting Information Privacy')
+                                }}
+                        </h1>
                         <div class="font-normal space-y-4">
                             <p>
-                                We recognise the importance of protecting your personal
-                                information and are committed to handling it responsibly.
+                                {{ app()->getLocale() === 'en'
+                                    ? 'We recognise the importance of protecting your personal information and are committed to handling it responsibly.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'យើងខ្ញុំទទួលស្គាល់ពីសារៈសំខាន់នៃការការពារព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នក ហើយប្តេជ្ញាដោះស្រាយវាដោយការទទួលខុសត្រូវ។'
+                                        : 'We recognise the importance of protecting your personal information and are committed to handling it responsibly.')
+                                }}
                             </p>
                             <p>
-                                We do not intentionally collect sensitive personal data such as information relating to
+                                {{ app()->getLocale() === 'en'
+                                    ? 'We do not intentionally collect sensitive personal data such as information relating to
                                 ethnicity,
-                                religion, political opinions, criminal records, health data, or biometric data.
+                                religion, political opinions, criminal records, health data, or biometric data.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'យើងខ្ញុំមិនប្រមូលទិន្នន័យផ្ទាល់ខ្លួនដែលងាយរងគ្រោះដោយចេតនា ដូចជាព័ត៌មានទាក់ទងនឹងជនជាតិភាគតិច សាសនា មតិនយោបាយ កំណត់ត្រាព្រហ្មទណ្ឌ ទិន្នន័យសុខភាព ឬទិន្នន័យជីវមាត្រឡើយ។'
+                                        : 'We do not intentionally collect sensitive personal data such as information relating to
+                                ethnicity,
+                                religion, political opinions, criminal records, health data, or biometric data.')
+                                }}
                             </p>
                             <p>
-                                In collecting and processing personal information,
+                                {{ app()->getLocale() === 'en'
+                                    ? 'In collecting and processing personal information,
                                 we comply with applicable laws and regulations of
-                                the Kingdom of Cambodia and relevant data protection principles.
+                                the Kingdom of Cambodia and relevant data protection principles.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ក្នុងការប្រមូល និងដំណើរការព័ត៌មានផ្ទាល់ខ្លួន យើងខ្ញុំអនុវត្តតាមច្បាប់ និងបទប្បញ្ញត្តិជាធរមាននៃព្រះរាជាណាចក្រកម្ពុជា និងគោលការណ៍ការពារទិន្នន័យពាក់ព័ន្ធ។'
+                                        : 'In collecting and processing personal information,
+                                we comply with applicable laws and regulations of
+                                the Kingdom of Cambodia and relevant data protection principles.')
+                                }}
                             </p>
                         </div>
 
-                        <h1 class="text-lg font-semibold py-4">Problems or Questions</h1>
+                        <h1 class="text-lg font-semibold py-4">
+                             {{ app()->getLocale() === 'en'
+                                    ? 'Problems or Questions'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'បញ្ហា ឬសំណួរ'
+                                        : 'Problems or Questions')
+                                }}
+                        </h1>
                         <div class="font-normal space-y-4">
                             <p>
-                                If we become aware of any issues or concerns relating to privacy or data protection on
+                                 {{ app()->getLocale() === 'en'
+                                    ? 'If we become aware of any issues or concerns relating to privacy or data protection on
                                 our Websites,
-                                we take them seriously and work to resolve them promptly.
+                                we take them seriously and work to resolve them promptly.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ប្រសិនបើយើងខ្ញុំដឹងពីបញ្ហា ឬកង្វល់ណាមួយទាក់ទងនឹងភាពឯកជន ឬការការពារទិន្នន័យនៅលើគេហទំព័ររបស់យើងខ្ញុំ យើងខ្ញុំយកចិត្តទុកដាក់យ៉ាងខ្លាំង ហើយខិតខំដោះស្រាយវាឱ្យបានឆាប់រហ័ស។'
+                                        : 'If we become aware of any issues or concerns relating to privacy or data protection on
+                                our Websites,
+                                we take them seriously and work to resolve them promptly.')
+                                }}
                             </p>
                             <p>
-                                If you have any questions, requests, or complaints regarding this Privacy Policy or the
+                                {{ app()->getLocale() === 'en'
+                                    ? ' If you have any questions, requests, or complaints regarding this Privacy Policy or the
                                 way your
-                                personal information is handled, please contact us using the details provided above.
+                                personal information is handled, please contact us using the details provided above.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ប្រសិនបើអ្នកមានសំណួរ សំណើ ឬពាក្យបណ្តឹងណាមួយទាក់ទងនឹងគោលការណ៍ឯកជនភាពនេះ ឬវិធីដែលព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកត្រូវបានដោះស្រាយ សូមទាក់ទងមកយើងខ្ញុំដោយប្រើប្រាស់ព័ត៌មានលម្អិតដែលបានផ្តល់ជូនខាងលើ។'
+                                        : ' If you have any questions, requests, or complaints regarding this Privacy Policy or the
+                                way your
+                                personal information is handled, please contact us using the details provided above.')
+                                }}
                             </p>
-                            <p>Collection of Personal Information</p>
                             <p>
-                                We may collect personal information directly from you or indirectly through your
-                                use of our Websites, including but not limited to:
+                                 {{ app()->getLocale() === 'en'
+                                    ? 'Collection of Personal Information'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ការប្រមូលព័ត៌មានផ្ទាល់ខ្លួន'
+                                        : 'Collection of Personal Information')
+                                }}
+                            </p>
+                            <p>
+                                 {{ app()->getLocale() === 'en'
+                                    ? 'We may collect personal information directly from you or indirectly through your
+                                use of our Websites, including but not limited to:'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'យើងខ្ញ៉ំអាចប្រមូលព័ត៌មានផ្ទាល់ខ្លួនដោយផ្ទាល់ពីអ្នក ឬដោយប្រយោលតាមរយៈការប្រើប្រាស់គេហទំព័ររួមមានប៉ុន្តែមិនកំណត់ចំពោះ៖'
+                                        : 'We may collect personal information directly from you or indirectly through your
+                                use of our Websites, including but not limited to:')
+                                }}
                             </p>
                             <ul class="list-disc pl-6 space-y-3">
                                 <li>
-                                    Your name, email address, telephone number, postal address,
-                                    and other contact details
+                                     {{ app()->getLocale() === 'en'
+                                    ? 'Your name, email address, telephone number, postal address,
+                                    and other contact details'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ឈ្មោះ អាសយដ្ឋានអ៊ីមែល លេខទូរស័ព្ទ អាសយដ្ឋានប្រៃសណីយ៍ និងព័ត៌មានទំនាក់ទំនងផ្សេងទៀតរបស់អ្នក'
+                                        : 'Your name, email address, telephone number, postal address,
+                                    and other contact details')
+                                }}
                                 </li>
 
                                 <li>
-                                    Information provided when you:
+                                     {{ app()->getLocale() === 'en'
+                                    ? 'Information provided when you:'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ព័ត៌មានដែលផ្តល់ជូននៅពេលអ្នក៖'
+                                        : 'Information provided when you:')
+                                }}
                                     <ul class="list-disc pl-6 mt-2 space-y-2">
-                                        <li>Register or enquire through our Websites</li>
-                                        <li>Fill in forms or submit property enquiries</li>
-                                        <li>Contact us for support, services, or information</li>
-                                        <li>Participate in surveys, promotions, or feedback requests</li>
-                                        <li>Communicate with us via email or other channels</li>
+                                        <li>
+                                             {{ app()->getLocale() === 'en'
+                                    ? 'Register or enquire through our Websites'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ចុះឈ្មោះ ឬសាកសួរតាមរយៈគេហទំព័ររបស់យើង'
+                                        : 'Register or enquire through our Websites')
+                                }}
+                                        </li>
+                                        <li>
+                                             {{ app()->getLocale() === 'en'
+                                    ? 'Fill in forms or submit property enquiries'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'បំពេញទម្រង់បែបបទ ឬដាក់ស្នើសំណួរអំពីអចលនទ្រព្យ'
+                                        : 'Fill in forms or submit property enquiries')
+                                }}
+                                        </li>
+                                        <li>
+                                             {{ app()->getLocale() === 'en'
+                                    ? 'Contact us for support, services, or information'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ទាក់ទងមកយើងសម្រាប់ការគាំទ្រ សេវាកម្ម ឬព័ត៌មាន'
+                                        : 'Contact us for support, services, or information')
+                                }}
+                                        </li>
+                                        <li>
+                                             {{ app()->getLocale() === 'en'
+                                    ? 'Participate in surveys, promotions, or feedback requests'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ចូលរួមក្នុងការស្ទង់មតិ ការផ្សព្វផ្សាយ ឬសំណើមតិកែលម្អ'
+                                        : 'Participate in surveys, promotions, or feedback requests')
+                                }}
+                                        </li>
+                                        <li>
+                                             {{ app()->getLocale() === 'en'
+                                    ? 'Communicate with us via email or other channels'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ទំនាក់ទំនងជាមួយយើងតាមរយៈអ៊ីមែល ឬបណ្តាញផ្សេងទៀត'
+                                        : 'Communicate with us via email or other channels')
+                                }}
+                                        </li>
                                     </ul>
                                 </li>
 
                                 <li>
-                                    Details of property enquiries, transactions, or expressions of interest
+                                     {{ app()->getLocale() === 'en'
+                                    ? 'Details of property enquiries, transactions, or expressions of interest'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ព័ត៌មានលម្អិតនៃការសាកសួរអំពីអចលនទ្រព្យ ប្រតិបត្តិការ ឬការបង្ហាញចំណាប់អារម្មណ៍'
+                                        : 'Details of property enquiries, transactions, or expressions of interest')
+                                }}
                                 </li>
 
                                 <li>
-                                    Information about your visits to our Websites, including:
+                                   {{ app()->getLocale() === 'en'
+                                    ? 'Information about your visits to our Websites, including:'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ព័ត៌មានរបស់អ្នកអំពីការចូលមើលគេហទំព័ររបស់យើង រួមមាន៖'
+                                        : 'Information about your visits to our Websites, including:')
+                                }}
                                     <ul class="list-disc pl-6 mt-2 space-y-2">
-                                        <li>IP address</li>
-                                        <li>Browser type and device information</li>
-                                        <li>Pages visited, time spent, and interaction data</li>
-                                        <li>Cookies and similar tracking technologies</li>
+                                        <li>{{ app()->getLocale() === 'en'
+                                    ? 'IP address'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'អាសយដ្ឋាន IP'
+                                        : 'IP address')
+                                }}</li>
+                                        <li>{{ app()->getLocale() === 'en'
+                                    ? 'Browser type and device information'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ប្រភេទកម្មវិធីរុករក និងព័ត៌មានឧបករណ៍'
+                                        : 'Browser type and device information')
+                                }}</li>
+                                        <li>
+                                            {{ app()->getLocale() === 'en'
+                                    ? 'Pages visited, time spent, and interaction data'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ទំព័រដែលបានចូលមើល ពេលវេលាដែលបានចំណាយ និងទិន្នន័យអន្តរកម្ម'
+                                        : 'Pages visited, time spent, and interaction data')
+                                }}
+                                        </li>
+                                        <li>{{ app()->getLocale() === 'en'
+                                    ? 'Cookies and similar tracking technologies'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ខូគី និងបច្ចេកវិទ្យាតាមដានស្រដៀងគ្នា'
+                                        : 'Cookies and similar tracking technologies')
+                                }}</li>
                                     </ul>
                                 </li>
 
                                 <li class="md:max-w-lg">
-                                    Information received from third parties or service providers,
-                                    where permitted by law
+                                    {{ app()->getLocale() === 'en'
+                                    ? 'Information received from third parties or service providers,
+                                    where permitted by law'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ព័ត៌មានដែលទទួលបានពីភាគីទីបី ឬអ្នកផ្តល់សេវាកម្ម ដែលត្រូវបានអនុញ្ញាតដោយច្បាប់'
+                                        : 'Information received from third parties or service providers,
+                                    where permitted by law')
+                                }}
                                 </li>
                             </ul>
 
-                            <p>If you contact us, we may retain a record of that correspondence for service, compliance,
+                            <p>
+                                {{ app()->getLocale() === 'en'
+                                    ? 'If you contact us, we may retain a record of that correspondence for service, compliance,
                                 or quality
-                                purposes.</p>
+                                purposes.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ប្រសិនបើអ្នកទាក់ទងមកយើងខ្ញ៉ំ យើងខ្ញ៉ំអាចរក្សាទុកកំណត់ត្រានៃការឆ្លើយឆ្លងនោះសម្រាប់គោលបំណងសេវាកម្ម ការអនុលោមតាមច្បាប់ ឬគុណភាព។'
+                                        : 'If you contact us, we may retain a record of that correspondence for service, compliance,
+                                or quality
+                                purposes.')
+                                }}
+                            </p>
                         </div>
 
                     </div>
@@ -313,71 +658,221 @@
                     {{-- Section right --}}
                     <div class="w-full text-[#03254b] text-md py-2">
 
-                        <h1 class="text-lg font-semibold py-2">Use of Personal Information</h1>
-                        <p>We may use your personal information to:</p>
+                        <h1 class="text-lg font-semibold py-2">
+                             {{ app()->getLocale() === 'en'
+                                    ? 'Use of Personal Information'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ការប្រើប្រាស់ព័ត៌មានផ្ទាល់ខ្លួន'
+                                        : 'Use of Personal Information')
+                                }}
+                        </h1>
+                        <p>
+                             {{ app()->getLocale() === 'en'
+                                    ? 'We may use your personal information to:'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'យើងខ្ញ៉ំអាចប្រើប្រាស់ព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកដើម្បី៖'
+                                        : 'We may use your personal information to:')
+                                }}
+                        </p>
                         <ul class="list-disc pl-8">
-                            <li>Provide, manage, and improve our real estate services</li>
-                            <li>Respond to enquiries, requests, or feedback</li>
-                            <li>Facilitate property listings, viewings, consultations, and transactions</li>
-                            <li>Personalise your experience on our Websites</li>
-                            <li>Improve website functionality, performance, and security</li>
-                            <li>Conduct research, analysis, and internal reporting</li>
-                            <li>Communicate with you about updates, services, or relevant property opportunities</li>
-                            <li>Comply with legal and regulatory obligations</li>
+                            <li> {{ app()->getLocale() === 'en'
+                                    ? 'Provide, manage, and improve our real estate services'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ផ្តល់ គ្រប់គ្រង និងកែលម្អសេវាកម្មអចលនទ្រព្យ'
+                                        : 'Provide, manage, and improve our real estate services')
+                                }}</li>
+                            <li>
+                                {{ app()->getLocale() === 'en'
+                                    ? 'Respond to enquiries, requests, or feedback'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ឆ្លើយតបទៅនឹងការសាកសួរ សំណើ ឬមតិកែលម្អ'
+                                        : 'Respond to enquiries, requests, or feedback')
+                                }}
+                            </li>
+                            <li>
+                                {{ app()->getLocale() === 'en'
+                                    ? 'Facilitate property listings, viewings, consultations, and transactions'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'សម្រួលដល់ការចុះបញ្ជីអចលនទ្រព្យ ការមើល ការពិគ្រោះយោបល់ និងប្រតិបត្តិការ'
+                                        : 'Facilitate property listings, viewings, consultations, and transactions')
+                                }}
+                            </li>
+                            <li>
+                                {{ app()->getLocale() === 'en'
+                                    ? 'Personalise your experience on our Websites'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ធ្វើឱ្យបទពិសោធន៍របស់អ្នកមានលក្ខណៈផ្ទាល់ខ្លួននៅលើគេហទំព័រ'
+                                        : 'Personalise your experience on our Websites')
+                                }}
+                            </li>
+                            <li>
+                                {{ app()->getLocale() === 'en'
+                                    ? 'Improve website functionality, performance, and security'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'កែលម្អមុខងារ ការអនុវត្ត និងសុវត្ថិភាពគេហទំព័រ'
+                                        : 'Improve website functionality, performance, and security')
+                                }}
+                            </li>
+                            <li>
+                                 {{ app()->getLocale() === 'en'
+                                    ? 'Conduct research, analysis, and internal reporting'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ធ្វើការស្រាវជ្រាវ ការវិភាគ និងការរាយការណ៍ផ្ទៃក្នុង'
+                                        : 'Conduct research, analysis, and internal reporting')
+                                }}
+                            </li>
+                            <li>
+                                 {{ app()->getLocale() === 'en'
+                                    ? 'Communicate with you about updates, services, or relevant property opportunities'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ទំនាក់ទំនងជាមួយអ្នកអំពីព័ត៌មានថ្មីៗ សេវាកម្ម ឬឱកាសអចលនទ្រព្យពាក់ព័ន្ធ'
+                                        : 'Communicate with you about updates, services, or relevant property opportunities')
+                                }}
+                            </li>
+                            <li>
+                                 {{ app()->getLocale() === 'en'
+                                    ? 'Comply with legal and regulatory obligations'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'អនុវត្តតាមកាតព្វកិច្ចផ្នែកច្បាប់ និងបទប្បញ្ញត្តិ'
+                                        : 'Comply with legal and regulatory obligations')
+                                }}
+                            </li>
                         </ul>
                         <p class="py-4">
-                            Where permitted, we may also use your information to inform you about promotions, new
+                            {{ app()->getLocale() === 'en'
+                                    ? 'Where permitted, we may also use your information to inform you about promotions, new
                             projects,
                             or services that may be of interest to you. You may opt out of
-                            marketing communications at any time by contacting us.
+                            marketing communications at any time by contacting us.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'កន្លែងដែលត្រូវបានអនុញ្ញាត យើងក៏អាចប្រើប្រាស់ព័ត៌មានរបស់អ្នកដើម្បីជូនដំណឹងដល់អ្នកអំពីការផ្សព្វផ្សាយ គម្រោងថ្មីៗ ឬសេវាកម្មដែលអ្នកអាចចាប់អារម្មណ៍
+អ្នកអាចជ្រើសរើសមិនចូលរួមក្នុងការទំនាក់ទំនងទីផ្សារនៅពេលណាក៏បានដោយទាក់ទងមកយើងខ្ញុំ'
+                                        : 'Where permitted, we may also use your information to inform you about promotions, new
+                            projects,
+                            or services that may be of interest to you. You may opt out of
+                            marketing communications at any time by contacting us.')
+                                }}
                         </p>
 
-                        <h1 class="text-lg font-semibold py-4">Disclosure of Personal Information</h1>
+                        <h1 class="text-lg font-semibold py-4">
+                            {{ app()->getLocale() === 'en'
+                                    ? 'Disclosure of Personal Information'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ការបង្ហាញព័ត៌មានផ្ទាល់ខ្លួន'
+                                        : 'Disclosure of Personal Information')
+                                }}
+                        </h1>
                         <p>
-                            We may disclose your personal information to:
+                            {{ app()->getLocale() === 'en'
+                                    ? 'We may disclose your personal information to:'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'យើងខ្ញ៉ំអាចបង្ហាញព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកទៅកាន់៖'
+                                        : 'We may disclose your personal information to:')
+                                }}
                         </p>
                         <ul class="list-disc pl-8">
                             <li>
-                                Property owners, developers, agents, or partners where you have requested information or
-                                services
+                                {{ app()->getLocale() === 'en'
+                                    ? 'Property owners, developers, agents, or partners where you have requested information or
+                                services'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ម្ចាស់អចលនទ្រព្យ អ្នកអភិវឌ្ឍន៍ ភ្នាក់ងារ ឬដៃគូដែលអ្នកបានស្នើសុំព័ត៌មាន ឬសេវាកម្ម'
+                                        : 'Property owners, developers, agents, or partners where you have requested information or
+                                services')
+                                }}
                             </li>
                             <li>
-                                Third-party service providers who assist us in operating our business,
-                                such as IT providers, hosting services, analytics providers, and marketing platforms
+                                {{ app()->getLocale() === 'en'
+                                    ? 'Third-party service providers who assist us in operating our business,
+                                such as IT providers, hosting services, analytics providers, and marketing platforms'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'អ្នកផ្តល់សេវាកម្មភាគីទីបីដែលជួយយើងខ្ញ៉ំក្នុងការដំណើរការអាជីវកម្មរបស់យើង ដូចជាអ្នកផ្តល់សេវាកម្ម ពត៌មានវិទ្យា សេវាកម្មបង្ហោះ អ្នកវិភាគ និងវេទិកាទីផ្សារ'
+                                        : 'Third-party service providers who assist us in operating our business,
+                                such as IT providers, hosting services, analytics providers, and marketing platforms')
+                                }}
                             </li>
                             <li>
-                                Professional advisers, including legal and financial advisers, where required
+                                {{ app()->getLocale() === 'en'
+                                    ? 'Professional advisers, including legal and financial advisers, where required'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ទីប្រឹក្សាជំនាញ រួមទាំងទីប្រឹក្សាផ្នែកច្បាប់ និងហិរញ្ញវត្ថុ ដែលត្រូវការ'
+                                        : 'Professional advisers, including legal and financial advisers, where required')
+                                }}
                             </li>
                             <li>
-                                Government authorities or regulatory bodies where disclosure is required by law
+                                {{ app()->getLocale() === 'en'
+                                    ? 'Government authorities or regulatory bodies where disclosure is required by law'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'អាជ្ញាធររដ្ឋាភិបាល ឬស្ថាប័ននិយតកម្ម ដែលការបង្ហាញត្រូវបានទាមទារដោយច្បាប់'
+                                        : 'Government authorities or regulatory bodies where disclosure is required by law')
+                                }}
                             </li>
                         </ul>
                         <p class="py-4">
-                            We take reasonable steps to ensure that third parties handle
+                           {{ app()->getLocale() === 'en'
+                                    ? ' We take reasonable steps to ensure that third parties handle
                             personal information securely and in accordance with applicable privacy laws.
-                            We do not sell your personal information to third parties.
+                            We do not sell your personal information to third parties.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'យើងខ្ញ៉ំចាត់វិធានការសមហេតុផលដើម្បីធានាថាភាគីទីបីដោះស្រាយព័ត៌មានផ្ទាល់ខ្លួនដោយសុវត្ថិភាព និងស្របតាមច្បាប់ឯកជនភាពដែលអាចអនុវត្តបាន។ យើងខ្ញ៉ំមិនលក់ព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកទៅឱ្យភាគីទីបីទេ។'
+                                        : ' We take reasonable steps to ensure that third parties handle
+                            personal information securely and in accordance with applicable privacy laws.
+                            We do not sell your personal information to third parties.')
+                                }}
                         </p>
 
-                        <h1 class="text-lg font-semibold py-4">Storage, Security, and Processing</h1>
+                        <h1 class="text-lg font-semibold py-4">
+                            {{ app()->getLocale() === 'en'
+                                    ? 'Storage, Security, and Processing'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ការផ្ទុក សុវត្ថិភាព និងដំណើរការ'
+                                        : 'Storage, Security, and Processing')
+                                }}
+                        </h1>
                         <div class="space-y-2">
                             <p>
-                                We take reasonable technical and organisational measures to safeguard personal
+                                {{ app()->getLocale() === 'en'
+                                    ? ' We take reasonable technical and organisational measures to safeguard personal
                                 information against
                                 loss,
-                                misuse, unauthorised access, modification, or disclosure.
+                                misuse, unauthorised access, modification, or disclosure.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'យើងខ្ញ៉ំចាត់វិធានការបច្ចេកទេស និងអង្គសមហេតុផលដើម្បីការពារព័ត៌មានផ្ទាល់ខ្លួនពីការបាត់បង់ ការប្រើប្រាស់ខុស ការចូលប្រើដោយគ្មានការអនុញ្ញាត ការកែប្រែ ឬការបង្ហាញ។'
+                                        : ' We take reasonable technical and organisational measures to safeguard personal
+                                information against
+                                loss,
+                                misuse, unauthorised access, modification, or disclosure.')
+                                }}
                             </p>
                             <p>
-                                While we strive to protect your personal data, no method of transmission over the
+                                 {{ app()->getLocale() === 'en'
+                                    ? 'While we strive to protect your personal data, no method of transmission over the
                                 internet or
                                 electronic storage is completely secure. Accordingly,
                                 we cannot guarantee absolute security but will act promptly in the event of a data
                                 security
-                                incident.
+                                incident.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ខណៈពេលដែលយើងខ្ញ៉ំខិតខំការពារទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នក គ្មានវិធីសាស្រ្តនៃការបញ្ជូនតាមអ៊ីនធឺណិត ឬការផ្ទុកអេឡិចត្រូនិចណាមួយមានសុវត្ថិភាពទាំងស្រុងនោះទេ។ ដូច្នេះ យើងខ្ញ៉ំមិនអាចធានាសុវត្ថិភាពដាច់ខាតបានទេ ប៉ុន្តែនឹងធ្វើសកម្មភាពភ្លាមៗក្នុងករណីមានឧប្បត្តិហេតុសុវត្ថិភាពទិន្នន័យ។'
+                                        : 'While we strive to protect your personal data, no method of transmission over the
+                                internet or
+                                electronic storage is completely secure. Accordingly,
+                                we cannot guarantee absolute security but will act promptly in the event of a data
+                                security
+                                incident.')
+                                }}
                             </p>
                             <p>
-                                Access to personal information is restricted to
+                                 {{ app()->getLocale() === 'en'
+                                    ? 'Access to personal information is restricted to
                                 authorised personnel and service providers who require it for legitimate business
-                                purposes.
+                                purposes.'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'ការចូលប្រើព័ត៌មានផ្ទាល់ខ្លួនត្រូវបានកំណត់ចំពោះបុគ្គលិកដែលមានការអនុញ្ញាត និងអ្នកផ្តល់សេវាកម្មដែលត្រូវការវាសម្រាប់គោលបំណងអាជីវកម្មស្របច្បាប់។   '
+                                        : 'Access to personal information is restricted to
+                                authorised personnel and service providers who require it for legitimate business
+                                purposes.')
+                                }}
                             </p>
                         </div>
 

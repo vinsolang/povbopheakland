@@ -46,9 +46,13 @@
                 ">
                 Sales stand together
             </h1> --}}
-            <h3 class="text-2xl md:text-5xl font-semibold text-[#03254b] max-w-96 md:max-w-200">
-                Build Your Career in Real Estate
-                with Pov Bopheak Land
+            <h3 class="text-2xl md:text-[45px] font-semibold text-[#03254b] max-w-96 md:max-w-250 md:leading-15">
+                 {{ app()->getLocale() === 'en'
+                    ? 'Build Your Career in Real Estate with Pov Bopheak Land & Home Co., Ltd'
+                    : (app()->getLocale() === 'kh'
+                        ? 'កសាងអាជីពរបស់អ្នកក្នុងវិស័យអចលនទ្រព្យជាមួយ ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូមឯ.ក'
+                        : 'Build Your Career in Real Estate with Pov Bopheak Land & Home Co., Ltd')
+                }}
             </h3>
             <div class="relative inline-block">
                 <!-- Smoke background -->
@@ -61,13 +65,43 @@
                         font-medium text-[#03254b] py-4 px-2
                         md:[text-shadow:none]"
                 style="text-shadow: 0px 4px 6px rgba(0,0,0,0.25);">
-                    Flexible income • Strong brand • Real projects • Full sales support
+                    {{ app()->getLocale() === 'en'
+                        ? 'Flexible income'
+                        : (app()->getLocale() === 'kh'
+                            ? 'ប្រាក់ចំណូលឥតដែនកំណត់'
+                            : 'Flexible income')
+                    }} 
+                    {{ app()->getLocale() === 'en'
+                        ? '• Strong brand'
+                        : (app()->getLocale() === 'kh'
+                            ? '• កេរ្ត៍ឈ្មោះក្រុមហ៊ុន'
+                            : '• Strong brand')
+                    }} 
+                    {{ app()->getLocale() === 'en'
+                        ? '• Real projects'
+                        : (app()->getLocale() === 'kh'
+                            ? '• គម្រោងពិតប្រាកដ'
+                            : '• Real projects')
+                    }} 
+                     {{ app()->getLocale() === 'en'
+                        ? '• Full sales support'
+                        : (app()->getLocale() === 'kh'
+                            ? '• ការគាំទ្រផ្នែកលក់ពេញលេញ'
+                            : '• Full sales support')
+                    }}
                 </p>
             </div>
 
             <div
-                class="bg-[#f2b34e] w-52 h-10 md:w-64 md:h-20 flex justify-center items-center rounded-full md:mt-16 md:ml-8">
-                <a href="#application-form" class="text-sm md:text-xl text-[#03254b] font-bold">Apply as Sales Agent</a>
+                class="bg-[#f2b34e] w-52 h-10 md:w-72 md:h-20 flex justify-center items-center rounded-full md:mt-16 md:ml-8 mt-20">
+                <a href="#application-form" class="text-sm md:text-xl text-[#03254b] font-bold {{ app()->getLocale() == 'kh' ? 'md:text-lg font-medium' : '' }}">
+                     {{ app()->getLocale() === 'en'
+                        ? 'Apply as Sales Agent'
+                        : (app()->getLocale() === 'kh'
+                            ? 'ដាក់ពាក្យជាភ្នាក់ងារលក់ឥឡូវនេះ'
+                            : 'Apply as Sales Agent')
+                    }}
+                </a>
             </div>
         </div>
     </div>
@@ -75,9 +109,14 @@
 </div>
 
 {{-- Your Role as a Sales Partner --}}
-<div class="relative w-full md:mt-0 -mt-32 z-50">
+<div class="relative w-full md:mt-0 -mt-27 z-50">
     <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-6 md:py-16">
-        Your Role as a Sales Partner
+        {{ app()->getLocale() === 'en'
+            ? 'Your Role as a Sales Partner'
+            : (app()->getLocale() === 'kh'
+                ? 'តួនាទីរបស់អ្នកជាដៃគូលក់'
+                : 'Your Role as a Sales Partner')
+        }}
     </h1>
 
     <div class="space-y-12 flex justify-center items-center px-2">
@@ -95,9 +134,14 @@
                 text-white
                 transition-colors ease-in-out
                 group-hover:text-[#03254B] text-xs md:text-sm">
-                    <p>Introduce (potential)</p>
-                    <p>buyers to Pov Bopheak</p>
-                    <p>projects</p>
+                    <p class="w-32 md:max-w-64 mx-auto">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Introduce (potential) buyers to Pov Bopheak projects'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ណែនាំ (អ្នកទិញសក្តានុពល) អំពីគម្រោងអចលទ្រព្យនៅក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូមឯ.ក'
+                                : 'Introduce (potential) buyers to Pov Bopheak projects')
+                        }}
+                    </p>
                 </div>
             </div>
 
@@ -112,8 +156,14 @@
                 text-white
                 transition-colors duration-700 ease-in-out
                 group-hover:text-[#03254B] text-xs md:text-sm">
-                    <p>Promote projects</p>
-                    <p>online or offline</p>
+                    <p class="w-32 md:max-w-64 mx-auto">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Promote projects online or offline'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ផ្សព្វផ្សាយគម្រោង តាមអ៊ីនធឺណិត ឬតាមបណ្តាញទំនាក់ទំនង'
+                                : 'Promote projects online or offline')
+                        }}
+                    </p>
                 </div>
             </div>
 
@@ -128,8 +178,14 @@
                 text-white
                 transition-colors duration-700 ease-in-out
                 group-hover:text-[#03254B] text-xs md:text-sm">
-                    <p>Arrange site visits</p>
-                    <p>(with company support)</p>
+                    <p class="w-32 md:max-w-64 mx-auto">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Arrange site visits (with company support)'
+                            : (app()->getLocale() === 'kh'
+                                ? 'រៀបចំការចុះទៅមើលទីតាំង (ដោយមានការជួយជ្រោមជ្រែងពីក្រុមហ៊ុន)'
+                                : 'Arrange site visits (with company support)')
+                        }}
+                    </p>
                 </div>
             </div>
 
@@ -144,8 +200,14 @@
                 text-white
                 transition-colors duration-700 ease-in-out
                 group-hover:text-[#03254B] text-xs md:text-sm px-4">
-                    <p>Assist buyers through </p>
-                    <p>booking and documentation</p>
+                    <p class="w-32 md:max-w-64 mx-auto">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Assist buyers through booking and documentation'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ជួយអតិថិជនតាមរយៈការកក់ និងឯកសារនានា'
+                                : 'Assist buyers through booking and documentation')
+                        }}
+                    </p>
                 </div>
             </div>
 
@@ -160,8 +222,14 @@
                 text-white
                 transition-colors duration-700 ease-in-out
                 group-hover:text-[#03254B] text-xs md:text-sm">
-                    <p>Earn commission upon</p>
-                    <p>successful sales</p>
+                    <p class="w-32 md:max-w-64 mx-auto">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Earn commission upon successful sales'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ទទួលបានកម្រៃជើងសារនៅពេលលក់បានជោគជ័យ'
+                                : 'Earn commission upon successful sales')
+                        }}
+                    </p>
                 </div>
             </div>
 
@@ -176,9 +244,14 @@
                 text-white
                 transition-colors duration-700 ease-in-out
                 group-hover:text-[#03254B] text-xs md:text-sm">
-                    <p>No office commitment </p>
-                    <p>required. Performance-</p>
-                    <p>based income.</p>
+                    <p class="w-32 md:max-w-64 mx-auto">
+                        {{ app()->getLocale() === 'en'
+                            ? 'No office commitment required. Performance based income.'
+                            : (app()->getLocale() === 'kh'
+                                ? 'មិនតម្រូវឱ្យមានកាតព្វកិច្ចការិយាល័យទេ ប្រាក់ចំណូលផ្អែកលើការអនុវត្តការងារ។'
+                                : 'No office commitment required. Performance based income.')
+                        }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -189,7 +262,12 @@
 {{-- We Support You With --}}
 <div class="relative w-full bg-[#F2F3F5] h-auto md:h-125 md:mt-12 md:top-0">
     <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-8 md:py-16">
-        We Support You With ...
+        {{ app()->getLocale() === 'en'
+            ? 'We Support You With ...'
+            : (app()->getLocale() === 'kh'
+                ? 'ក្រុមហ៊ុនជួយជ្រោមជ្រែងអ្នកដោយផ្តល់នូវ ៖'
+                : 'We Support You With ...')
+        }}
     </h1>
 
     <section class="bg-[#f5f5f5]">
@@ -201,50 +279,110 @@
                         max-w-6xl mx-auto">
 
                 <!-- ITEM 1 -->
-                <div class="flex flex-col justify-center relative lg:left-6">
+                <div class="w-full md:max-w-72 mx-auto flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/1.png') }}" class="w-8 h-8 mb-4" alt="">
                     <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
-                        Project brochures <br> & price lists
+                        {{ app()->getLocale() === 'en'
+                            ? 'Project brochures'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ខិត្តប័ណ្ណគម្រោង និងតារាងតម្លៃ'
+                                : 'Project brochures')
+                        }} <br> {{ app()->getLocale() === 'en'
+            ? '& price lists'
+            : (app()->getLocale() === 'kh'
+                ? ''
+                : '& price lists')
+        }}
                     </p>
                 </div>
 
                 <!-- ITEM 2 -->
-                <div class="flex flex-col justify-center">
+                <div class="w-full md:max-w-72 mx-auto flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/2.png') }}" class="w-12 h-12 mb-4" alt="">
                     <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
-                        Legal ownership <br> information
+                        {{ app()->getLocale() === 'en'
+                            ? 'Legal ownership'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ព័ត៌មានអំពីកម្មសិទ្ធិស្របច្បាប់'
+                                : 'Legal ownership')
+                        }} <br> {{ app()->getLocale() === 'en'
+                            ? 'information'
+                            : (app()->getLocale() === 'kh'
+                                ? ''
+                                : 'information')
+                        }} 
                     </p>
                 </div>
 
                 <!-- ITEM 3 -->
-                <div class="flex flex-col justify-center">
+                <div class="w-full md:max-w-72 mx-auto flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/3.png') }}" class="w-12 h-12 mb-4" alt="">
                     <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
-                        On-site sales team <br> assistance
+                        {{ app()->getLocale() === 'en'
+                            ? 'On-site sales team'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ជំនួយពីក្រុមលក់នៅនឹងកន្លែង'
+                                : 'On-site sales team')
+                        }}  <br> {{ app()->getLocale() === 'en'
+                            ? 'assistance'
+                            : (app()->getLocale() === 'kh'
+                                ? ''
+                                : 'assistance')
+                        }} 
                     </p>
                 </div>
 
                 <!-- ITEM 4 -->
-                <div class="flex flex-col justify-center">
+                <div class="w-full md:max-w-72 mx-auto flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/4.png') }}" class="w-12 h-12 mb-4" alt="">
                     <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
-                        Sales scripts <br> & training
+                         {{ app()->getLocale() === 'en'
+                            ? 'Sales scripts'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ឃ្លានិយាយលក់ និងការបណ្តុះបណ្តាល'
+                                : 'Sales scripts')
+                        }}  <br>  {{ app()->getLocale() === 'en'
+                            ? '& training'
+                            : (app()->getLocale() === 'kh'
+                                ? ''
+                                : '& training')
+                        }} 
                     </p>
                 </div>
 
                 <!-- ITEM 5 -->
-                <div class="flex flex-col justify-center">
+                <div class="w-full md:max-w-72 mx-auto flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/5.png') }}" class="w-12 h-12 mb-4" alt="">
                     <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
-                        Marketing photos <br> & videos
+                         {{ app()->getLocale() === 'en'
+                            ? 'Marketing photos'
+                            : (app()->getLocale() === 'kh'
+                                ? 'រូបថត និងវីដេអូទីផ្សារ'
+                                : 'Marketing photos')
+                        }}  <br> {{ app()->getLocale() === 'en'
+                            ? '& videos'
+                            : (app()->getLocale() === 'kh'
+                                ? ''
+                                : '& videos')
+                        }} 
                     </p>
                 </div>
 
                 <!-- ITEM 6 -->
-                <div class="flex flex-col justify-center">
+                <div class="w-full md:max-w-72 mx-auto flex flex-col justify-center">
                     <img src="{{ asset('assets/icon/icon-freelan/6.png') }}" class="w-12 h-12 mb-4" alt="">
                     <p class="text-[#0a2a5e] text-md md:text-lg font-medium leading-snug text-left">
-                        Customer service & <br> document handling
+                        {{ app()->getLocale() === 'en'
+                            ? 'Customer service & '
+                            : (app()->getLocale() === 'kh'
+                                ? 'សេវាកម្មអតិថិជន និង ការដោះស្រាយនៅលើឯកសារនានា'
+                                : 'Customer service & ')
+                        }} <br> {{ app()->getLocale() === 'en'
+                            ? 'document handling'
+                            : (app()->getLocale() === 'kh'
+                                ? ''
+                                : 'document handling')
+                        }} 
                     </p>
                 </div>
 
@@ -258,7 +396,12 @@
 
 <div class="relative max-w-7xl mx-auto px-6 lg:py-20 py-20 md:py-36">
     <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-4 md:py-10 -mt-12 md:-mt-8">
-        Commission & Rewards
+       {{ app()->getLocale() === 'en'
+            ? ' Commission & Rewards'
+            : (app()->getLocale() === 'kh'
+                ? 'កម្រៃជើងសារ និងរង្វាន់'
+                : ' Commission & Rewards')
+        }} 
     </h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
 
@@ -273,9 +416,13 @@
             <div class="w-full h-[3px] mb-4" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
             </div>
 
-            <p class="text-[#03254B] text-lg leading-relaxed">
-                Competitive commission<br>
-                per unit sold
+            <p class="w-full md:max-w-56 text-[#03254B] text-lg leading-relaxed">
+                {{ app()->getLocale() === 'en'
+                    ? 'Competitive commission per unit sold'
+                    : (app()->getLocale() === 'kh'
+                        ? 'កម្រៃជើងសារប្រកួតប្រជែង ក្នុងមួយយូនីតដែលបានលក់'
+                        : 'Competitive commission per unit sold')
+                }} 
             </p>
         </div>
 
@@ -290,9 +437,13 @@
             <div class="w-full h-[3px] mb-4" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
             </div>
 
-            <p class="text-[#03254B] text-lg leading-relaxed">
-                Performance bonuses<br>
-                for high achievers
+            <p class="w-full md:max-w-56 text-[#03254B] text-lg leading-relaxed">
+                {{ app()->getLocale() === 'en'
+                    ? 'Performance bonuses for high achievers'
+                    : (app()->getLocale() === 'kh'
+                        ? 'ប្រាក់រង្វាន់ខ្ពស់សម្រាប់ការអនុវត្តការងារ'
+                        : 'Performance bonuses for high achievers')
+                }} 
             </p>
         </div>
 
@@ -307,9 +458,13 @@
             <div class="w-full h-[3px] mb-4" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
             </div>
 
-            <p class="text-[#03254B] text-lg leading-relaxed">
-                Special incentives<br>
-                during project launches
+            <p class="w-full md:max-w-56 text-[#03254B] text-lg leading-relaxed">
+                {{ app()->getLocale() === 'en'
+                    ? 'Special incentives during project launches'
+                    : (app()->getLocale() === 'kh'
+                        ? 'ការលើកទឹកចិត្តពិសេសក្នុងអំឡុងពេលបើកដំណើរការគម្រោង'
+                        : 'Special incentives during project launches')
+                }} 
             </p>
         </div>
 
@@ -324,9 +479,13 @@
             <div class="w-full h-[3px] mb-4" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);">
             </div>
 
-            <p class="text-[#03254B] text-lg leading-relaxed">
-                Transparent tracking &<br>
-                fast payment
+            <p class="w-full md:max-w-56 text-[#03254B] text-lg leading-relaxed">
+                {{ app()->getLocale() === 'en'
+                    ? 'Transparent tracking & fast payment'
+                    : (app()->getLocale() === 'kh'
+                        ? 'ការតាមដានលទ្ធផលការងារប្រកបដោយតម្លាភាព និងការទូទាត់រហ័ស'
+                        : 'Transparent tracking & fast payment')
+                }} 
             </p>
         </div>
 
@@ -338,7 +497,12 @@
 <div class="relative w-full bg-white" id="application-form">
     <!-- Title -->
     <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] -mt-6">
-        Application Form
+        {{ app()->getLocale() === 'en'
+            ? 'Application Form'
+            : (app()->getLocale() === 'kh'
+                ? 'ទម្រង់បែបបទដាក់ពាក្យ'
+                : 'Application Form')
+        }} 
     </h1>
 
     @if (session('successfully'))
@@ -365,7 +529,12 @@
 
             <!-- Full Name -->
            <div class="relative">
-                <input type="text" placeholder="Full Name" name="full_name" value="{{ old('full_name') }}" required
+                <input type="text" placeholder="{{ app()->getLocale() === 'en'
+                    ? 'Full Name'
+                    : (app()->getLocale() === 'kh'
+                        ? 'ឈ្មោះពេញ '
+                        : 'Full Name')
+                }} " name="full_name" value="{{ old('full_name') }}" required
                 class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] placeholder-[#03254B] outline-none 
                     @error('full_name') border border-red-500 @enderror" />
                 @error('full_name')
@@ -377,9 +546,30 @@
             <div class="relative">
                 <select name="sex" required
                     class="w-full h-14 px-6 pr-12 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none appearance-none">
-                    <option value="" disabled selected>Sex</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="" disabled selected>
+                        {{ app()->getLocale() === 'en'
+                            ? 'Sex'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ភេទ'
+                                : 'Sex')
+                        }} 
+                    </option>
+                    <option value="Male">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Male'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ប្រុស'
+                                : 'Male')
+                        }} 
+                    </option>
+                    <option value="Female">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Female'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ស្រី'
+                                : 'Female')
+                        }} 
+                    </option>
                 </select>
                 <span class="absolute right-6 top-1/2 -translate-y-1/2">
                     <!-- SVG -->
@@ -399,7 +589,14 @@
                 <!-- Button -->
                 <button type="button" id="experienceBtn" class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B]
                flex justify-between items-center">
-                    <span id="experienceText">Experience Level</span>
+                    <span id="experienceText">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Experience Level'
+                            : (app()->getLocale() === 'kh'
+                                ? 'កម្រិតបទពិសោធន៍'
+                                : 'Experience Level')
+                        }} 
+                    </span>
                     <svg width="12" height="13" viewBox="0 0 12 13" fill="none">
                         <path d="M10.5 4.6C11.8 5.37 11.8 7.29 10.5 8.06L3 12.4
                      C1.7 13.2 0 12.2 0 10.7V2
@@ -414,19 +611,40 @@
                     <label class="flex items-center space-x-3 cursor-pointer">
                         <input type="radio" name="experience" value="No experience"  
                         {{ old('experience') == 'No experience' ? 'checked' : '' }}>
-                        <span>No experience</span>
+                        <span>
+                            {{ app()->getLocale() === 'en'
+                            ? 'No experience'
+                            : (app()->getLocale() === 'kh'
+                                ? 'គ្មានបទពិសោធន៍'
+                                : 'No experience')
+                        }} 
+                        </span>
                     </label>
 
                     <label class="flex items-center space-x-3 cursor-pointer">
                         <input type="radio" name="experience" value="1–2 years"
                          {{ old('experience') == '1-2 years' ? 'checked' : '' }}>
-                        <span>1–2 years</span>
+                        <span>
+                            {{ app()->getLocale() === 'en'
+                            ? '1–2 years'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ចន្លោះពី 1 ឆ្នាំទៅ 2ឆ្នាំ'
+                                : '1–2 years')
+                        }} 
+                        </span>
                     </label>
 
                     <label class="flex items-center space-x-3 cursor-pointer">
                         <input type="radio" name="experience" value="3+ years"
                          {{ old('experience') == '3+ years' ? 'checked' : '' }}>
-                        <span>3+ years</span>
+                        <span>
+                            {{ app()->getLocale() === 'en'
+                            ? '3+ years'
+                            : (app()->getLocale() === 'kh'
+                                ? '3ឆ្នាំឡើង'
+                                : '3+ years')
+                        }} 
+                        </span>
                     </label>
 
                 </div>
@@ -441,7 +659,14 @@
                 <!-- Button -->
                 <button type="button" id="positionBtn" class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B]
                flex justify-between items-center">
-                    <span id="positionText">Are you a: </span>
+                    <span id="positionText">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Are you a: '
+                            : (app()->getLocale() === 'kh'
+                                ? 'តើអ្នកជា'
+                                : 'Are you a: ')
+                        }} 
+                    </span>
                     <svg width="12" height="13" viewBox="0 0 12 13" fill="none">
                         <path d="M10.5 4.6C11.8 5.37 11.8 7.29 10.5 8.06L3 12.4
                      C1.7 13.2 0 12.2 0 10.7V2
@@ -456,26 +681,51 @@
                     <label class="flex items-center space-x-3 cursor-pointer">
                         <input type="radio" name="position" value="Freelancer"
                          {{ old('position') == 'Freelancer' ? 'checked' : '' }}>
-                        <span>Freelancer</span>
+                        <span>
+                            {{ app()->getLocale() === 'en'
+                            ? 'Freelancer'
+                            : (app()->getLocale() === 'kh'
+                                ? 'អ្នកធ្វើការឯករាជ្យ '
+                                : 'Freelancer')
+                        }} 
+                        </span>
                     </label>
 
                     <label class="flex items-center space-x-3 cursor-pointer">
                         <input type="radio" name="position" value="Independent Agent"
                         {{ old('position') == 'Independent Agent' ? 'checked' : '' }}>
-                        <span>Independent Agent</span>
+                        <span>
+                            {{ app()->getLocale() === 'en'
+                            ? 'Independent Agent'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ក្រុមលក់ឯករាជ្យ '
+                                : 'Independent Agent')
+                        }} 
+                        </span>
                     </label>
 
                     <label class="flex items-center space-x-3 cursor-pointer">
                         <input type="radio" name="position" value="Agency Team"
                         {{ old('position') == 'Agency Team' ? 'checked' : '' }}>
-                        <span>Agency Team</span>
+                        <span>
+                            {{ app()->getLocale() === 'en'
+                            ? 'Agency Team'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ក្រុមហ៊ុនលក់អចលទ្រព្យ'
+                                : 'Agency Team')
+                        }} 
+                        </span>
                     </label>
-
                 </div>
             </div>
             <!-- Phone -->
             <div class="relative">
-                <input type="text" placeholder="Phone Number" name="phone" value="{{ old('phone') }}" required
+                <input type="text" placeholder="{{ app()->getLocale() === 'en'
+                            ? 'Phone Number'
+                            : (app()->getLocale() === 'kh'
+                                ? 'លេខទូរសព្ទ'
+                                : 'Phone Number')
+                        }} " name="phone" value="{{ old('phone') }}" required
                 class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none placeholder:font-medium
                 @error('phone') border border-red-500 @enderror" />
                 @error('phone')
@@ -487,7 +737,12 @@
 
             <!-- Email -->
             <div class="relative">
-                <input type="email" placeholder="Email" name="email" value="{{ old('email') }}" required
+                <input type="email" placeholder="{{ app()->getLocale() === 'en'
+                            ? 'Email'
+                            : (app()->getLocale() === 'kh'
+                                ? 'អ៉ីម៉ែល'
+                                : 'Email')
+                        }} " name="email" value="{{ old('email') }}" required
                 class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none placeholder:font-semibold" 
                 @error('email') border border-red-500 @enderror/>
                 @error('email')
@@ -505,7 +760,12 @@
                             background-clip: text;
                             color: transparent;
                         ">
-                        Submit
+                          {{ app()->getLocale() === 'en'
+                                ? 'Submit'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'ដាក់បញ្ជូន'
+                                    : 'Submit')
+                            }}
                     </span>
                 </button>
             </div>

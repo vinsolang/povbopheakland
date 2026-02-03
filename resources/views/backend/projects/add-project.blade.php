@@ -181,6 +181,67 @@
 
                             <input x-model="type.slug" readonly class="input bg-gray-100 d-none">
 
+                            <!-- ABOUT SECTION -->
+                            {{-- <div class="space-y-3 mt-4 border-t pt-3">
+                                <h4 class="font-semibold">About</h4>
+
+                                <template x-for="(about, aIndex) in type.about" :key="aIndex">
+                                    <div class="border p-3 rounded space-y-2">
+
+                                        <!-- TEXT -->
+                                        <div class="grid grid-cols-3 gap-2">
+                                            <input x-model="about.text.en"
+                                                placeholder="Text EN"
+                                                class="input">
+
+                                            <input x-model="about.text.kh"
+                                                placeholder="Text KH (optional)"
+                                                class="input">
+
+                                            <input x-model="about.text.ch"
+                                                placeholder="Text CH (optional)"
+                                                class="input">
+                                        </div>
+
+                                        <!-- NUMBER -->
+                                        <input type="number"
+                                            x-model="about.number"
+                                            placeholder="Number"
+                                            class="input">
+
+                                        <!-- IMAGE -->
+                                        <div class="flex items-center gap-2">
+                                            <input type="file"
+                                                :name="'category['+cIndex+'][cat_type]['+tIndex+'][about]['+aIndex+'][image]'"
+                                                @change="previewAboutImage($event, cIndex, tIndex, aIndex)"
+                                                class="form-control">
+
+                                            <template x-if="about.imagePreview">
+                                                <img :src="about.imagePreview"
+                                                    class="img-thumbnail"
+                                                    style="width:80px;height:80px;object-fit:cover;">
+                                            </template>
+                                        </div>
+
+                                        <!-- REMOVE -->
+                                        <button type="button"
+                                                @click="removeAbout(cIndex, tIndex, aIndex)"
+                                                class="btn btn-sm btn-danger">
+                                            ✕ Remove
+                                        </button>
+
+                                    </div>
+                                </template>
+
+                                <!-- ADD BUTTON -->
+                                <button type="button"
+                                        @click="addAbout(cIndex, tIndex)"
+                                        class="btn btn-sm btn-primary">
+                                    + Add About
+                                </button>
+                            </div> --}}
+
+
                             <div class="grid grid-cols-3 gap-2">
                                 <textarea x-model="type.des.en" placeholder="Desc EN" class="input"></textarea>
                                 <textarea x-model="type.des.kh" placeholder="Desc KH" class="input"></textarea>
@@ -231,6 +292,7 @@
     </form>
 </div>
 <script>
+
 function previewImage(event) {
     const input = event.target;
     const preview = document.getElementById('imagePreview');
@@ -280,31 +342,53 @@ function projectForm() {
             this.categories[c].cat_type.splice(t, 1)
         },
 
+        /* ================== IMAGES ================== */
         addImage(c, t) {
-            this.categories[c].cat_type[t].imgPreview = this.categories[c].cat_type[t].imgPreview || []
             this.categories[c].cat_type[t].imgPreview.push(null)
         },
 
         removeImage(c, t, i) {
-            if (this.categories[c].cat_type[t].imgPreview)
-                this.categories[c].cat_type[t].imgPreview.splice(i, 1)
+            this.categories[c].cat_type[t].imgPreview.splice(i, 1)
         },
 
         previewImage(event, c, t, i) {
             const file = event.target.files[0]
             if (!file) return
-
-            // Store preview
-            this.categories[c].cat_type[t].imgPreview = this.categories[c].cat_type[t].imgPreview || []
             this.categories[c].cat_type[t].imgPreview[i] = URL.createObjectURL(file)
         },
 
+        /* ================== ABOUT ================== */
+        addAbout(c, t) {
+            this.categories[c].cat_type[t].about.push({
+                text: { en:'', kh:'', ch:'' },
+                number: '',
+                imagePreview: null
+            })
+        },
+
+        removeAbout(c, t, a) {
+            this.categories[c].cat_type[t].about.splice(a, 1)
+        },
+
+        previewAboutImage(event, c, t, a) {
+            const file = event.target.files[0]
+            if (!file) return
+
+            const reader = new FileReader()
+            reader.onload = e => {
+                this.categories[c].cat_type[t].about[a].imagePreview = e.target.result
+            }
+            reader.readAsDataURL(file)
+        },
+
+        /* ================== TYPE ================== */
         newType() {
             return {
                 title: { en:'', kh:'', ch:'' },
                 slug: '',
                 des: { en:'', kh:'', ch:'' },
-                imgPreview: []
+                imgPreview: [],
+                about: []   // 🔥 REQUIRED
             }
         }
     }
@@ -413,4 +497,5 @@ bannerInput.addEventListener('change', function(event) {
 });
 
 </script>
+
 @endsection

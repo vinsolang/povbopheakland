@@ -32,7 +32,20 @@
     <div class="w-[83%] px-3 flex items-center space-x-0 py-2">
       <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-10 h-auto">
       <span class="w-full text-[#03254B] font-normal text-[12px] flex">
-        <span class="font-semibold">Pov Bopheak</span> Land & Home Co., Ltd
+        <span class="font-semibold">
+           {{ app()->getLocale() === 'en'
+                ? 'Pov Bopheak'
+                : (app()->getLocale() === 'kh'
+                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រ'
+                    : 'Pov Bopheak')
+            }}
+        </span>  
+            {{ app()->getLocale() === 'en'
+                ? 'Land & Home Co., Ltd'
+                : (app()->getLocale() === 'kh'
+                    ? 'លែន&ហូមឯ.ក'
+                    : 'Land & Home Co., Ltd')
+            }}
       </span>
     </div>
     <div class="w-[15%] lg:hidden px-6">
@@ -64,12 +77,66 @@
                       bg-gradient-to-r from-[#F2A93F] to-[#FFFBA6] z-20">
         </span>
 
-        <li><a href="{{ route('home') }}" class="nav-item">Home</a></li>
-        <li><a href="{{ route('home') }}#about-us" class="nav-item">About Us</a></li>
-        <li><a href="{{ route('home') }}#real-project" class="nav-item">Real Estate Projects</a></li>
-        <li><a href="{{ route('home') }}#our-customer" class="nav-item">Our Customers</a></li>
-        <li><a href="{{ route('home') }}#freelancer" class="nav-item">Freelancers</a></li>
-        <li><a href="{{ route('home') }}#contact-us" class="nav-item">Contact Us</a></li>
+        <li>
+          <a href="{{ route('home') }}" class="nav-item"> 
+            {{ app()->getLocale() === 'en'
+                ? 'Home'
+                : (app()->getLocale() === 'kh'
+                    ? 'ទំព័រដើម'
+                    : 'Home')
+            }}
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('home') }}#about-us" class="nav-item">
+            {{ app()->getLocale() === 'en'
+                ? 'About Us'
+                : (app()->getLocale() === 'kh'
+                    ? 'អំពីក្រុមហ៊ុន'
+                    : 'About Us')
+            }}
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('home') }}#real-project" class="nav-item">
+            {{ app()->getLocale() === 'en'
+                ? 'Real Estate Projects'
+                : (app()->getLocale() === 'kh'
+                    ? 'គម្រោងអចលទ្រព្យ'
+                    : 'Real Estate Projects')
+            }}
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('home') }}#our-customer" class="nav-item">
+            {{ app()->getLocale() === 'en'
+                ? 'Our Customers'
+                : (app()->getLocale() === 'kh'
+                    ? 'អតិថិជន'
+                    : 'Our Customers')
+            }}
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('home') }}#freelancer" class="nav-item">
+            {{ app()->getLocale() === 'en'
+                ? 'Freelancers'
+                : (app()->getLocale() === 'kh'
+                    ? 'អ្នកធ្វើការឯករាជ្យ'
+                    : 'Freelancers')
+            }}
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('home') }}#contact-us" class="nav-item">
+            {{ app()->getLocale() === 'en'
+                ? 'Contact Us'
+                : (app()->getLocale() === 'kh'
+                    ? 'ការទំនាក់ទំនង'
+                    : 'Contact Us')
+            }}
+          </a>
+        </li>
 
 
         <!-- STATIC LINE UNDER MENU TEXT -->
@@ -84,8 +151,22 @@
 
         <!-- Text -->
         <div class="flex xl:flex-row lg:flex-col xl:flex items-center text-[#03254B] text-lg leading-none whitespace-nowrap">
-          <span class="font-semibold">Pov&nbsp;Bopheak</span>
-          <span class="font-normal ml-1"> Land & Home Co., Ltd</span>
+          <span class="font-semibold">
+            {{ app()->getLocale() === 'en'
+                ? 'Pov Bopheak'
+                : (app()->getLocale() === 'kh'
+                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រ'
+                    : 'Pov Bopheak')
+            }}
+          </span>
+          <span class="font-normal ml-1">
+            {{ app()->getLocale() === 'en'
+                ? 'Land & Home Co., Ltd'
+                : (app()->getLocale() === 'kh'
+                    ? 'លែន&ហូមឯ.ក'
+                    : 'Land & Home Co., Ltd')
+            }}
+          </span>
         </div>
       </div>
     </div>
@@ -100,7 +181,12 @@
       <div class="flex items-center gap-2">
         <img src="{{ asset('assets/logo/logo-fina.png') }}" class="w-10">
         <span class="text-[#03254B] font-semibold text-sm whitespace-nowrap">
-          Pov Bopheak Land & Home Co., Ltd
+          {{ app()->getLocale() === 'en'
+                ? 'Pov Bopheak Land & Home Co., Ltd'
+                : (app()->getLocale() === 'kh'
+                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូមឯ.ក'
+                    : 'Pov Bopheak Land & Home Co., Ltd')
+            }}
         </span>
       </div>
 
@@ -111,12 +197,42 @@
 
     <!-- Menu links -->
     <ul class="flex flex-col px-6 py-6 space-y-6 text-[#03254b] text-lg font-medium">
-      <li><a href="{{ route('home') }}" class="mobile-link">Home</a></li>
-      <li><a href="{{ route('home') }}#about-us" class="mobile-link">About Us</a></li>
-      <li><a href="{{ route('home') }}#real-project" class="mobile-link">Real Estate Projects</a></li>
-      <li><a href="{{ route('home') }}#our-customer" class="mobile-link">Our Customers</a></li>
-      <li><a href="{{ route('home') }}#freelancer" class="mobile-link">Freelancers</a></li>
-      <li><a href="{{ route('home') }}#contact-us" class="mobile-link">Contact Us</a></li>
+      <li><a href="{{ route('home') }}" class="mobile-link">{{ app()->getLocale() === 'en'
+                ? 'Home'
+                : (app()->getLocale() === 'kh'
+                    ? 'ទំព័រដើម'
+                    : 'Home')
+            }}</a></li>
+      <li><a href="{{ route('home') }}#about-us" class="mobile-link">{{ app()->getLocale() === 'en'
+                ? 'About Us'
+                : (app()->getLocale() === 'kh'
+                    ? 'អំពីក្រុមហ៊ុន'
+                    : 'About Us')
+            }}</a></li>
+      <li><a href="{{ route('home') }}#real-project" class="mobile-link">{{ app()->getLocale() === 'en'
+                ? 'Real Estate Projects'
+                : (app()->getLocale() === 'kh'
+                    ? 'គម្រោងអចលទ្រព្យ'
+                    : 'Real Estate Projects')
+            }}</a></li>
+      <li><a href="{{ route('home') }}#our-customer" class="mobile-link"> {{ app()->getLocale() === 'en'
+                ? 'Our Customers'
+                : (app()->getLocale() === 'kh'
+                    ? 'អតិថិជន'
+                    : 'Our Customers')
+            }}</a></li>
+      <li><a href="{{ route('home') }}#freelancer" class="mobile-link">{{ app()->getLocale() === 'en'
+                ? 'Freelancers'
+                : (app()->getLocale() === 'kh'
+                    ? 'អ្នកធ្វើការឯករាជ្យ'
+                    : 'Freelancers')
+            }}</a></li>
+      <li><a href="{{ route('home') }}#contact-us" class="mobile-link">{{ app()->getLocale() === 'en'
+                ? 'Contact Us'
+                : (app()->getLocale() === 'kh'
+                    ? 'ការទំនាក់ទំនង'
+                    : 'Contact Us')
+            }}</a></li>
     </ul>
   </div>
 
