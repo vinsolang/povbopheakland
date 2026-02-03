@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:title" content="Pov Bopheak Land">
-        <meta property="og:description" content="Official website of Pov Bopheak Land">
+        <meta property="og:description" content="website of Pov Bopheak Land">
         <meta property="og:image" content="https://povbopheak.com/assets/logo/logo-fina-social.png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
