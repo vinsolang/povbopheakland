@@ -96,30 +96,30 @@
                 showMission: false,
                 showCore: false
             }">
-   <div class="flex justify-center items-center md:pt-14 md:py-0 py-2 md:mt-4 mt-0 space-x-6 md:space-y-0 space-y-6">
+   <div class="flex justify-center items-center md:pt-14 md:py-0 py-4 md:mt-4 mt-0 space-x-6 md:space-y-0 space-y-6">
         
         <button @click="showVision = true" class="cursor-pointer">
-            <div class="w-36 h-12 rounded-full flex flex-col items-center justify-center">
-                <img src="{{ asset('assets/icon-project/icons8-night-vision-100.png') }}" alt="">
-                <p class="cursor-pointer text-[#03244a] font-semibold text-lg">
+            <div class="w-32 h-16 md:w-52 md:h-24 rounded-full flex flex-col items-center justify-center">
+                <img src="{{ asset('assets/icon-project/icons8-night-vision-100.png') }}" alt="" class="w-full h-full object-contain">
+                <p class="cursor-pointer text-[#03244a] font-semibold text-xs md:text-lg">
                     Our Vision
                 </p>
             </div>
         </button>
 
         <button  @click="showMission = true" class="cursor-pointer">
-            <div class="w-40 h-14 rounded-full flex flex-col items-center justify-center">
-                <img src="{{ asset('assets/icon-project/icons8-mission-100.png') }}" alt="">
-                <p class="cursor-pointer text-[#03244a] font-semibold text-lg">
+            <div class="w-32 h-16 md:w-52 md:h-24 rounded-full flex flex-col items-center justify-center">
+                <img src="{{ asset('assets/icon-project/icons8-mission-100.png') }}" alt="" class="w-full h-full object-contain">
+                <p class="cursor-pointer text-[#03244a] font-semibold text-xs md:text-lg">
                     Our Mission
                 </p>
             </div>
         </button>
 
         <button @click="showCore = true" class="cursor-pointer">
-            <div class="w-44 h-12 rounded-full flex flex-col items-center justify-center">
-                <img src="{{ asset('assets/icon-project/icons8-diamond-100.png') }}" alt="">
-                <p class="cursor-pointer text-[#03244a] font-semibold text-lg">
+            <div class="w-32 h-16 md:w-52 md:h-24 rounded-full flex flex-col items-center justify-center">
+                <img src="{{ asset('assets/icon-project/icons8-diamond-100.png') }}" alt="" class="w-full h-full object-contain">
+                <p class="max-w-40 cursor-pointer text-[#03244a] font-semibold text-xs md:text-lg">
                     Our Core Values
                 </p>
             </div>
