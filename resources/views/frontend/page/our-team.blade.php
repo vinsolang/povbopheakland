@@ -1,67 +1,20 @@
 
-<section class="w-full h-full relative overflow-hidden">
-    
-    {{-- <!-- Decorative wave -->
-    <div class="absolute top-0 right-0 w-full h-40 bg-gradient from-[#cfa55a] via-[#f5e3b0] to-[#8b5a2b] rotate-1"></div>
-
-    <div class="relative max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row gap-10 items-start">
-        
-        <!-- Left Profile -->
-        <div class="flex-shrink-0">
-            <div class="w-44 h-44 rounded-full border-4 border-[#d6b56d] overflow-hidden bg-white shadow-lg">
-                <img 
-                    src="{{ asset('assets/profile/1768750850-seang_pov.png') }}" 
-                    alt="Mr. Seang Pov"
-                    class="w-full h-full object-cover"
-                >
-            </div>
-        </div>
-
-        <!-- Right Content -->
-        <div class="text-[#1f2a44]">
-            <h2 class="text-3xl font-bold">
-                Mr. Seang Pov
-            </h2>
-            <p class="text-lg font-semibold text-[#1f2a44] mt-1 border-b border-[#1f2a44] w-full inline-block pb-1">
-                Board of Director
-            </p>
-
-            <div class="mt-6 space-y-4 text-sm leading-relaxed max-w-4xl">
-                <p>
-                    At Pov Bopheak Land & Home Co., Ltd., we believe that real estate is about far more than property alone, it is about people, 
-                    trust, and the future we help shape together. Cambodia, and particularly Phnom Penh, is entering a pivotal phase of growth. As 
-                    the city continues to develop into a modern and dynamic regional center, the real estate market presents significant opportunities. 
-                    At the same time, this progress requires responsibility, transparency, and a long-term perspective. Pov Bopheak Land & Home Co., Ltd. 
-                    was founded on these principles. 
-                </p>
-
-                <p>
-                    From the outset, our shared vision has been clear: to connect clients with real estate opportunities that are not only attractive today, but 
-                    sustainable and valuable for the long term. We focus on carefully selected condominiums, landed properties, land plots, and exclusive developments 
-                    that meet high standards of location, construction quality, legal clarity, and investment potential.
-                </p>
-
-                <p>
-                    What truly distinguishes our company is our belief in relationships over transactions. Whether we are supporting first-time homebuyers, families seeking 
-                    to upgrade their lifestyle, or investors pursuing strategic returns, we take the time to understand individual goals and provide professional, honest 
-                    guidance at every stage of the process. Trust is built through consistency, transparency, and accountability, and we treat that trust as our most valuable asset. 
-                </p>
-
-                <p>
-                    We work closely with reputable developers, landowners, and partners who share our commitment to quality, integrity, and responsible development. 
-                    Through these partnerships, we aim to contribute positively to Cambodia’s real estate landscape by supporting projects that strengthen communities 
-                    and create lasting value. As founders, we remain personally committed to the values on which Pov Bopheak Land & Home Co., Ltd. was established: 
-                    integrity, professionalism, and long-term value creation.
-                </p>
-                <p>Our ambition is not only to grow as a company, but to grow alongside our clients, partners, and the future of Cambodia. </p>
-                <p class="font-medium">
-                    Thank you for your trust in Pov Bopheak Land & Home Co., Ltd. We look forward to building the future, responsibly and together.
-                </p>
-            </div>
-        </div>
-    </div> --}}
-    <img src="{{ asset('assets/about_us/sms-form-chairman-en.svg') }}" alt="" class="w-full h-full object-cover"
-     style="user-select: none; pointer-events: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+<section class="relative overflow-hidden">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-4">
+        {{ app()->getLocale() === 'en'
+            ? 'Message from the Chairman'
+            : (app()->getLocale() === 'kh'
+                ? 'សារពីអគ្គនាយកក្រុមហ៊ុន'
+                : 'Message from the Chairman')
+        }}
+    </h1>
+    <img src="{{ app()->getLocale() === 'en'
+            ? asset('assets/about_us/sms-form-chairman-en.svg')
+            : (app()->getLocale() === 'kh'
+                ? asset('assets/about_us/ms-form-chiarman-kh.svg')
+                : asset('assets/about_us/sms-form-chairman-en.svg'))
+        }}" alt="" class="w-full object-cover"
+     style="user-select:none; pointer-events:none;">
 </section>
 
 @php

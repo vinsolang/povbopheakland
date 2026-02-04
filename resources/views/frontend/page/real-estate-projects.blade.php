@@ -1,5 +1,12 @@
 <div id="real-project" class="bg-[#f2f3f5] w-full h-auto pt-2">
-    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-2 md:mt-0 mt-4 md:py-10">Real Estate Projects</h1>
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-2 md:mt-0 mt-4 md:py-10">
+        {{ app()->getLocale() === 'en'
+            ? 'Real Estate Projects'
+            : (app()->getLocale() === 'kh'
+                ? 'គម្រោងអចលទ្រព្យ'
+                : 'Real Estate Projects')
+        }}
+    </h1>
     {{-- Card of all project --}}
     <div class="2xl:max-w-6xl max-w-7xl mx-auto space-x-4 py-6">
         <div class="max-w-8xl mx-auto px-4">

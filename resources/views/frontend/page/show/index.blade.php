@@ -58,6 +58,31 @@
     margin: 1rem 0;
     overflow-x: auto;  /* allow horizontal scroll if wide */
 }
+/* ===== LIST STYLE (IMPORTANT) ===== */
+.ck-content ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+}
+
+.ck-content ol {
+    list-style-type: decimal;
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+}
+
+.ck-content li {
+    margin-bottom: 0.4rem;
+}
+
+/* Nested lists */
+.ck-content ul ul {
+    list-style-type: circle;
+}
+
+.ck-content ol ol {
+    list-style-type: lower-alpha;
+}
 
     </style>
 </head>

@@ -4,7 +4,7 @@
         total: {{ $showCustomer->sum(fn($c) => is_array($c->images) ? count($c->images) : 0) }}
      }">
 
-    <h1 class="text-2xl md:text-5xl f2nt-semibold text-center text-[#03254B] py-4 md:py-16">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-4 md:py-16">
         {{ app()->getLocale() === 'en'
             ? 'Our Customers'
             : (app()->getLocale() === 'kh'

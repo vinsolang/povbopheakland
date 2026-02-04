@@ -25,10 +25,10 @@
 
             <h3 class="text-md md:text-3xl lg:text-4xl text-[#03254b] font-bold">
             {{ app()->getLocale() === 'en'
-                ? 'Modern Living, Smart Investment.'
+                ? 'Building Trust, Creating Value, Shaping the Future.'
                 : (app()->getLocale() === 'kh'
                     ? 'ការរស់នៅទាន់សម័យ ការវិនិយោគឆ្លាតវៃ'
-                    : 'Modern Living, Smart Investment.')
+                    : 'Building Trust, Creating Value, Shaping the Future.')
             }}
             </h3>
 
