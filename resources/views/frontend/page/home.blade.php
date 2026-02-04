@@ -36,7 +36,7 @@
                 “ {{ app()->getLocale() === 'en'
                 ? 'Mid-range villas, condos, and shophouses designed for comfortable living and long-term value in prime locations.'
                 : (app()->getLocale() === 'kh'
-                    ? 'គម្រោងយើងខ្ញ៉ំមានផ្ទះវីឡា ស្សបហោសន៍ ដីឡូត៍ ខុនដូ រចនាឡើងសម្រាប់ការរស់នៅប្រកបដោយផាសុកភាព និងទទួលបានគុណតម្លៃរយៈពេលវែងក្នុងទីតាំងល្អៗ'
+                    ? 'គម្រោងយើងខ្ញុំមានផ្ទះវីឡា ស្សបហោសន៍ ដីឡូត៍ ខុនដូ រចនាឡើងសម្រាប់ការរស់នៅប្រកបដោយផាសុកភាព និងទទួលបានគុណតម្លៃរយៈពេលវែងក្នុងទីតាំងល្អៗ'
                     : 'Mid-range villas, condos, and shophouses designed for comfortable living and long-term value in prime locations.')
             }}”
             </p>
