@@ -211,15 +211,18 @@
                         </div>
 
                         <div class="space-y-1 md:h-0 h-12">
-                            <h3 class="text-[#03254B] font-semibold text-[10px] sm:text-xs md:text-base leading-tight">
+                           <h3
+                                class="text-[#03254B] font-semibold text-[10px] sm:text-xs md:text-base leading-tight
+                                    {{ app()->getLocale() === 'kh' ? 'max-w-28 mx-auto' : '' }} md:max-w-60">
                                 {{
-                    app()->getLocale() === 'en'
-                    ? $item->name_en
-                    : (app()->getLocale() === 'kh'
-                        ? $item->name_kh
-                        : $item->name_en)
-                                        }}
+                                    app()->getLocale() === 'en'
+                                        ? $item->name_en
+                                        : (app()->getLocale() === 'kh'
+                                            ? $item->name_kh
+                                            : $item->name_en)
+                                }}
                             </h3>
+
                             <p class="text-[9px] sm:text-[10px] md:text-sm text-gray-500 leading-tight">
                                 {{
                     app()->getLocale() === 'en'

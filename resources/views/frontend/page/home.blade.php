@@ -6,7 +6,7 @@
 
         <!-- LEFT CONTENT -->
         <div class="space-y-6 flex-1 text-left md:h-auto h-96 flex flex-col justify-between">
-            <h1 class="text-2xl lg:text-[68px] md:text-5xl font-bold md:mt-0 -mt-2 md:max-w-[90%] z-20 py-5" 
+            <h1 class="text-[22px] lg:text-[68px] md:text-5xl font-bold md:mt-0 -mt-2 w-full md:max-w-[90%] z-20 py-5" 
                 style="
                     background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                     -webkit-background-clip: text;
@@ -27,7 +27,7 @@
             {{ app()->getLocale() === 'en'
                 ? 'Building Trust, Creating Value, Shaping the Future.'
                 : (app()->getLocale() === 'kh'
-                    ? 'ការរស់នៅទាន់សម័យ ការវិនិយោគឆ្លាតវៃ'
+                    ? 'កសាងទំនុកចិត្ត បង្កើតតម្លៃ បង្កើតអនាគតដ៏ប្រសើរ'
                     : 'Building Trust, Creating Value, Shaping the Future.')
             }}
             </h3>

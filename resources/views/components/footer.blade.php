@@ -1,7 +1,7 @@
 <div class="relative w-full mt-14">
     <img src="{{ asset('assets/background/bg-footer.png') }}" alt="" class="w-full h-full object-cover">
     <div class="absolute inset-0 flex flex-col justify-center items-center">
-        <h1 class="text-4xl md:text-6xl font-bold py-4" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
+        <h1 class="text-2xl md:text-5xl lg:text-6xl font-bold py-4 lg:py-6" style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -9,15 +9,15 @@
              {{ app()->getLocale() === 'en'
                 ? 'Pov Bopheak Land & Home'
                 : (app()->getLocale() === 'kh'
-                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន & Home'
+                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន & ហូម'
                     : 'Pov Bopheak Land & Home')
             }}
         </h1>
-        <p class="text-white text-lg md:text-xl">
+        <p class="text-white text-md sm:text-lg md:text-xl lg:text-2xl py-0 lg:py-4">
             {{ app()->getLocale() === 'en'
                 ? 'Building Trust, Creating Value, Shaping the Future.'
                 : (app()->getLocale() === 'kh'
-                    ? 'ការរស់នៅទាន់សម័យ ការវិនិយោគឆ្លាតវៃ'
+                    ? 'កសាងទំនុកចិត្ត បង្កើតតម្លៃ បង្កើតអនាគតដ៏ប្រសើរ'
                     : 'Building Trust, Creating Value, Shaping the Future.')
             }}
         </p>

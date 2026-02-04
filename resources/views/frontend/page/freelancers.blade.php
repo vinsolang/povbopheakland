@@ -61,14 +61,14 @@
                             blur-xl rounded-lg"></div>
 
                 <!-- Text -->
-                <p class="relative z-10 text-md md:text-xl max-w-64 md:max-w-xl
+                <p class="relative z-10 text-md md:text-xl
                         font-medium text-[#03254b] py-4 px-2
                         md:[text-shadow:none]"
                 style="text-shadow: 0px 4px 6px rgba(0,0,0,0.25);">
                     {{ app()->getLocale() === 'en'
                         ? 'Flexible income'
                         : (app()->getLocale() === 'kh'
-                            ? 'ប្រាក់ចំណូលឥតដែនកំណត់'
+                            ? '• ប្រាក់ចំណូលឥតដែនកំណត់'
                             : 'Flexible income')
                     }} 
                     {{ app()->getLocale() === 'en'
@@ -76,7 +76,7 @@
                         : (app()->getLocale() === 'kh'
                             ? '• កេរ្ត៍ឈ្មោះក្រុមហ៊ុន'
                             : '• Strong brand')
-                    }} 
+                    }} <br>
                     {{ app()->getLocale() === 'en'
                         ? '• Real projects'
                         : (app()->getLocale() === 'kh'
