@@ -32,9 +32,9 @@
         @endphp
 
         <div class="relative space-y-4 font-medium">
-            <div class="absolute inset-y-0 right-0 w-4/5
-                            bg-gradient-to-l from-white/80 via-white/60 to-transparent
-                            blur-xl rounded-lg"></div>
+            <div class="absolute inset-y-0 right-0 w-[90%]
+                            bg-gradient-to-l bg-gradient-to-r bg-gradient-to-b from-white/80 via-white/60 to-transparent
+                            blur-xl"></div>
             @foreach($previewParagraphs as $p)
                 <p class="relative z-10">{{ $p }}</p>
             @endforeach
@@ -102,7 +102,7 @@
             <div class="w-32 h-16 md:w-52 md:h-24 rounded-full flex flex-col items-center justify-center">
                 <img src="{{ asset('assets/icon-project/icons8-night-vision-100.png') }}" alt="" class="w-full h-full object-contain">
                 <p class="cursor-pointer h-32 md:h-16 text-[#03244a] font-semibold text-xs md:text-lg">
-                    Our Vision
+                    {{ app()->getLocale() === 'en' ? 'Our Vision' : (app()->getLocale() === 'kh' ? 'ចក្ខុវិស័យ' : 'Our Vision') }}
                 </p>
             </div>
         </button>
@@ -111,7 +111,8 @@
             <div class="w-32 h-16 md:w-52 md:h-24 rounded-full flex flex-col items-center justify-center">
                 <img src="{{ asset('assets/icon-project/icons8-mission-100.png') }}" alt="" class="w-full h-full object-contain">
                 <p class="cursor-pointer h-32 md:h-16 text-[#03244a] font-semibold text-xs md:text-lg">
-                    Our Mission
+                    
+                    {{ app()->getLocale() === 'en' ? 'Our Mission' : (app()->getLocale() === 'kh' ? 'បេសកកម្ម' : 'Our Mission') }}
                 </p>
             </div>
         </button>
@@ -120,7 +121,8 @@
             <div class="w-32 h-16 md:w-52 md:h-24 rounded-full flex flex-col items-center justify-center">
                 <img src="{{ asset('assets/icon-project/icons8-diamond-100.png') }}" alt="" class="w-full h-full object-contain">
                 <p class="max-w-40 h-32 md:h-16 cursor-pointer text-[#03244a] font-semibold text-xs md:text-lg">
-                    Our Core Values
+                    
+                    {{ app()->getLocale() === 'en' ? 'Core Values' : (app()->getLocale() === 'kh' ? 'គុណតម្លៃស្នូល' : 'Core Values') }}
                 </p>
             </div>
         </button>
@@ -141,16 +143,25 @@
             <!-- Modal Content -->
             <div class="flex items-center space-x-3">
                 <img src="{{ asset('assets/icon-project/icons8-night-vision-100.png') }}" alt="" class="w-16 h-16">
-                <h2 class="text-3xl font-semibold mb-6 text-[#03244a]">Our Vision</h2>
+                <h2 class="text-3xl font-semibold mb-6 text-[#03244a]">
+                    {{ app()->getLocale() === 'en' ? 'Our Vision' : (app()->getLocale() === 'kh' ? 'ចក្ខុវិស័យ' : 'Our Vision') }}
+                </h2>
             </div>
 
             <div class="space-y-4 text-[#03244a] text-md md:text-lg">
-                To become one of Cambodia’s most trusted and forward thinking real estate companies, shaping sustainable
+                
+                 {{ app()->getLocale() === 'en' ? 'To become one of Cambodia’s most trusted and forward thinking real estate companies, shaping sustainable
                 communities
                 and creating long-term value for homeowners, investors, and future generations, while contributing
                 positively to Phnom Penh’s
-                transformation into a leading regional capital. <br>
-                <b>In short, we do not just follow Cambodia’s growth; we help define it.</b>
+                transformation into a leading regional capital.' : (app()->getLocale() === 'kh' ? 'ក្លាយជាក្រុមហ៊ុនអចលនទ្រព្យមួយប្រកបដោយទំនុកចិត្តនៅលើទីផ្សារប្រទេសកម្ពុជាជាមួយនឹងគំនិត
+ច្នៃប្រឌិតខ្ពស់ក្នុងការអភិវឌ្ឍន៍សហគមន៍ប្រកបដោយចីរភាព និងបង្កើតគុណតម្លៃរយៈពេលវែងសម្រាប់អតិថិជន វិនិយោគិន និងមនុស្សជំនាន់ក្រោយ ខណៈពេលដែលចូលរួមចំណែកអភិវឌ្ឍន៍រាជធានីភ្នំពេញទៅជារាជធានីឈានមុខគេនៅក្នុងតំបន់។
+' : 'To become one of Cambodia’s most trusted and forward thinking real estate companies, shaping sustainable
+                communities
+                and creating long-term value for homeowners, investors, and future generations, while contributing
+                positively to Phnom Penh’s
+                transformation into a leading regional capital.') }}
+                {{-- <b>In short, we do not just follow Cambodia’s growth; We help define it.</b> --}}
             </div>
         </div>
     </div>
@@ -168,16 +179,23 @@
             <!-- Modal Content -->
             <div class="flex items-center space-x-3">
                 <img src="{{ asset('assets/icon-project/icons8-mission-100.png') }}" alt="" class="w-20 h-20">
-                <h2 class="text-3xl font-semibold mb-6 text-[#03244a]">Our Mission</h2>
+                <h2 class="text-3xl font-semibold mb-6 text-[#03244a]">
+                     {{ app()->getLocale() === 'en' ? 'Our Mission' : (app()->getLocale() === 'kh' ? 'បេសកកម្ម' : 'Our Mission') }}
+                </h2>
             </div>
 
             <div class="space-y-4 text-[#03244a] text-md md:text-lg">
                 <p>
-                    Our mission is to provide professional, transparent, and value-driven real estate solutions in
+                     {{ app()->getLocale() === 'en' ? 'Our mission is to provide professional, transparent, and value-driven real estate solutions in
                     Cambodia by connecting people
                     with high-quality condominiums, landed properties, land plots, and exclusive developments that stand
-                    the test of time.
-                    We are committed to:
+                    the test of time. ' : (app()->getLocale() === 'kh' ? 'បេសកកម្មរបស់យើងខ្ញុំគឺផ្តល់ជូននូវដំណោះស្រាយអចលនទ្រព្យប្រកបដោយវិជ្ជាជីវៈ មានតម្លាភាព និងផ្តោតលើគុណតម្លៃនៅក្នុងប្រទេសកម្ពុជា ដោយផ្សាភ្ជាប់អតិថិជនជាមួយនឹងឱកាសអចលនទ្រព្យលើដី ខុនដូប្រណិតៗ  ដីឡូត៍ និងការអភិវឌ្ឍគម្រោងផ្តាច់មុខប្រកបដោយនិរន្តភាព។
+' : 'Our mission is to provide professional, transparent, and value-driven real estate solutions in
+                    Cambodia by connecting people
+                    with high-quality condominiums, landed properties, land plots, and exclusive developments that stand
+                    the test of time. ') }}
+                    <br/>
+                     {{ app()->getLocale() === 'en' ? 'We are committed to:' : (app()->getLocale() === 'kh' ? 'យើងខ្ញ៉ំប្តេជ្ញាចិត្ត៖' : 'We are committed to:') }}
                 </p>
                 <section class="max-w-6xl mx-auto px-4 py-2 md:py-4 bg-white text-[#0b2c52]">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 md:gap-y-8 gap-y-2">
@@ -185,51 +203,73 @@
                         <!-- Item 01 -->
                         <div class="relative">
                             <div class="flex items-center space-x-4">
-                                <span class="text-4xl font-serif text-[#c9a96a]">01</span>
+                                <span class="text-4xl font-serif text-[#c9a96a]">
+                                    {{ app()->getLocale() === 'en' ? '01' : (app()->getLocale() === 'kh' ? '០១' : '01') }}
+                                </span>
                                 <div class="flex-1 border-t border-[#c9a96a]"></div>
                             </div>
                             <p class="mt-4 text-lg leading-relaxed">
-                                Offering carefully selected properties
+                                
+                                 {{ app()->getLocale() === 'en' ? 'Offering carefully selected properties
                                 with strong fundamentals and clear legal
-                                standing
+                                standing' : (app()->getLocale() === 'kh' ? 'ផ្តល់ជូននូវអចលនទ្រព្យដែលបានជ្រើសរើសលក់ជូនយ៉ាងយកចិត្តទុកដាក់ជាមួយនឹងមូលដ្ឋានគ្រឹះដ៏រឹងមាំ និងជំហរផ្លូវច្បាប់ច្បាស់លាស់។' : 'Offering carefully selected properties
+                                with strong fundamentals and clear legal
+                                standing') }}
                             </p>
                         </div>
 
                         <!-- Item 02 -->
                         <div class="relative">
                             <div class="flex items-center space-x-4">
-                                <span class="text-4xl font-serif text-[#c9a96a]">02</span>
+                                <span class="text-4xl font-serif text-[#c9a96a]">
+                                    {{ app()->getLocale() === 'en' ? '02' : (app()->getLocale() === 'kh' ? '០២' : '02') }}
+                                </span>
                                 <div class="flex-1 border-t border-[#c9a96a]"></div>
                             </div>
                             <p class="mt-4 text-lg leading-relaxed">
-                                Guiding clients with honesty, expertise, and
-                                local market insight
+                               
+                                 {{ app()->getLocale() === 'en' ? ' Guiding clients with honesty, expertise, and
+                                local market insight' : (app()->getLocale() === 'kh' ? 'ណែនាំអតិថិជនដោយភាពស្មោះត្រង់ ជំនាញវិជ្ជាជីវៈ និងការយល់ដឹងអំពីទីផ្សារក្នុងស្រុក។' : ' Guiding clients with honesty, expertise, and
+                                local market insight') }}
                             </p>
                         </div>
 
                         <!-- Item 03 -->
                         <div class="relative">
                             <div class="flex items-center space-x-4">
-                                <span class="text-4xl font-serif text-[#c9a96a]">03</span>
+                                <span class="text-4xl font-serif text-[#c9a96a]">
+                                    {{ app()->getLocale() === 'en' ? '03' : (app()->getLocale() === 'kh' ? '០៣' : '03') }}
+                                </span>
                                 <div class="flex-1 border-t border-[#c9a96a]"></div>
                             </div>
                             <p class="mt-4 text-lg leading-relaxed">
-                                Supporting first-time buyers, families,
+                               
+                                 {{ app()->getLocale() === 'en' ? ' Supporting first-time buyers, families,
                                 and investors with tailored advice
-                                and end-to-end service
+                                and end-to-end service' : (app()->getLocale() === 'kh' ? 'ជួយណែនាំដល់អ្នកទិញអចលទ្រព្យលើកដំបូង គ្រួសារ និងវិនិយោគិនជាមួយនឹងការប្រឹក្សាជាក់លាក់ និងផ្តល់សេវាកម្មសេវាកម្មពេញលេញ។
+' : ' Supporting first-time buyers, families,
+                                and investors with tailored advice
+                                and end-to-end service') }}
                             </p>
                         </div>
 
                         <!-- Item 04 -->
                         <div class="relative">
                             <div class="flex items-center space-x-4">
-                                <span class="text-4xl font-serif text-[#c9a96a]">04</span>
+                                <span class="text-4xl font-serif text-[#c9a96a]">
+                                     {{ app()->getLocale() === 'en' ? '04' : (app()->getLocale() === 'kh' ? '០៤' : '04') }}
+                                </span>
                                 <div class="flex-1 border-t border-[#c9a96a]"></div>
                             </div>
                             <p class="mt-4 text-lg leading-relaxed">
-                                Building long-term relationships based on trust, performance,
+                               
+                                 {{ app()->getLocale() === 'en' ? ' Building long-term relationships based on trust, performance,
                                 and shared success. Every transaction is approached not as a
-                                sale, but as a strategic decision for our clients’ future.
+                                sale, but as a strategic decision for our clients’ future.' : (app()->getLocale() === 'kh' ? 'កសាងទំនាក់ទំនងរយៈពេលវែងដោយផ្អែកលើទំនុកចិត្ត ការអនុវត្ត និងភាពជោគជ័យរួមគ្នា។
+រាល់ប្រតិបត្តិការទាំងអស់ត្រូវបានដោះស្រាយមិនមែនគ្រាន់តែជាការលក់ទេ ប៉ុន្តែជាការសម្រេចចិត្តជាយុទ្ធសាស្ត្រសម្រាប់អនាគតរបស់អតិថិជន។
+' : ' Building long-term relationships based on trust, performance,
+                                and shared success. Every transaction is approached not as a
+                                sale, but as a strategic decision for our clients’ future.') }}
                             </p>
                         </div>
 
@@ -239,7 +279,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal Mission static-->
+    <!-- Modal Core Values-->
     <div x-show="showCore" x-transition.opacity
         class="fixed inset-0 bg-black/50 flex items-center justify-center z-30 px-4" style="display: none;">
 
@@ -253,7 +293,9 @@
             <!-- Modal Content -->
             <div class="flex items-center space-x-3">
                 <img src="{{ asset('assets/icon-project/icons8-diamond-100.png') }}" alt="" class="w-16 h-16">
-                <h2 class="text-3xl font-semibold mb-6 text-[#03244a]">Our Core Value</h2>
+                <h2 class="text-3xl font-semibold mb-6 text-[#03244a]">
+                     {{ app()->getLocale() === 'en' ? 'Core Values' : (app()->getLocale() === 'kh' ? 'គុណតម្លៃស្នូល' : 'Core Values') }}
+                </h2>
             </div>
 
             <div class="space-y-6 text-md md:text-lg">
@@ -269,13 +311,17 @@
                         </svg>
 
                         <h1 class="text-[#d1af80] font-semibold text-lg">
-                            Partnership & Responsibility
+                           
+                            {{ app()->getLocale() === 'en' ? ' Partnership & Responsibility' : (app()->getLocale() === 'kh' ? 'ភាពជាដៃគូ និងការទទួលខុសត្រូវ' : ' Partnership & Responsibility') }}
                         </h1>
                     </div>
 
                     <p class="text-[#03244a] pl-9">
-                        We work closely with reputable developers, landowners, and stakeholders who share
-                        our commitment to quality, responsibility, and sustainable development.
+                        
+                        {{ app()->getLocale() === 'en' ? 'We work closely with reputable developers, landowners, and stakeholders who share
+                        our commitment to quality, responsibility, and sustainable development.' : (app()->getLocale() === 'kh' ? 'យើងខ្ញុំធ្វើការយ៉ាងជិតស្និទ្ធជាមួយអ្នកអភិវឌ្ឍន៍គម្រោង ម្ចាស់ដី និងដៃគូពាក់ព័ន្ធនានាដែលមាននូវការប្តេជ្ញាចិត្តរួមចំពោះគុណភាព ការទទួលខុសត្រូវ និងការអភិវឌ្ឍប្រកបដោយចីរភាព។
+' : 'We work closely with reputable developers, landowners, and stakeholders who share
+                        our commitment to quality, responsibility, and sustainable development.') }}
                     </p>
                 </div>
 
@@ -289,13 +335,18 @@
                         </svg>
 
                         <h1 class="text-[#d1af80] font-semibold text-lg">
-                            Professional Excellence
+                            
+                            {{ app()->getLocale() === 'en' ? 'Professional Excellence' : (app()->getLocale() === 'kh' ? 'ឧត្តមភាពវិជ្ជាជីវៈ' : 'Professional Excellence') }}
                         </h1>
                     </div>
 
                     <p class="text-[#03244a] pl-9">
-                        From legal clarity to project quality and client service, we maintain high
-                        standards at every stage of the real estate journey.
+                        
+                        {{ app()->getLocale() === 'en' ? 'From legal clarity to project quality and client service, we maintain high
+                        standards at every stage of the real estate journey.' : (app()->getLocale() === 'kh' ? 'ចាប់ពីភាពច្បាស់លាស់ផ្នែកច្បាប់ រហូតដល់គុណភាពគម្រោង
+និងសេវាកម្មអតិថិជន យើងខ្ញុំរក្សាបាននូវស្តង់ដារខ្ពស់នៅគ្រប់ដំណាក់កាលនៃដំណើរអចលនទ្រព្យ។
+' : 'From legal clarity to project quality and client service, we maintain high
+                        standards at every stage of the real estate journey.') }}
                     </p>
                 </div>
 
@@ -309,13 +360,18 @@
                         </svg>
 
                         <h1 class="text-[#d1af80] font-semibold text-lg">
-                            Local Expertise, Global Mindset
+                            
+                            {{ app()->getLocale() === 'en' ? 'Local Expertise, Global Mindset' : (app()->getLocale() === 'kh' ? 'ជំនាញក្នុងស្រុក ផ្នត់គំនិតសកល' : 'Local Expertise, Global Mindset') }}
                         </h1>
                     </div>
 
                     <p class="text-[#03244a] pl-9">
-                        Rooted in Phnom Penh and Cambodia, we combine deep local knowledge with a
-                        forward-looking, international perspective, essential in a fast-evolving market.
+                       
+                        {{ app()->getLocale() === 'en' ? ' Rooted in Phnom Penh and Cambodia, we combine deep local knowledge with a
+                        forward-looking, international perspective, essential in a fast-evolving market.' : (app()->getLocale() === 'kh' ? 'ផ្តើមចេញពីឫសគល់នៅទីក្រុងភ្នំពេញ និងប្រទេសកម្ពុជាយើងខ្ញុំបញ្ចូលនូវចំណេះដឹងក្នុងស្រុកយ៉ាងស៊ីជម្រៅ
+ជាមួយនឹងទស្សនៈវិស័យអន្តរជាតិវែងឆ្ងាយ ដែលមានសារៈសំខាន់នៅក្នុងទីផ្សារដែលមានការវិវត្តយ៉ាងឆាប់រហ័ស។
+' : ' Rooted in Phnom Penh and Cambodia, we combine deep local knowledge with a
+                        forward-looking, international perspective, essential in a fast-evolving market.') }}
                     </p>
                 </div>
 
@@ -328,13 +384,16 @@
                         </svg>
 
                         <h1 class="text-[#d1af80] font-semibold text-lg">
-                            Long-Term Value Creation
+                            
+                             {{ app()->getLocale() === 'en' ? 'Long-Term Value Creation' : (app()->getLocale() === 'kh' ? 'ការបង្កើតគុណតម្លៃរយៈពេលវែង' : 'Long-Term Value Creation') }}
                         </h1>
                     </div>
 
                     <p class="text-[#03244a] pl-9">
-                        We focus on sustainable growth, not short-term gains. Every property we represent
-                        is selected for its lasting value, investment potential, and contribution to quality living.
+                      
+                         {{ app()->getLocale() === 'en' ? '  We focus on sustainable growth, not short-term gains. Every property we represent
+                        is selected for its lasting value, investment potential, and contribution to quality living.' : (app()->getLocale() === 'kh' ? 'យើងខ្ញុំផ្តោតលើកំណើនប្រកបដោយនិរន្តភាព មិនមែនប្រាក់ចំណេញរយៈពេលខ្លីទេ។ អចលនទ្រព្យនីមួយៗដែលយើងខ្ញុំតំណាងលក់ត្រូវបានជ្រើសរើសសម្រាប់គុណតម្លៃរយៈពេលយូរអង្វែង សក្តានុពលវិនិយោគ និងការរួមចំណែកដល់ការរស់នៅប្រកបដោយគុណភាព។' : '  We focus on sustainable growth, not short-term gains. Every property we represent
+                        is selected for its lasting value, investment potential, and contribution to quality living.') }}
                     </p>
                 </div>
 
@@ -347,13 +406,43 @@
                         </svg>
 
                         <h1 class="text-[#d1af80] font-semibold text-lg">
-                            People Before Property
+                           
+                             {{ app()->getLocale() === 'en' ? ' People Before Property' : (app()->getLocale() === 'kh' ? 'អតិថិជនសំខាន់​ជាង​អចលនទ្រព្យ' : ' People Before Property') }}
                         </h1>
                     </div>
 
                     <p class="text-[#03244a] pl-9">
-                        Real estate is about people. We listen carefully, advise responsibly, and act in
-                        the best interests of our clients, partners, and communities.
+                       
+                        {{ app()->getLocale() === 'en' ? ' Real estate is about people. We listen carefully, advise responsibly, and act in
+                        the best interests of our clients, partners, and communities.' : (app()->getLocale() === 'kh' ? 'អចលនទ្រព្យ​គឺ​អំពី​អតិថិជន។ យើង​ខ្ញុំស្តាប់​ដោយ​យកចិត្តទុកដាក់ ផ្តល់​ដំបូន្មាន​ដោយ​មាន​ទំនួល​ខុសត្រូវ និង​ធ្វើ​ដើម្បី​ទាញផលប្រយោជន៍​ល្អ​បំផុត​ជូន​អតិថិជន ដៃគូ និង​សហគមន៍​។' : ' Real estate is about people. We listen carefully, advise responsibly, and act in
+                        the best interests of our clients, partners, and communities.') }}
+                    </p>
+                </div>
+
+                   <!-- Item 6 -->
+                <div class="space-y-2">
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-6 h-6 text-[#03244a]" fill="none" stroke="currentColor" stroke-width="1.8"
+                            viewBox="0 0 24 24">
+                            <path d="M12 21s-6-4.35-6-10a6 6 0 0112 0c0 5.65-6 10-6 10z" />
+                        </svg>
+
+                        <h1 class="text-[#d1af80] font-semibold text-lg">
+                           
+                            {{ app()->getLocale() === 'en' ? 'Integrity First' : (app()->getLocale() === 'kh' ? 'សុចរិតភាពជាចម្បង' : 'Integrity First') }}
+                        </h1>
+                    </div>
+
+                    <p class="text-[#03244a] pl-9">
+                       
+                        {{ app()->getLocale() === 'en' ? ' We operate with absolute transparency and 
+                        ethical standards. Trust is not a marketing 
+                        slogan for us, it is the foundation of every 
+                        relationship we build. ' : (app()->getLocale() === 'kh' ? 'យើងខ្ញុំធ្វើប្រតិបត្តិការដោយមានតម្លាភាពដាច់ខាត និងស្តង់ដារសីលធម៌។ ទំនុកចិត្តមិនមែនជាពាក្យស្លោកទីផ្សារសម្រាប់យើងខ្ញុំទេ វាគឺជាមូលដ្ឋានគ្រឹះនៃទំនាក់ទំនងនីមួយៗដែលបានកសាង។' : ' We operate with absolute transparency and 
+                        ethical standards. Trust is not a marketing 
+                        slogan for us, it is the foundation of every 
+                        relationship we build. ') }}
+
                     </p>
                 </div>
 

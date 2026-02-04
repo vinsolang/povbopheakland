@@ -32,7 +32,7 @@
             }}
             </h3>
 
-            <p class="text-md md:text-xl max-w-xl font-semibold text-[#03254b] mx-auto lg:mx-0 text-left">
+            <p class="text-md md:text-xl max-w-2xl font-semibold text-[#03254b] mx-auto lg:mx-0 text-left">
                 “ {{ app()->getLocale() === 'en'
                 ? 'Mid-range villas, condos, and shophouses designed for comfortable living and long-term value in prime locations.'
                 : (app()->getLocale() === 'kh'

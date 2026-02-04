@@ -740,7 +740,7 @@
                 <input type="email" placeholder="{{ app()->getLocale() === 'en'
                             ? 'Email'
                             : (app()->getLocale() === 'kh'
-                                ? 'អ៉ីម៉ែល'
+                                ? 'អ៊ីម៉ែល'
                                 : 'Email')
                         }} " name="email" value="{{ old('email') }}" required
                 class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none placeholder:font-semibold" 

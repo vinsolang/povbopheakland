@@ -344,7 +344,14 @@ input::-ms-expand {
                                     : '$30,000 – $50,000')
                             }}
                         </option>
-                        <option value="Above $50,000">Above $50,000</option>
+                        <option value="Above $50,000">
+                            {{ app()->getLocale() === 'en'
+                                ? 'Above $50,000'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'លើស 50,000 ដុល្លារ'
+                                    : 'Above $50,000')
+                            }}
+                        </option>
                     </select>
                     <span class="absolute right-6 top-1/2 -translate-y-1/2">
                         <svg width="12" height="13" viewBox="0 0 12 13" fill="none">
@@ -359,7 +366,12 @@ input::-ms-expand {
                 </div>
 
                 <!-- Phone -->
-                <input type="text" placeholder="Phone Number" name="phone" required
+                <input type="text" placeholder="{{ app()->getLocale() === 'en'
+                                ? 'Phone Number'
+                                : (app()->getLocale() === 'kh'
+                                    ? 'លេខទូរសព្ទ'
+                                    : 'Phone Number')
+                            }}" name="phone" required
                     class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none" />
 
                 <!-- Preferred Location -->
@@ -424,7 +436,7 @@ input::-ms-expand {
                 <input type="email" placeholder="{{ app()->getLocale() === 'en'
             ? 'Email'
             : (app()->getLocale() === 'kh'
-                ? 'អ៉ីម៉ែល'
+                ? 'អ៊ីម៉ែល'
                 : 'Email')
         }}" name="email" required
                     class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none" />

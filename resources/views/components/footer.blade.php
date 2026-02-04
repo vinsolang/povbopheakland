@@ -15,10 +15,10 @@
         </h1>
         <p class="text-white text-lg md:text-xl">
             {{ app()->getLocale() === 'en'
-                ? 'Modern Living, Smart Investment.'
+                ? 'Building Trust, Creating Value, Shaping the Future.'
                 : (app()->getLocale() === 'kh'
                     ? 'ការរស់នៅទាន់សម័យ ការវិនិយោគឆ្លាតវៃ'
-                    : 'Modern Living, Smart Investment.')
+                    : 'Building Trust, Creating Value, Shaping the Future.')
             }}
         </p>
     </div>
