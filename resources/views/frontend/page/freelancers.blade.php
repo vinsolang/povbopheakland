@@ -61,7 +61,7 @@
                             blur-xl rounded-lg"></div>
 
                 <!-- Text -->
-                <p class="relative z-10 text-md md:text-xl
+                <p class="relative z-10 text-md md:text-xl md:mt-0 -mt-2
                         font-medium text-[#03254b] py-4 px-2
                         md:[text-shadow:none]"
                 style="text-shadow: 0px 4px 6px rgba(0,0,0,0.25);">
