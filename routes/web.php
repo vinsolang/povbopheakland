@@ -15,24 +15,109 @@ use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
+// Route::get('/', function () {
+//     $showAboutUs = DB::table('about_us')->get();
+//     $showOurTeam = DB::table('our_team')->get();
+//     $showCustomer = Customer::all();
+//     $projects = Project::orderBy('created_at', 'ASC')->get();
+//     return view('frontend.layout.index', compact(
+//     'showAboutUs',
+// 'showOurTeam',
+// 'showCustomer',
+// 'projects'
+//     ));
+// })->name('home');
+
 Route::get('/', function () {
+
     $showAboutUs = DB::table('about_us')->get();
     $showOurTeam = DB::table('our_team')->get();
     $showCustomer = Customer::all();
-    $projects = Project::all();
+    $projects = Project::orderBy('created_at', 'ASC')->get();
+
+    // 🔹 Static News Data (ONE SOURCE)
+    $news = [
+        [
+            'name' => 'New Therapy Program Launched',
+            'slug' => 'new-therapy-program-launched',
+            'date' => '2026-02-05',
+            'desc' => 'We are excited to introduce our new therapy program designed to support children with special needs.',
+            'image' => [
+                'assets/background/bg-home-2.png',
+                'assets/background/bg-home-2.png',
+            ],
+        ],
+        [
+            'name' => 'Community Awareness Workshop',
+            'slug' => 'community-awareness-workshop',
+            'date' => '2026-01-28',
+            'desc' => 'A successful workshop focused on autism awareness and inclusive education in Cambodia.',
+            'image' => [
+                'assets/background/bg-home-2.png',
+            ],
+        ],
+        [
+            'name' => 'Meet Our New Specialists',
+            'slug' => 'meet-our-new-specialists',
+            'date' => '2026-01-15',
+            'desc' => 'We welcome new speech and occupational therapists to our growing professional team.',
+            'image' => [
+                'assets/background/bg-home-2.png',
+            ],
+        ],
+    ];
+
     return view('frontend.layout.index', compact(
-    'showAboutUs',
-'showOurTeam',
-'showCustomer',
-'projects'
+        'showAboutUs',
+        'showOurTeam',
+        'showCustomer',
+        'projects',
+        'news'
     ));
 })->name('home');
 
 
+// 🔹 News Detail Route
+Route::get('/news/{slug}', function ($slug) {
 
-// Route::get('/show', function () {
-//     return view('frontend.page.show.index');
-// })->name('show');
+    $news = [
+        [
+            'name' => 'New Therapy Program Launched',
+            'slug' => 'new-therapy-program-launched',
+            'date' => '2026-02-05',
+            'desc' => 'We are excited to introduce our new therapy program designed to support children with special needs.',
+            'image' => [
+                'assets/background/bg-home-2.png',
+                'assets/background/bg-home-2.png',
+            ],
+        ],
+        [
+            'name' => 'Community Awareness Workshop',
+            'slug' => 'community-awareness-workshop',
+            'date' => '2026-01-28',
+            'desc' => 'A successful workshop focused on autism awareness and inclusive education in Cambodia.',
+            'image' => [
+                'assets/background/bg-home-2.png',
+            ],
+        ],
+        [
+            'name' => 'Meet Our New Specialists',
+            'slug' => 'meet-our-new-specialists',
+            'date' => '2026-01-15',
+            'desc' => 'We welcome new speech and occupational therapists to our growing professional team.',
+            'image' => [
+                'assets/background/bg-home-2.png',
+            ],
+        ],
+    ];
+
+    $item = collect($news)->firstWhere('slug', $slug);
+    abort_if(!$item, 404);
+
+    return view('frontend.page.detail-news', compact('item'));
+
+})->name('news.show');
+
 Route::get('/show/{slug}', function ($slug) {
     $projects = Project::where('slug', $slug)->firstOrFail();
 

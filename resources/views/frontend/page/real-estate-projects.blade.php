@@ -4,7 +4,7 @@
             ? 'Real Estate Projects'
             : (app()->getLocale() === 'kh'
                 ? 'គម្រោងអចលទ្រព្យ'
-                : 'Real Estate Projects')
+                : '房地产项目')
         }}
     </h1>
     {{-- Card of all project --}}
@@ -27,7 +27,7 @@
                                 ?  $item->name_en
                                 : (app()->getLocale() === 'kh'
                                     ?  $item->name_kh
-                                    :  $item->name_cn)
+                                    :  $item->name_ch)
                             }}
                         </h3>
 
@@ -39,7 +39,7 @@
                                 ?  $item->type_en
                                 : (app()->getLocale() === 'kh'
                                     ?  $item->type_kh
-                                    :  $item->type_cn)
+                                    :  $item->type_ch)
                             }}
                             </h3>
                             <p
@@ -49,7 +49,7 @@
                                 ?  $item->locate_text_en
                                 : (app()->getLocale() === 'kh'
                                     ?  $item->locate_text_kh
-                                    :  $item->locate_text_cn)
+                                    :  $item->locate_text_ch)
                             }}
                             </p>
                         </div>

@@ -4,16 +4,16 @@
     ? 'Message from the Chairman'
     : (app()->getLocale() === 'kh'
         ? 'សារពីអគ្គនាយកក្រុមហ៊ុន'
-        : 'Message from the Chairman')
+        : '董事长致辞 ')
         }}
     </h1>
 
     <img src="{{ app()->getLocale() === 'en'
             ? asset('assets/about_us/sms-form-chairman-en-final.png')
             : (app()->getLocale() === 'kh'
-                ? asset('assets/about_us/sms-form-chairman-kh-final.png')
-                : asset('assets/about_us/sms-form-chairman-en-final.png'))
-        }}" alt="" class="w-full object-cover" style="user-select:none; pointer-events:none;">
+                ? asset('assets/profile/ms-kh-1.svg')
+                : asset('assets/about_us/sms-form-chairman-cn-final.svg'))
+        }}" alt="" class="w-full h-full object-cover" style="user-select:none; pointer-events:none;">
     {{-- <div class="relative w-full h-auto md:h-[95vh] lg:h-[130vh] xl:h-[115vh]" x-data="{ open: false }">
        
         <img src="{{ asset('assets/about_us/bg-ms.svg') }}" alt=""
@@ -186,7 +186,7 @@
     ? ' Our Team'
     : (app()->getLocale() === 'kh'
         ? 'ក្រុមការងាររបស់យើងខ្ញុំ'
-        : ' Our Team')
+        : '我们的团队')
         }}
     </h1>
 

@@ -6,38 +6,45 @@
 
         <!-- LEFT CONTENT -->
         <div class="space-y-6 flex-1 text-left md:h-auto h-96 flex flex-col justify-between">
-            <h1 class="text-[22px] lg:text-[68px] md:text-5xl font-bold md:mt-0 -mt-2 w-full md:max-w-[90%] z-20 py-5" 
+            <h1
+                class="
+                    font-bold z-20 py-5 w-full md:max-w-[90%]
+                    {{ app()->getLocale() === 'en' ? 'text-[22px] md:text-5xl lg:text-[68px] leading-tight' : '' }}
+                    {{ app()->getLocale() === 'kh' ? 'text-[22px] md:text-5xl lg:text-[68px] leading-relaxed tracking-wide' : '' }}
+                    {{ app()->getLocale() === 'cn' ? 'text-[18px] md:text-4xl lg:text-[58px] leading-snug md:max-w-full max-w-60' : '' }}
+                "
                 style="
                     background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
                     text-fill-color: transparent;
-                    
-                ">
-            {{ app()->getLocale() === 'en'
-                ? 'Pov Bopheak Land & Home'
-                : (app()->getLocale() === 'kh'
-                    ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូម'
-                    : 'Pov Bopheak Land & Home')
-            }}
+                "
+            >
+                {{ app()->getLocale() === 'en'
+                    ? 'Pov Bopheak Land & Home'
+                    : (app()->getLocale() === 'kh'
+                        ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន & ហូម'
+                        : 'Pov Bopheak Land & Home 有限公司')
+                }}
             </h1>
 
-            <h3 class="text-md md:text-3xl lg:text-4xl text-[#03254b] font-bold">
+
+            <h3 class="text-md md:text-3xl lg:text-4xl text-[#03254b] font-bold {{ app()->getLocale() === 'cn' ? 'text-md md:text-xl lg:text-[24px]' : '' }}">
             {{ app()->getLocale() === 'en'
                 ? 'Building Trust, Creating Value, Shaping the Future.'
                 : (app()->getLocale() === 'kh'
                     ? 'កសាងទំនុកចិត្ត បង្កើតតម្លៃ បង្កើតអនាគតដ៏ប្រសើរ'
-                    : 'Building Trust, Creating Value, Shaping the Future.')
+                    : '建立信任。创造价值。塑造未来。')
             }}
             </h3>
 
-            <p class="text-md md:text-xl max-w-2xl font-semibold text-[#03254b] mx-auto lg:mx-0 text-left">
+            <p class="text-md md:text-xl max-w-2xl font-semibold text-[#03254b] mx-auto lg:mx-0 text-left {{ app()->getLocale() === 'cn' ? 'text-[12px] md:text-[14px]' : '' }}">
                 “ {{ app()->getLocale() === 'en'
                 ? 'Mid-range villas, condos, and shophouses designed for comfortable living and long-term value in prime locations.'
                 : (app()->getLocale() === 'kh'
                     ? 'គម្រោងយើងខ្ញុំមានផ្ទះវីឡា ស្សបហោសន៍ ដីឡូត៍ ខុនដូ រចនាឡើងសម្រាប់ការរស់នៅប្រកបដោយផាសុកភាព និងទទួលបានគុណតម្លៃរយៈពេលវែងក្នុងទីតាំងល្អៗ'
-                    : 'Mid-range villas, condos, and shophouses designed for comfortable living and long-term value in prime locations.')
+                    : '中档别墅、公寓和商铺，专为舒适生活和长期保值而设计，位于黄金地段。')
             }}”
             </p>
 
@@ -50,7 +57,7 @@
                                 ? 'Book a Site Visit'
                                 : (app()->getLocale() === 'kh'
                                     ? 'ទស្សនាគម្រោងផ្ទាល់'
-                                    : 'Book a Site Visit')
+                                    : '安排实地考察行程')
                             }}
                     </a>
                 </div>

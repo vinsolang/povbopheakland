@@ -151,27 +151,11 @@
                     </div>
 
                     <!-- CATEGORY NAME -->
-                    <div class="grid grid-cols-1 gap-2">
-                        <!-- CATEGORY BANNER -->
-                        <div class="space-y-2">
-                            <label class="font-semibold">Category Banner</label>
-
-                            <input type="file"
-                                :name="'category[' + cIndex + '][banner_cate]'"
-                                @change="previewCategoryBanner($event, cIndex)"
-                                class="form-control">
-
-                            <template x-if="cat.bannerPreview">
-                                <img :src="cat.bannerPreview"
-                                    class="img-thumbnail"
-                                    style="width:120px;height:80px;object-fit:cover;">
-                            </template>
-                        </div>
-                        <div class="grid grid-cols-3 gap-2">
-                            <input x-model="cat.name.en" @input="cat.slug = slugify(cat.name.en)" placeholder="Category EN" class="input">
-                            <input x-model="cat.name.kh" placeholder="Category KH" class="input">
-                            <input x-model="cat.name.ch" placeholder="Category CH" class="input">
-                        </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <input x-model="cat.name.en" @input="cat.slug = slugify(cat.name.en)" placeholder="Category EN"
+                            class="input">
+                        <input x-model="cat.name.kh" placeholder="Category KH" class="input">
+                        <input x-model="cat.name.ch" placeholder="Category CH" class="input">
                     </div>
 
                     <input x-model="cat.slug" readonly class="input bg-gray-100 d-none">
@@ -186,34 +170,75 @@
                                     class="text-red-600">✕</button>
                             </div>
 
-                            <div class="grid grid-cols-1 gap-2">
-                                <!-- TYPE BANNER -->
-                                <div class="space-y-2">
-                                    <label class="font-semibold">Type Banner</label>
-
-                                    <input type="file"
-                                        :name="'category[' + cIndex + '][cat_type][' + tIndex + '][banner_type]'"
-                                        @change="previewTypeBanner($event, cIndex, tIndex)"
-                                        class="form-control">
-
-                                    <template x-if="type.bannerPreview">
-                                        <img :src="type.bannerPreview"
-                                            class="img-thumbnail"
-                                            style="width:120px;height:80px;object-fit:cover;">
-                                    </template>
-                                </div>
-
-                                <div class="grid grid-cols-3 gap-2">
-                                    <input x-model="type.title.en" @input="type.slug = slugify(type.title.en)"
+                            <div class="grid grid-cols-3 gap-2">
+                                <input x-model="type.title.en" @input="type.slug = slugify(type.title.en)"
                                     placeholder="Title EN" class="input">
-                                    <input x-model="type.title.kh" placeholder="Title KH" class="input">
-                                    <input x-model="type.title.ch" placeholder="Title CH" class="input">
-                                </div>
+                                <input x-model="type.title.kh" placeholder="Title KH" class="input">
+                                <input x-model="type.title.ch" placeholder="Title CH" class="input">
                             </div>
 
                             <input x-model="type.slug" readonly class="input bg-gray-100 d-none">
 
-                         
+                            <!-- ABOUT SECTION -->
+                            {{-- <div class="space-y-3 mt-4 border-t pt-3">
+                                <h4 class="font-semibold">About</h4>
+
+                                <template x-for="(about, aIndex) in type.about" :key="aIndex">
+                                    <div class="border p-3 rounded space-y-2">
+
+                                        <!-- TEXT -->
+                                        <div class="grid grid-cols-3 gap-2">
+                                            <input x-model="about.text.en"
+                                                placeholder="Text EN"
+                                                class="input">
+
+                                            <input x-model="about.text.kh"
+                                                placeholder="Text KH (optional)"
+                                                class="input">
+
+                                            <input x-model="about.text.ch"
+                                                placeholder="Text CH (optional)"
+                                                class="input">
+                                        </div>
+
+                                        <!-- NUMBER -->
+                                        <input type="number"
+                                            x-model="about.number"
+                                            placeholder="Number"
+                                            class="input">
+
+                                        <!-- IMAGE -->
+                                        <div class="flex items-center gap-2">
+                                            <input type="file"
+                                                :name="'category['+cIndex+'][cat_type]['+tIndex+'][about]['+aIndex+'][image]'"
+                                                @change="previewAboutImage($event, cIndex, tIndex, aIndex)"
+                                                class="form-control">
+
+                                            <template x-if="about.imagePreview">
+                                                <img :src="about.imagePreview"
+                                                    class="img-thumbnail"
+                                                    style="width:80px;height:80px;object-fit:cover;">
+                                            </template>
+                                        </div>
+
+                                        <!-- REMOVE -->
+                                        <button type="button"
+                                                @click="removeAbout(cIndex, tIndex, aIndex)"
+                                                class="btn btn-sm btn-danger">
+                                            ✕ Remove
+                                        </button>
+
+                                    </div>
+                                </template>
+
+                                <!-- ADD BUTTON -->
+                                <button type="button"
+                                        @click="addAbout(cIndex, tIndex)"
+                                        class="btn btn-sm btn-primary">
+                                    + Add About
+                                </button>
+                            </div> --}}
+
 
                             <div class="grid grid-cols-3 gap-2">
                                 <textarea x-model="type.des.en" placeholder="Desc EN" class="input"></textarea>
@@ -253,7 +278,7 @@
 
                 </div>
             </template>
-
+            
              <button type="button" @click="addCategory()" class="bg-green-600 text-white px-4 py-2 rounded mb-4">
                 + Add Category
             </button>
@@ -285,8 +310,6 @@ function previewImage(event) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-
-
 </script>
 
 <script>
@@ -299,29 +322,12 @@ function slugify(text) {
 
 function projectForm() {
     return {
-        /* ================== BANNERS ================== */
-previewCategoryBanner(event, cIndex) {
-    const file = event.target.files[0]
-    if (!file) return
-
-    this.categories[cIndex].bannerPreview = URL.createObjectURL(file)
-},
-
-previewTypeBanner(event, cIndex, tIndex) {
-    const file = event.target.files[0]
-    if (!file) return
-
-    this.categories[cIndex].cat_type[tIndex].bannerPreview =
-        URL.createObjectURL(file)
-},
-
         categories: [],
 
         addCategory() {
             this.categories.push({
                 name: { en:'', kh:'', ch:'' },
                 slug: '',
-                bannerPreview: null, 
                 cat_type: [this.newType()]
             })
         },
@@ -384,11 +390,9 @@ previewTypeBanner(event, cIndex, tIndex) {
                 slug: '',
                 des: { en:'', kh:'', ch:'' },
                 imgPreview: [],
-                bannerPreview: null, 
                 about: []   // 🔥 REQUIRED
             }
         }
-        
     }
 }
 </script>
@@ -397,27 +401,12 @@ previewTypeBanner(event, cIndex, tIndex) {
 <script>
     // Initialize CKEditor for all textareas
     document.querySelectorAll('.ckeditor').forEach(el => {
-        ClassicEditor.create(el, {
-            toolbar: [
-                'heading',
-                '|',
-                'bold', 'italic', 'underline',
-                'superscript', 'subscript',
-                '|',
-                'bulletedList', 'numberedList',
-                '|',
-                'undo', 'redo'
-            ]
-        }).catch(error => console.error(error));
+        ClassicEditor.create(el).catch(error => console.error(error));
     });
 
     // Simple language tab switch
     const tabs = document.querySelectorAll('.desc-tab');
-    const editors = {
-        en: document.getElementById('desc_en'),
-        kh: document.getElementById('desc_kh'),
-        cn: document.getElementById('desc_cn')
-    };
+    const editors = { en: document.getElementById('desc_en'), kh: document.getElementById('desc_kh'), cn: document.getElementById('desc_cn') };
 
     tabs.forEach(tab => {
         tab.addEventListener('click', function(e){
@@ -426,13 +415,11 @@ previewTypeBanner(event, cIndex, tIndex) {
             this.classList.add('active');
 
             Object.keys(editors).forEach(lang => {
-                editors[lang].parentElement.style.display =
-                    lang === this.dataset.lang ? 'block' : 'none';
+                editors[lang].parentElement.style.display = lang === this.dataset.lang ? 'block' : 'none';
             });
         });
     });
 </script>
-
 <script>
     const input = document.getElementById('image_default_input');
 const previewContainer = document.getElementById('image_default_preview');

@@ -12,7 +12,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::orderBy('created_at', 'ASC')->get();
         return view('backend.projects.view-project', compact('projects'));
     }
 
@@ -27,29 +27,60 @@ class ProjectController extends Controller
 
         
         foreach ($categories as $cIndex => &$cat) {
-            foreach ($cat['cat_type'] as $tIndex => &$type) {
 
-                /* ============ TYPE IMAGES ============ */
-                if ($request->hasFile("category.$cIndex.cat_type.$tIndex.img")) {
+    /* ============ CATEGORY BANNER ============ */
+    if ($request->hasFile("category.$cIndex.banner_cate")) {
 
-                    // delete old images
-                    if (!empty($type['img'])) {
-                        foreach ($type['img'] as $oldImg) {
-                            if (Storage::disk('public')->exists($oldImg)) {
-                                Storage::disk('public')->delete($oldImg);
-                            }
-                        }
+        // delete old banner if exists
+        if (!empty($cat['banner_cate']) && Storage::disk('public')->exists($cat['banner_cate'])) {
+            Storage::disk('public')->delete($cat['banner_cate']);
+        }
+
+        $cat['banner_cate'] = $request
+            ->file("category.$cIndex.banner_cate")
+            ->store('projects/category_banners', 'public');
+    }
+
+    foreach ($cat['cat_type'] as $tIndex => &$type) {
+
+        /* ============ TYPE BANNER ============ */
+        if ($request->hasFile("category.$cIndex.cat_type.$tIndex.banner_type")) {
+
+            // delete old banner if exists
+            if (!empty($type['banner_type']) && Storage::disk('public')->exists($type['banner_type'])) {
+                Storage::disk('public')->delete($type['banner_type']);
+            }
+
+            $type['banner_type'] = $request
+                ->file("category.$cIndex.cat_type.$tIndex.banner_type")
+                ->store('projects/type_banners', 'public');
+        }
+
+        /* ============ TYPE IMAGES ============ */
+        if ($request->hasFile("category.$cIndex.cat_type.$tIndex.img")) {
+
+            if (!empty($type['img'])) {
+                foreach ($type['img'] as $oldImg) {
+                    if (Storage::disk('public')->exists($oldImg)) {
+                        Storage::disk('public')->delete($oldImg);
                     }
-
-                    $newImages = [];
-                    foreach ($request->file("category.$cIndex.cat_type.$tIndex.img") as $file) {
-                        $newImages[] = $file->store('projects', 'public');
-                    }
-
-                    $type['img'] = $newImages;
                 }
             }
+
+            $newImages = [];
+            foreach ($request->file("category.$cIndex.cat_type.$tIndex.img") as $file) {
+                $newImages[] = $file->store('projects', 'public');
+            }
+
+            $type['img'] = $newImages;
         }
+    }
+}
+        $request->validate([
+    'category.*.banner_cate' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
+    'category.*.cat_type.*.banner_type' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
+]);
+
 
 
 
@@ -130,30 +161,51 @@ class ProjectController extends Controller
     {
         $categories = $request->category_json ? json_decode($request->category_json, true) : [];
         foreach ($categories as $cIndex => &$cat) {
-            foreach ($cat['cat_type'] as $tIndex => &$type) {
 
-                // ONLY when new images are uploaded
-                if ($request->hasFile("category.$cIndex.cat_type.$tIndex.img")) {
+    // CATEGORY BANNER
+    if ($request->hasFile("category.$cIndex.banner_cate")) {
+        // Delete old
+        if (!empty($cat['banner_cate']) && Storage::disk('public')->exists($cat['banner_cate'])) {
+            Storage::disk('public')->delete($cat['banner_cate']);
+        }
+        // Store new
+        $cat['banner_cate'] = $request->file("category.$cIndex.banner_cate")
+                                    ->store('projects/category_banners', 'public');
+    }
 
-                    // delete old images
-                    if (!empty($type['img'])) {
-                        foreach ($type['img'] as $oldImg) {
-                            if (Storage::disk('public')->exists($oldImg)) {
-                                Storage::disk('public')->delete($oldImg);
-                            }
-                        }
+    foreach ($cat['cat_type'] as $tIndex => &$type) {
+
+        // TYPE BANNER
+        if ($request->hasFile("category.$cIndex.cat_type.$tIndex.banner_type")) {
+            if (!empty($type['banner_type']) && Storage::disk('public')->exists($type['banner_type'])) {
+                Storage::disk('public')->delete($type['banner_type']);
+            }
+
+            $type['banner_type'] = $request->file("category.$cIndex.cat_type.$tIndex.banner_type")
+                                        ->store('projects/type_banners', 'public');
+        }
+
+        // TYPE IMAGES (already in your code)
+        if ($request->hasFile("category.$cIndex.cat_type.$tIndex.img")) {
+            if (!empty($type['img'])) {
+                foreach ($type['img'] as $oldImg) {
+                    if (Storage::disk('public')->exists($oldImg)) {
+                        Storage::disk('public')->delete($oldImg);
                     }
-
-                    // save new images
-                    $newImages = [];
-                    foreach ($request->file("category.$cIndex.cat_type.$tIndex.img") as $file) {
-                        $newImages[] = $file->store('projects', 'public');
-                    }
-
-                    $type['img'] = $newImages;
                 }
             }
+
+            $newImages = [];
+            foreach ($request->file("category.$cIndex.cat_type.$tIndex.img") as $file) {
+                $newImages[] = $file->store('projects/type_images', 'public');
+            }
+
+            $type['img'] = $newImages; 
         }
+
+    }
+}
+
 
 
 

@@ -68,37 +68,49 @@
 
             <!-- CONTENT ON SAME IMAGE -->
             @include('components.navbar')
-            @include('frontend.page.home')
-            @include('frontend.page.about-us')
 
+            <section class="py-16">
+    <div class="max-w-4xl mx-auto px-6">
+
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">
+            {{ $item['name'] }}
+        </h1>
+
+        <p class="text-sm text-gray-500 mb-6">
+            {{ \Carbon\Carbon::parse($item['date'])->format('d M Y') }}
+        </p>
+
+        <!-- Up to 2 Images -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            @foreach (array_slice($item['image'], 0, 2) as $img)
+                <img
+                    src="{{ asset($img) }}"
+                    class="w-full h-64 object-cover rounded-xl"
+                    alt="{{ $item['name'] }}"
+                >
+            @endforeach
         </div>
-        <!-- Real Estate Projects -->
-        <div class="relative w-full py-0 md:py-24">
-            @include('frontend.page.real-estate-projects')
-        </div>
-         <!-- Nesw -->
-        <div class="relative w-full">
-            @include('frontend.page.news-latest')
-        </div>
-        {{-- Our Team --}}
-        <div class="relative w-full -mt-8">
-            @include('frontend.page.our-team')
-        </div>
-        {{-- Why Choose Us? --}}
-        <div class="relative w-full -mt-8">
-            @include('frontend.page.why_choose_us')
-        </div>
-        {{-- Our Customer --}}
-        <div class="relative w-full -mt-8">
-            @include('frontend.page.our-customer')
-        </div>
-        {{-- Contact Form --}}
-        <div class="relative w-full -mt-8">
-            @include('frontend.page.contact-form')
-        </div>
-        {{-- Freelancer --}}
-        <div class="relative w-full -mt-8">
-            @include('frontend.page.freelancers')
+
+        <p class="text-[#03244a] font-semibold leading-relaxed">
+            {{ $item['desc'] }}
+        </p>
+
+        <div class="w-40 h-12 rounded-full bg-[#03244a] flex items-center justify-center">
+                <a href="{{ url('/') }}#news" class="cursor-pointer bg-linear-to-r from-[#f2ad46] via-[#f7ca68] to-[#fce88d]
+                   bg-clip-text text-transparent font-semibold text-md">
+                    {{-- {{ app()->getLocale() === 'en'
+    ? '← Back to News'
+    : (app()->getLocale() === 'kh'
+        ? 'អានបន្ថែម'
+        : '继续阅读')
+            }} --}}
+             ← Back to News
+                </a>
+            </div>
+
+    </div>
+</section>
+
         </div>
         {{-- Background Footer --}}
         <div class="relative w-full md:mt-0 -mt-6">
@@ -127,53 +139,3 @@
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- {{-- <div class="relative w-full h-[180vh]">
-
-            <!-- BACKGROUND IMAGE -->
-            <img 
-            src="{{ asset('assets/background/bg-home.png') }}" 
-            alt="Background"
-            class="w-full h-full object-cover"
-            >
-
-            <!-- NAVBAR OVER IMAGE -->
-            <div class="absolute top-0 left-0 w-full z-50 space-y-20 lg:space-y-40">
-                @include('components.navbar')
-                @include('frontend.page.home')
-                @include('frontend.page.about-us')
-            </div>
-        </div>
-        <div class="relative lg:py-24 md:py-72 py-64">
-            <div class="w-full bg-[#f2f3f5]">
-                New section
-            </div>
-            <div class="w-full bg-[#f2f3f5]">
-                New section 123456
-            </div>
-            <div class="w-full bg-[#f2f3f5]">
-                New section 123456
-            </div>
-        </div> --}}

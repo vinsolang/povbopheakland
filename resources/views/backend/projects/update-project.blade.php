@@ -164,10 +164,6 @@
         <div class="section space-y-4">
             <h2 class="text-xl font-bold">Categories</h2>
 
-            <button type="button" @click="addCategory()" class="bg-green-600 text-white px-4 py-2 rounded mb-4">
-                + Add Category
-            </button>
-
             <template x-for="(cat, cIndex) in categories" :key="cIndex">
                 <div class="border p-4 rounded bg-white space-y-4">
 
@@ -176,11 +172,28 @@
                         <button type="button" @click="removeCategory(cIndex)" class="text-red-600">✕</button>
                     </div>
 
-                    <!-- CATEGORY NAME -->
-                    <div class="grid grid-cols-3 gap-2">
-                        <input x-model="cat.name.en" @input="cat.slug = slugify(cat.name.en)" placeholder="Category EN" class="input">
-                        <input x-model="cat.name.kh" placeholder="Category KH" class="input">
-                        <input x-model="cat.name.ch" placeholder="Category CH" class="input">
+                    <div class="grid grid-cols-1 gap-2">
+                         <!-- CATEGORY BANNER -->
+                        <div class="space-y-2">
+                            <label class="font-semibold">Category Banner</label>
+
+                            <input type="file"
+                                :name="'category[' + cIndex + '][banner_cate]'"
+                                @change="previewCategoryBanner($event, cIndex)"
+                                class="form-control">
+
+                            <template x-if="cat.bannerPreview">
+                                <img :src="cat.bannerPreview"
+                                    class="img-thumbnail"
+                                    style="width:120px;height:80px;object-fit:cover;">
+                            </template>
+                        </div>
+                        <!-- CATEGORY NAME -->
+                        <div class="grid grid-cols-3 gap-2">
+                            <input x-model="cat.name.en" @input="cat.slug = slugify(cat.name.en)" placeholder="Category EN" class="input">
+                            <input x-model="cat.name.kh" placeholder="Category KH" class="input">
+                            <input x-model="cat.name.ch" placeholder="Category CH" class="input">
+                        </div>
                     </div>
 
                     <input x-model="cat.slug" readonly class="input bg-gray-100 d-none">
@@ -194,10 +207,27 @@
                                 <button type="button" @click="removeType(cIndex, tIndex)" class="text-red-600">✕</button>
                             </div>
 
-                            <div class="grid grid-cols-3 gap-2">
-                                <input x-model="type.title.en" @input="type.slug = slugify(type.title.en)" placeholder="Title EN" class="input">
-                                <input x-model="type.title.kh" placeholder="Title KH" class="input">
-                                <input x-model="type.title.ch" placeholder="Title CH" class="input">
+                            <div class="grid grid-cols-1 gap-2">
+                                <!-- TYPE BANNER -->
+                                <div class="space-y-2">
+                                    <label class="font-semibold">Type Banner</label>
+
+                                    <input type="file"
+                                        :name="'category[' + cIndex + '][cat_type][' + tIndex + '][banner_type]'"
+                                        @change="previewTypeBanner($event, cIndex, tIndex)"
+                                        class="form-control">
+
+                                    <template x-if="type.bannerPreview">
+                                        <img :src="type.bannerPreview"
+                                            class="img-thumbnail"
+                                            style="width:120px;height:80px;object-fit:cover;">
+                                    </template>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <input x-model="type.title.en" @input="type.slug = slugify(type.title.en)" placeholder="Title EN" class="input">
+                                    <input x-model="type.title.kh" placeholder="Title KH" class="input">
+                                    <input x-model="type.title.ch" placeholder="Title CH" class="input">
+                                </div>
                             </div>
 
                             <input x-model="type.slug" readonly class="input bg-gray-100 d-none">
@@ -296,6 +326,9 @@
 
                 </div>
             </template>
+            <button type="button" @click="addCategory()" class="bg-green-600 text-white px-4 py-2 rounded mb-4">
+                + Add Category
+            </button>
         </div>
 
         <input type="hidden" name="category_json" :value="JSON.stringify(categories)">
@@ -319,17 +352,48 @@ function projectForm(initialCategories = []) {
     return {
         categories: initialCategories.map(cat => ({
             ...cat,
-            cat_type: cat.cat_type.map(type => ({
+
+            //  CATEGORY BANNER PREVIEW
+            bannerPreview: cat.banner_cate
+                ? '{{ asset('storage') }}/' + cat.banner_cate
+                : null,
+
+            cat_type: (cat.cat_type || []).map(type => ({
                 ...type,
+
+                //  TYPE BANNER PREVIEW
+                bannerPreview: type.banner_type
+                    ? '{{ asset('storage') }}/' + type.banner_type
+                    : null,
+
                 imgPreview: Array.isArray(type.img)
                     ? type.img.map(img => '{{ asset('storage') }}/' + img)
                     : [],
+
                 about: (type.about || []).map(a => ({
                     ...a,
-                    preview: a.image ? '{{ asset('storage') }}/' + a.image : null
+                    preview: a.image
+                        ? '{{ asset('storage') }}/' + a.image
+                        : null
                 }))
             }))
         })),
+
+
+        /* ================= BANNER PREVIEW ================= */
+        previewCategoryBanner(event, cIndex) {
+            const file = event.target.files[0]
+            if (!file) return
+            this.categories[cIndex].bannerPreview =
+                URL.createObjectURL(file)
+        },
+
+        previewTypeBanner(event, cIndex, tIndex) {
+            const file = event.target.files[0]
+            if (!file) return
+            this.categories[cIndex].cat_type[tIndex].bannerPreview =
+                URL.createObjectURL(file)
+        },
 
         addAbout(c, t) {
     this.categories[c].cat_type[t].about =

@@ -28,14 +28,14 @@
             </svg>
             <p class="max-w-lg md:px-0 px-4">
                 {{ app()->getLocale() === 'en'
-                ? 'People choose us because we help Cambodians and foreigners achieve homeownership. '
+                ? 'People choose us because we help Cambodians and foreigners achieve homeownership. It’s proof that you don’t need massive capital, just the right partner and a clear vision.'
                 : (app()->getLocale() === 'kh'
                     ? 'អតិថិជនជ្រើសរើសសេវាកម្មអចលទ្រព្យពីក្រុមហ៊ុនយើងខ្ញ៉ំពីព្រោះយើងជួយអតិថិជនក្នុងស្រុក និងវិនិយោគិនបរទេសឱ្យសម្រេចបាននូវភាពជាកម្មសិទ្ធលើអចលវត្ថុយ៉ាងពេញលេញដែលនេះចង្អុលបង្ហាញថា អតិថិជនមិនចាំបាច់ត្រូវការដើមទុនច្រើននោះទេ គ្រាន់តែត្រូវការដៃគូត្រឹមត្រូវ និងចក្ខុវិស័យច្បាស់លាស់។'
                     : 'It’s proof that you don’t need massive capital, just the right partner and a clear vision.')
             }}
             </p>
        </div>
-       
+     
        <!-- Content -->
     <div class="relative max-w-7xl mx-auto px-2">
         <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4">

@@ -84,10 +84,6 @@
     list-style-type: lower-alpha;
 }
 
-.whitespace-pre-wrap {
-    white-space: pre-wrap;
-}
-
     </style>
 </head>
 
@@ -107,6 +103,7 @@
 
         // MUST be array for slider
         'img' => is_array($images) ? $images : [],
+        'banner' => $projects->banner_default ?? null,
     ];
 @endphp
 
@@ -116,52 +113,39 @@
      class="relative w-full min-h-screen">
 
         <!-- Background -->
-<div class="absolute inset-0 -z-10">
+        <div class="absolute inset-0 -z-10">
 
-    <!-- TYPE BANNER (highest priority) -->
-    <template
-        x-if="
-            activeCategory !== null &&
-            activeType !== null &&
-            categories[activeCategory]?.cat_type?.[activeType]?.banner_type
-        "
-    >
-        <img
-            :src="`/storage/${categories[activeCategory].cat_type[activeType].banner_type}`"
-            class="w-full h-full object-cover"
-        >
-    </template>
+            <!-- TYPE banner (highest priority) -->
+            <template
+                x-if="activeCategory !== null 
+                    && activeType !== null 
+                    && categories[activeCategory]?.cat_type?.[activeType]?.banner_type">
+                <img
+                    :src="'{{ asset('storage') }}/' + categories[activeCategory].cat_type[activeType].banner_type"
+                    class="w-full h-full object-cover">
+            </template>
 
-    <!-- CATEGORY BANNER -->
-    <template
-        x-if="
-            (activeType === null || !categories[activeCategory]?.cat_type?.[activeType]?.banner_type) &&
-            activeCategory !== null &&
-            categories[activeCategory]?.banner_cate
-        "
-    >
-        <img
-            :src="`/storage/${categories[activeCategory].banner_cate}`"
-            class="w-full h-full object-cover"
-        >
-    </template>
+            <!-- CATEGORY banner -->
+           <template
+                x-if="activeCategory !== null 
+                    && (activeType === null || categories[activeCategory]?.cat_type?.length === 0 || activeType === 0) 
+                    && categories[activeCategory]?.banner_cate">
+                <img
+                    :src="'{{ asset('storage') }}/' + categories[activeCategory].banner_cate"
+                    class="w-full h-full object-cover">
+            </template>
 
-    <!-- PROJECT BANNER (default / initial) -->
-    <template
-        x-if="
-            activeCategory === null &&
-            {{ $projects->banner ? 'true' : 'false' }}
-        "
-    >
-        <img
-            src="{{ asset('storage/' . $projects->banner) }}"
-            class="w-full h-full object-cover"
-        >
-    </template>
+            <!-- PROJECT banner (default from DB) -->
+            <template
+                x-if="activeCategory === null && activeType === null">
+                <img
+                    src="{{ asset('storage/' . $projects->banner) }}"
+                    class="w-full h-full object-cover">
+            </template>
 
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-white/60"></div>
-</div>
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-white/60"></div>
+        </div>
 
 
 
@@ -181,11 +165,6 @@
 
         <!-- Main Content -->
         <div
-             x-data="{
-                ...projectData(...),
-                showImage: false,
-                activeImage: null
-            }"
             class="max-w-7xl mx-auto w-full
             flex lg:flex-row flex-col
             justify-between
@@ -242,16 +221,11 @@
                 <!-- Description -->
                 
                 <div class="text-[#03254B] text-sm md:text-lg mt-2 lg:px-0 px-4">
-                    <template x-for="item in displayedItems()" :key="item.slug">
-                        <div class="mb-4">
-                           <p
-                                x-html="item.des"
-                                class="ck-content leading-6 whitespace-pre-wrap"
-                            ></p>
-
-                        </div>
+                    <template x-for="item in displayedItems()" :key="item.des">
+                        <p x-html="item.des.replace(/\n/g, '<br>')" class="ck-content"></p>
                     </template>
                 </div>
+
 
                 <!-- Download PDF -->
                 @if ($projects->pdf)
@@ -260,7 +234,7 @@
                 ? 'Download to check its price and availability now'
                 : (app()->getLocale() === 'kh'
                     ? 'ទាញយកឯកសារខាងក្រោមដើម្បីពិនិត្យតម្លៃនិងលំនៅដ្ឋានដែលនៅទំនេរ'
-                    : '现在下载以查看其价格和库存情况下载')
+                    : 'Download to check its price and availability now')
             }}
                 </h1>
                 <div class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12 lg:ml-0 ml-4">
@@ -272,7 +246,7 @@
                 ? 'Download PDF'
                 : (app()->getLocale() === 'kh'
                     ? 'ទាញយកឥឡូវនេះ'
-                    : '下载')
+                    : 'Download PDF')
             }}
                         </span>
                     </a>
@@ -281,14 +255,13 @@
 
      
             @endif
-                    <!-- Slider version mobile -->
+        <!-- Slider version mobile -->
         <div
-    class="md:hidden flex max-w-7xl mx-auto mt-2 px-3"
-    x-show="currentImages().length > 0"
-    x-data="projectDataM(@json($categories), '{{ app()->getLocale() }}', true)"
-    @touchstart="touchStart($event)"
-    @touchend="touchEnd($event)"
->
+            class="md:hidden flex max-w-7xl mx-auto mt-2 px-3"
+            x-show="currentImages().length > 0"
+            @touchstart="touchStart($event)"
+            @touchend="touchEnd($event)"
+        >
     <div class="relative w-full overflow-hidden rounded-xl">
         <div
             id="sliderMobile" 
@@ -350,7 +323,6 @@
         <div 
             class="hidden max-w-[92%] mx-auto md:flex items-center gap-6 py-6"
             x-show="currentImages().length > 0"
-            x-data="projectData(@json($categories), '{{ app()->getLocale() }}')"
             @mouseenter="pauseAutoPlay"
             @mouseleave="resumeAutoPlay"
         >
@@ -396,26 +368,53 @@
 function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}) {
     
     return {
+     getBanner() {
+    // 1️⃣ Type banner
+    if (
+        this.activeCategory !== null &&
+        this.activeType !== null &&
+        this.categories[this.activeCategory]?.cat_type?.[this.activeType]?.banner_type
+    ) {
+        return this.categories[this.activeCategory].cat_type[this.activeType].banner_type;
+    }
+
+    // 2️⃣ Category banner
+    if (
+        this.activeCategory !== null &&
+        this.categories[this.activeCategory]?.banner_cate
+    ) {
+        return this.categories[this.activeCategory].banner_cate;
+    }
+
+    // 3️⃣ Default project banner ✅ NOW WORKS
+    return this.initialStatic.banner || null;
+},
+
+
+
         categories: Array.isArray(categoriesData) ? categoriesData : [],
-        activeCategory: null,
-        activeType: null,
+      
         lang: defaultLang,
         initialStatic: initialStatic,
 
         autoPlayInterval: null,
-        autoPlayDelay: 2500, // 3.5 seconds
+        autoPlayDelay: 3500, // 3.5 seconds
         isPaused: false,
 
-
+        activeCategory: 0,
+        activeType: 0,
         sliderIndex: 0,
+
         visibleCount: 1,
         gap: 16,
         startX: 0,
         endX: 0,
 
-        setActiveCategory(index) {
+setActiveCategory(index) {
     this.activeCategory = index;
-    this.activeType = 0;
+    // Set to null so the Category Banner condition (activeType === null) stays true
+    // until the user specifically clicks a "Type" button
+    this.activeType = null; 
     this.sliderIndex = 0;
     this.resetSlider();
     this.startAutoPlay();
@@ -429,18 +428,30 @@ setActiveType(index) {
 },
 
         displayedItems() {
-            if (this.activeCategory !== null) {
-                const cat = this.categories[this.activeCategory];
-                if (cat?.cat_type?.length) {
-                    const type = cat.cat_type[this.activeType] || {};
-                    return [{
-                        des: type.des?.[this.lang] || '',
-                        img: Array.isArray(type.img) ? type.img : []
-                    }];
-                }
-            }
-            return [this.initialStatic];
-        },
+
+    // 🔹 PROJECT DEFAULT (FIRST LOAD)
+    if (this.activeCategory === null) {
+        return [this.initialStatic];
+    }
+
+    const cat = this.categories[this.activeCategory];
+
+    // 🔹 CATEGORY ONLY
+    if (this.activeType === null || !cat?.cat_type?.length) {
+        return [{
+            des: cat.des?.[this.lang] || '',
+            img: Array.isArray(cat.img) ? cat.img : []
+        }];
+    }
+
+    // 🔹 TYPE SELECTED
+    const type = cat.cat_type[this.activeType];
+    return [{
+        des: type.des?.[this.lang] || '',
+        img: Array.isArray(type.img) ? type.img : []
+    }];
+},
+
 
         currentImages() {
             const items = this.displayedItems();
@@ -556,6 +567,9 @@ resumeAutoPlay() {
     this.isPaused = false;
 },
 init() {
+   // Start with project default view
+    this.activeCategory = null;
+    this.activeType = null;
     this.startAutoPlay();
 },
 
