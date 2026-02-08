@@ -72,11 +72,11 @@
             <section class="py-16">
     <div class="max-w-4xl mx-auto px-6">
 
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">
+        <h1 class="text-3xl font-bold text-[#03244a] mb-2">
             {{ $item['name'] }}
         </h1>
 
-        <p class="text-sm text-gray-500 mb-6">
+        <p class="text-sm text-[#03244a] mb-6">
             {{ \Carbon\Carbon::parse($item['date'])->format('d M Y') }}
         </p>
 
@@ -95,7 +95,7 @@
             {{ $item['desc'] }}
         </p>
 
-        <div class="w-40 h-12 rounded-full bg-[#03244a] flex items-center justify-center">
+        <div class="w-40 h-12 rounded-full bg-[#03244a] flex items-center justify-center mt-4">
                 <a href="{{ url('/') }}#news" class="cursor-pointer bg-linear-to-r from-[#f2ad46] via-[#f7ca68] to-[#fce88d]
                    bg-clip-text text-transparent font-semibold text-md">
                     {{-- {{ app()->getLocale() === 'en'

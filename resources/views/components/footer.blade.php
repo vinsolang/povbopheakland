@@ -18,7 +18,7 @@
                 ? 'Building Trust, Creating Value, Shaping the Future.'
                 : (app()->getLocale() === 'kh'
                     ? 'កសាងទំនុកចិត្ត បង្កើតតម្លៃ បង្កើតអនាគតដ៏ប្រសើរ'
-                    : 'Building Trust, Creating Value, Shaping the Future.')
+                    : '建立信任。创造价值。塑造未来。')
             }}
         </p>
     </div>
@@ -59,7 +59,7 @@
                 ? 'Land & Home Co., Ltd'
                 : (app()->getLocale() === 'kh'
                     ? 'លែន&ហូមឯ.ក'
-                    : 'Land & Home Co., Ltd')
+                    : 'Land & Home 有限公司')
             }}
                 </span>
             </div>
@@ -129,7 +129,7 @@
                 ? 'Contact Us'
                 : (app()->getLocale() === 'kh'
                     ? 'ការទំនាក់ទំនង'
-                    : 'Contact Us')
+                    : '联系方法')
             }}
                     </h1>
                 </div>
@@ -163,15 +163,15 @@
                 ? 'Phnom Penh Office'
                 : (app()->getLocale() === 'kh'
                     ? 'ការិយាល័យកណ្តាលនៅក្រុងភ្នំពេញ'
-                    : 'Phnom Penh Office')
+                    : '金边办事处')
             }}
             </h1>
-            <p class="xl:h-24 max-w-lg md:text-md text-sm py-2">
+            <p class="xl:h-24 max-w-[300px] md:text-md text-sm py-2">
                  {{ app()->getLocale() === 'en'
                 ? '#67D, St. 777, Borey Vimean Phnom Penh 598, Village 4, Sangkat Chrang Chamres, Khan Russey Keo, Phnom Penh, Cambodia'
                 : (app()->getLocale() === 'kh'
                     ? 'ផ្ទះលេខ67D, ផ្លូវ 777, បុរីវិមានភ្នំពេញភ្នំពេញ 598, ភូមិ 4, សង្កាត់ច្រាំងចំរេះ, ខណ្ឌឬស្សីកែវ, ក្រុងភ្នំពេញ, ប្រទេសកម្ពុជា'
-                    : '#67D, St. 777, Borey Vimean Phnom Penh 598, Village 4, Sangkat Chrang Chamres, Khan Russey Keo, Phnom Penh, Cambodia')
+                    : '柬埔寨 金边市 克朗查姆雷区 鲁西耶科县 第 4 村 博雷维梅安 街 777 号 67D 号。')
             }}
             </p>
             {{-- Map --}}
@@ -193,15 +193,15 @@
                 ? 'Siem Reap Office'
                 : (app()->getLocale() === 'kh'
                     ? 'ការិយាល័យនៅខេត្តសៀមរាប'
-                    : 'Siem Reap Office')
+                    : '暹粒办事处')
             }}
             </h1>
-            <p class="xl:h-24 max-w-lg md:text-md text-sm">
+            <p class="xl:h-24 max-w-md md:text-md text-sm">
                  {{ app()->getLocale() === 'en'
                 ? 'Sna Techo Village, Balang Commune, Prasat Bakong District, Siem Reap Province, Cambodia.'
                 : (app()->getLocale() === 'kh'
                     ? 'ភូមិស្នាតេជោ ឃុំបាឡាំង ស្រុកប្រាសាទបាគង ខេត្តសៀមរាប ្របទេសកម្ពុជា'
-                    : 'Sna Techo Village, Balang Commune, Prasat Bakong District, Siem Reap Province, Cambodia.')
+                    : '柬埔寨 暹粒省 巴朗公社斯 纳特科村 普萨特巴孔区。')
             }}
             </p>
             {{-- Map --}}
@@ -234,7 +234,7 @@
                 ? 'Land & Home Co., Ltd.'
                 : (app()->getLocale() === 'kh'
                     ? 'លែន&ហូមឯ.ក'
-                    : 'Land & Home Co., Ltd.')
+                    : 'Land & Home 有限公司')
             }}
         </span>
     </div>
@@ -249,37 +249,37 @@
                 ? 'Home'
                 : (app()->getLocale() === 'kh'
                     ? 'ទំព័រដើម'
-                    : 'Home')
+                    : '住宅')
             }}</a></li>
             <li><a href="{{ route('home') }}#about-us">{{ app()->getLocale() === 'en'
                 ? 'About Us'
                 : (app()->getLocale() === 'kh'
                     ? 'អំពីក្រុមហ៊ុន'
-                    : 'About Us')
+                    : '关于公司')
             }}</a></li>
             <li><a href="{{ route('home') }}#real-project"> {{ app()->getLocale() === 'en'
                 ? 'Real Estate Projects'
                 : (app()->getLocale() === 'kh'
                     ? 'គម្រោងអចលទ្រព្យ'
-                    : 'Real Estate Projects')
+                    : '房地产项目')
             }}</a></li>
             <li><a href="{{ route('home') }}#our-customer"> {{ app()->getLocale() === 'en'
                 ? 'Our Customers'
                 : (app()->getLocale() === 'kh'
                     ? 'អតិថិជន'
-                    : 'Our Customers')
+                    : '我们的团队')
             }}</a></li>
             <li><a href="{{ route('home') }}#freelancer">{{ app()->getLocale() === 'en'
                 ? 'Freelancers'
                 : (app()->getLocale() === 'kh'
                     ? 'អ្នកធ្វើការឯករាជ្យ'
-                    : 'Freelancers')
+                    : '自由工作者')
             }}</a></li>
             <li><a href="{{ route('home') }}#application-form"> {{ app()->getLocale() === 'en'
                 ? 'Contact Us'
                 : (app()->getLocale() === 'kh'
                     ? 'ការទំនាក់ទំនង'
-                    : 'Contact Us')
+                    : '联系方法')
             }}</a></li>
             <li class="font-medium">
                 <button @click="showPrivacyModal = true" class="cursor-pointer"> {{ app()->getLocale() === 'en'

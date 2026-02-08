@@ -123,7 +123,7 @@
                 ? 'Freelancers'
                 : (app()->getLocale() === 'kh'
                     ? 'អ្នកធ្វើការឯករាជ្យ'
-                    : 'Freelancers')
+                    : '自由工作者')
             }}
           </a>
         </li>
@@ -133,7 +133,7 @@
                 ? 'Contact Us'
                 : (app()->getLocale() === 'kh'
                     ? 'ការទំនាក់ទំនង'
-                    : 'Contact Us')
+                    : '联系方法')
             }}
           </a>
         </li>
@@ -164,7 +164,7 @@
                 ? 'Land & Home Co., Ltd'
                 : (app()->getLocale() === 'kh'
                     ? 'លែន&ហូមឯ.ក'
-                    : 'Land & Home Co., Ltd')
+                    : 'Land & Home 有限公司')
             }}
           </span>
         </div>

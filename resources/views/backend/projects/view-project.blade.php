@@ -2,7 +2,7 @@
 @section('content')
 
 @section('site-title')
-    Admin | View Event
+    Admin | View Projects
 @endsection
 @section('page-main-title')
     Views Project

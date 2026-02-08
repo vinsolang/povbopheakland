@@ -103,7 +103,7 @@
             ? $projects->description_default_en
             : (app()->getLocale() === 'kh'
                 ? $projects->description_default_kh
-                : $projects->description_default_ch),
+                : $projects->description_default_cn),
 
         // MUST be array for slider
         'img' => is_array($images) ? $images : [],
@@ -112,7 +112,7 @@
 
 
 
-    <div x-data='projectData(@json($categories), "{{ app()->getLocale() }}", @json($currentProjectData))'
+    <div x-data='projectData(@json($categories), "{{ app()->getLocale() === 'km' ? 'kh' : (app()->getLocale() === 'cn' ? 'ch' : app()->getLocale()) }}", @json($currentProjectData))'
      class="relative w-full min-h-screen">
 
         <!-- Background -->
@@ -170,12 +170,33 @@
             <a href="{{ route('home') }}#real-project" class="flex items-center gap-3">
                 <img src="{{ asset('assets/logo/logo-fina.png') }}" alt="Logo" class="w-14 h-auto">
                 <div class="hidden xl:flex items-center text-[#03254B] text-lg leading-none">
-                    <span class="font-semibold">Pov&nbsp;Bopheak</span>
-                    <span class="font-normal ml-1"> Land & Home Co., Ltd</span>
+                    <span class="font-semibold">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Pov Bopheak'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រ'
+                                : 'Pov Bopheak')
+                        }}
+                    </span>
+                    <span class="font-normal ml-1">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Land & Home Co., Ltd'
+                            : (app()->getLocale() === 'kh'
+                                ? 'លែន&ហូមឯ.ក'
+                                : 'Land & Home 有限公司')
+                        }}
+                    </span>
                 </div>
             </a>
             <div class="flex items-center gap-3 text-[#03254B] text-md md:text-lg">
-                <p>Real Estate Projects</p>
+                <p>
+                    {{ app()->getLocale() === 'en'
+                        ? 'Real Estate Projects'
+                        : (app()->getLocale() === 'kh'
+                            ? 'គម្រោងអចលទ្រព្យ'
+                            : '房地产项目')
+                    }}
+                </p>
             </div>
         </div>
 
@@ -195,7 +216,7 @@
             <!-- Left Column -->
             <div class="w-full md:w-1/2 flex flex-col space-y-8 mt-4">
                 <!-- Title -->
-                <button type="button" onclick="window.location.reload(true);" class="cursor-pointer">
+                <button type="button" onclick="window.location.reload(true);" class="cursor-pointer text-left">
                     <h1 class="font-kantumruy max-w-md text-[#03254B] text-2xl md:text-4xl font-medium lg:px-0 px-4">
                         {{ app()->getLocale() === 'en'
                             ? $projects->name_en
@@ -234,7 +255,8 @@
                         <div x-show="type?.title?.[lang]" class="flex justify-center md:items-center rounded-full"
                             :class="activeType === tIndex ? 'bg-[#03254B] py-2 text-white' : ''">
                             <button class="cursor-pointer w-[100px] h-6 md:w-32 md:h-8 text-xs md:text-md"
-                                @click="setActiveType(tIndex)" x-text="type.title[lang]"></button>
+                                @click="setActiveType(tIndex)" x-text="type.title?.[lang]">
+                            </button>
                         </div>
                     </template>
                 </div>

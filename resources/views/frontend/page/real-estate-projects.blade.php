@@ -64,7 +64,7 @@
                                             ? 'Check Price & Availability'
                                             : (app()->getLocale() === 'kh'
                                                 ? 'ពិនិត្យមើលតម្លៃ ផ្ទះដែលនៅទំនេរ'
-                                                : 'Check Price & Availability')
+                                                : '查看价格及库存情况')
                                         }}
                                     </a>
                                 @else
@@ -78,7 +78,7 @@
                                         ? 'Book Free Consultation'
                                         : (app()->getLocale() === 'kh'
                                             ? 'ទស្សនាគម្រោងផ្ទាល់'
-                                            : 'Book Free Consultation')
+                                            : '安排实地考察行程')
                                     }}
                                 </a>
                             </button>
