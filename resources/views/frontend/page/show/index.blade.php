@@ -206,7 +206,7 @@
                     </h1>
                 </button>
                 {{-- Category --}}
-                <div class="flex flex-wrap justify-start items-center gap-2 w-full px-2">
+                <div class="flex flex-wrap justify-start items-center gap-2 w-full px-2 cursor-pointer">
                     <template x-for="(cat, index) in categories" :key="index">
                         <div
                             class="inline-flex rounded-full transition-all duration-200"
@@ -228,7 +228,7 @@
 
 
                 <!-- Type Buttons -->
-                <div class="flex md:space-y-0 space-y-3 space-x-1 md:space-x-3 mt-2"
+                <div class="flex md:space-y-0 space-y-3 space-x-1 md:space-x-3 mt-2 cursor-pointer"
                     x-show="categories[activeCategory] && Array.isArray(categories[activeCategory].cat_type) && categories[activeCategory].cat_type.length">
                     <template x-for="(type, tIndex) in categories[activeCategory].cat_type" :key="tIndex">
                         <div x-show="type?.title?.[lang]" class="flex justify-center md:items-center rounded-full"

@@ -5,8 +5,8 @@
 
         <!-- Header -->
         <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-800">Latest News</h2>
-            <p class="text-gray-600 mt-2">Stay updated with our latest activities</p>
+            <h2 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B]">Latest News</h2>
+            <p class="text-sm md:text-lg font-normal text-[#03254B] py-2 md:px-0 px-10">Stay updated with our latest activities</p>
         </div>
 
         <!-- Grid -->

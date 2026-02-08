@@ -63,7 +63,7 @@
                                          {{ app()->getLocale() === 'en'
                                             ? 'Check Price & Availability'
                                             : (app()->getLocale() === 'kh'
-                                                ? 'ពិនិត្យមើលតម្លៃ និងយូនីតដែលនៅទំនេរ'
+                                                ? 'ពិនិត្យមើលតម្លៃ ផ្ទះដែលនៅទំនេរ'
                                                 : 'Check Price & Availability')
                                         }}
                                     </a>

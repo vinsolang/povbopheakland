@@ -25,7 +25,7 @@
                     ? 'Pov Bopheak Land & Home'
                     : (app()->getLocale() === 'kh'
                         ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន & ហូម'
-                        : 'Pov Bopheak Land & Home 有限公司')
+                        : 'Pov Bopheak Land & Home')
                 }}
             </h1>
 

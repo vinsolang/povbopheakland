@@ -219,7 +219,7 @@
                                         ? $item->name_en
                                         : (app()->getLocale() === 'kh'
                                             ? $item->name_kh
-                                            : $item->name_en)
+                                            : $item->name_cn)
                                 }}
                             </h3>
 

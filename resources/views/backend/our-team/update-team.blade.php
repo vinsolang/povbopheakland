@@ -24,12 +24,12 @@
                             <div class="row">
                                 <input type="hidden" name="update_id" value="{{$row[0]->id}}">
                                 <div class="mb-3 col-12">
-                                    <label for="formFile" class="form-label text-[#0F4634]">Name</label>
+                                    <label for="formFile" class="form-label text-[#0F4634]">Name English</label>
                                     <input class="form-control" type="text" name="update_name_en"
                                         value="{{ $row[0]->name_en }}" />
                                 </div>
                                 <div class="mb-3 col-12">
-                                    <label for="formFile" class="form-label text-[#0F4634]">Position</label>
+                                    <label for="formFile" class="form-label text-[#0F4634]">Position English</label>
                                     <input class="form-control" type="text" name="update_position_en"
                                         value="{{ $row[0]->position_en }}" />
                                 </div>
@@ -40,7 +40,7 @@
                                         value="{{ $row[0]->name_kh }}" />
                                 </div>
                                 <div class="mb-3 col-12">
-                                    <label for="formFile" class="form-label text-[#0F4634]">Position_kh</label>
+                                    <label for="formFile" class="form-label text-[#0F4634]">Position Khmer</label>
                                     <input class="form-control" type="text" name="update_position_kh"
                                         value="{{ $row[0]->position_kh }}" />
                                 </div>

@@ -44,7 +44,7 @@
                 ? 'Land & Home Co., Ltd'
                 : (app()->getLocale() === 'kh'
                     ? 'លែន&ហូមឯ.ក'
-                    : 'Land & Home Co., Ltd')
+                    : 'Land & Home 有限公司')
             }}
       </span>
     </div>
@@ -83,7 +83,7 @@
                 ? 'Home'
                 : (app()->getLocale() === 'kh'
                     ? 'ទំព័រដើម'
-                    : 'Home')
+                    : '住宅')
             }}
           </a>
         </li>
@@ -93,7 +93,7 @@
                 ? 'About Us'
                 : (app()->getLocale() === 'kh'
                     ? 'អំពីក្រុមហ៊ុន'
-                    : 'About Us')
+                    : '关于公司')
             }}
           </a>
         </li>
@@ -103,7 +103,7 @@
                 ? 'Real Estate Projects'
                 : (app()->getLocale() === 'kh'
                     ? 'គម្រោងអចលទ្រព្យ'
-                    : 'Real Estate Projects')
+                    : '房地产项目')
             }}
           </a>
         </li>
@@ -113,7 +113,7 @@
                 ? 'Our Customers'
                 : (app()->getLocale() === 'kh'
                     ? 'អតិថិជន'
-                    : 'Our Customers')
+                    : '我们的团队')
             }}
           </a>
         </li>
