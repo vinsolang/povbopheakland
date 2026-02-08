@@ -195,7 +195,7 @@
             <!-- Left Column -->
             <div class="w-full md:w-1/2 flex flex-col space-y-8 mt-4">
                 <!-- Title -->
-                <a href="{{ route('home') }}#project-{{ $projects->id }}">
+                <button type="button" onclick="window.location.reload(true);" class="cursor-pointer">
                     <h1 class="font-kantumruy max-w-md text-[#03254B] text-2xl md:text-4xl font-medium lg:px-0 px-4">
                         {{ app()->getLocale() === 'en'
                             ? $projects->name_en
@@ -204,7 +204,7 @@
                                 : $projects->name_ch)
                         }}
                     </h1>
-                </a>
+                </button>
                 {{-- Category --}}
                 <div class="flex flex-wrap justify-start items-center gap-2 w-full px-2">
                     <template x-for="(cat, index) in categories" :key="index">
