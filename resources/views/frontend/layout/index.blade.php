@@ -76,10 +76,6 @@
         <div class="relative w-full py-0 md:py-24">
             @include('frontend.page.real-estate-projects')
         </div>
-         <!-- Nesw -->
-        <div class="relative w-full">
-            @include('frontend.page.news-latest')
-        </div>
         {{-- Our Team --}}
         <div class="relative w-full -mt-8">
             @include('frontend.page.our-team')
@@ -91,6 +87,10 @@
         {{-- Our Customer --}}
         <div class="relative w-full -mt-8">
             @include('frontend.page.our-customer')
+        </div>
+         <!-- Nesw -->
+        <div class="relative w-full">
+            @include('frontend.page.news-latest')
         </div>
         {{-- Contact Form --}}
         <div class="relative w-full -mt-8">
