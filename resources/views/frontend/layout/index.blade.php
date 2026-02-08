@@ -61,7 +61,7 @@
     
             <!-- BACKGROUND IMAGE -->
             <img 
-                src="{{ asset('assets/background/bg-home-3.png') }}" 
+                src="{{ asset('assets/background/bg-home-4.svg') }}" 
                 alt="Background"
                 class="absolute inset-0 h-[60%] w-full md:h-full object-cover -z-10"
             >
