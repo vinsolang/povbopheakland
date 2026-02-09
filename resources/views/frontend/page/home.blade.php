@@ -94,7 +94,8 @@
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/te.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
-                    <a href="https://wa.me/087446277"
+                    <a href="https://wa.me/85587446277?text=Hello%20I%20want%20more%20information"
+                        target="_blank"
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/whatsapp.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
