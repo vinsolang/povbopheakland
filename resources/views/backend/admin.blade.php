@@ -49,6 +49,10 @@
   <script src="{{ asset('js/') }}"></script> --}}
   <script src="{{ asset('js/config.js') }}"></script>
 
+  <!-- CKEditor 5 Classic CDN -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
   
 </head>
 

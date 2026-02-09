@@ -42,7 +42,7 @@
                         </div>
                         <div class="mb-3 col-12">
                             <label for="formFile" class="form-label text-[#0F4634]">Description Chinese</label>
-                            <textarea name="description_cn" class="form-control" id="description_en">{{ $news->description_cn }}</textarea>
+                            <textarea name="description_cn" class="form-control" id="description_cn">{{ $news->description_cn }}</textarea>
                         </div>
 
                          <!-- Upload New Images -->
@@ -95,6 +95,24 @@
             </div>
         </div>
     </div>
+     <script>
+        ClassicEditor
+            .create(document.querySelector('#description_cn'))
+            .catch(error => {
+                console.error(error);
+            });
+
+        ClassicEditor
+            .create(document.querySelector('#description_kh'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#description_en'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
     <script>
         // Preview image when upload multiple image
         // Preview new images

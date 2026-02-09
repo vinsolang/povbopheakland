@@ -8,7 +8,7 @@
             LIST TEAMS
         @endsection
 
-        <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="container-xxl flex-grow-1 container-p-y" x-data="reorderTable()" x-init="initSortable()">
             <div class="card">
                 <div class="table-responsive text-nowrap">
                     <table class="table">
@@ -21,9 +21,11 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="table-border-bottom-0">
-                            @foreach ($row as $team)
-                                <tr>
+                        <tbody class="table-border-bottom-0" x-ref="tableBody">
+                            @foreach ($row as $index => $team)
+                                <tr draggable="true" x-bind:data-id="{{ $team->id }}" class="cursor-move"
+                                    @dragstart="dragStart($event, {{ $team->id }})" @dragover.prevent
+                                    @drop="drop($event, {{ $team->id }})">
                                     <td>
                                         <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                             <img src="../assets/team/{{ $team->profile }}" alt="Avatar" class="rounded-circle"
@@ -91,4 +93,42 @@
     </div>
     </div>
 
+     <script>
+        function reorderTable() {
+            return {
+                initSortable() {
+                    this.$nextTick(() => {
+                        let tableBody = this.$refs.tableBody;
+                        new Sortable(tableBody, {
+                            animation: 150,
+                            ghostClass: "bg-gray-100",
+                            onEnd: async (event) => {
+                                let newOrder = [...tableBody.children].map((row, index) => ({
+                                    id: row.getAttribute("data-id"),
+                                    order: index + 1
+                                }));
+
+                                let response = await fetch("{{ route('team.reorder') }}", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                                    },
+                                    body: JSON.stringify({
+                                        newOrder
+                                    })
+                                });
+
+                                if (response.ok) {
+                                    location.reload();
+                                } else {
+                                    console.error("Failed to reorder.");
+                                }
+                            }
+                        });
+                    });
+                }
+            };
+        }
+    </script>
 @endsection

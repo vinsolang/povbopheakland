@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     $showAboutUs = DB::table('about_us')->get();
-    $showOurTeam = DB::table('our_team')->get();
+    $showOurTeam = DB::table('our_team')->orderBy('order')->get();
     $showCustomer = Customer::all();
     $projects = Project::orderBy('created_at', 'ASC')->get();
 
@@ -48,6 +48,7 @@ Route::get('/', function () {
         'news'
     ));
 })->name('home');
+
 
 
 // 🔹 News Detail Route
@@ -105,6 +106,9 @@ Route::middleware(['auth'])->group(function(){
     // Update our team
     Route::get('/update/team/{id}', [OurTeamController::class,'updateTeam'])->name('update.team');
     Route::post('/submit/updateteam', [OurTeamController::class,'submitToUpdateTeam'])->name('submit.update.team');
+
+    Route::post('/team/reorder', [OurTeamController::class, 'reorder'])->name('team.reorder');
+
     // Remove our team
     Route::post('/remove/our_team', [OurTeamController::class,'submitToRemoveTeam'])->name('remove.our.team');
     // ============================================ @@ About Us  ===================================================
@@ -127,5 +131,6 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('newslatest', NewslatestController::class);
     Route::delete('newslatest/{id}/image/{index}', [NewslatestController::class, 'deleteImage'])
     ->name('newslatest.image.delete');
+
 
 });

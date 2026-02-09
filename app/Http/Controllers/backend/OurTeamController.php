@@ -15,12 +15,13 @@ class OurTeamController extends Controller
         return view("backend.our-team.add-team");
     }
     public function viewOurTeam(){
-        $row = DB::table("our_team")->get();
+        $row = DB::table("our_team")->orderBy('order')->get();
         return view("backend.our-team.view-team", ["row"=> $row]);
     }
     public function submitAddOurTeam(Request $request){
         // Validation
         $request->validate([
+            'order'          => 'nullable',
             'name_en'        => 'required|string|max:255',
             'position_en'    => 'required|string|max:255',
 
@@ -32,6 +33,7 @@ class OurTeamController extends Controller
             'profile' => 'required|image|mimes:jpg,jpeg,png,gif|max:10240',
         ]);
 
+        $order = DB::table('our_team')->max('order') + 1;
         $name_en = $request->input("name_en");
         $position_en = $request->input("position_en");
 
@@ -56,12 +58,23 @@ class OurTeamController extends Controller
 
             'name_cn'=> $name_cn,
             'position_cn'=> $position_cn,
+            'order' => $order,
             'profile'=> $image,
         ]);
 
         if($result){
             return redirect()->route('view_team')->with('success','created sucess');
         }
+    }
+     public function reorder(Request $request)
+    {
+        $newOrder = $request->newOrder;
+
+        foreach ($newOrder as $item) {
+            DB::table('our_team')->where('id', $item['id'])->update(['order' => $item['order']]);
+        }
+
+        return response()->json(['success' => true]);
     }
     // update team
     public function updateTeam($id){

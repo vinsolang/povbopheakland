@@ -80,6 +80,24 @@
         </div>
     </div>
     <script>
+        ClassicEditor
+            .create(document.querySelector('#description_cn'))
+            .catch(error => {
+                console.error(error);
+            });
+
+        ClassicEditor
+            .create(document.querySelector('#description_kh'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#description_en'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
         // Preview image when upload multiple image
         document.getElementById('images').addEventListener('change', function (event) {
             const preview = document.getElementById('preview');

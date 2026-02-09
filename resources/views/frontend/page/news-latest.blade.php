@@ -34,12 +34,13 @@
                         </h3>
 
                         <p class="text-[#03244a] text-sm mt-2 line-clamp-3 overflow-hidden h-auto md:h-[8vh]">
-                            {{ app()->getLocale() === 'en'
-                                ? $item->description_en  
-                                : (app()->getLocale() === 'kh'
-                                    ? $item->description_kh
-                                    : $item->description_cn)
-                            }}
+                            {{ Str::limit(strip_tags(
+                                app()->getLocale() === 'en'
+                                    ? $item->description_en
+                                    : (app()->getLocale() === 'kh'
+                                        ? $item->description_kh
+                                        : $item->description_cn)
+                            ), 150) }}
                         </p>
 
                         <div class="flex justify-between items-center mt-4">

@@ -42,6 +42,25 @@
         }
 
         [x-cloak] { display: none !important; }
+.ck-content ul {
+    padding-left: 1.25rem;
+    list-style-type: disc;
+}
+
+.ck-content ol {
+    padding-left: 1.25rem;
+    list-style-type: decimal;
+}
+
+.ck-content li {
+    margin-bottom: 0.25rem;
+}
+
+.ck-content p {
+    margin-bottom: 0.5rem;
+}
+
+
     </style>
     </head>
     <body class="font-kantumruy overflow-x-hidden">
@@ -99,14 +118,14 @@
         @endif
 
 
-        <p class="text-[#03244a] font-semibold leading-relaxed">
-           {{ app()->getLocale() === 'en'
-                ? $item->description_en  
+        <p class="ck-content text-[#03244a] font-semibold leading-relaxed">
+            {!! app()->getLocale() === 'en'
+                ? $item->description_en
                 : (app()->getLocale() === 'kh'
                     ? $item->description_kh
                     : $item->description_cn)
-            }}
-        </p>
+            !!}
+            </p>
 
         <div class="w-40 h-12 rounded-full bg-[#03244a] flex items-center justify-center mt-4">
                 <a href="{{ url('/') }}#news" class="cursor-pointer bg-linear-to-r from-[#f2ad46] via-[#f7ca68] to-[#fce88d]
