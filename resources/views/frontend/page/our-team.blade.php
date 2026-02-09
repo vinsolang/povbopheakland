@@ -11,8 +11,8 @@
     <img src="{{ app()->getLocale() === 'en'
             ? asset('assets/about_us/sms-form-chairman-en-final.png')
             : (app()->getLocale() === 'kh'
-                ? asset('assets/about_us/sms-form-chairman-khmer-final.svg')
-                : asset('assets/about_us/sms-form-chairman-cnin-final.svg'))
+                ? asset('assets/about_us/ms-khmer.png')
+                : asset('assets/about_us/ms-chin.png'))
         }}" alt="" class="w-full h-full object-cover" style="user-select:none; pointer-events:none;">
     {{-- <div class="relative w-full h-auto md:h-[95vh] lg:h-[130vh] xl:h-[115vh]" x-data="{ open: false }">
        
