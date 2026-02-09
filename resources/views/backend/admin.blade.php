@@ -194,6 +194,27 @@
             </ul>
           </li>
 
+          <!-- Layouts -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-trending-up text-2xl"></i>
+              <div data-i18n="Layouts">News</div>
+            </a>
+
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="{{ route('newslatest.index') }}" class="menu-link">
+                  <div data-i18n="Without menu">View News</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="{{ route('newslatest.create') }}" class="menu-link">
+                  <div data-i18n="Without menu">Add News</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
               <i class="menu-icon tf-icons bx bx-package"></i>

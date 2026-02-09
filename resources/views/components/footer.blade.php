@@ -381,7 +381,7 @@
                                 Policy
                                 periodically.'
                                     : (app()->getLocale() === 'kh'
-                                        ? 'យើងខ្ញ៉ំរក្សាសិទ្ធិក្នុងការធ្វើបច្ចុប្បន្នភាពឬកែប្រែគោលការណ៍ឯកជនភាពនេះនៅពេលណាក៏បានតាមការសំរេចចិត្តរបស់ក្រុមហ៊ុន។ ការផ្លាស់ប្តូរណាមួយនឹងមានប្រសិទ្ធភាពភ្លាមៗនៅពេលបោះពុម្ពផ្សាយនៅលើគេហទំព័រ។ យើងខ្ញ៉ំសូមលើកទឹកចិត្តអ្នកឱ្យពិនិត្យមើលគោលការណ៍ឯកជនភាពនេះជាប្រចាំ។'
+                                        ? 'យើងខ្ញុំរក្សាសិទ្ធិក្នុងការធ្វើបច្ចុប្បន្នភាពឬកែប្រែគោលការណ៍ឯកជនភាពនេះនៅពេលណាក៏បានតាមការសំរេចចិត្តរបស់ក្រុមហ៊ុន។ ការផ្លាស់ប្តូរណាមួយនឹងមានប្រសិទ្ធភាពភ្លាមៗនៅពេលបោះពុម្ពផ្សាយនៅលើគេហទំព័រ។ យើងខ្ញ៉ំសូមលើកទឹកចិត្តអ្នកឱ្យពិនិត្យមើលគោលការណ៍ឯកជនភាពនេះជាប្រចាំ។'
                                         : ' We reserve the right to update or amend this Privacy Policy at any time at our
                                 discretion. Any
                                 changes will be effective
@@ -513,7 +513,7 @@
                                     ? 'We may collect personal information directly from you or indirectly through your
                                 use of our Websites, including but not limited to:'
                                     : (app()->getLocale() === 'kh'
-                                        ? 'យើងខ្ញ៉ំអាចប្រមូលព័ត៌មានផ្ទាល់ខ្លួនដោយផ្ទាល់ពីអ្នក ឬដោយប្រយោលតាមរយៈការប្រើប្រាស់គេហទំព័ររួមមានប៉ុន្តែមិនកំណត់ចំពោះ៖'
+                                        ? 'យើងខ្ញុំអាចប្រមូលព័ត៌មានផ្ទាល់ខ្លួនដោយផ្ទាល់ពីអ្នក ឬដោយប្រយោលតាមរយៈការប្រើប្រាស់គេហទំព័ររួមមានប៉ុន្តែមិនកំណត់ចំពោះ៖'
                                         : 'We may collect personal information directly from you or indirectly through your
                                 use of our Websites, including but not limited to:')
                                 }}
@@ -645,7 +645,7 @@
                                 or quality
                                 purposes.'
                                     : (app()->getLocale() === 'kh'
-                                        ? 'ប្រសិនបើអ្នកទាក់ទងមកយើងខ្ញ៉ំ យើងខ្ញ៉ំអាចរក្សាទុកកំណត់ត្រានៃការឆ្លើយឆ្លងនោះសម្រាប់គោលបំណងសេវាកម្ម ការអនុលោមតាមច្បាប់ ឬគុណភាព។'
+                                        ? 'ប្រសិនបើអ្នកទាក់ទងមកយើងខ្ញុំ យើងខ្ញ៉ំអាចរក្សាទុកកំណត់ត្រានៃការឆ្លើយឆ្លងនោះសម្រាប់គោលបំណងសេវាកម្ម ការអនុលោមតាមច្បាប់ ឬគុណភាព។'
                                         : 'If you contact us, we may retain a record of that correspondence for service, compliance,
                                 or quality
                                 purposes.')
@@ -670,7 +670,7 @@
                              {{ app()->getLocale() === 'en'
                                     ? 'We may use your personal information to:'
                                     : (app()->getLocale() === 'kh'
-                                        ? 'យើងខ្ញ៉ំអាចប្រើប្រាស់ព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកដើម្បី៖'
+                                        ? 'យើងខ្ញុំអាចប្រើប្រាស់ព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកដើម្បី៖'
                                         : 'We may use your personal information to:')
                                 }}
                         </p>
@@ -766,7 +766,7 @@
                             {{ app()->getLocale() === 'en'
                                     ? 'We may disclose your personal information to:'
                                     : (app()->getLocale() === 'kh'
-                                        ? 'យើងខ្ញ៉ំអាចបង្ហាញព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកទៅកាន់៖'
+                                        ? 'យើងខ្ញុំអាចបង្ហាញព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកទៅកាន់៖'
                                         : 'We may disclose your personal information to:')
                                 }}
                         </p>
@@ -814,7 +814,7 @@
                             personal information securely and in accordance with applicable privacy laws.
                             We do not sell your personal information to third parties.'
                                     : (app()->getLocale() === 'kh'
-                                        ? 'យើងខ្ញ៉ំចាត់វិធានការសមហេតុផលដើម្បីធានាថាភាគីទីបីដោះស្រាយព័ត៌មានផ្ទាល់ខ្លួនដោយសុវត្ថិភាព និងស្របតាមច្បាប់ឯកជនភាពដែលអាចអនុវត្តបាន។ យើងខ្ញ៉ំមិនលក់ព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកទៅឱ្យភាគីទីបីទេ។'
+                                        ? 'យើងខ្ញុំចាត់វិធានការសមហេតុផលដើម្បីធានាថាភាគីទីបីដោះស្រាយព័ត៌មានផ្ទាល់ខ្លួនដោយសុវត្ថិភាព និងស្របតាមច្បាប់ឯកជនភាពដែលអាចអនុវត្តបាន។ យើងខ្ញ៉ំមិនលក់ព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកទៅឱ្យភាគីទីបីទេ។'
                                         : ' We take reasonable steps to ensure that third parties handle
                             personal information securely and in accordance with applicable privacy laws.
                             We do not sell your personal information to third parties.')
@@ -837,7 +837,7 @@
                                 loss,
                                 misuse, unauthorised access, modification, or disclosure.'
                                     : (app()->getLocale() === 'kh'
-                                        ? 'យើងខ្ញ៉ំចាត់វិធានការបច្ចេកទេស និងអង្គសមហេតុផលដើម្បីការពារព័ត៌មានផ្ទាល់ខ្លួនពីការបាត់បង់ ការប្រើប្រាស់ខុស ការចូលប្រើដោយគ្មានការអនុញ្ញាត ការកែប្រែ ឬការបង្ហាញ។'
+                                        ? 'យើងខ្ញុំចាត់វិធានការបច្ចេកទេស និងអង្គសមហេតុផលដើម្បីការពារព័ត៌មានផ្ទាល់ខ្លួនពីការបាត់បង់ ការប្រើប្រាស់ខុស ការចូលប្រើដោយគ្មានការអនុញ្ញាត ការកែប្រែ ឬការបង្ហាញ។'
                                         : ' We take reasonable technical and organisational measures to safeguard personal
                                 information against
                                 loss,
@@ -853,7 +853,7 @@
                                 security
                                 incident.'
                                     : (app()->getLocale() === 'kh'
-                                        ? 'ខណៈពេលដែលយើងខ្ញ៉ំខិតខំការពារទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នក គ្មានវិធីសាស្រ្តនៃការបញ្ជូនតាមអ៊ីនធឺណិត ឬការផ្ទុកអេឡិចត្រូនិចណាមួយមានសុវត្ថិភាពទាំងស្រុងនោះទេ។ ដូច្នេះ យើងខ្ញ៉ំមិនអាចធានាសុវត្ថិភាពដាច់ខាតបានទេ ប៉ុន្តែនឹងធ្វើសកម្មភាពភ្លាមៗក្នុងករណីមានឧប្បត្តិហេតុសុវត្ថិភាពទិន្នន័យ។'
+                                        ? 'ខណៈពេលដែលយើងខ្ញុំខិតខំការពារទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នក គ្មានវិធីសាស្រ្តនៃការបញ្ជូនតាមអ៊ីនធឺណិត ឬការផ្ទុកអេឡិចត្រូនិចណាមួយមានសុវត្ថិភាពទាំងស្រុងនោះទេ។ ដូច្នេះ យើងខ្ញ៉ំមិនអាចធានាសុវត្ថិភាពដាច់ខាតបានទេ ប៉ុន្តែនឹងធ្វើសកម្មភាពភ្លាមៗក្នុងករណីមានឧប្បត្តិហេតុសុវត្ថិភាពទិន្នន័យ។'
                                         : 'While we strive to protect your personal data, no method of transmission over the
                                 internet or
                                 electronic storage is completely secure. Accordingly,

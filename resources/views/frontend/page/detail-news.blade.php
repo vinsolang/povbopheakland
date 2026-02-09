@@ -70,40 +70,53 @@
             @include('components.navbar')
 
             <section class="py-16">
-    <div class="max-w-4xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-6">
 
         <h1 class="text-3xl font-bold text-[#03244a] mb-2">
-            {{ $item['name'] }}
+            {{ app()->getLocale() === 'en'
+                ? $item->title_en 
+                : (app()->getLocale() === 'kh'
+                    ? $item->title_kh
+                    : $item->title_cn)
+            }}
         </h1>
 
         <p class="text-sm text-[#03244a] mb-6">
-            {{ \Carbon\Carbon::parse($item['date'])->format('d M Y') }}
+            {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
         </p>
 
         <!-- Up to 2 Images -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            @foreach (array_slice($item['image'], 0, 2) as $img)
-                <img
-                    src="{{ asset($img) }}"
-                    class="w-full h-64 object-cover rounded-xl"
-                    alt="{{ $item['name'] }}"
-                >
-            @endforeach
-        </div>
+        @if (is_array($item->images) && count($item->images) > 0)
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-8">
+                @foreach ($item->images as $img)
+                    <img
+                        src="{{ asset($img) }}"
+                        alt="{{ $item->title_en }}"
+                        class="w-full h-64 object-cover rounded-xl"
+                    >
+                @endforeach
+            </div>
+        @endif
+
 
         <p class="text-[#03244a] font-semibold leading-relaxed">
-            {{ $item['desc'] }}
+           {{ app()->getLocale() === 'en'
+                ? $item->description_en  
+                : (app()->getLocale() === 'kh'
+                    ? $item->description_kh
+                    : $item->description_cn)
+            }}
         </p>
 
         <div class="w-40 h-12 rounded-full bg-[#03244a] flex items-center justify-center mt-4">
                 <a href="{{ url('/') }}#news" class="cursor-pointer bg-linear-to-r from-[#f2ad46] via-[#f7ca68] to-[#fce88d]
                    bg-clip-text text-transparent font-semibold text-md">
                     {{-- {{ app()->getLocale() === 'en'
-    ? '← Back to News'
-    : (app()->getLocale() === 'kh'
-        ? 'អានបន្ថែម'
-        : '继续阅读')
-            }} --}}
+                ? '← Back to News'
+                : (app()->getLocale() === 'kh'
+                    ? 'អានបន្ថែម'
+                    : '继续阅读')
+                }} --}}
              ← Back to News
                 </a>
             </div>
@@ -113,7 +126,7 @@
 
         </div>
         {{-- Background Footer --}}
-        <div class="relative w-full md:mt-0 -mt-6">
+        <div class="relative w-full md:mt-0 -mt-8">
             @include('components.footer')
         </div>
     </body>

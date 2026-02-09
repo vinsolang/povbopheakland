@@ -5,12 +5,14 @@ use App\Http\Controllers\backend\AboutUsController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\LocaleController;
+use App\Http\Controllers\backend\NewslatestController;
 use App\Http\Controllers\backend\OurTeamController;
 use App\Http\Controllers\backend\ProjectController;
 use App\Http\Controllers\frontend\FreelancersController;
 use App\Http\Controllers\Send\ApplicationController;
 use App\Http\Controllers\Send\ContactController;
 use App\Models\Customer;
+use App\Models\NewsLatest;
 use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -36,36 +38,7 @@ Route::get('/', function () {
     $projects = Project::orderBy('created_at', 'ASC')->get();
 
     // 🔹 Static News Data (ONE SOURCE)
-    $news = [
-        [
-            'name' => 'New Therapy Program Launched',
-            'slug' => 'new-therapy-program-launched',
-            'date' => '2026-02-05',
-            'desc' => 'We are excited to introduce our new therapy program designed to support children with special needs.',
-            'image' => [
-                'assets/background/bg-home-2.png',
-                'assets/background/bg-home-2.png',
-            ],
-        ],
-        [
-            'name' => 'Community Awareness Workshop',
-            'slug' => 'community-awareness-workshop',
-            'date' => '2026-01-28',
-            'desc' => 'A successful workshop focused on autism awareness and inclusive education in Cambodia.',
-            'image' => [
-                'assets/background/bg-home-2.png',
-            ],
-        ],
-        [
-            'name' => 'Meet Our New Specialists',
-            'slug' => 'meet-our-new-specialists',
-            'date' => '2026-01-15',
-            'desc' => 'We welcome new speech and occupational therapists to our growing professional team.',
-            'image' => [
-                'assets/background/bg-home-2.png',
-            ],
-        ],
-    ];
+    $news = NewsLatest::all();
 
     return view('frontend.layout.index', compact(
         'showAboutUs',
@@ -78,40 +51,9 @@ Route::get('/', function () {
 
 
 // 🔹 News Detail Route
-Route::get('/news/{slug}', function ($slug) {
-
-    $news = [
-        [
-            'name' => 'New Therapy Program Launched',
-            'slug' => 'new-therapy-program-launched',
-            'date' => '2026-02-05',
-            'desc' => 'We are excited to introduce our new therapy program designed to support children with special needs.',
-            'image' => [
-                'assets/background/bg-home-2.png',
-                'assets/background/bg-home-2.png',
-            ],
-        ],
-        [
-            'name' => 'Community Awareness Workshop',
-            'slug' => 'community-awareness-workshop',
-            'date' => '2026-01-28',
-            'desc' => 'A successful workshop focused on autism awareness and inclusive education in Cambodia.',
-            'image' => [
-                'assets/background/bg-home-2.png',
-            ],
-        ],
-        [
-            'name' => 'Meet Our New Specialists',
-            'slug' => 'meet-our-new-specialists',
-            'date' => '2026-01-15',
-            'desc' => 'We welcome new speech and occupational therapists to our growing professional team.',
-            'image' => [
-                'assets/background/bg-home-2.png',
-            ],
-        ],
-    ];
-
-    $item = collect($news)->firstWhere('slug', $slug);
+Route::get('/news/{id}', function ($id) {
+    $newsdetails = NewsLatest::all();
+    $item = collect($newsdetails)->firstWhere('id', $id);
     abort_if(!$item, 404);
 
     return view('frontend.page.detail-news', compact('item'));
@@ -181,5 +123,9 @@ Route::middleware(['auth'])->group(function(){
 
     Route::resource('project', ProjectController::class)->except(['show', 'destroy']);
     Route::delete('/project/{id}', [ProjectController::class, 'destroy'])->name('project.destroy');
+
+    Route::resource('newslatest', NewslatestController::class);
+    Route::delete('newslatest/{id}/image/{index}', [NewslatestController::class, 'deleteImage'])
+    ->name('newslatest.image.delete');
 
 });
