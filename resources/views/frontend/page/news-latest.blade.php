@@ -9,16 +9,16 @@
                  {{ app()->getLocale() === 'en'
                     ? 'Latest News'
                     : (app()->getLocale() === 'kh'
-                        ? 'Latest News'
-                        : 'Latest News')
+                        ? 'ព្រឹត្តិការណ៍ថ្មីៗ'
+                        : '最新消息')
                 }}
             </h2>
             <p class="text-sm md:text-lg font-normal text-[#03254B] py-2 md:px-0 px-10">
                  {{ app()->getLocale() === 'en'
                     ? 'Stay updated with our latest activities'
                     : (app()->getLocale() === 'kh'
-                        ? 'Stay updated with our latest activities'
-                        : 'Stay updated with our latest activities11')
+                        ? 'ទទួលយកបច្ចុប្បន្នភាពអំពីព្រឹត្តិការណ៍ថ្មីរបស់ក្រុមហ៊ុនយើងខ្ញ៉ំ'
+                        : '请持续关注我们的最新动态。')
                 }}
             </p>
         </div>

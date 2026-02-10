@@ -70,17 +70,17 @@
             onclick="scrollToTop()"
             class="fixed bottom-6 right-6 z-[999] hidden cursor-pointer transition-opacity duration-300"
         >
-            <img 
-                src="{{ asset('assets/icon/button-scroll.png') }}" 
+            <img
+                src="{{ asset('assets/icon/button-scroll.png') }}"
                 alt="Scroll to top"
                 class="w-12 h-12 object-contain md:object-cover animate-bounce"
             >
         </button>
         <div class="relative w-full min-h-screen">
-    
+
             <!-- BACKGROUND IMAGE -->
-            <img 
-                src="{{ asset('assets/background/bg-home-3.png') }}" 
+            <img
+                src="{{ asset('assets/background/bg-home-3.png') }}"
                 alt="Background"
                 class="absolute inset-0 h-[60%] w-full md:h-full object-cover -z-10"
             >
@@ -93,7 +93,7 @@
 
         <h1 class="text-3xl font-bold text-[#03244a] mb-2">
             {{ app()->getLocale() === 'en'
-                ? $item->title_en 
+                ? $item->title_en
                 : (app()->getLocale() === 'kh'
                     ? $item->title_kh
                     : $item->title_cn)
@@ -130,13 +130,12 @@
         <div class="w-40 h-12 rounded-full bg-[#03244a] flex items-center justify-center mt-4">
                 <a href="{{ url('/') }}#news" class="cursor-pointer bg-linear-to-r from-[#f2ad46] via-[#f7ca68] to-[#fce88d]
                    bg-clip-text text-transparent font-semibold text-md">
-                    {{-- {{ app()->getLocale() === 'en'
-                ? '← Back to News'
+                    ← {{ app()->getLocale() === 'en'
+                ? 'Back to News'
                 : (app()->getLocale() === 'kh'
-                    ? 'អានបន្ថែម'
-                    : '继续阅读')
-                }} --}}
-             ← Back to News
+                    ? 'ត្រឡប់ទៅព្រឹត្តិការណ៍'
+                    : '← Back to News')
+                }}
                 </a>
             </div>
 

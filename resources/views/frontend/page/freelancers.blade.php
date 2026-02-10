@@ -10,7 +10,7 @@
                     object-cover md:object-center object-[85%_center]
                     -z-30"
             /> --}}
-    <img src="{{ asset('assets/background/bg-freelanfinal.png') }}" 
+    <img src="{{ asset('assets/background/bg-freelanfinal.png') }}"
          srcset="{{ asset('assets/background/bg-freelanfinal.png') }} 640w,
         {{ asset('assets/background/bg-freelanfinal.png') }} 1280w,
         {{ asset('assets/background/bg-freelanfinal.png') }} 2560w
@@ -50,8 +50,8 @@
                  {{ app()->getLocale() === 'en'
                     ? 'Build Your Career in Real Estate with Pov Bopheak Land & Home Co., Ltd'
                     : (app()->getLocale() === 'kh'
-                        ? 'កសាងអាជីពរបស់អ្នកក្នុងវិស័យអចលនទ្រព្យជាមួយ ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូមឯ.ក'
-                        : 'Build Your Career in Real Estate with Pov Bopheak Land & Home Co., Ltd')
+                        ? 'កសាងអាជីពរបស់អ្នកក្នុងវិស័យអចលនទ្រព្យជាមួយ ក្រុមហ៊ុន ពៅបូភ័ក្ត្រ លែន & ហូម ឯ.ក'
+                        : '在Pov Bopheak Kulen and Home 有限公司开启您的房地产事业之旅')
                 }}
             </h3>
             <div class="relative inline-block">
@@ -69,25 +69,25 @@
                         ? '• Flexible income'
                         : (app()->getLocale() === 'kh'
                             ? '• ប្រាក់ចំណូលឥតដែនកំណត់'
-                            : 'Flexible income')
-                    }} 
+                            : '灵活的收入模式')
+                    }}
                     {{ app()->getLocale() === 'en'
                         ? '• Strong brand'
                         : (app()->getLocale() === 'kh'
                             ? '• កេរ្ត៍ឈ្មោះក្រុមហ៊ុន'
-                            : '• Strong brand')
+                            : '• 强大的品牌影响力')
                     }} <br>
                     {{ app()->getLocale() === 'en'
                         ? '• Real projects'
                         : (app()->getLocale() === 'kh'
                             ? '• គម្រោងពិតប្រាកដ'
-                            : '• Real projects')
-                    }} 
+                            : '• 实际的项目案例')
+                    }}
                      {{ app()->getLocale() === 'en'
                         ? '• Full sales support'
                         : (app()->getLocale() === 'kh'
                             ? '• ការគាំទ្រផ្នែកលក់ពេញលេញ'
-                            : '• Full sales support')
+                            : '• 全面的销售支持服务')
                     }}
                 </p>
             </div>
@@ -99,7 +99,7 @@
                         ? 'Apply as Sales Agent'
                         : (app()->getLocale() === 'kh'
                             ? 'ដាក់ពាក្យជាភ្នាក់ងារលក់ឥឡូវនេះ'
-                            : 'Apply as Sales Agent')
+                            : '担任销售代理')
                     }}
                 </a>
             </div>
@@ -115,7 +115,7 @@
             ? 'Your Role as a Sales Partner'
             : (app()->getLocale() === 'kh'
                 ? 'តួនាទីរបស់អ្នកជាដៃគូលក់'
-                : 'Your Role as a Sales Partner')
+                : '作为销售伙伴的职责')
         }}
     </h1>
 
@@ -139,7 +139,7 @@
                             ? 'Introduce (potential) buyers to Pov Bopheak projects'
                             : (app()->getLocale() === 'kh'
                                 ? 'ណែនាំ (អ្នកទិញសក្តានុពល) អំពីគម្រោងអចលទ្រព្យនៅក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន&ហូមឯ.ក'
-                                : 'Introduce (potential) buyers to Pov Bopheak projects')
+                                : '向潜在买家介绍（潜在）买家项目')
                         }}
                     </p>
                 </div>
@@ -161,7 +161,7 @@
                             ? 'Promote projects online or offline'
                             : (app()->getLocale() === 'kh'
                                 ? 'ផ្សព្វផ្សាយគម្រោង តាមអ៊ីនធឺណិត ឬតាមបណ្តាញទំនាក់ទំនង'
-                                : 'Promote projects online or offline')
+                                : '在线或线下推广项目')
                         }}
                     </p>
                 </div>
@@ -183,7 +183,7 @@
                             ? 'Arrange site visits (with company support)'
                             : (app()->getLocale() === 'kh'
                                 ? 'រៀបចំការចុះទៅមើលទីតាំង (ដោយមានការជួយជ្រោមជ្រែងពីក្រុមហ៊ុន)'
-                                : 'Arrange site visits (with company support)')
+                                : '安排实地考察（有公司支持）')
                         }}
                     </p>
                 </div>
@@ -205,7 +205,7 @@
                             ? 'Assist buyers through booking and documentation'
                             : (app()->getLocale() === 'kh'
                                 ? 'ជួយអតិថិជនតាមរយៈការកក់ និងឯកសារនានា'
-                                : 'Assist buyers through booking and documentation')
+                                : '协助买家完成预订和文件处理')
                         }}
                     </p>
                 </div>
@@ -227,7 +227,7 @@
                             ? 'Earn commission upon successful sales'
                             : (app()->getLocale() === 'kh'
                                 ? 'ទទួលបានកម្រៃជើងសារនៅពេលលក់បានជោគជ័យ'
-                                : 'Earn commission upon successful sales')
+                                : '成功销售后可获得佣金')
                         }}
                     </p>
                 </div>
@@ -249,7 +249,7 @@
                             ? 'No office commitment required. Performance based income.'
                             : (app()->getLocale() === 'kh'
                                 ? 'មិនតម្រូវឱ្យមានកាតព្វកិច្ចការិយាល័យទេ ប្រាក់ចំណូលផ្អែកលើការអនុវត្តការងារ។'
-                                : 'No office commitment required. Performance based income.')
+                                : '无需承担办公室工作。按业绩计酬。')
                         }}
                     </p>
                 </div>
@@ -266,7 +266,7 @@
             ? 'We Support You With ...'
             : (app()->getLocale() === 'kh'
                 ? 'ក្រុមហ៊ុនជួយជ្រោមជ្រែងអ្នកដោយផ្តល់នូវ ៖'
-                : 'We Support You With ...')
+                : '我们为您提供支持')
         }}
     </h1>
 
@@ -286,12 +286,12 @@
                             ? 'Project brochures'
                             : (app()->getLocale() === 'kh'
                                 ? 'ខិត្តប័ណ្ណគម្រោង និងតារាងតម្លៃ'
-                                : 'Project brochures')
+                                : '项目宣传册')
                         }} <br> {{ app()->getLocale() === 'en'
             ? '& price lists'
             : (app()->getLocale() === 'kh'
                 ? ''
-                : '& price lists')
+                : '和价格清单')
         }}
                     </p>
                 </div>
@@ -304,13 +304,13 @@
                             ? 'Legal ownership'
                             : (app()->getLocale() === 'kh'
                                 ? 'ព័ត៌មានអំពីកម្មសិទ្ធិស្របច្បាប់'
-                                : 'Legal ownership')
+                                : '法律所有权信息')
                         }} <br> {{ app()->getLocale() === 'en'
                             ? 'information'
                             : (app()->getLocale() === 'kh'
                                 ? ''
-                                : 'information')
-                        }} 
+                                : '')
+                        }}
                     </p>
                 </div>
 
@@ -322,13 +322,13 @@
                             ? 'On-site sales team'
                             : (app()->getLocale() === 'kh'
                                 ? 'ជំនួយពីក្រុមលក់នៅនឹងកន្លែង'
-                                : 'On-site sales team')
+                                : '现场销售团队协助')
                         }}  <br> {{ app()->getLocale() === 'en'
                             ? 'assistance'
                             : (app()->getLocale() === 'kh'
                                 ? ''
-                                : 'assistance')
-                        }} 
+                                : '')
+                        }}
                     </p>
                 </div>
 
@@ -340,13 +340,13 @@
                             ? 'Sales scripts'
                             : (app()->getLocale() === 'kh'
                                 ? 'ឃ្លានិយាយលក់ និងការបណ្តុះបណ្តាល'
-                                : 'Sales scripts')
+                                : '销售脚本与培训')
                         }}  <br>  {{ app()->getLocale() === 'en'
                             ? '& training'
                             : (app()->getLocale() === 'kh'
                                 ? ''
-                                : '& training')
-                        }} 
+                                : '')
+                        }}
                     </p>
                 </div>
 
@@ -358,13 +358,13 @@
                             ? 'Marketing photos'
                             : (app()->getLocale() === 'kh'
                                 ? 'រូបថត និងវីដេអូទីផ្សារ'
-                                : 'Marketing photos')
+                                : '营销照片和视频')
                         }}  <br> {{ app()->getLocale() === 'en'
                             ? '& videos'
                             : (app()->getLocale() === 'kh'
                                 ? ''
-                                : '& videos')
-                        }} 
+                                : '')
+                        }}
                     </p>
                 </div>
 
@@ -376,13 +376,13 @@
                             ? 'Customer service & '
                             : (app()->getLocale() === 'kh'
                                 ? 'សេវាកម្មអតិថិជន និង ការដោះស្រាយនៅលើឯកសារនានា'
-                                : 'Customer service & ')
+                                : '客户服务与文件处理')
                         }} <br> {{ app()->getLocale() === 'en'
                             ? 'document handling'
                             : (app()->getLocale() === 'kh'
                                 ? ''
-                                : 'document handling')
-                        }} 
+                                : '')
+                        }}
                     </p>
                 </div>
 
@@ -400,8 +400,8 @@
             ? ' Commission & Rewards'
             : (app()->getLocale() === 'kh'
                 ? 'កម្រៃជើងសារ និងរង្វាន់'
-                : ' Commission & Rewards')
-        }} 
+                : '佣金与奖励')
+        }}
     </h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
 
@@ -421,8 +421,8 @@
                     ? 'Competitive commission per unit sold'
                     : (app()->getLocale() === 'kh'
                         ? 'កម្រៃជើងសារប្រកួតប្រជែង ក្នុងមួយយូនីតដែលបានលក់'
-                        : 'Competitive commission per unit sold')
-                }} 
+                        : '每单位销售的竞争力佣金')
+                }}
             </p>
         </div>
 
@@ -442,8 +442,8 @@
                     ? 'Performance bonuses for high achievers'
                     : (app()->getLocale() === 'kh'
                         ? 'ប្រាក់រង្វាន់ខ្ពស់សម្រាប់ការអនុវត្តការងារ'
-                        : 'Performance bonuses for high achievers')
-                }} 
+                        : '对杰出人士的绩效奖励')
+                }}
             </p>
         </div>
 
@@ -463,8 +463,8 @@
                     ? 'Special incentives during project launches'
                     : (app()->getLocale() === 'kh'
                         ? 'ការលើកទឹកចិត្តពិសេសក្នុងអំឡុងពេលបើកដំណើរការគម្រោង'
-                        : 'Special incentives during project launches')
-                }} 
+                        : '项目启动期间的特别激励措施')
+                }}
             </p>
         </div>
 
@@ -484,8 +484,8 @@
                     ? 'Transparent tracking & fast payment'
                     : (app()->getLocale() === 'kh'
                         ? 'ការតាមដានលទ្ធផលការងារប្រកបដោយតម្លាភាព និងការទូទាត់រហ័ស'
-                        : 'Transparent tracking & fast payment')
-                }} 
+                        : '透明的追踪服务与快速的支付方式')
+                }}
             </p>
         </div>
 
@@ -501,8 +501,8 @@
             ? 'Application Form'
             : (app()->getLocale() === 'kh'
                 ? 'ទម្រង់បែបបទដាក់ពាក្យ'
-                : 'Application Form')
-        }} 
+                : '申请表')
+        }}
     </h1>
 
     @if (session('successfully'))
@@ -533,9 +533,9 @@
                     ? 'Full Name'
                     : (app()->getLocale() === 'kh'
                         ? 'ឈ្មោះពេញ '
-                        : 'Full Name')
+                        : '名字')
                 }} " name="full_name" value="{{ old('full_name') }}" required
-                class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] placeholder-[#03254B] outline-none 
+                class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] placeholder-[#03254B] outline-none
                     @error('full_name') border border-red-500 @enderror" />
                 @error('full_name')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -551,24 +551,24 @@
                             ? 'Sex'
                             : (app()->getLocale() === 'kh'
                                 ? 'ភេទ'
-                                : 'Sex')
-                        }} 
+                                : '性')
+                        }}
                     </option>
                     <option value="Male">
                         {{ app()->getLocale() === 'en'
                             ? 'Male'
                             : (app()->getLocale() === 'kh'
                                 ? 'ប្រុស'
-                                : 'Male')
-                        }} 
+                                : '女性')
+                        }}
                     </option>
                     <option value="Female">
                         {{ app()->getLocale() === 'en'
                             ? 'Female'
                             : (app()->getLocale() === 'kh'
                                 ? 'ស្រី'
-                                : 'Female')
-                        }} 
+                                : '男性')
+                        }}
                     </option>
                 </select>
                 <span class="absolute right-6 top-1/2 -translate-y-1/2">
@@ -594,8 +594,8 @@
                             ? 'Experience Level'
                             : (app()->getLocale() === 'kh'
                                 ? 'កម្រិតបទពិសោធន៍'
-                                : 'Experience Level')
-                        }} 
+                                : '经验水平')
+                        }}
                     </span>
                     <svg width="12" height="13" viewBox="0 0 12 13" fill="none">
                         <path d="M10.5 4.6C11.8 5.37 11.8 7.29 10.5 8.06L3 12.4
@@ -609,15 +609,15 @@
                     class="hidden absolute z-[9999] mt-2 w-full bg-white rounded-xl shadow-lg p-4 space-y-3">
 
                     <label class="flex items-center space-x-3 cursor-pointer">
-                        <input type="radio" name="experience" value="No experience"  
+                        <input type="radio" name="experience" value="No experience"
                         {{ old('experience') == 'No experience' ? 'checked' : '' }}>
                         <span>
                             {{ app()->getLocale() === 'en'
                             ? 'No experience'
                             : (app()->getLocale() === 'kh'
                                 ? 'គ្មានបទពិសោធន៍'
-                                : 'No experience')
-                        }} 
+                                : '没有经验')
+                        }}
                         </span>
                     </label>
 
@@ -629,8 +629,8 @@
                             ? '1–2 years'
                             : (app()->getLocale() === 'kh'
                                 ? 'ចន្លោះពី 1 ឆ្នាំទៅ 2ឆ្នាំ'
-                                : '1–2 years')
-                        }} 
+                                : '1 至 2 年')
+                        }}
                         </span>
                     </label>
 
@@ -642,8 +642,8 @@
                             ? '3+ years'
                             : (app()->getLocale() === 'kh'
                                 ? '3ឆ្នាំឡើង'
-                                : '3+ years')
-                        }} 
+                                : '3 年以上')
+                        }}
                         </span>
                     </label>
 
@@ -664,8 +664,8 @@
                             ? 'Are you a: '
                             : (app()->getLocale() === 'kh'
                                 ? 'តើអ្នកជា'
-                                : 'Are you a: ')
-                        }} 
+                                : '你是一位......吗？')
+                        }}
                     </span>
                     <svg width="12" height="13" viewBox="0 0 12 13" fill="none">
                         <path d="M10.5 4.6C11.8 5.37 11.8 7.29 10.5 8.06L3 12.4
@@ -685,9 +685,9 @@
                             {{ app()->getLocale() === 'en'
                             ? 'Freelancer'
                             : (app()->getLocale() === 'kh'
-                                ? 'អ្នកធ្វើការឯករាជ្យ '
-                                : 'Freelancer')
-                        }} 
+                                ? 'អ្នកធ្វើការឯករាជ្យ'
+                                : '自由职业者')
+                        }}
                         </span>
                     </label>
 
@@ -699,8 +699,8 @@
                             ? 'Independent Agent'
                             : (app()->getLocale() === 'kh'
                                 ? 'ក្រុមលក់ឯករាជ្យ '
-                                : 'Independent Agent')
-                        }} 
+                                : '独立代理人')
+                        }}
                         </span>
                     </label>
 
@@ -712,8 +712,8 @@
                             ? 'Agency Team'
                             : (app()->getLocale() === 'kh'
                                 ? 'ក្រុមហ៊ុនលក់អចលទ្រព្យ'
-                                : 'Agency Team')
-                        }} 
+                                : '代理团队')
+                        }}
                         </span>
                     </label>
                 </div>
@@ -724,7 +724,7 @@
                             ? 'Phone Number'
                             : (app()->getLocale() === 'kh'
                                 ? 'លេខទូរសព្ទ'
-                                : 'Phone Number')
+                                : '电话号码')
                         }} " name="phone" value="{{ old('phone') }}" required
                 class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none placeholder:font-medium
                 @error('phone') border border-red-500 @enderror" />
@@ -741,9 +741,9 @@
                             ? 'Email'
                             : (app()->getLocale() === 'kh'
                                 ? 'អ៊ីម៉ែល'
-                                : 'Email')
+                                : '电子邮件')
                         }} " name="email" value="{{ old('email') }}" required
-                class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none placeholder:font-semibold" 
+                class="w-full h-14 px-6 rounded-full bg-[#F1F1F1] text-[#03254B] outline-none placeholder:font-semibold"
                 @error('email') border border-red-500 @enderror/>
                 @error('email')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -764,7 +764,7 @@
                                 ? 'Submit'
                                 : (app()->getLocale() === 'kh'
                                     ? 'ដាក់បញ្ជូន'
-                                    : 'Submit')
+                                    : '提交')
                             }}
                     </span>
                 </button>

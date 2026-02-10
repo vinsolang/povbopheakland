@@ -43,13 +43,13 @@
     border-collapse: collapse;
 }
 
-.ck-content table, 
-.ck-content th, 
+.ck-content table,
+.ck-content th,
 .ck-content td {
     border: 1px solid #ccc; /* visible borders */
 }
 
-.ck-content th, 
+.ck-content th,
 .ck-content td {
     padding: 6px 12px;
 }
@@ -238,7 +238,7 @@
                         >
                             <button
                                 class="px-4 py-1 md:px-6 md:py-4
-                                    text-md md:text-lg 
+                                    text-md md:text-lg
                                     text-center whitespace-nowrap rounded-full"
                                 @click="setActiveCategory(index)"
                                 x-text="cat?.name?.[lang] ?? ''">
@@ -262,13 +262,13 @@
                 </div>
 
                 <!-- Description -->
-                
+
                 <div class="text-[#03254B] text-sm md:text-lg mt-2 lg:px-0 px-4">
                     <template x-for="item in displayedItems()" :key="item.slug">
                         <div class="mb-4">
                            <p
                                 x-html="item.des"
-                                class="ck-content leading-6 whitespace-pre-wrap"
+                                class="ck-content leading-10 whitespace-pre-wrap"
                             ></p>
 
                         </div>
@@ -301,7 +301,7 @@
                 </div>
 
 
-     
+
             @endif
                     <!-- Slider version mobile -->
         <div
@@ -313,7 +313,7 @@
 >
     <div class="relative w-full overflow-hidden rounded-xl">
         <div
-            id="sliderMobile" 
+            id="sliderMobile"
             class="flex transition-transform duration-500 ease-in-out"
         >
             <template x-for="img in currentImages()" :key="img">
@@ -369,7 +369,7 @@
         </div>
 
         <!-- Slider version dasktop-->
-        <div 
+        <div
             class="hidden max-w-[92%] mx-auto md:flex items-center gap-6 py-6"
             x-show="currentImages().length > 0"
             x-data="projectData(@json($categories), '{{ app()->getLocale() }}')"
@@ -390,12 +390,12 @@
 
             <!-- SLIDER -->
             <div class="overflow-hidden">
-                
+
                 <div id="slider" class="flex items-center gap-2 transition-transform duration-500 ease-in-out">
                     <template x-for="img in currentImages()" :key="img">
                         <img :src="'{{ asset('storage') }}/' + img"
                             class="w-[300px] h-[200px] rounded-lg flex-shrink-0 object-cover" />
-                        
+
                     </template>
                 </div>
             </div>
@@ -412,11 +412,11 @@
             </button>
         </div>
 
-    </div>  
+    </div>
 
   <script>
 function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}) {
-    
+
     return {
         categories: Array.isArray(categoriesData) ? categoriesData : [],
         activeCategory: null,

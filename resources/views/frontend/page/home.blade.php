@@ -34,7 +34,7 @@
             {{ app()->getLocale() === 'en'
                 ? 'Building Trust, Creating Value, Shaping the Future.'
                 : (app()->getLocale() === 'kh'
-                    ? 'កសាងទំនុកចិត្ត បង្កើតតម្លៃ បង្កើតអនាគតដ៏ប្រសើរ'
+                    ? 'កសាងទំនុកចិត្ត បង្កើតគុណតម្លៃ បង្កើតអនាគតដ៏ប្រសើរ'
                     : '建立信任。创造价值。塑造未来。')
             }}
             </h3>
@@ -83,7 +83,7 @@
             <!-- Social Icons -->
             <div class="w-16 h-96 rounded-full
                         flex flex-col justify-between items-center py-2 md:mt-0 -mt-8">
-                
+
                 {{-- Icon Link Social Media --}}
                 <div class="w-16 h-96 rounded-full flex flex-col justify-between items-center py-2">
                     <a href="https://www.facebook.com/PovBopheakGroup"
