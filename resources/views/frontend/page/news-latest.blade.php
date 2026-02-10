@@ -5,8 +5,22 @@
 
         <!-- Header -->
         <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B]">Latest News</h2>
-            <p class="text-sm md:text-lg font-normal text-[#03254B] py-2 md:px-0 px-10">Stay updated with our latest activities</p>
+            <h2 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B]">
+                 {{ app()->getLocale() === 'en'
+                    ? 'Latest News'
+                    : (app()->getLocale() === 'kh'
+                        ? 'Latest News'
+                        : 'Latest News')
+                }}
+            </h2>
+            <p class="text-sm md:text-lg font-normal text-[#03254B] py-2 md:px-0 px-10">
+                 {{ app()->getLocale() === 'en'
+                    ? 'Stay updated with our latest activities'
+                    : (app()->getLocale() === 'kh'
+                        ? 'Stay updated with our latest activities'
+                        : 'Stay updated with our latest activities11')
+                }}
+            </p>
         </div>
 
         <!-- Grid -->
@@ -26,7 +40,7 @@
                     <div class="p-6">
                         <h3 class="text-lg font-semibold text-[#03244a] h-auto md:h-[4vh] line-clamp-1 overflow-hidden">
                              {{ app()->getLocale() === 'en'
-                                ? $item->title_en 
+                                ? $item->title_en
                                 : (app()->getLocale() === 'kh'
                                     ? $item->title_kh
                                     : $item->title_cn)
@@ -50,7 +64,7 @@
 
                             <a href="{{ route('news.show', $item->id) }}"
                                class="text-indigo-600 font-bold text-sm hover:underline">
-                                
+
                             </a>
                             <div class="w-36 h-8 rounded-full bg-[#03244a] flex items-center justify-center">
                                 <a href="{{ route('news.show', $item->id) }}" class="cursor-pointer bg-linear-to-r from-[#f2ad46] via-[#f7ca68] to-[#fce88d]
